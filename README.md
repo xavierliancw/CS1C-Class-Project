@@ -1,1 +1,1 @@
-# CS1C-Class-Project
+# The Golden Cone's CS1C Project
