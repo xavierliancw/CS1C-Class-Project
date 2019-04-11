@@ -26,13 +26,15 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        winmain.cpp
+        ui/winmain.cpp \
+        services/svcjson.cpp
 
 HEADERS += \
-        winmain.h
+        ui/winmain.h \
+        services/svcjson.h
 
 FORMS += \
-        winmain.ui
+        ui/winmain.ui
 
 CONFIG += mobility
 MOBILITY = 
