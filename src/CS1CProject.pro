@@ -28,12 +28,16 @@ SOURCES += \
     main.cpp \
     ui/winmain.cpp \
     services/svcjson.cpp \
-    ui/dlgtestimonialcreate.cpp
+    ui/dlgtestimonialcreate.cpp \
+    viewmodels/vmtestimonialcreate.cpp \
+    gimme.cpp
 
 HEADERS += \
     ui/winmain.h \
     services/svcjson.h \
-    ui/dlgtestimonialcreate.h
+    ui/dlgtestimonialcreate.h \
+    viewmodels/vmtestimonialcreate.h \
+    gimme.h
 
 FORMS += \
     ui/winmain.ui \

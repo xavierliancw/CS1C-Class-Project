@@ -1,6 +1,7 @@
 #ifndef DLGTESTIMONIALCREATE_H
 #define DLGTESTIMONIALCREATE_H
 
+#include <viewmodels/vmtestimonialcreate.h>
 #include <QDialog>
 
 namespace Ui {
@@ -17,6 +18,8 @@ public:
 
 private:
     Ui::DLGTestimonialCreate *ui;
+    VMTestimonialCreate* vm;
+    VMTestimonialCreate* initializedVM();
 };
 
 #endif // DLGTESTIMONIALCREATE_H

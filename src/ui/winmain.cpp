@@ -18,10 +18,8 @@ WINMain::WINMain(QWidget *parent) :
     //UI behavior definitions
     connect(ui->TEMPBt, &QPushButton::clicked, ui->TEMPBt, [this]()
     {
-        if (testimonialFormWin == nullptr)
-        {
-            testimonialFormWin = new DLGTestimonialCreate();
-        }
+        testimonialFormWin = new DLGTestimonialCreate();
+        testimonialFormWin->setAttribute(Qt::WA_DeleteOnClose);
         testimonialFormWin->show();
     });
 }
