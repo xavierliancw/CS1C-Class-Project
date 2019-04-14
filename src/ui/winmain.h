@@ -1,6 +1,9 @@
 #ifndef WINMAIN_H
 #define WINMAIN_H
 
+#include "dlgtestimonialcreate.h"
+
+#include <QDialog>
 #include <QMainWindow>
 
 namespace Ui {
@@ -17,6 +20,8 @@ public:
 
 private:
     Ui::WINMain *ui;
+
+    DLGTestimonialCreate *testimonialFormWin;
 };
 
 #endif // WINMAIN_H

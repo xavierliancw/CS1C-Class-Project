@@ -25,16 +25,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        main.cpp \
-        ui/winmain.cpp \
-        services/svcjson.cpp
+    main.cpp \
+    ui/winmain.cpp \
+    services/svcjson.cpp \
+    ui/dlgtestimonialcreate.cpp
 
 HEADERS += \
-        ui/winmain.h \
-        services/svcjson.h
+    ui/winmain.h \
+    services/svcjson.h \
+    ui/dlgtestimonialcreate.h
 
 FORMS += \
-        ui/winmain.ui
+    ui/winmain.ui \
+    ui/dlgtestimonialcreate.ui
 
 CONFIG += mobility
 MOBILITY = 
