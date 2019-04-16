@@ -37,7 +37,8 @@ HEADERS += \
     services/svcjson.h \
     ui/dlgtestimonialcreate.h \
     viewmodels/vmtestimonialcreate.h \
-    gimme.h
+    gimme.h \
+    models/ishape.h
 
 FORMS += \
     ui/winmain.ui \
