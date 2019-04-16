@@ -2,6 +2,7 @@
 #define WINMAIN_H
 
 #include <QMainWindow>
+#include "secdialog.h"
 
 namespace Ui {
 class WINMain;
@@ -15,8 +16,12 @@ public:
     explicit WINMain(QWidget *parent = nullptr);
     ~WINMain();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::WINMain *ui;
+    SecDialog *secdialog;
 };
 
 #endif // WINMAIN_H

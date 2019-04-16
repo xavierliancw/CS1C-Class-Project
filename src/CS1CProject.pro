@@ -26,13 +26,16 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        winmain.cpp
+        winmain.cpp \
+    secdialog.cpp
 
 HEADERS += \
-        winmain.h
+        winmain.h \
+    secdialog.h
 
 FORMS += \
-        winmain.ui
+        winmain.ui \
+    secdialog.ui
 
 CONFIG += mobility
 MOBILITY = 
@@ -42,3 +45,6 @@ MOBILITY =
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    images.qrc
