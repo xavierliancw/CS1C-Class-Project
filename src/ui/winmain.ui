@@ -27,9 +27,39 @@
      <string>Contact Us</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="TEMPBt">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>220</y>
+      <width>301</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>DELETE ME LATER</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>pushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>345</x>
+     <y>164</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>345</x>
+     <y>164</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

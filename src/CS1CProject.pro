@@ -25,17 +25,28 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        main.cpp \
-        winmain.cpp \
-    secdialog.cpp
+    main.cpp \
+    ui/winmain.cpp \
+    services/svcjson.cpp \
+    ui/dlgtestimonialcreate.cpp \
+    viewmodels/vmtestimonialcreate.cpp \
+    gimme.cpp \
+    ui/secdialog.cpp
 
 HEADERS += \
-        winmain.h \
-    secdialog.h
+    ui/winmain.h \
+    services/svcjson.h \
+    ui/dlgtestimonialcreate.h \
+    viewmodels/vmtestimonialcreate.h \
+    gimme.h \
+    ui/secdialog.h
+
 
 FORMS += \
-        winmain.ui \
-    secdialog.ui
+    ui/winmain.ui \
+    ui/dlgtestimonialcreate.ui \
+    ui/secdialog.ui
+
 
 CONFIG += mobility
 MOBILITY = 

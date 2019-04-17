@@ -1,4 +1,4 @@
-#include "winmain.h"
+#include "ui/winmain.h"
 #include <QApplication>
 #include <QFile>
 #include <QString>
