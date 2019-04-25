@@ -285,5 +285,4 @@ Type* vector<Type> :: erase(iterator it)
 //			<< "m_count : " << m_count << std::endl;
 //	print();
 //}
-
 #endif /* VECTOR_H_ */

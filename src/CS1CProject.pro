@@ -37,6 +37,7 @@ HEADERS += \
     ui/winmain.h \
     services/svcjson.h \
     ui/dlgtestimonialcreate.h \
+    vector.h \
     viewmodels/vmtestimonialcreate.h \
     gimme.h \
 <<<<<<< HEAD
