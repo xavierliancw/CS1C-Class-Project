@@ -34,6 +34,7 @@ SOURCES += \
     ui/secdialog.cpp
 
 HEADERS += \
+    shape.h \
     ui/winmain.h \
     services/svcjson.h \
     ui/dlgtestimonialcreate.h \
