@@ -34,19 +34,13 @@ SOURCES += \
     ui/secdialog.cpp
 
 HEADERS += \
-    shape.h \
     ui/winmain.h \
     services/svcjson.h \
     ui/dlgtestimonialcreate.h \
-    vector.h \
     viewmodels/vmtestimonialcreate.h \
     gimme.h \
-<<<<<<< HEAD
     ui/secdialog.h
 
-=======
-    models/ishape.h
->>>>>>> 0674a47082a64b211f6e187489b8ee797449a2f4
 
 FORMS += \
     ui/winmain.ui \

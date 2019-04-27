@@ -14,13 +14,22 @@ WINMain::WINMain(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //UI behavior definitions
+    //UI behavior definitions - Leave Feedback button
     connect(ui->TEMPBt, &QPushButton::clicked, ui->TEMPBt, [this]()
     {
         testimonialFormWin = new DLGTestimonialCreate();
         testimonialFormWin->setAttribute(Qt::WA_DeleteOnClose);
         testimonialFormWin->show();
     });
+
+    //UI behavior definitions - Secondary Window
+    connect(ui->contact_us, &QPushButton::clicked, ui->contact_us, [this]()
+    {
+        secdialog = new SecDialog();
+        secdialog->setAttribute(Qt::WA_DeleteOnClose);
+        secdialog->show();
+    });
+
 }
 
 WINMain::~WINMain()
@@ -28,11 +37,3 @@ WINMain::~WINMain()
     delete ui;
 }
 
-void WINMain::on_pushButton_clicked()
-{
-    //SecDialog secdialog;
-    //secdialog.setModal(true);
-    //secdialog.exec();
-    secdialog = new SecDialog(this);
-    secdialog->show();
-}

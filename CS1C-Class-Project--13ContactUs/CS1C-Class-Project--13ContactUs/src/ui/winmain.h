@@ -2,7 +2,7 @@
 #define WINMAIN_H
 
 #include "dlgtestimonialcreate.h"
-#include <chrono>
+
 #include <QDialog>
 #include <QMainWindow>
 #include "secdialog.h"
@@ -20,7 +20,10 @@ public:
     ~WINMain();
 
 private slots:
-    void on_pushButton_clicked();
+
+    void on_TEMPBt_clicked();
+
+    void on_contact_us_clicked();
 
 private:
     Ui::WINMain *ui;

@@ -1,0 +1,11 @@
+release/main.o
+release/winmain.o
+release/svcjson.o
+release/dlgtestimonialcreate.o
+release/vmtestimonialcreate.o
+release/gimme.o
+release/secdialog.o
+release/qrc_images.o
+release/moc_winmain.o
+release/moc_dlgtestimonialcreate.o
+release/moc_secdialog.o
