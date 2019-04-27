@@ -2,9 +2,10 @@
 #define WINMAIN_H
 
 #include "dlgtestimonialcreate.h"
-#include <chrono>
+
 #include <QDialog>
 #include <QMainWindow>
+#include "secdialog.h"
 
 namespace Ui {
 class WINMain;
@@ -18,9 +19,15 @@ public:
     explicit WINMain(QWidget *parent = nullptr);
     ~WINMain();
 
+private slots:
+
+    void on_TEMPBt_clicked();
+
+    void on_contact_us_clicked();
+
 private:
     Ui::WINMain *ui;
-
+    SecDialog *secdialog;
     DLGTestimonialCreate *testimonialFormWin;
 };
 

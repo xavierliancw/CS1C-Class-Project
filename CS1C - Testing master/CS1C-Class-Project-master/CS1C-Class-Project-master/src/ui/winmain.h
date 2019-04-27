@@ -2,7 +2,7 @@
 #define WINMAIN_H
 
 #include "dlgtestimonialcreate.h"
-#include <chrono>
+
 #include <QDialog>
 #include <QMainWindow>
 
