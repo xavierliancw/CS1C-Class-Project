@@ -8,6 +8,8 @@
 #include <QMainWindow>
 #include <QPainter>
 
+#include <util/conevector.h>
+
 namespace Ui {
 class WINMain;
 }
@@ -18,12 +20,16 @@ class WINMain : public QMainWindow
 
 public:
     explicit WINMain(QWidget *parent = nullptr);
-    ~WINMain();
+    ~WINMain() override;
+
+protected:
+    virtual void paintEvent(QPaintEvent *event) override;
 
 private:
     Ui::WINMain *ui;
     DLGTestimonialCreate *testimonialFormWin;
     DLGDeleteMeLater *deletemelater;
+    ConeVector<IShape*> vect;
 };
 
 #endif // WINMAIN_H
