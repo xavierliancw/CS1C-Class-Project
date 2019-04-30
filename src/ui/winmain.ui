@@ -13,33 +13,64 @@
   <property name="windowTitle">
    <string>WINMain</string>
   </property>
-  <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="TEMPBt">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>220</y>
-      <width>301</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>DELETE ME LATER</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="TEMPBtDos">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>340</y>
-      <width>441</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Delete this entire dialog later</string>
-    </property>
-   </widget>
+  <widget class="QWidget" name="baseLayout">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QStackedWidget" name="stackWdgt">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="welcomePg">
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QPushButton" name="startBt">
+          <property name="text">
+           <string>Start</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="addTestimonialBt">
+          <property name="text">
+           <string>Add Testimonial</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="canvasPg">
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="2" rowspan="2">
+         <widget class="QListWidget" name="layersScrollVw"/>
+        </item>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="addBt">
+          <property name="text">
+           <string>+</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="0" colspan="2">
+         <widget class="QOpenGLWidget" name="canvasVw"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

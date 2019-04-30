@@ -22,7 +22,6 @@ public:
 
 private:
     Ui::WINMain *ui;
-
     DLGTestimonialCreate *testimonialFormWin;
     DLGDeleteMeLater *deletemelater;
 };
