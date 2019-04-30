@@ -13,19 +13,19 @@ ShapeRect::~ShapeRect()
     drawnFrame = nullptr;
 }
 
-void ShapeRect::draw(QPainter* painter)
+void ShapeRect::draw(QPainter &painter)
 {
     erase(painter);
     drawnFrame = new QRect(frame);
-    painter->fillRect(*drawnFrame, Qt::GlobalColor::red);
-    painter->drawRect(*drawnFrame);
+    painter.fillRect(*drawnFrame, Qt::GlobalColor::red);
+    painter.drawRect(*drawnFrame);
 }
 
-void ShapeRect::erase(QPainter *painter)
+void ShapeRect::erase(QPainter &painter)
 {
     if (drawnFrame != nullptr)
     {
-        painter->eraseRect(*drawnFrame);
+        painter.eraseRect(*drawnFrame);
         delete drawnFrame;
         drawnFrame = nullptr;
     }

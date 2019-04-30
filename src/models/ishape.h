@@ -34,7 +34,7 @@ public:
     void resetToDefaultStyle();
     void drawRect(int width, int height);
 
-    virtual void draw(QPainter*) = 0;
+    virtual void draw(QPainter&) = 0;
     virtual void move() = 0;
     virtual float perimeter() const = 0;
     virtual float area() const = 0;

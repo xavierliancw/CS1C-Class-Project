@@ -51,10 +51,9 @@ DLGDeleteMeLater::~DLGDeleteMeLater()
 
 void DLGDeleteMeLater::paintEvent(QPaintEvent *event)
 {
-    QPainter* painter = new QPainter(ui->waluigi);
+    QPainter painter(ui->waluigi);
     for (unsigned long x = vect.size(); x > 0; --x)
     {
         vect[x - 1]->draw(painter);
     }
-    delete painter;
 }
