@@ -19,12 +19,12 @@ void ShapeRect::move(int scootX, int scootY)
     frame.setY(frame.y() + scootY);
 }
 
-float ShapeRect::perimeter() const
+double ShapeRect::perimeter() const
 {
     return frame.height() * 2 + frame.width() * 2;
 }
 
-float ShapeRect::area() const
+double ShapeRect::area() const
 {
     return frame.height() * frame.width();
 }

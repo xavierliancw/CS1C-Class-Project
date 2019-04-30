@@ -26,6 +26,7 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
+    models/shapeellipse.cpp \
     ui/winmain.cpp \
     services/svcjson.cpp \
     ui/dlgtestimonialcreate.cpp \
@@ -36,6 +37,7 @@ SOURCES += \
     ui/dlgdeletemelater.cpp
 
 HEADERS += \
+    models/shapeellipse.h \
     ui/winmain.h \
     services/svcjson.h \
     ui/dlgtestimonialcreate.h \

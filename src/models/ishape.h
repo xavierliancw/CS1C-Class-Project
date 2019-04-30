@@ -30,8 +30,8 @@ public:
 
     virtual void draw(QPainter&) = 0;
     virtual void move(int, int) = 0;
-    virtual float perimeter() const = 0;
-    virtual float area() const = 0;
+    virtual double perimeter() const = 0;
+    virtual double area() const = 0;
 
 private:
     ShapeType shapeType;

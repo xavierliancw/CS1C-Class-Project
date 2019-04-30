@@ -11,9 +11,9 @@ public:
     ShapeRect& operator=(const ShapeRect&) = delete;
 
     virtual void draw(QPainter&);
-    void move(int scootX, int scootY);
-    virtual float perimeter() const;
-    virtual float area() const;
+    virtual void move(int scootX, int scootY);
+    virtual double perimeter() const;
+    virtual double area() const;
 
     QRect frame;
 };
