@@ -7,6 +7,7 @@
 #include <QDialog>
 #include <QMainWindow>
 #include <QPainter>
+#include "secdialog.h"
 
 namespace Ui {
 class WINMain;
@@ -22,7 +23,7 @@ public:
 
 private:
     Ui::WINMain *ui;
-
+    SecDialog *secdialog;
     DLGTestimonialCreate *testimonialFormWin;
     DLGDeleteMeLater *deletemelater;
 };

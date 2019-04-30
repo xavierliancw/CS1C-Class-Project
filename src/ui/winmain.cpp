@@ -7,7 +7,6 @@
 #include <services/svcjson.h>
 #include <chrono>
 #include<QJsonArray>
-#include <QDebug>
 
 WINMain::WINMain(QWidget *parent) :
     QMainWindow(parent),

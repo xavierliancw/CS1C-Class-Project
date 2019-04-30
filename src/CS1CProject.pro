@@ -35,6 +35,7 @@ SOURCES += \
     models/ishape.cpp \
     ui/dlgdeletemelater.cpp \
     ui/dlgshapeselector.cpp
+    ui/secdialog.cpp
 
 HEADERS += \
     ui/winmain.h \
@@ -46,12 +47,14 @@ HEADERS += \
     models/shaperect.h \
     ui/dlgdeletemelater.h \
     ui/dlgshapeselector.h
+    ui/secdialog.h
 
 FORMS += \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
     ui/dlgdeletemelater.ui \
     ui/dlgshapeselector.ui
+    ui/secdialog.ui
 
 CONFIG += mobility
 MOBILITY = 
@@ -61,3 +64,6 @@ MOBILITY =
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    images.qrc
