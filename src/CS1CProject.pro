@@ -30,7 +30,9 @@ SOURCES += \
     services/svcjson.cpp \
     ui/dlgtestimonialcreate.cpp \
     viewmodels/vmtestimonialcreate.cpp \
-    gimme.cpp
+    gimme.cpp \
+    models/shaperect.cpp \
+    models/ishape.cpp
 
 HEADERS += \
     ui/winmain.h \
@@ -38,7 +40,8 @@ HEADERS += \
     ui/dlgtestimonialcreate.h \
     viewmodels/vmtestimonialcreate.h \
     gimme.h \
-    models/ishape.h
+    models/ishape.h \
+    models/shaperect.h
 
 FORMS += \
     ui/winmain.ui \
