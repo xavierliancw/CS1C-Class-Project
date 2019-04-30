@@ -33,7 +33,8 @@ SOURCES += \
     gimme.cpp \
     models/shaperect.cpp \
     models/ishape.cpp \
-    ui/dlgdeletemelater.cpp
+    ui/dlgdeletemelater.cpp \
+    ui/dlgshapeselector.cpp
 
 HEADERS += \
     ui/winmain.h \
@@ -43,12 +44,14 @@ HEADERS += \
     gimme.h \
     models/ishape.h \
     models/shaperect.h \
-    ui/dlgdeletemelater.h
+    ui/dlgdeletemelater.h \
+    ui/dlgshapeselector.h
 
 FORMS += \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
-    ui/dlgdeletemelater.ui
+    ui/dlgdeletemelater.ui \
+    ui/dlgshapeselector.ui
 
 CONFIG += mobility
 MOBILITY = 
