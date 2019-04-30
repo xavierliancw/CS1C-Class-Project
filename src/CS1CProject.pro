@@ -40,6 +40,7 @@ SOURCES += \
 
 HEADERS += \
     models/shapeellipse.h \
+    shape.h \
     ui/winmain.h \
     services/svcjson.h \
     ui/dlgtestimonialcreate.h \
@@ -50,7 +51,8 @@ HEADERS += \
     ui/dlgdeletemelater.h \
     ui/dlgshapeselector.h \
     ui/secdialog.h \
-    util/conevector.h
+    util/conevector.h \
+    models/ishape.h
 
 FORMS += \
     ui/winmain.ui \
