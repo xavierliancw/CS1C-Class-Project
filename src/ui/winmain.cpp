@@ -22,6 +22,13 @@ WINMain::WINMain(QWidget *parent) :
         testimonialFormWin->setAttribute(Qt::WA_DeleteOnClose);
         testimonialFormWin->show();
     });
+
+    connect(ui->TEMPBtDos, &QPushButton::clicked, ui->TEMPBtDos, [this]()
+    {
+        deletemelater = new DLGDeleteMeLater();
+        deletemelater->setAttribute(Qt::WA_DeleteOnClose);
+        deletemelater->show();
+    });
 }
 
 WINMain::~WINMain()

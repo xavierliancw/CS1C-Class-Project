@@ -1,13 +1,34 @@
 #include "shaperect.h"
 
-ShapeRect::ShapeRect(): IShape(nullptr, 0, ShapeType::Rectangle)
+ShapeRect::ShapeRect(int id, int originX, int originY, int width, int height):
+    IShape(id, ShapeType::Rectangle)
 {
-
+    frame = QRect(originX, originY, width, height);
+    drawnFrame = nullptr;
 }
 
-void ShapeRect::draw(const int translate_x, const int translate_y)
+ShapeRect::~ShapeRect()
 {
+    delete drawnFrame;
+    drawnFrame = nullptr;
+}
 
+void ShapeRect::draw(QPainter* painter)
+{
+    erase(painter);
+    drawnFrame = new QRect(frame);
+    painter->fillRect(*drawnFrame, Qt::GlobalColor::red);
+    painter->drawRect(*drawnFrame);
+}
+
+void ShapeRect::erase(QPainter *painter)
+{
+    if (drawnFrame != nullptr)
+    {
+        painter->eraseRect(*drawnFrame);
+        delete drawnFrame;
+        drawnFrame = nullptr;
+    }
 }
 
 void ShapeRect::move()

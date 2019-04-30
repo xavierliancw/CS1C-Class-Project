@@ -5,14 +5,19 @@
 class ShapeRect: public IShape
 {
 public:
-    ShapeRect();
+    ShapeRect(int id, int originX, int originY, int width, int height);
+    ~ShapeRect();
 
-    virtual void draw(const int translate_x, const int translate_y);
+    virtual void draw(QPainter*);
     virtual void move();
     virtual float perimeter() const;
     virtual float area() const;
 
+    void erase(QPainter*);
+
+    QRect frame;
 private:
+    QRect *drawnFrame;
 };
 
 #endif // SHAPERECT_H

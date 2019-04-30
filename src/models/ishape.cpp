@@ -1,7 +1,17 @@
 #include "ishape.h"
 #include <QDebug>
 
-IShape::~IShape() {/*Avoids out-of-line compiler warning*/}
+IShape::IShape(int id, ShapeType shape)
+{
+    this->id = id;
+    this->shapeType = shape;
+    this->pen = QPen();
+    this->brush = QBrush();
+}
+
+IShape::~IShape()
+{
+}
 
 bool IShape::operator==(const IShape& other) const {return getID() == other.getID();}
 
@@ -38,6 +48,7 @@ void IShape::setBrush(Qt::GlobalColor clr, Qt::BrushStyle brushStyle)
 }
 
 int IShape::getID() const {return id;}
+void IShape::setID(int newID) {id = newID;}
 
 void IShape::resetToDefaultStyle()
 {

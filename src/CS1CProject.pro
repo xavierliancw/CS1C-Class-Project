@@ -32,7 +32,8 @@ SOURCES += \
     viewmodels/vmtestimonialcreate.cpp \
     gimme.cpp \
     models/shaperect.cpp \
-    models/ishape.cpp
+    models/ishape.cpp \
+    ui/dlgdeletemelater.cpp
 
 HEADERS += \
     ui/winmain.h \
@@ -41,11 +42,13 @@ HEADERS += \
     viewmodels/vmtestimonialcreate.h \
     gimme.h \
     models/ishape.h \
-    models/shaperect.h
+    models/shaperect.h \
+    ui/dlgdeletemelater.h
 
 FORMS += \
     ui/winmain.ui \
-    ui/dlgtestimonialcreate.ui
+    ui/dlgtestimonialcreate.ui \
+    ui/dlgdeletemelater.ui
 
 CONFIG += mobility
 MOBILITY = 

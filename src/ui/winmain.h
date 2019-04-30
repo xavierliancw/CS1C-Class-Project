@@ -1,10 +1,12 @@
 #ifndef WINMAIN_H
 #define WINMAIN_H
 
+#include "dlgdeletemelater.h"
 #include "dlgtestimonialcreate.h"
 
 #include <QDialog>
 #include <QMainWindow>
+#include <QPainter>
 
 namespace Ui {
 class WINMain;
@@ -22,6 +24,7 @@ private:
     Ui::WINMain *ui;
 
     DLGTestimonialCreate *testimonialFormWin;
+    DLGDeleteMeLater *deletemelater;
 };
 
 #endif // WINMAIN_H

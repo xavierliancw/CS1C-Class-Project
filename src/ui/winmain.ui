@@ -27,6 +27,19 @@
      <string>DELETE ME LATER</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="TEMPBtDos">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>340</y>
+      <width>441</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Delete this entire dialog later</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
