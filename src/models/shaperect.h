@@ -6,14 +6,16 @@ class ShapeRect: public IShape
 {
 public:
     ShapeRect(int id, int originX, int originY, int width, int height);
+    ShapeRect(const ShapeRect&) = delete;
+
+    ShapeRect& operator=(const ShapeRect&) = delete;
 
     virtual void draw(QPainter&);
-    virtual void move();
+    void move(int scootX, int scootY);
     virtual float perimeter() const;
     virtual float area() const;
 
     QRect frame;
-private:
 };
 
 #endif // SHAPERECT_H

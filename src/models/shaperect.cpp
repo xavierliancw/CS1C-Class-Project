@@ -8,21 +8,23 @@ ShapeRect::ShapeRect(int id, int originX, int originY, int width, int height):
 
 void ShapeRect::draw(QPainter &painter)
 {
+    painter.setPen(pen);
+    painter.setBrush(brush);
     painter.drawRect(frame);
 }
 
-
-void ShapeRect::move()
+void ShapeRect::move(int scootX, int scootY)
 {
-
+    frame.setX(frame.x() + scootX);
+    frame.setY(frame.y() + scootY);
 }
 
 float ShapeRect::perimeter() const
 {
-
+    return frame.height() * 2 + frame.width() * 2;
 }
 
 float ShapeRect::area() const
 {
-
+    return frame.height() * frame.width();
 }

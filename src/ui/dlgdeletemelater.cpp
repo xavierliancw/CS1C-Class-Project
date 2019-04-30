@@ -11,11 +11,14 @@ DLGDeleteMeLater::DLGDeleteMeLater(QWidget *parent) :
     connect(ui->eatMeBt, &QPushButton::clicked, ui->eatMeBt, [this]()
     {
         ShapeRect* rectang = new ShapeRect(0, 2 * static_cast<int>(vect.size()), 10, 50, 100);
+
+        rectang->pen.setColor(Qt::GlobalColor::blue);
+
         for (unsigned long x = 0; x < vect.size(); ++x)
         {
             if (ShapeRect* castRect = dynamic_cast<ShapeRect*>(vect[x]))
             {
-                castRect->frame.setY(castRect->frame.y() + 10);
+                castRect->move(0, 10);
                 castRect = nullptr;
             }
         }
@@ -29,7 +32,8 @@ DLGDeleteMeLater::DLGDeleteMeLater(QWidget *parent) :
         if (!vect.empty())
         {
             IShape *popBack = vect.back();
-            delete popBack;
+            delete vect[vect.size() - 1];
+//            delete popBack;
             popBack = nullptr;
             vect.pop_back();
 
@@ -51,6 +55,7 @@ DLGDeleteMeLater::~DLGDeleteMeLater()
 
 void DLGDeleteMeLater::paintEvent(QPaintEvent *event)
 {
+
     QPainter painter(ui->waluigi);
 
     painter.fillRect(ui->waluigi->rect(), Qt::GlobalColor::black);
