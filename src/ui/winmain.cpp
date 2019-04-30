@@ -3,6 +3,7 @@
 
 #include <models/dtotestimonial.h>
 #include <models/jsontestimonial.h>
+#include <util/conevector.h>
 
 #include <services/svcjson.h>
 #include <chrono>

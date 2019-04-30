@@ -34,27 +34,27 @@ SOURCES += \
     models/shaperect.cpp \
     models/ishape.cpp \
     ui/dlgdeletemelater.cpp \
-    ui/dlgshapeselector.cpp
+    ui/dlgshapeselector.cpp \
     ui/secdialog.cpp
 
 HEADERS += \
     ui/winmain.h \
     services/svcjson.h \
     ui/dlgtestimonialcreate.h \
-    vector.h \
     viewmodels/vmtestimonialcreate.h \
     gimme.h \
     models/ishape.h \
     models/shaperect.h \
     ui/dlgdeletemelater.h \
-    ui/dlgshapeselector.h
-    ui/secdialog.h
+    ui/dlgshapeselector.h \
+    ui/secdialog.h \
+    util/conevector.h
 
 FORMS += \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
     ui/dlgdeletemelater.ui \
-    ui/dlgshapeselector.ui
+    ui/dlgshapeselector.ui \
     ui/secdialog.ui
 
 CONFIG += mobility
