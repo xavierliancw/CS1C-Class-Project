@@ -52,6 +52,11 @@ DLGDeleteMeLater::~DLGDeleteMeLater()
 void DLGDeleteMeLater::paintEvent(QPaintEvent *event)
 {
     QPainter painter(ui->waluigi);
+
+    painter.fillRect(ui->waluigi->rect(), Qt::GlobalColor::black);
+
+    painter.setBackground(QBrush(Qt::GlobalColor::white));
+
     for (unsigned long x = vect.size(); x > 0; --x)
     {
         vect[x - 1]->draw(painter);
