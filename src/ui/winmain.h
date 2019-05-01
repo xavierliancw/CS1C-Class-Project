@@ -1,14 +1,15 @@
 #ifndef WINMAIN_H
 #define WINMAIN_H
 
-#include "dlgdeletemelater.h"
 #include "dlgtestimonialcreate.h"
+#include "models/shapeellipse.h"
+#include "models/ishape.h"
+#include <util/goldenconevector.h>
 #include <chrono>
 #include <QDialog>
 #include <QMainWindow>
 #include <QPainter>
-
-#include <util/conevector.h>
+#include <QDebug>
 
 namespace Ui {
 class WINMain;
@@ -23,13 +24,12 @@ public:
     ~WINMain() override;
 
 protected:
-    virtual void paintEvent(QPaintEvent *event) override;
+    virtual void paintEvent(QPaintEvent*) override;
 
 private:
     Ui::WINMain *ui;
     DLGTestimonialCreate *testimonialFormWin;
-    DLGDeleteMeLater *deletemelater;
-    ConeVector<IShape*> vect;
+    GoldenConeVector<IShape*> vect;
 };
 
 #endif // WINMAIN_H

@@ -34,13 +34,11 @@ SOURCES += \
     gimme.cpp \
     models/shaperect.cpp \
     models/ishape.cpp \
-    ui/dlgdeletemelater.cpp \
     ui/dlgshapeselector.cpp \
     ui/secdialog.cpp
 
 HEADERS += \
     models/shapeellipse.h \
-    shape.h \
     ui/winmain.h \
     services/svcjson.h \
     ui/dlgtestimonialcreate.h \
@@ -48,16 +46,14 @@ HEADERS += \
     gimme.h \
     models/ishape.h \
     models/shaperect.h \
-    ui/dlgdeletemelater.h \
     ui/dlgshapeselector.h \
     ui/secdialog.h \
-    util/conevector.h \
-    models/ishape.h
+    models/ishape.h \
+    util/goldenconevector.h
 
 FORMS += \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
-    ui/dlgdeletemelater.ui \
     ui/dlgshapeselector.ui \
     ui/secdialog.ui
 

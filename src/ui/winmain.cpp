@@ -1,15 +1,6 @@
 #include "winmain.h"
 #include "ui_winmain.h"
 
-#include <models/dtotestimonial.h>
-#include <models/jsontestimonial.h>
-#include <models/shapeellipse.h>
-#include <util/conevector.h>
-
-#include <services/svcjson.h>
-#include <chrono>
-#include<QJsonArray>
-
 WINMain::WINMain(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::WINMain)
@@ -44,16 +35,28 @@ WINMain::~WINMain()
 
     for (int x = 0; x < vect.size(); ++x)
     {
-        delete vect[x];
+        delete vect[static_cast<unsigned int>(x)];
     }
 }
 
-void WINMain::paintEvent(QPaintEvent *event)
+void WINMain::paintEvent(QPaintEvent*)
 {
-    QPainter painter(ui->canvasVw);
-
-    for (unsigned int x = vect.size(); x > 0; --x)
+    //Don't even think about drawing until we're on the canvas page
+    if (ui->stackWdgt->currentWidget() != ui->canvasPg)
     {
-        vect[x - 1]->draw(painter);
+        return;
     }
+    //Instnantiate a painter that'll draw on the canvas view
+    QPainter painter;
+
+    //Begin by wiping all drawings
+    painter.begin(ui->canvasVw);
+    painter.fillRect(ui->canvasVw->rect(), Qt::GlobalColor::black);
+
+    //Draw all shapes in memory (going backwards is important because 0 is lowest z-axis layer)
+    for (int x = vect.size(); x > 0; --x)
+    {
+        vect[static_cast<unsigned int>(x) - 1]->draw(painter);
+    }
+    painter.end();
 }
