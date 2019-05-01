@@ -3,6 +3,7 @@
 
 #include "dlgcontactform.h"
 #include "dlgtestimonialcreate.h"
+#include "dlgloginscreen.h"
 #include "models/shapeellipse.h"
 #include "models/ishape.h"
 #include <util/goldenconevector.h>
@@ -31,11 +32,13 @@ private:
     Ui::WINMain *ui;
     DLGTestimonialCreate *testimonialFormWin;
     DLGContactForm *contactFormWin;
+    DLGLoginScreen *loginFormWin;
     GoldenConeVector<IShape*> vect;
 
     void initStartBt();
     void initTestimonialCreateBt();
     void initContactUsBt();
+    void initAddBt();
 };
 
 #endif // WINMAIN_H

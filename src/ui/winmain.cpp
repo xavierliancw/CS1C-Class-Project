@@ -83,3 +83,14 @@ void WINMain::initTestimonialCreateBt()
         testimonialFormWin->show();
     });
 }
+
+void WINMain::initAddBt()
+{
+    //bool admin = false;
+    connect(ui->addBt, &QPushButton::clicked, ui->addBt, [this]()
+    {
+        loginFormWin = new DLGLoginScreen();
+        loginFormWin->setAttribute(Qt::WA_DeleteOnClose);
+        loginFormWin->show();
+    });
+}
