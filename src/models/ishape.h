@@ -6,43 +6,35 @@
 class IShape
 {
 public:
-    enum class ShapeType {NoShape, Line, Polyline, Polygon, Rectangle, Ellipse, Text};
-
-    IShape(QPaintDevice* device = nullptr, int id = -1, ShapeType shape = ShapeType::NoShape);
-    virtual ~IShape();
-
-    ShapeType get_shape() const;
-    const QPen& get_pen() const;
-    const QBrush& get_brush() const;
-
-    void set_shape(ShapeType shape);
-    void set_pen(Qt::GlobalColor, int width, Qt::PenStyle, Qt::PenCapStyle, Qt::PenJoinStyle);
-    void set_pen(Qt::GlobalColor);
-    void set_brush(Qt::GlobalColor, Qt::BrushStyle);
-
-    void default_style();
-    void draw_rect(int width, int height);
-
-    virtual void draw(const int translate_x, const int translate_y) = 0;
-    virtual void move() = 0;
-    virtual void perimeter() = 0;
-    virtual void area() = 0;
-
-protected:
-    QPainter& get_qpainter();
-
-private:
-    QPainter qpainter;
-
     int id;
-    ShapeType shapeType;
     QPen pen;
     QBrush brush;
+
+    enum class ShapeType {NoShape, Line, Polyline, Polygon, Rectangle, Ellipse, Text};
+
+    IShape(int, ShapeType);
+    IShape(const IShape&) = delete;
+    virtual ~IShape();
+
+    IShape& operator=(const IShape&) = delete;
+    bool operator==(const IShape& other) const;
+    bool operator!=(const IShape& other) const;
+    bool operator<(const IShape& other) const;
+    bool operator>(const IShape& other) const;
+    bool operator<=(const IShape& other) const;
+    bool operator>=(const IShape& other) const;
+
+    ShapeType getShape() const;
+
+    void resetToDefaultStyle();
+
+    virtual void draw(QPainter&) = 0;
+    virtual void move(int, int) = 0;
+    virtual double perimeter() const = 0;
+    virtual double area() const = 0;
+
+private:
+    ShapeType shapeType;
 };
 
 #endif // ISHAPE_H
-
-IShape::~IShape()
-{
-    //Avoids out-of-line compiler warning
-}

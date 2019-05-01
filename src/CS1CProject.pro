@@ -26,30 +26,36 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
+    models/shapeellipse.cpp \
     ui/winmain.cpp \
     services/svcjson.cpp \
     ui/dlgtestimonialcreate.cpp \
     viewmodels/vmtestimonialcreate.cpp \
     gimme.cpp \
-    ui/secdialog.cpp
+    models/shaperect.cpp \
+    models/ishape.cpp \
+    ui/dlgshapeselector.cpp \
+    ui/dlgcontactform.cpp
 
 HEADERS += \
-    shape.h \
+    models/shapeellipse.h \
     ui/winmain.h \
     services/svcjson.h \
     ui/dlgtestimonialcreate.h \
-    vector.h \
     viewmodels/vmtestimonialcreate.h \
     gimme.h \
     ui/secdialog.h \
     models/ishape.h \
-
+    models/shaperect.h \
+    ui/dlgshapeselector.h \
+    util/goldenconevector.h \
+    ui/dlgcontactform.h
 
 FORMS += \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
-    ui/secdialog.ui
-
+    ui/dlgshapeselector.ui \
+    ui/dlgcontactform.ui
 
 CONFIG += mobility
 MOBILITY = 
