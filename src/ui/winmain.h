@@ -31,8 +31,11 @@ private:
     Ui::WINMain *ui;
     DLGTestimonialCreate *testimonialFormWin;
     DLGContactForm *contactFormWin;
-
     GoldenConeVector<IShape*> vect;
+
+    void initStartBt();
+    void initTestimonialCreateBt();
+    void initContactUsBt();
 };
 
 #endif // WINMAIN_H

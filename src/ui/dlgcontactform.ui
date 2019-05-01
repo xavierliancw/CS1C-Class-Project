@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>baseLayout</class>
- <widget class="QDialog" name="baseLayout">
+ <class>DLGContactForm</class>
+ <widget class="QDialog" name="DLGContactForm">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -80,7 +80,7 @@
   <connection>
    <sender>pushButton_2</sender>
    <signal>clicked()</signal>
-   <receiver>baseLayout</receiver>
+   <receiver>DLGContactForm</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

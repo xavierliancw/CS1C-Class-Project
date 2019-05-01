@@ -1,11 +1,9 @@
-#ifndef SECDIALOG_H
-#define SECDIALOG_H
+#ifndef DLGCONTACTFORM_H
+#define DLGCONTACTFORM_H
 
 #include <QDialog>
 
-namespace Ui {
-class SecDialog;
-}
+namespace Ui {class DLGContactForm;}
 
 class DLGContactForm : public QDialog
 {
@@ -16,7 +14,7 @@ public:
     ~DLGContactForm();
 
 private:
-    Ui::SecDialog *ui;
+    Ui::DLGContactForm *ui;
 };
 
-#endif // SECDIALOG_H
+#endif // DLGCONTACTFORM_H

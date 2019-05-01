@@ -8,16 +8,11 @@ WINMain::WINMain(QWidget *parent) :
     ui->setupUi(this);
 
     //UI behavior definitions
-    connect(ui->startBt, &QPushButton::clicked, ui->startBt, [this]()
-    {
-        this->ui->stackWdgt->setCurrentWidget(this->ui->canvasPg);
-    });
-    connect(ui->addTestimonialBt, &QPushButton::clicked, ui->addTestimonialBt, [this]()
-    {
-        testimonialFormWin = new DLGTestimonialCreate();
-        testimonialFormWin->setAttribute(Qt::WA_DeleteOnClose);
-        testimonialFormWin->show();
-    });
+    initStartBt();
+    initContactUsBt();
+    initTestimonialCreateBt();
+
+    //TODO move somewhere else later
     connect(ui->addBt, &QPushButton::clicked, ui->addBt, [this]()
     {
         ShapeEllipse *ellipse = new ShapeEllipse(0, 0, 0, 100, 200);
@@ -27,22 +22,16 @@ WINMain::WINMain(QWidget *parent) :
         ellipse->pen.setWidth(12);
         vect.push_back(ellipse);
     });
-    connect(ui->contactBt, &QPushButton::clicked, ui->contactBt, [this]()
-    {
-        contactFormWin = new DLGContactForm();
-        contactFormWin->setAttribute(Qt::WA_DeleteOnClose);
-        contactFormWin->show();
-    });
 }
 
 WINMain::~WINMain()
 {
-    delete ui;
-
+    //TODO move vector to VM
     for (int x = 0; x < vect.size(); ++x)
     {
         delete vect[static_cast<unsigned int>(x)];
     }
+    delete ui;
 }
 
 void WINMain::paintEvent(QPaintEvent*)
@@ -65,4 +54,32 @@ void WINMain::paintEvent(QPaintEvent*)
         vect[static_cast<unsigned int>(x) - 1]->draw(painter);
     }
     painter.end();
+}
+
+void WINMain::initStartBt()
+{
+    connect(ui->startBt, &QPushButton::clicked, ui->startBt, [this]()
+    {
+        this->ui->stackWdgt->setCurrentWidget(this->ui->canvasPg);
+    });
+}
+
+void WINMain::initContactUsBt()
+{
+    connect(ui->contactBt, &QPushButton::clicked, ui->contactBt, [this]()
+    {
+        contactFormWin = new DLGContactForm();
+        contactFormWin->setAttribute(Qt::WA_DeleteOnClose);
+        contactFormWin->show();
+    });
+}
+
+void WINMain::initTestimonialCreateBt()
+{
+    connect(ui->addTestimonialBt, &QPushButton::clicked, ui->addTestimonialBt, [this]()
+    {
+        testimonialFormWin = new DLGTestimonialCreate();
+        testimonialFormWin->setAttribute(Qt::WA_DeleteOnClose);
+        testimonialFormWin->show();
+    });
 }
