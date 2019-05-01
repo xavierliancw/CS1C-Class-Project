@@ -35,7 +35,7 @@ SOURCES += \
     models/shaperect.cpp \
     models/ishape.cpp \
     ui/dlgshapeselector.cpp \
-    ui/secdialog.cpp
+    ui/dlgcontactform.cpp
 
 HEADERS += \
     models/shapeellipse.h \
@@ -47,15 +47,15 @@ HEADERS += \
     models/ishape.h \
     models/shaperect.h \
     ui/dlgshapeselector.h \
-    ui/secdialog.h \
     models/ishape.h \
-    util/goldenconevector.h
+    util/goldenconevector.h \
+    ui/dlgcontactform.h
 
 FORMS += \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
     ui/dlgshapeselector.ui \
-    ui/secdialog.ui
+    ui/dlgcontactform.ui
 
 CONFIG += mobility
 MOBILITY = 

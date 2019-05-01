@@ -7,16 +7,13 @@ namespace Ui {
 class SecDialog;
 }
 
-class SecDialog : public QDialog
+class DLGContactForm : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit SecDialog(QWidget *parent = nullptr);
-    ~SecDialog();
-
-private slots:
-    void on_pushButton_clicked();
+    explicit DLGContactForm(QWidget *parent = nullptr);
+    ~DLGContactForm();
 
 private:
     Ui::SecDialog *ui;

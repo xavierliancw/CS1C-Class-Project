@@ -1,6 +1,7 @@
 #ifndef WINMAIN_H
 #define WINMAIN_H
 
+#include "dlgcontactform.h"
 #include "dlgtestimonialcreate.h"
 #include "models/shapeellipse.h"
 #include "models/ishape.h"
@@ -29,6 +30,8 @@ protected:
 private:
     Ui::WINMain *ui;
     DLGTestimonialCreate *testimonialFormWin;
+    DLGContactForm *contactFormWin;
+
     GoldenConeVector<IShape*> vect;
 };
 

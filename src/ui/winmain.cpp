@@ -27,6 +27,12 @@ WINMain::WINMain(QWidget *parent) :
         ellipse->pen.setWidth(12);
         vect.push_back(ellipse);
     });
+    connect(ui->contactBt, &QPushButton::clicked, ui->contactBt, [this]()
+    {
+        contactFormWin = new DLGContactForm();
+        contactFormWin->setAttribute(Qt::WA_DeleteOnClose);
+        contactFormWin->show();
+    });
 }
 
 WINMain::~WINMain()
