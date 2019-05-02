@@ -25,9 +25,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    dlgloginscreen.cpp \
     main.cpp \
     models/shapeellipse.cpp \
-    ui/dlgloginscreen.cpp \
     ui/winmain.cpp \
     services/svcjson.cpp \
     ui/dlgtestimonialcreate.cpp \
@@ -39,8 +39,8 @@ SOURCES += \
     ui/dlgcontactform.cpp
 
 HEADERS += \
+    dlgloginscreen.h \
     models/shapeellipse.h \
-    ui/dlgloginscreen.h \
     ui/winmain.h \
     services/svcjson.h \
     ui/dlgtestimonialcreate.h \
@@ -54,7 +54,7 @@ HEADERS += \
     ui/dlgcontactform.h
 
 FORMS += \
-    ui/dlgloginscreen.ui \
+    dlgloginscreen.ui \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
     ui/dlgshapeselector.ui \

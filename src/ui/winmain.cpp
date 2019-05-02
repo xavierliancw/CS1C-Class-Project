@@ -84,13 +84,31 @@ void WINMain::initTestimonialCreateBt()
     });
 }
 
-void WINMain::initAddBt()
+
+
+//void WINMain::initAddBt()
+//{
+    //connect(ui->addBt, &QPushButton::clicked, ui->addBt, [this]()
+    //{
+        //loginFormWin = new DLGLoginScreen();
+        //loginFormWin->setAttribute(Qt::WA_DeleteOnClose);
+       // loginFormWin->show();
+    //});
+//}
+
+void WINMain::on_addBt_clicked()
 {
-    //bool admin = false;
-    connect(ui->addBt, &QPushButton::clicked, ui->addBt, [this]()
+    DLGLoginScreen* login = new DLGLoginScreen(this);
+    login->show();
+
+    if (!login->check())
     {
-        loginFormWin = new DLGLoginScreen();
-        loginFormWin->setAttribute(Qt::WA_DeleteOnClose);
-        loginFormWin->show();
-    });
+        shapeSelector = new DLGShapeSelector();
+        shapeSelector->show();
+    }
+    else {
+        //login->close();
+    }
+   // loginFormWin.setModal(true);
+    //loginFormWin.show();
 }
