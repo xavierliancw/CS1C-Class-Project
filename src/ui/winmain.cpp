@@ -12,6 +12,16 @@ WINMain::WINMain(QWidget *parent) :
     initStartBt();
     initContactUsBt();
     initTestimonialCreateBt();
+
+    connect(ui->addRectBt, &QPushButton::clicked, ui->addRectBt, [this]()
+    {
+        dlgAddShapeRect = new DLGShapeAdderRect(nullptr, [this](ShapeRect* rectIn)
+        {
+            this->vm.addShape(rectIn);
+        });
+        dlgAddShapeRect->setAttribute(Qt::WA_DeleteOnClose);
+        dlgAddShapeRect->show();
+    });
 }
 
 WINMain::~WINMain()
@@ -73,7 +83,7 @@ VMCanvas WINMain::initVM()
 {
     return VMCanvas([this]() {      //Lambda to refresh the canvas
         this->update();
-        this->ui->canvasVw->updateBehavior();
+        this->ui->canvasVw->update();
     },
     [this](IShape* shapeToEdit) {   //Lambda to edit a shape
         qDebug() << "gonna edit" << shapeToEdit->id;    //TODO

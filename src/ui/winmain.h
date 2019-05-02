@@ -2,6 +2,7 @@
 #define WINMAIN_H
 
 #include "dlgcontactform.h"
+#include "dlgshapeadderrect.h"
 #include "dlgtestimonialcreate.h"
 #include "models/shapeellipse.h"
 #include "models/ishape.h"
@@ -51,6 +52,7 @@ private:
     DLGTestimonialCreate *testimonialFormWin; /**< Pointer to the testimonial creation dialogue. */
     DLGContactForm *contactFormWin; /**< Pointer to the contact form dialogue. */
     VMCanvas vm; /**< View model for the canvas that contains business logic and UI definitions. */
+    DLGShapeAdderRect *dlgAddShapeRect; /** < Dialog that creates rectangles. */
 
     /**
      * @brief Initializes the button behavior that launches the canvas view.
