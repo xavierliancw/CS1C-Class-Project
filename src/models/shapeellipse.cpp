@@ -10,13 +10,12 @@ void ShapeEllipse :: draw(QPainter& painter)
 {
     painter.setPen(pen);
     painter.setBrush(brush);
-    painter.drawRect(frame);
+    painter.drawEllipse(frame);
 }
 
 void ShapeEllipse :: move(int scootX, int scootY)
 {
-    frame.setX(frame.x() + scootX);
-    frame.setY(frame.y() + scootY);
+    frame.translate(scootX,scootY);
 }
 
 double ShapeEllipse :: perimeter() const
