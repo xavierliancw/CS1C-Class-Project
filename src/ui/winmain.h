@@ -74,6 +74,8 @@ private:
      *
      */
     VMCanvas initVM();
+    void initAddRectBt();
+    void initAddSquareBt();
 };
 
 #endif // WINMAIN_H
