@@ -65,6 +65,7 @@ void DLGShapeAdderRect::updateAddBtEnableState()
 
 void DLGShapeAdderRect::giveDLGSummonerCreatedRectIfPossible()
 {
+    //Validation systems in this class are already validating the input
     ShapeRect* newRect = new ShapeRect(-1,
                                        ui->field1LE->text().toInt(),
                                        ui->field2LE->text().toInt(),
