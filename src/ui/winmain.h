@@ -77,6 +77,9 @@ private:
      *
      */
     VMCanvas initVM();
+    void initGuestAuthenticateBt();
+    void initGuestBackBt();
+    void initCanvasBackBt();
 };
 
 #endif // WINMAIN_H

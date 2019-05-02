@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>DLGLoginScreen</class>
- <widget class="QWidget" name="DLGLoginScreen">
+ <widget class="QDialog" name="DLGLoginScreen">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -64,7 +64,11 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="password"/>
+          <widget class="QLineEdit" name="password">
+           <property name="echoMode">
+            <enum>QLineEdit::Password</enum>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>

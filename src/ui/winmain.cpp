@@ -13,12 +13,17 @@ WINMain::WINMain(QWidget *parent) :
     initContactUsBt();
     initTestimonialCreateBt();
 
+    //Initialize guest preview page
+    initGuestAuthenticateBt();
+    initGuestBackBt();
+
+    //Initialize stuff on the canvas page
+    initCanvasBackBt();
+
     connect(ui->addRectBt, &QPushButton::clicked, ui->addRectBt, [this]()
     {
-        dlgAddShapeRect = new DLGShapeAdderRect(nullptr, [this](ShapeRect* rectIn)
-        {
-            this->vm.addShape(rectIn);
-        });
+        dlgAddShapeRect = new DLGShapeAdderRect(nullptr,[this](ShapeRect* rectIn)
+        {this->vm.addShape(rectIn);});
         dlgAddShapeRect->setAttribute(Qt::WA_DeleteOnClose);
         dlgAddShapeRect->show();
     });
@@ -32,15 +37,28 @@ WINMain::~WINMain()
 void WINMain::paintEvent(QPaintEvent*)
 {
     //Don't even think about drawing until we're on the canvas page
-    if (ui->stackWdgt->currentWidget() != ui->canvasPg)
+    if (ui->stackWdgt->currentWidget() != ui->canvasPg &&
+            ui->stackWdgt->currentWidget() != ui->guestPreviewPg)
     {
         return;
     }
     //Instnantiate a painter that'll draw on the canvas view
     QPainter painter;
 
+    //Figure out which canvas we're drawing on
+    if (ui->stackWdgt->currentWidget() == ui->canvasPg)
+    {
+        painter.begin(ui->canvasVw);
+    }
+    else if (ui->stackWdgt->currentWidget() == ui->guestPreviewPg)
+    {
+        painter.begin(ui->guestCanvasVw);
+    }
+    else
+    {
+        return;
+    }
     //Begin by wiping all drawings
-    painter.begin(ui->canvasVw);
     painter.fillRect(ui->canvasVw->rect(), Qt::GlobalColor::black);
 
     //Draw all shapes in memory (going backwards is important because 0 is lowest z-axis layer)
@@ -55,7 +73,7 @@ void WINMain::initStartBt()
 {
     connect(ui->startBt, &QPushButton::clicked, ui->startBt, [this]()
     {
-        this->ui->stackWdgt->setCurrentWidget(this->ui->canvasPg);
+        this->ui->stackWdgt->setCurrentWidget(this->ui->guestPreviewPg);
     });
 }
 
@@ -89,3 +107,37 @@ VMCanvas WINMain::initVM()
         qDebug() << "gonna edit" << shapeToEdit->id;    //TODO
     });
 }
+
+void WINMain::initGuestBackBt()
+{
+    connect(ui->guestPreviewBackBt, &QPushButton::clicked, ui->guestPreviewBackBt, [this]()
+    {
+        this->ui->stackWdgt->setCurrentWidget(ui->welcomePg);
+    });
+}
+
+void WINMain::initGuestAuthenticateBt()
+{
+    connect(ui->guestPreviewEditBt, &QPushButton::clicked, ui->guestPreviewEditBt, [this]()
+    {
+        loginFormWin = new DLGLoginScreen(nullptr, [this](bool authenticated)
+        {
+            if (authenticated)
+            {
+                this->ui->stackWdgt->setCurrentWidget(ui->canvasPg);
+                //TODO this is not on the main thread so it's not working
+            }
+        });
+        loginFormWin->setAttribute(Qt::WA_DeleteOnClose);
+        loginFormWin->show();
+    });
+}
+
+void WINMain::initCanvasBackBt()
+{
+    connect(ui->canvasBackBt, &QPushButton::clicked, ui->canvasBackBt, [this]()
+    {
+        this->ui->stackWdgt->setCurrentWidget(ui->welcomePg);
+    });
+}
+
