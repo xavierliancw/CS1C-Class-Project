@@ -28,6 +28,8 @@ SOURCES += \
     dlgloginscreen.cpp \
     main.cpp \
     models/shapeellipse.cpp \
+    models/shapepolygon.cpp \
+    models/shapetext.cpp \
     ui/winmain.cpp \
     services/svcjson.cpp \
     ui/dlgtestimonialcreate.cpp \
@@ -36,29 +38,35 @@ SOURCES += \
     models/shaperect.cpp \
     models/ishape.cpp \
     ui/dlgshapeselector.cpp \
-    ui/dlgcontactform.cpp
+    ui/dlgcontactform.cpp \
+    viewmodels/vmcanvas.cpp \
+    ui/dlgshapeadderrect.cpp
 
 HEADERS += \
     dlgloginscreen.h \
     models/shapeellipse.h \
+    models/shapepolygon.h \
+    models/shapetext.h \
     ui/winmain.h \
     services/svcjson.h \
     ui/dlgtestimonialcreate.h \
     viewmodels/vmtestimonialcreate.h \
     gimme.h \
-    ui/secdialog.h \
     models/ishape.h \
     models/shaperect.h \
     ui/dlgshapeselector.h \
     util/goldenconevector.h \
-    ui/dlgcontactform.h
+    ui/dlgcontactform.h \
+    viewmodels/vmcanvas.h \
+    ui/dlgshapeadderrect.h
 
 FORMS += \
     dlgloginscreen.ui \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
     ui/dlgshapeselector.ui \
-    ui/dlgcontactform.ui
+    ui/dlgcontactform.ui \
+    ui/dlgshapeadderrect.ui
 
 CONFIG += mobility
 MOBILITY = 
