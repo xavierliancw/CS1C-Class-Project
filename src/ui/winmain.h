@@ -5,6 +5,7 @@
 #include "dlgtestimonialcreate.h"
 #include "models/shapeellipse.h"
 #include "models/ishape.h"
+#include "viewmodels/vmcanvas.h"
 #include <util/goldenconevector.h>
 #include <chrono>
 #include <QDialog>
@@ -49,7 +50,7 @@ private:
     Ui::WINMain *ui; /**< WINMain's UI pointer. */
     DLGTestimonialCreate *testimonialFormWin; /**< Pointer to the testimonial creation dialogue. */
     DLGContactForm *contactFormWin; /**< Pointer to the contact form dialogue. */
-    GoldenConeVector<IShape*> vect; /**< TODO: Move this later */
+    VMCanvas vm; /**< View model for the canvas that contains business logic and UI definitions. */
 
     /**
      * @brief Initializes the button behavior that launches the canvas view.
@@ -66,6 +67,11 @@ private:
      *
      */
     void initContactUsBt();
+    /**
+     * @brief Initializes the view model that contains the canvas business logic.
+     *
+     */
+    VMCanvas initVM();
 };
 
 #endif // WINMAIN_H
