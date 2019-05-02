@@ -28,6 +28,8 @@ SOURCES += \
     main.cpp \
     models/shapeellipse.cpp \
     models/triangle.cpp \
+    models/shapepolygon.cpp \
+    models/shapetext.cpp \
     ui/winmain.cpp \
     services/svcjson.cpp \
     ui/dlgtestimonialcreate.cpp \
@@ -35,13 +37,16 @@ SOURCES += \
     gimme.cpp \
     models/shaperect.cpp \
     models/ishape.cpp \
-    ui/dlgdeletemelater.cpp \
     ui/dlgshapeselector.cpp \
-    ui/secdialog.cpp
+    ui/dlgcontactform.cpp \
+    viewmodels/vmcanvas.cpp \
+    ui/dlgshapeadderrect.cpp
 
 HEADERS += \
     models/shapeellipse.h \
     models/triangle.h \
+    models/shapepolygon.h \
+    models/shapetext.h \
     ui/winmain.h \
     services/svcjson.h \
     ui/dlgtestimonialcreate.h \
@@ -49,17 +54,19 @@ HEADERS += \
     gimme.h \
     models/ishape.h \
     models/shaperect.h \
-    ui/dlgdeletemelater.h \
     ui/dlgshapeselector.h \
-    ui/secdialog.h \
-    util/conevector.h
+    models/ishape.h \
+    util/goldenconevector.h \
+    ui/dlgcontactform.h \
+    viewmodels/vmcanvas.h \
+    ui/dlgshapeadderrect.h
 
 FORMS += \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
-    ui/dlgdeletemelater.ui \
     ui/dlgshapeselector.ui \
-    ui/secdialog.ui
+    ui/dlgcontactform.ui \
+    ui/dlgshapeadderrect.ui
 
 CONFIG += mobility
 MOBILITY = 

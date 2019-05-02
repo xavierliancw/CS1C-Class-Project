@@ -56,7 +56,7 @@ void VMTestimonialCreate::submitTestimonial(const QString displayName,
     try
     {
         existingTests = SVCJson::getInstance()->readJsonArrayFile(
-                    Gimme::sharedInstance()->theFileNameForTestimonials
+                    Gimme::theShared()->fileNameForTestimonials
                     );
     }
     catch (SVCJson::JsonFileSystemError fileErr)
@@ -68,7 +68,7 @@ void VMTestimonialCreate::submitTestimonial(const QString displayName,
 
     //Save it
     SVCJson::getInstance()->persistJSONToLocalFileSystem(
-                existingTests, Gimme::sharedInstance()->theFileNameForTestimonials
+                existingTests, Gimme::theShared()->fileNameForTestimonials
                 );
     onShowSuccessModeLambda(true);
     return;
