@@ -37,7 +37,8 @@ SOURCES += \
     models/shaperect.cpp \
     models/ishape.cpp \
     ui/dlgshapeselector.cpp \
-    ui/dlgcontactform.cpp
+    ui/dlgcontactform.cpp \
+    viewmodels/vmcanvas.cpp
 
 HEADERS += \
     models/shapeellipse.h \
@@ -53,7 +54,8 @@ HEADERS += \
     ui/dlgshapeselector.h \
     models/ishape.h \
     util/goldenconevector.h \
-    ui/dlgcontactform.h
+    ui/dlgcontactform.h \
+    viewmodels/vmcanvas.h
 
 FORMS += \
     ui/winmain.ui \
