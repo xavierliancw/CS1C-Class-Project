@@ -10,7 +10,7 @@ public:
     QPen pen;
     QBrush brush;
 
-    enum class ShapeType {NoShape, Line, Polyline, Polygon, Rectangle, Ellipse, Text};
+    enum class ShapeType {NoShape, Line, Polyline, Polygon,Triangle, Rectangle, Ellipse, Text};
 
     IShape(int, ShapeType);
     IShape(const IShape&) = delete;
