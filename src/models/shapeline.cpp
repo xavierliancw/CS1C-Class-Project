@@ -4,7 +4,7 @@
 #include <cmath>
 
 ShapeLine::ShapeLine(int id, int originX, int originY, int x2, int y2):
-    IShape(id, ShapeType::Rectangle)
+    IShape(id, ShapeType::Line)
 {
     frame = QLine(originX, originY, x2, y2);
 }

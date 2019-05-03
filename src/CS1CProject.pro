@@ -28,6 +28,7 @@ SOURCES += \
     main.cpp \
     models/shapeellipse.cpp \
     models/shapeline.cpp \
+    models/shapepolyline.cpp \
     ui/winmain.cpp \
     services/svcjson.cpp \
     ui/dlgtestimonialcreate.cpp \
@@ -41,6 +42,7 @@ SOURCES += \
 HEADERS += \
     models/shapeellipse.h \
     models/shapeline.h \
+    models/shapepolyline.h \
     ui/winmain.h \
     services/svcjson.h \
     ui/dlgtestimonialcreate.h \
