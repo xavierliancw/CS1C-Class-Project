@@ -5,8 +5,7 @@ IShape::IShape(int id, ShapeType shape)
 {
     this->id = id;
     this->shapeType = shape;
-    this->pen = QPen();
-    this->brush = QBrush();
+    resetToDefaultStyle();
 }
 
 IShape::~IShape() {}
@@ -28,5 +27,8 @@ IShape::ShapeType IShape::getShape() const{return shapeType;}
 void IShape::resetToDefaultStyle()
 {
     pen = QPen();
+    pen.setColor(Qt::GlobalColor::white);
+    pen.setWidth(1);
     brush = QBrush();
+    brush.setColor(Qt::GlobalColor::white);
 }

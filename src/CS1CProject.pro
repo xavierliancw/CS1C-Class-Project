@@ -39,7 +39,8 @@ SOURCES += \
     models/ishape.cpp \
     ui/dlgshapeselector.cpp \
     ui/dlgcontactform.cpp \
-    viewmodels/vmcanvas.cpp
+    viewmodels/vmcanvas.cpp \
+    ui/dlgshapeadderrect.cpp
 
 HEADERS += \
     models/shapecircle.h \
@@ -57,13 +58,15 @@ HEADERS += \
     models/ishape.h \
     util/goldenconevector.h \
     ui/dlgcontactform.h \
-    viewmodels/vmcanvas.h
+    viewmodels/vmcanvas.h \
+    ui/dlgshapeadderrect.h
 
 FORMS += \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
     ui/dlgshapeselector.ui \
-    ui/dlgcontactform.ui
+    ui/dlgcontactform.ui \
+    ui/dlgshapeadderrect.ui
 
 CONFIG += mobility
 MOBILITY = 

@@ -76,13 +76,3 @@ double ShapePolygon :: area() const
         area = area*-1;
     return area;
 }
-
-
-
-
-
-
-
-
-
-

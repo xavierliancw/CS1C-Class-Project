@@ -3,7 +3,8 @@
 
 WINMain::WINMain(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::WINMain)
+    ui(new Ui::WINMain),
+    vm(initVM())
 {
     ui->setupUi(this);
 
@@ -12,25 +13,19 @@ WINMain::WINMain(QWidget *parent) :
     initContactUsBt();
     initTestimonialCreateBt();
 
-    //TODO move somewhere else later
-    connect(ui->addBt, &QPushButton::clicked, ui->addBt, [this]()
+    connect(ui->addRectBt, &QPushButton::clicked, ui->addRectBt, [this]()
     {
-        ShapeCircle *ellipse = new ShapeCircle(0, 0, 0, 100);
-        ellipse->move(vect.size() * 3, 0);
-//        ShapeRect *ellipse = new ShapeRect(0, 0, 0, 100, 200);
-        ellipse->pen.setColor(Qt::GlobalColor::red);
-        ellipse->pen.setWidth(12);
-        vect.push_back(ellipse);
+        dlgAddShapeRect = new DLGShapeAdderRect(nullptr, [this](ShapeRect* rectIn)
+        {
+            this->vm.addShape(rectIn);
+        });
+        dlgAddShapeRect->setAttribute(Qt::WA_DeleteOnClose);
+        dlgAddShapeRect->show();
     });
 }
 
 WINMain::~WINMain()
 {
-    //TODO move vector to VM
-    for (int x = 0; x < vect.size(); ++x)
-    {
-        delete vect[static_cast<unsigned int>(x)];
-    }
     delete ui;
 }
 
@@ -49,9 +44,9 @@ void WINMain::paintEvent(QPaintEvent*)
     painter.fillRect(ui->canvasVw->rect(), Qt::GlobalColor::black);
 
     //Draw all shapes in memory (going backwards is important because 0 is lowest z-axis layer)
-    for (int x = vect.size(); x > 0; --x)
+    for (unsigned int x = vm.getNumberOfShapesOnCanvas(); x > 0; --x)
     {
-        vect[static_cast<unsigned int>(x) - 1]->draw(painter);
+        vm.getShapeAtLayer(x - 1)->draw(painter);
     }
     painter.end();
 }
@@ -81,5 +76,16 @@ void WINMain::initTestimonialCreateBt()
         testimonialFormWin = new DLGTestimonialCreate();
         testimonialFormWin->setAttribute(Qt::WA_DeleteOnClose);
         testimonialFormWin->show();
+    });
+}
+
+VMCanvas WINMain::initVM()
+{
+    return VMCanvas([this]() {      //Lambda to refresh the canvas
+        this->update();
+        this->ui->canvasVw->update();
+    },
+    [this](IShape* shapeToEdit) {   //Lambda to edit a shape
+        qDebug() << "gonna edit" << shapeToEdit->id;    //TODO
     });
 }
