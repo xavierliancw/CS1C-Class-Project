@@ -3,28 +3,28 @@
 #include <QPoint>
 #include <cmath>
 
-ShapeLine::ShapeLine(int id, int originX, int originY, int x2, int y2):
+ShapeLine::ShapeLine(int id, int x1, int y1, int x2, int y2):
     IShape(id, ShapeType::Line)
 {
-    frame = QLine(originX, originY, x2, y2);
+    line = QLine(x1, y1, x2, y2);
 }
 
 void ShapeLine::draw(QPainter &painter)
 {
     painter.setPen(pen);
     painter.setBrush(brush);
-    painter.drawLine(frame);
+    painter.drawLine(line);
 }
 
 void ShapeLine::move(int scootX, int scootY)
 {
-    frame.setP1(QPoint(frame.x1() + scootX, frame.y1() + scootY));
-    frame.setP2(QPoint(frame.x2() + scootX, frame.y2() + scootY));
+    line.setP1(QPoint(line.x1() + scootX, line.y1() + scootY));
+    line.setP2(QPoint(line.x2() + scootX, line.y2() + scootY));
 }
 
 double ShapeLine::perimeter() const
 {
-    return sqrt(pow((frame.x2() - frame.x1()), 2) + pow((frame.y2() - frame.y1()), 2));
+    return sqrt(pow((line.x2() - line.x1()), 2) + pow((line.y2() - line.y1()), 2));
 }
 
 double ShapeLine::area() const

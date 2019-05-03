@@ -5,7 +5,7 @@
 class ShapeLine: public IShape
 {
 public:
-    ShapeLine(int id, int originX, int originY, int x2, int y2);
+    ShapeLine(int id, int x1, int y1, int x2, int y2);
     ShapeLine(const ShapeLine&) = delete;
 
     ShapeLine& operator=(const ShapeLine&) = delete;
@@ -15,6 +15,7 @@ public:
     virtual double perimeter() const;
     virtual double area() const;
 
-    QLine frame;
+private:
+    QLine line;
 };
 #endif // SHAPELINE_H
