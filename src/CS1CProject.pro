@@ -39,7 +39,8 @@ SOURCES += \
     ui/dlgshapeselector.cpp \
     ui/dlgcontactform.cpp \
     viewmodels/vmcanvas.cpp \
-    ui/dlgshapeadderrect.cpp
+    ui/dlgshapeadderrect.cpp \
+    models/shapesquare.cpp
 
 HEADERS += \
     models/shapeellipse.h \
@@ -58,7 +59,8 @@ HEADERS += \
     ui/dlgcontactform.h \
     viewmodels/vmcanvas.h \
     ui/dlgshapeadderrect.h \
-    models/jsonshape.h
+    models/jsonshape.h \
+    models/shapesquare.h
 
 FORMS += \
     ui/winmain.ui \

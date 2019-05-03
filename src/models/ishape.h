@@ -16,10 +16,15 @@ public:
     QBrush brush; /**< The QBrush that provides some shape styling. */
 
     /**
-     * @brief Names for supported shape prototypes.
+     * @brief Names for supported shapes that can be modelled.
      *
      */
-    enum class ShapeType {NoShape, Line, Polyline, Polygon, Rectangle, Ellipse, Text};
+    enum class ShapeType {NoShape,
+                          Polyline, Line,
+                          Polygon, Triangle,
+                          Rectangle, Square,
+                          Ellipse, Circle,
+                          Text};
 
     /**
      * @brief Constructor.
