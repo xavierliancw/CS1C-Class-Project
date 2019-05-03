@@ -15,7 +15,7 @@ WINMain::WINMain(QWidget *parent) :
     //TODO move somewhere else later
     connect(ui->addBt, &QPushButton::clicked, ui->addBt, [this]()
     {
-        ShapeEllipse *ellipse = new ShapeEllipse(0, 0, 0, 100, 200);
+        ShapeCircle *ellipse = new ShapeCircle(0, 0, 0, 100);
         ellipse->move(vect.size() * 3, 0);
 //        ShapeRect *ellipse = new ShapeRect(0, 0, 0, 100, 200);
         ellipse->pen.setColor(Qt::GlobalColor::red);

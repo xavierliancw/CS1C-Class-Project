@@ -26,6 +26,7 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
+    models/shapecircle.cpp \
     models/shapeellipse.cpp \
     models/shapepolygon.cpp \
     models/shapetext.cpp \
@@ -41,6 +42,7 @@ SOURCES += \
     viewmodels/vmcanvas.cpp
 
 HEADERS += \
+    models/shapecircle.h \
     models/shapeellipse.h \
     models/shapepolygon.h \
     models/shapetext.h \
