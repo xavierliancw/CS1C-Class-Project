@@ -5,7 +5,7 @@ Gimme* Gimme::instance = nullptr;
 Gimme::Gimme()
 {}
 
-Gimme* Gimme::sharedInstance()
+const Gimme *Gimme::theShared()
 {
     if (instance == nullptr)
     {

@@ -29,6 +29,8 @@ SOURCES += \
     models/shapeellipse.cpp \
     models/shapeline.cpp \
     models/shapepolyline.cpp \
+    models/shapepolygon.cpp \
+    models/shapetext.cpp \
     ui/winmain.cpp \
     services/svcjson.cpp \
     ui/dlgtestimonialcreate.cpp \
@@ -37,12 +39,16 @@ SOURCES += \
     models/shaperect.cpp \
     models/ishape.cpp \
     ui/dlgshapeselector.cpp \
-    ui/dlgcontactform.cpp
+    ui/dlgcontactform.cpp \
+    viewmodels/vmcanvas.cpp \
+    ui/dlgshapeadderrect.cpp
 
 HEADERS += \
     models/shapeellipse.h \
     models/shapeline.h \
     models/shapepolyline.h \
+    models/shapepolygon.h \
+    models/shapetext.h \
     ui/winmain.h \
     services/svcjson.h \
     ui/dlgtestimonialcreate.h \
@@ -53,13 +59,16 @@ HEADERS += \
     ui/dlgshapeselector.h \
     models/ishape.h \
     util/goldenconevector.h \
-    ui/dlgcontactform.h
+    ui/dlgcontactform.h \
+    viewmodels/vmcanvas.h \
+    ui/dlgshapeadderrect.h
 
 FORMS += \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
     ui/dlgshapeselector.ui \
-    ui/dlgcontactform.ui
+    ui/dlgcontactform.ui \
+    ui/dlgshapeadderrect.ui
 
 CONFIG += mobility
 MOBILITY = 

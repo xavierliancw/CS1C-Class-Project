@@ -1,0 +1,131 @@
+\hypertarget{class_s_v_c_json}{}\section{S\+V\+C\+Json Class Reference}
+\label{class_s_v_c_json}\index{SVCJson@{SVCJson}}
+
+
+Service singleton that facilitates J\+S\+ON serialization and deserialization to and from the local filesystem through the Qt S\+DK.  
+
+
+
+
+{\ttfamily \#include $<$svcjson.\+h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_s_v_c_json_1_1_json_file_system_error}{Json\+File\+System\+Error}}
+\begin{DoxyCompactList}\small\item\em Runtime error that occurs when this service encounters a problem with the local filesystem. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_s_v_c_json_1_1_json_invalid_error}{Json\+Invalid\+Error}}
+\begin{DoxyCompactList}\small\item\em Runtime error that occurs when this service encounters a problem with serializing or deserializing J\+S\+ON data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_s_v_c_json_a0977d01535e63b2cc76a0fb35cc17966}{persist\+J\+S\+O\+N\+To\+Local\+File\+System}} (Q\+Json\+Object json\+Obj, Q\+String local\+File\+Path)
+\begin{DoxyCompactList}\small\item\em Saves a J\+S\+ON object to the local filesystem, creating directories and/or a new file if necessary. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_v_c_json_a957845d6aad8c6acd176de1b9108bed5}{persist\+J\+S\+O\+N\+To\+Local\+File\+System}} (Q\+Json\+Array json\+Arr, Q\+String local\+File\+Path)
+\begin{DoxyCompactList}\small\item\em Saves a J\+S\+ON array to the local filesystem, creating directories and/or a new file if necessary. \end{DoxyCompactList}\item 
+Q\+Json\+Array \mbox{\hyperlink{class_s_v_c_json_a0f80c2f8372fdfe4158df6f49ccbe1ac}{read\+Json\+Array\+File}} (Q\+String local\+File\+Path)
+\begin{DoxyCompactList}\small\item\em Reads a J\+S\+ON object from a file in the local file system. \end{DoxyCompactList}\item 
+Q\+Json\+Object \mbox{\hyperlink{class_s_v_c_json_aacff71253cc41cb2a403cf2226038962}{read\+Json\+Object\+File}} (Q\+String local\+File\+Path)
+\begin{DoxyCompactList}\small\item\em Reads a J\+S\+ON array from a file in the local file system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_s_v_c_json}{S\+V\+C\+Json}} $\ast$ \mbox{\hyperlink{class_s_v_c_json_a309123d2e8f34ba0ec02e73b024d53e5}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Function to retrieve the instance of this singleton service. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Service singleton that facilitates J\+S\+ON serialization and deserialization to and from the local filesystem through the Qt S\+DK. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_s_v_c_json_a309123d2e8f34ba0ec02e73b024d53e5}\label{class_s_v_c_json_a309123d2e8f34ba0ec02e73b024d53e5}} 
+\index{SVCJson@{SVCJson}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!SVCJson@{SVCJson}}
+\subsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_s_v_c_json}{S\+V\+C\+Json}} $\ast$ S\+V\+C\+Json\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Function to retrieve the instance of this singleton service. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_s_v_c_json}{S\+V\+C\+Json}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_s_v_c_json_a0977d01535e63b2cc76a0fb35cc17966}\label{class_s_v_c_json_a0977d01535e63b2cc76a0fb35cc17966}} 
+\index{SVCJson@{SVCJson}!persistJSONToLocalFileSystem@{persistJSONToLocalFileSystem}}
+\index{persistJSONToLocalFileSystem@{persistJSONToLocalFileSystem}!SVCJson@{SVCJson}}
+\subsubsection{\texorpdfstring{persistJSONToLocalFileSystem()}{persistJSONToLocalFileSystem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void S\+V\+C\+Json\+::persist\+J\+S\+O\+N\+To\+Local\+File\+System (\begin{DoxyParamCaption}\item[{Q\+Json\+Object}]{json\+Obj,  }\item[{Q\+String}]{local\+File\+Path }\end{DoxyParamCaption})}
+
+
+
+Saves a J\+S\+ON object to the local filesystem, creating directories and/or a new file if necessary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em json\+Obj} & The J\+S\+ON object to write. \\
+\hline
+{\em local\+File\+Path} & The path to save to (e.\+g. \char`\"{}jsonfolder/myjsoniwantsaved.\+json\char`\"{}). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_s_v_c_json_a957845d6aad8c6acd176de1b9108bed5}\label{class_s_v_c_json_a957845d6aad8c6acd176de1b9108bed5}} 
+\index{SVCJson@{SVCJson}!persistJSONToLocalFileSystem@{persistJSONToLocalFileSystem}}
+\index{persistJSONToLocalFileSystem@{persistJSONToLocalFileSystem}!SVCJson@{SVCJson}}
+\subsubsection{\texorpdfstring{persistJSONToLocalFileSystem()}{persistJSONToLocalFileSystem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void S\+V\+C\+Json\+::persist\+J\+S\+O\+N\+To\+Local\+File\+System (\begin{DoxyParamCaption}\item[{Q\+Json\+Array}]{json\+Arr,  }\item[{Q\+String}]{local\+File\+Path }\end{DoxyParamCaption})}
+
+
+
+Saves a J\+S\+ON array to the local filesystem, creating directories and/or a new file if necessary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em json\+Arr} & The J\+S\+ON array to write. \\
+\hline
+{\em local\+File\+Path} & The path to save to (e.\+g. \char`\"{}jsonfolder/myjsoniwantsaved.\+json\char`\"{}). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_s_v_c_json_a0f80c2f8372fdfe4158df6f49ccbe1ac}\label{class_s_v_c_json_a0f80c2f8372fdfe4158df6f49ccbe1ac}} 
+\index{SVCJson@{SVCJson}!readJsonArrayFile@{readJsonArrayFile}}
+\index{readJsonArrayFile@{readJsonArrayFile}!SVCJson@{SVCJson}}
+\subsubsection{\texorpdfstring{readJsonArrayFile()}{readJsonArrayFile()}}
+{\footnotesize\ttfamily Q\+Json\+Array S\+V\+C\+Json\+::read\+Json\+Array\+File (\begin{DoxyParamCaption}\item[{Q\+String}]{local\+File\+Path }\end{DoxyParamCaption})}
+
+
+
+Reads a J\+S\+ON object from a file in the local file system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em local\+File\+Path} & The path to read from (e.\+g. \char`\"{}jsonfolder/myjsoniwanttoread.\+json\char`\"{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Q\+Json\+Array\+: Raw J\+S\+ON. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_s_v_c_json_aacff71253cc41cb2a403cf2226038962}\label{class_s_v_c_json_aacff71253cc41cb2a403cf2226038962}} 
+\index{SVCJson@{SVCJson}!readJsonObjectFile@{readJsonObjectFile}}
+\index{readJsonObjectFile@{readJsonObjectFile}!SVCJson@{SVCJson}}
+\subsubsection{\texorpdfstring{readJsonObjectFile()}{readJsonObjectFile()}}
+{\footnotesize\ttfamily Q\+Json\+Object S\+V\+C\+Json\+::read\+Json\+Object\+File (\begin{DoxyParamCaption}\item[{Q\+String}]{local\+File\+Path }\end{DoxyParamCaption})}
+
+
+
+Reads a J\+S\+ON array from a file in the local file system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em local\+File\+Path} & The path to read from (e.\+g. \char`\"{}jsonfolder/myjsoniwanttoread.\+json\char`\"{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Q\+Json\+Object\+: Raw J\+S\+ON. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+services/svcjson.\+h\item 
+services/svcjson.\+cpp\end{DoxyCompactItemize}
