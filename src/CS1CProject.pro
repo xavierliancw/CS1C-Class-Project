@@ -57,7 +57,8 @@ HEADERS += \
     util/goldenconevector.h \
     ui/dlgcontactform.h \
     viewmodels/vmcanvas.h \
-    ui/dlgshapeadderrect.h
+    ui/dlgshapeadderrect.h \
+    models/jsonshape.h
 
 FORMS += \
     ui/winmain.ui \
