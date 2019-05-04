@@ -26,6 +26,10 @@ public:
      * Name of the JSON file that persists testimonials.
      */
     const QString fileNameForTestimonials = "testimonials.json";
+    /**
+     * Nameo of the JSON file that persists the graphics canvas.
+     */
+    const QString fileNameForSavedGraphicsCanvas = "canvas.json";
 };
 
 #endif // GIMME_H

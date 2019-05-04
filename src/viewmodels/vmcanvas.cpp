@@ -5,6 +5,7 @@ VMCanvas::VMCanvas(std::function<void(void)> lambdaCanvasDidRefresh,
 {
     this->lambdaCanvasDidRefresh = lambdaCanvasDidRefresh;
     this->lambdaCanvasDidEditShapeAtLayer = lambdaCanvasDidEditShapeAtLayer;
+    loadSavedCanvasGraphicsFromStorage();
 }
 
 void VMCanvas::addShape(IShape* shape)
@@ -36,7 +37,8 @@ void VMCanvas::removeShapeAtLayer(unsigned int layerID)
     if (invalid(layerID)) {return;}
     IShape** shapeToDelete = shapesInMemory.begin();
     shapeToDelete += layerID;
-    shapesInMemory.erase(shapeToDelete);    //Delete the shape
+    delete shapesInMemory[layerID];         //Delete the shape
+    shapesInMemory.erase(shapeToDelete);    //Remove the slot in the vector
 
     //Restore ID order
     for (unsigned int x = 0; x < static_cast<unsigned int>(shapesInMemory.size()); ++x)
@@ -86,4 +88,64 @@ bool VMCanvas::invalid(unsigned int layerID)
 {
     return shapesInMemory.size() == 0 ||
             layerID + 1 > static_cast<unsigned int>(shapesInMemory.size());
+}
+
+void VMCanvas::persistCanvasToStorage()
+{
+    QJsonArray jsonArrayOfShapesToSave;
+
+    //Serialize shapes to JSON
+    for (IShape* saveThisShape: shapesInMemory)
+    {
+        jsonArrayOfShapesToSave.push_back(JSONShape::toJSON(saveThisShape));
+    }
+    //Save to memory
+    SVCJson::getInstance()->
+            persistJSONToLocalFileSystem(jsonArrayOfShapesToSave,
+                                         Gimme::theShared()->fileNameForSavedGraphicsCanvas);
+}
+
+void VMCanvas::loadSavedCanvasGraphicsFromStorage()
+{
+    QJsonArray loadedJSONShapes;
+    IShape* possRestoredShape = nullptr;
+    QVector<IShape*> buildVect;
+
+    //Load data from saved canvas file into memory
+    loadedJSONShapes= SVCJson::getInstance()->
+            readJsonArrayFile(Gimme::theShared()->fileNameForSavedGraphicsCanvas);
+
+    //Regenerate shapes from the JSON
+    for (QJsonValueRef jsonRef: loadedJSONShapes)
+    {
+        possRestoredShape = nullptr;    //Reset this every time to avoid duplicate shapes on fails
+        if (jsonRef.isObject())
+        {
+            possRestoredShape = JSONShape::fromJSON(jsonRef.toObject());
+        }
+        if (possRestoredShape != nullptr)
+        {
+            buildVect.push_back(possRestoredShape);
+        }
+    }
+    //Clear out memory in current canvas
+    for (IShape* oldShape: shapesInMemory)
+    {
+        delete oldShape;
+    }
+    //Clear out current canvas
+    IShape** delCursor = shapesInMemory.begin();
+    while (delCursor != shapesInMemory.end())
+    {
+        shapesInMemory.erase(delCursor);
+    }
+    //Finally
+    for (int x = 0; x < buildVect.size(); ++x)
+    {
+        //Make sure the IDs are contiguous and proper when importing
+        buildVect[x]->id = x;
+
+        //Move stuff from the built vector into canvas memory
+        shapesInMemory.push_back(buildVect[x]);
+    }
 }

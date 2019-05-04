@@ -63,7 +63,7 @@ struct JSONShape
         rawJSONDimens = json[keyDimens].toArray();
 
         //Map to ints
-        foreach (const QJsonValue& value, dimens) {dimens.append(value.toInt());}
+        foreach (const QJsonValue& value, rawJSONDimens) {dimens.append(value.toInt());}
 
         //Init the specific shape
         retShape = dynmaicallyIinitializedShapeGiven(shType, rawShapeTypeJSON, dimens);
@@ -223,19 +223,42 @@ private:
     static QJsonArray serializedDimensionsFrom(const IShape* shapeToSerialize)
     {
         QJsonArray jsonAr;
-        if (const ShapeRect* rect = dynamic_cast<const ShapeRect*>(shapeToSerialize))
+        switch (shapeToSerialize->getShape())
         {
-            QJsonValue x(rect->frame.x()); QJsonValue y(rect->frame.y());
-            QJsonValue w(rect->frame.width()); QJsonValue h(rect->frame.height());
-            jsonAr.append(x); jsonAr.append(y);
-            jsonAr.append(w); jsonAr.append(h);
-        }
-        else if (const ShapeSquare* sq = dynamic_cast<const ShapeSquare*>(shapeToSerialize))
-        {
-            QJsonValue x(sq->frame.x()); QJsonValue y(sq->frame.y());
-            QJsonValue w(sq->frame.width());
-            jsonAr.append(x); jsonAr.append(y);
-            jsonAr.append(w);
+        case IShape::ShapeType::Line:
+            break;
+        case IShape::ShapeType::Text:
+            break;
+        case IShape::ShapeType::Circle:
+            break;
+        case IShape::ShapeType::Square:
+            if (const ShapeSquare* sq = dynamic_cast<const ShapeSquare*>(shapeToSerialize))
+            {
+                QJsonValue x(sq->frame.x()); QJsonValue y(sq->frame.y());
+                QJsonValue w(sq->frame.width());
+                jsonAr.append(x); jsonAr.append(y);
+                jsonAr.append(w);
+            }
+            break;
+        case IShape::ShapeType::Ellipse:
+            break;
+        case IShape::ShapeType::NoShape:
+            break;
+        case IShape::ShapeType::Polygon:
+            break;
+        case IShape::ShapeType::Polyline:
+            break;
+        case IShape::ShapeType::Triangle:
+            break;
+        case IShape::ShapeType::Rectangle:
+            if (const ShapeRect* rect = dynamic_cast<const ShapeRect*>(shapeToSerialize))
+            {
+                QJsonValue x(rect->frame.x()); QJsonValue y(rect->frame.y());
+                QJsonValue w(rect->frame.width()); QJsonValue h(rect->frame.height());
+                jsonAr.append(x); jsonAr.append(y);
+                jsonAr.append(w); jsonAr.append(h);
+            }
+            break;
         }
         return jsonAr;
     }
@@ -391,16 +414,5 @@ private:
         }
     }
 };
-const QString JSONShape::keyShapeID = "ShapeId";
-const QString JSONShape::keyShapeType = "ShapeType";
-const QString JSONShape::keyDimens = "ShapeDimensions";
-const QString JSONShape::keyPenClr = "PenColor";
-const QString JSONShape::keyPenWidth = "PenWidth";
-const QString JSONShape::keyPenStyle = "PenStyle";
-const QString JSONShape::keyPenCapStyle = "PenCapStyle";
-const QString JSONShape::keyPenJoinStyle = "PenJoinStyle";
-const QString JSONShape::keyBrushClr = "BrushColor";
-const QString JSONShape::keyBrushStyle = "BrushStyle";
-const QString JSONShape::keyText = "Text";
 
 #endif // JSONSHAPE_H

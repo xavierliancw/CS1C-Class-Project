@@ -4,7 +4,7 @@
 WINMain::WINMain(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::WINMain),
-    vm(initVM())
+    vm(initCanvasVM())
 {
     ui->setupUi(this);
 
@@ -16,6 +16,8 @@ WINMain::WINMain(QWidget *parent) :
     //Initialze UI on the canvas page
     initAddRectBt();
     initAddSquareBt();
+
+    switchScreenToShow(ScreensInWINMain::welcome);  //Force welcome screen on start
 }
 
 WINMain::~WINMain()
@@ -23,10 +25,16 @@ WINMain::~WINMain()
     delete ui;
 }
 
+void WINMain::closeEvent(QCloseEvent*)
+{
+    vm.persistCanvasToStorage();
+}
+
 void WINMain::paintEvent(QPaintEvent*)
 {
-    //Don't even think about drawing until we're on the canvas page
-    if (ui->stackWdgt->currentWidget() != ui->canvasPg)
+    //Don't even think about drawing until we're on a canvas page
+    if (ui->stackWdgt->currentWidget() != ui->canvasPg)// &&
+//            ui->stackWdgt->currentWidget() != ui->guestPg)
     {
         return;
     }
@@ -49,7 +57,7 @@ void WINMain::initStartBt()
 {
     connect(ui->startBt, &QPushButton::clicked, ui->startBt, [this]()
     {
-        this->ui->stackWdgt->setCurrentWidget(this->ui->canvasPg);
+        this->switchScreenToShow(ScreensInWINMain::canvas);
     });
 }
 
@@ -73,15 +81,45 @@ void WINMain::initTestimonialCreateBt()
     });
 }
 
-VMCanvas WINMain::initVM()
+VMCanvas WINMain::initCanvasVM()
 {
     return VMCanvas([this]() {      //Lambda to refresh the canvas
-        this->update();
-        this->ui->canvasVw->update();
+        this->redrawWhateverCurrentCanvasIsShowing();
     },
     [this](IShape* shapeToEdit) {   //Lambda to edit a shape
         qDebug() << "gonna edit" << shapeToEdit->id;    //TODO
     });
+}
+
+void WINMain::redrawWhateverCurrentCanvasIsShowing()
+{
+    this->update();
+    if (this->ui->stackWdgt->currentWidget() == this->ui->canvasPg)
+    {
+        this->ui->canvasVw->update();
+    }
+//    else if (this->ui->stackWdgt->currentWidget() == this->ui->guestPg)
+//    {
+//        this->ui->guestCanvasVw->update();
+//    }
+}
+
+void WINMain::switchScreenToShow(ScreensInWINMain screen)
+{
+    switch (screen)
+    {
+    case guest:
+//        ui->stackWdgt->setCurrentWidget(ui->guestPg);
+        redrawWhateverCurrentCanvasIsShowing();
+        break;
+    case canvas:
+        ui->stackWdgt->setCurrentWidget(ui->canvasPg);
+        redrawWhateverCurrentCanvasIsShowing();
+        break;
+    case welcome:
+        ui->stackWdgt->setCurrentWidget(ui->welcomePg);
+        break;
+    }
 }
 
 void WINMain::initAddRectBt()

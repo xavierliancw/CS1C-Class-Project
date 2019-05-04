@@ -1,9 +1,15 @@
 #ifndef VMCANVAS_H
 #define VMCANVAS_H
 
+#include "gimme.h"
+#include "services/svcjson.h"
+#include "models/jsonshape.h"
 #include <util/goldenconevector.h>
 #include <models/ishape.h>
 #include <functional>
+#include <QVector>
+#include <QJsonValueRef>
+#include <QJsonArray>
 
 /**
  * @brief View model for the graphics canvas. This contains the resources and business logic for
@@ -68,6 +74,11 @@ public:
      */
     void changeShapeLayer(unsigned int layerID, unsigned int destinationLayerID);
 
+    /**
+     * @brief Saves the current state of user-generated graphics to persistent storage.
+     */
+    void persistCanvasToStorage();
+
 private:
     /**
      * Holds all shapes on the canvas in memory. The order of the shapes in this vector matters
@@ -88,6 +99,7 @@ private:
      * @return bool: True if layer ID in question does not exist, false otherwise.
      */
     bool invalid(unsigned int layerID);
+    void loadSavedCanvasGraphicsFromStorage();
 };
 
 #endif // VMCANVAS_H
