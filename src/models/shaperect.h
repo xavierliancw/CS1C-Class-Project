@@ -14,13 +14,13 @@ public:
     /**
      * @brief Constructor.
      *
-     * @param id: The shape ID.
+     * @param shapeType: The shape type.
      * @param originX Starting X pixel position of the origin.
      * @param originY Starting Y pixel position of the origin.
      * @param width Starting width in pixels.
      * @param height Starting height in pixels.
      */
-    ShapeRect(int id, int originX, int originY, int width, int height);
+    ShapeRect(IShape::ShapeType shapeType, int originX, int originY, int width, int height);
     /**
      * @brief Deleted copy constructor.
      *

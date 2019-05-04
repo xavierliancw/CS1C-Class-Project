@@ -8,20 +8,14 @@ WINMain::WINMain(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //UI behavior definitions
+    //Initialize UI on welcome page
     initStartBt();
     initContactUsBt();
     initTestimonialCreateBt();
 
-    connect(ui->addRectBt, &QPushButton::clicked, ui->addRectBt, [this]()
-    {
-        dlgAddShapeRect = new DLGShapeAdderRect(nullptr, [this](ShapeRect* rectIn)
-        {
-            this->vm.addShape(rectIn);
-        });
-        dlgAddShapeRect->setAttribute(Qt::WA_DeleteOnClose);
-        dlgAddShapeRect->show();
-    });
+    //Initialze UI on the canvas page
+    initAddRectBt();
+    initAddSquareBt();
 }
 
 WINMain::~WINMain()
@@ -87,5 +81,35 @@ VMCanvas WINMain::initVM()
     },
     [this](IShape* shapeToEdit) {   //Lambda to edit a shape
         qDebug() << "gonna edit" << shapeToEdit->id;    //TODO
+    });
+}
+
+void WINMain::initAddRectBt()
+{
+    connect(ui->addRectBt, &QPushButton::clicked, ui->addRectBt, [this]()
+    {
+        dlgAddShapeRect = new DLGShapeAdderRect(nullptr,
+                                                DLGShapeAdderRect::Mode::RectCreate,
+                                                [this](IShape* rectIn)
+        {
+            this->vm.addShape(rectIn);
+        });
+        dlgAddShapeRect->setAttribute(Qt::WA_DeleteOnClose);
+        dlgAddShapeRect->show();
+    });
+}
+
+void WINMain::initAddSquareBt()
+{
+    connect(ui->addSquareBt, &QPushButton::clicked, ui->addSquareBt, [this]()
+    {
+        dlgAddShapeRect = new DLGShapeAdderRect(nullptr,
+                                                DLGShapeAdderRect::Mode::SquareCreate,
+                                                [this](IShape* rectIn)
+        {
+            this->vm.addShape(rectIn);
+        });
+        dlgAddShapeRect->setAttribute(Qt::WA_DeleteOnClose);
+        dlgAddShapeRect->show();
     });
 }
