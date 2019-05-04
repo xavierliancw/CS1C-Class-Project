@@ -14,6 +14,7 @@
 #include <QMainWindow>
 #include <QPainter>
 #include <QDebug>
+#include <QTimer>
 
 namespace Ui {
 class WINMain;
@@ -79,6 +80,7 @@ private:
     void initContactUsBt();
 
     //UI on canvas screen
+    void initCanvasBackBt();
     void initAddRectBt();
     void initAddSquareBt();
 };

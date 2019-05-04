@@ -14,6 +14,7 @@ WINMain::WINMain(QWidget *parent) :
     initTestimonialCreateBt();
 
     //Initialze UI on the canvas page
+    initCanvasBackBt();
     initAddRectBt();
     initAddSquareBt();
 
@@ -93,15 +94,19 @@ VMCanvas WINMain::initCanvasVM()
 
 void WINMain::redrawWhateverCurrentCanvasIsShowing()
 {
-    this->update();
-    if (this->ui->stackWdgt->currentWidget() == this->ui->canvasPg)
+    //Put a "delay (even though the delay is 0)" on this so the redraws happen at the right time
+    QTimer::singleShot(0, this, [this]()
     {
-        this->ui->canvasVw->update();
-    }
-//    else if (this->ui->stackWdgt->currentWidget() == this->ui->guestPg)
-//    {
-//        this->ui->guestCanvasVw->update();
-//    }
+        this->update();
+        if (this->ui->stackWdgt->currentWidget() == this->ui->canvasPg)
+        {
+            this->ui->canvasVw->update();
+        }
+        //    else if (this->ui->stackWdgt->currentWidget() == this->ui->guestPg)
+        //    {
+        //        this->ui->guestCanvasVw->update();
+        //    }
+    });
 }
 
 void WINMain::switchScreenToShow(ScreensInWINMain screen)
@@ -110,6 +115,7 @@ void WINMain::switchScreenToShow(ScreensInWINMain screen)
     {
     case guest:
 //        ui->stackWdgt->setCurrentWidget(ui->guestPg);
+        switchScreenToShow(ScreensInWINMain::welcome);  //TODO replace this line with the comment above
         redrawWhateverCurrentCanvasIsShowing();
         break;
     case canvas:
@@ -149,5 +155,14 @@ void WINMain::initAddSquareBt()
         });
         dlgAddShapeRect->setAttribute(Qt::WA_DeleteOnClose);
         dlgAddShapeRect->show();
+    });
+}
+
+void WINMain::initCanvasBackBt()
+{
+    connect(ui->canvasPgBackBt, &QPushButton::clicked, ui->canvasPgBackBt, [this]()
+    {
+        vm.persistCanvasToStorage();
+        this->switchScreenToShow(ScreensInWINMain::guest);
     });
 }
