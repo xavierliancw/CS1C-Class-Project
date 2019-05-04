@@ -6,6 +6,7 @@
 #include "dlgtestimonialcreate.h"
 #include "models/shapeellipse.h"
 #include "models/ishape.h"
+#include "models/shapecircle.h"
 #include "viewmodels/vmcanvas.h"
 #include <util/goldenconevector.h>
 #include <chrono>
