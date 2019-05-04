@@ -5,7 +5,13 @@ VMCanvas::VMCanvas(std::function<void(void)> lambdaCanvasDidRefresh,
 {
     this->lambdaCanvasDidRefresh = lambdaCanvasDidRefresh;
     this->lambdaCanvasDidEditShapeAtLayer = lambdaCanvasDidEditShapeAtLayer;
-    loadSavedCanvasGraphicsFromStorage();
+
+    try
+    {
+        loadSavedCanvasGraphicsFromStorage();
+    }
+    catch (SVCJson::JsonFileSystemError x)
+    {/*Ignore this exception because the program will sometimes start with no saved file*/}
 }
 
 void VMCanvas::addShape(IShape* shape)
