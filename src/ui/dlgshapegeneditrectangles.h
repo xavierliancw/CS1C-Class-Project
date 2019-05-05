@@ -7,9 +7,7 @@
 #include <QIntValidator>
 #include <functional>
 
-namespace Ui {
-class DLGShapeAdderRect;
-}
+namespace Ui {class DLGShapeGenEditRectangles;}
 
 /**
  * @brief Dialog that generates a rectangle shape in dynamic memory, returning a pointer to it
@@ -45,7 +43,7 @@ public:
     ~DLGShapeGenEditRectangles() override;
 
 private:
-    Ui::DLGShapeAdderRect *ui; /**< UI pointer. */
+    Ui::DLGShapeGenEditRectangles *ui; /**< UI pointer. */
     std::function<void(IShape*)> lambdaRectResult; /**< Callback lambda. */
     QIntValidator* intValidator; /**< Field validator object that forces only numeric input. */
     Mode currentDisplayMode; /** < The mode this dialog is currently in. */

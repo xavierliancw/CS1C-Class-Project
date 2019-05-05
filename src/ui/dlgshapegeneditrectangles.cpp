@@ -1,11 +1,11 @@
 #include "dlgshapegeneditrectangles.h"
-#include "ui_dlgshapeadderrect.h"
+#include "ui_dlgshapegeneditrectangles.h"
 
 DLGShapeGenEditRectangles::DLGShapeGenEditRectangles(QWidget *parent,
                                                      Mode startingMode,
                                                      std::function<void(IShape*)> rectResult) :
     QDialog(parent),
-    ui(new Ui::DLGShapeAdderRect)
+    ui(new Ui::DLGShapeGenEditRectangles)
 {
     ui->setupUi(this);
 

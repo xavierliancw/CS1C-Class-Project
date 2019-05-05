@@ -72,7 +72,7 @@ FORMS += \
     ui/dlgtestimonialcreate.ui \
     ui/dlgshapeselector.ui \
     ui/dlgcontactform.ui \
-    ui/dlgshapeadderrect.ui \
+    ui/DLGShapeGenEditRectangles.ui \
     ui/lcshapelayer.ui
 
 CONFIG += mobility
