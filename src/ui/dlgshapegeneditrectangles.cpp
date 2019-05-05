@@ -1,9 +1,9 @@
-#include "dlgshapeadderrect.h"
+#include "dlgshapegeneditrectangles.h"
 #include "ui_dlgshapeadderrect.h"
 
-DLGShapeAdderRect::DLGShapeAdderRect(QWidget *parent,
-                                     Mode startingMode,
-                                     std::function<void(IShape*)> rectResult) :
+DLGShapeGenEditRectangles::DLGShapeGenEditRectangles(QWidget *parent,
+                                                     Mode startingMode,
+                                                     std::function<void(IShape*)> rectResult) :
     QDialog(parent),
     ui(new Ui::DLGShapeAdderRect)
 {
@@ -71,18 +71,18 @@ DLGShapeAdderRect::DLGShapeAdderRect(QWidget *parent,
     updateAddBtEnableState();
 }
 
-DLGShapeAdderRect::~DLGShapeAdderRect()
+DLGShapeGenEditRectangles::~DLGShapeGenEditRectangles()
 {
     delete intValidator;
     delete ui;
 }
 
-void DLGShapeAdderRect::updateAddBtEnableState()
+void DLGShapeGenEditRectangles::updateAddBtEnableState()
 {
     ui->addBt->setEnabled(inputsAreValid());
 }
 
-void DLGShapeAdderRect::giveDLGSummonerCreatedRectIfPossible()
+void DLGShapeGenEditRectangles::giveDLGSummonerCreatedRectIfPossible()
 {
     IShape* newRect = nullptr;
 
@@ -109,7 +109,7 @@ void DLGShapeAdderRect::giveDLGSummonerCreatedRectIfPossible()
     lambdaRectResult(newRect);
 }
 
-bool DLGShapeAdderRect::inputsAreValid()
+bool DLGShapeGenEditRectangles::inputsAreValid()
 {
     switch (currentDisplayMode)
     {

@@ -16,7 +16,7 @@ class DLGShapeAdderRect;
  * through a lambda initialized in its constructor.
  *
  */
-class DLGShapeAdderRect : public QDialog
+class DLGShapeGenEditRectangles : public QDialog
 {
     Q_OBJECT
 
@@ -35,14 +35,14 @@ public:
      * @param startingMode: Mode to start with (generate a rect or a square).
      * @param rectResult: Callback for possible generated shapes.
      */
-    explicit DLGShapeAdderRect(QWidget *parent = nullptr,
-                               Mode startingMode = RectCreate,
-                               std::function<void(IShape*)> rectResult = [](IShape*){});
+    explicit DLGShapeGenEditRectangles(QWidget *parent = nullptr,
+                                       Mode startingMode = RectCreate,
+                                       std::function<void(IShape*)> rectResult = [](IShape*){});
     /**
      * @brief Destructor.
      *
      */
-    ~DLGShapeAdderRect() override;
+    ~DLGShapeGenEditRectangles() override;
 
 private:
     Ui::DLGShapeAdderRect *ui; /**< UI pointer. */

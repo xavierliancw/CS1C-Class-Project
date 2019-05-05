@@ -40,10 +40,10 @@ SOURCES += \
     ui/dlgshapeselector.cpp \
     ui/dlgcontactform.cpp \
     viewmodels/vmcanvas.cpp \
-    ui/dlgshapeadderrect.cpp \
     models/shapesquare.cpp \
     models/jsonshape.cpp \
-    ui/lcshapelayer.cpp
+    ui/lcshapelayer.cpp \
+    ui/dlgshapegeneditrectangles.cpp
 
 HEADERS += \
     models/shapecircle.h \
@@ -62,10 +62,10 @@ HEADERS += \
     util/goldenconevector.h \
     ui/dlgcontactform.h \
     viewmodels/vmcanvas.h \
-    ui/dlgshapeadderrect.h \
     models/jsonshape.h \
     models/shapesquare.h \
-    ui/lcshapelayer.h
+    ui/lcshapelayer.h \
+    ui/dlgshapegeneditrectangles.h
 
 FORMS += \
     ui/winmain.ui \

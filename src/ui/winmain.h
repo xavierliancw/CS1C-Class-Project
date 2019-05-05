@@ -2,7 +2,7 @@
 #define WINMAIN_H
 
 #include "dlgcontactform.h"
-#include "dlgshapeadderrect.h"
+#include "dlgshapegeneditrectangles.h"
 #include "dlgtestimonialcreate.h"
 #include "models/shapeellipse.h"
 #include "models/ishape.h"
@@ -82,7 +82,7 @@ private:
     //Pop up UI
     DLGTestimonialCreate *testimonialFormWin;
     DLGContactForm *contactFormWin;
-    DLGShapeAdderRect *dlgAddShapeRect;
+    DLGShapeGenEditRectangles *dlgAddShapeRect;
 
     //Canvas UI
     QTimer* refreshTimer;

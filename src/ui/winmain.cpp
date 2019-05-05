@@ -227,8 +227,8 @@ void WINMain::initAddRectBt()
 {
     connect(ui->addRectBt, &QPushButton::clicked, ui->addRectBt, [this]()
     {
-        dlgAddShapeRect = new DLGShapeAdderRect(nullptr,
-                                                DLGShapeAdderRect::Mode::RectCreate,
+        dlgAddShapeRect = new DLGShapeGenEditRectangles(nullptr,
+                                                DLGShapeGenEditRectangles::Mode::RectCreate,
                                                 [this](IShape* rectIn)
         {
             this->vm.addShape(rectIn);
@@ -242,8 +242,8 @@ void WINMain::initAddSquareBt()
 {
     connect(ui->addSquareBt, &QPushButton::clicked, ui->addSquareBt, [this]()
     {
-        dlgAddShapeRect = new DLGShapeAdderRect(nullptr,
-                                                DLGShapeAdderRect::Mode::SquareCreate,
+        dlgAddShapeRect = new DLGShapeGenEditRectangles(nullptr,
+                                                DLGShapeGenEditRectangles::Mode::SquareCreate,
                                                 [this](IShape* rectIn)
         {
             this->vm.addShape(rectIn);
