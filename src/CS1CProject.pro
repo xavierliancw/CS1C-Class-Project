@@ -42,7 +42,8 @@ SOURCES += \
     viewmodels/vmcanvas.cpp \
     ui/dlgshapeadderrect.cpp \
     models/shapesquare.cpp \
-    models/jsonshape.cpp
+    models/jsonshape.cpp \
+    ui/lcshapelayer.cpp
 
 HEADERS += \
     models/shapecircle.h \
@@ -63,14 +64,16 @@ HEADERS += \
     viewmodels/vmcanvas.h \
     ui/dlgshapeadderrect.h \
     models/jsonshape.h \
-    models/shapesquare.h
+    models/shapesquare.h \
+    ui/lcshapelayer.h
 
 FORMS += \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
     ui/dlgshapeselector.ui \
     ui/dlgcontactform.ui \
-    ui/dlgshapeadderrect.ui
+    ui/dlgshapeadderrect.ui \
+    ui/lcshapelayer.ui
 
 CONFIG += mobility
 MOBILITY = 
