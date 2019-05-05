@@ -17,12 +17,28 @@ WINMain::WINMain(QWidget *parent) :
     initCanvasBackBt();
     initAddRectBt();
     initAddSquareBt();
+    initLayerSelectionBehavior();
+    ui->splitter->setSizes(QList<int>() << 1 << 1); //This evens out canvas and editor UI somehow
+
+    //Start the refresh timer that live renders the canvas
+    refreshTimer = new QTimer(this);
+    connect(refreshTimer, &QTimer::timeout, refreshTimer, [this]()
+    {
+        this->redrawWhateverCurrentCanvasIsShowing();
+    });
+    refreshTimer->start(100);
 
     switchScreenToShow(ScreensInWINMain::welcome);  //Force welcome screen on start
 }
 
 WINMain::~WINMain()
 {
+    refreshTimer->stop();
+    delete refreshTimer;
+    for (LCShapeLayer* freeThis: layerVwCells)
+    {
+        delete freeThis;
+    }
     delete ui;
 }
 
@@ -84,29 +100,65 @@ void WINMain::initTestimonialCreateBt()
 
 VMCanvas WINMain::initCanvasVM()
 {
-    return VMCanvas([this]() {      //Lambda to refresh the canvas
-        this->redrawWhateverCurrentCanvasIsShowing();
+    return VMCanvas([this]()    //Lambda to refresh the UI elements on the canvas
+    {
+        this->refreshLayersVw();
     },
-    [this](IShape* shapeToEdit) {   //Lambda to edit a shape
+    [this](IShape* shapeToEdit) //Lambda to edit a shape
+    {
         qDebug() << "gonna edit" << shapeToEdit->id;    //TODO
     });
 }
 
+void WINMain::refreshLayersVw()
+{
+    int shapeCount = static_cast<int>(vm.getNumberOfShapesOnCanvas());
+    QListWidget *listVw = ui->canvasPgLayerListVw;
+
+    //Things break if shape count is somehow negative, so ensure that doesn't ever happen
+    if (shapeCount < 0) {return;}
+
+    //I am super lazy. Who cares about performance? Tear it all down!
+    for (int x = 0; x < layerVwCells.size(); ++x)
+    {
+        delete layerVwCells[x];
+    }
+    layerVwCells.clear();
+    listVw->clear();
+
+    //Build it back up!
+    for (int x = 0; x < shapeCount; ++x)
+    {
+        QListWidgetItem* newRow = new QListWidgetItem(listVw, 0);
+        LCShapeLayer* newCell = new LCShapeLayer();
+        listVw->addItem(newRow);
+        listVw->setItemWidget(newRow, newCell);
+        newRow->setSizeHint(newCell->minimumSizeHint());
+        newCell->populateWith(vm.getShapeAtLayer(static_cast<unsigned int>(x)),
+                              [this](int delID)
+        {
+            qDebug() << "Delete " << delID;
+        },
+        [this](int edID)
+        {
+            qDebug() << "edit " << edID;
+        });
+        layerVwCells.push_back(newCell);
+    }
+}
+
 void WINMain::redrawWhateverCurrentCanvasIsShowing()
 {
-    //Put a "delay (even though the delay is 0)" on this so the redraws happen at the right time
-    QTimer::singleShot(0, this, [this]()
-    {
-        this->update();
         if (this->ui->stackWdgt->currentWidget() == this->ui->canvasPg)
         {
+            this->update();
             this->ui->canvasVw->update();
         }
         //    else if (this->ui->stackWdgt->currentWidget() == this->ui->guestPg)
         //    {
+        //        this->update();
         //        this->ui->guestCanvasVw->update();
         //    }
-    });
 }
 
 void WINMain::switchScreenToShow(ScreensInWINMain screen)
@@ -116,11 +168,10 @@ void WINMain::switchScreenToShow(ScreensInWINMain screen)
     case guest:
 //        ui->stackWdgt->setCurrentWidget(ui->guestPg);
         switchScreenToShow(ScreensInWINMain::welcome);  //TODO replace this line with the comment above
-        redrawWhateverCurrentCanvasIsShowing();
         break;
     case canvas:
         ui->stackWdgt->setCurrentWidget(ui->canvasPg);
-        redrawWhateverCurrentCanvasIsShowing();
+        refreshLayersVw();
         break;
     case welcome:
         ui->stackWdgt->setCurrentWidget(ui->welcomePg);
@@ -164,5 +215,14 @@ void WINMain::initCanvasBackBt()
     {
         vm.persistCanvasToStorage();
         this->switchScreenToShow(ScreensInWINMain::guest);
+    });
+}
+
+void WINMain::initLayerSelectionBehavior()
+{
+    connect(ui->canvasPgLayerListVw, &QListWidget::itemSelectionChanged, ui->canvasPgLayerListVw,
+            [this]()
+    {
+        qDebug() << "current selection is: " << ui->canvasPgLayerListVw->currentRow(); //TODO finish thisss
     });
 }

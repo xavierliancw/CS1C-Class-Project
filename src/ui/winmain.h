@@ -8,6 +8,7 @@
 #include "models/ishape.h"
 #include "models/shapecircle.h"
 #include "viewmodels/vmcanvas.h"
+#include "ui/lcshapelayer.h"
 #include <util/goldenconevector.h>
 #include <chrono>
 #include <QDialog>
@@ -15,6 +16,7 @@
 #include <QPainter>
 #include <QDebug>
 #include <QTimer>
+#include <QListWidgetItem>
 
 namespace Ui {
 class WINMain;
@@ -61,28 +63,32 @@ protected:
     void closeEvent(QCloseEvent*) override;
 
 private:
+    //General UI
     Ui::WINMain *ui;
+    void switchScreenToShow(ScreensInWINMain);
+
+    //Pop up UI
     DLGTestimonialCreate *testimonialFormWin;
     DLGContactForm *contactFormWin;
     DLGShapeAdderRect *dlgAddShapeRect;
-    VMCanvas vm;
 
-    //Canvas functions
+    //Canvas UI
+    QTimer* refreshTimer;
+    VMCanvas vm;
+    QVector<LCShapeLayer*> layerVwCells;
     VMCanvas initCanvasVM();
+    void initCanvasBackBt();
+    void initAddRectBt();
+    void initAddSquareBt();
+    void refreshLayersVw();
+    void initLayerSelectionBehavior();
     void redrawWhateverCurrentCanvasIsShowing();
 
-    //UI functions
-    void switchScreenToShow(ScreensInWINMain);
-
-    //UI on welcome screen
+    //Welcome screen UI
     void initStartBt();
     void initTestimonialCreateBt();
     void initContactUsBt();
 
-    //UI on canvas screen
-    void initCanvasBackBt();
-    void initAddRectBt();
-    void initAddSquareBt();
 };
 
 #endif // WINMAIN_H
