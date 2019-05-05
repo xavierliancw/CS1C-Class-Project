@@ -17,6 +17,7 @@
 #include <QDebug>
 #include <QTimer>
 #include <QListWidgetItem>
+#include <QDropEvent>
 
 namespace Ui {
 class WINMain;
@@ -62,6 +63,17 @@ protected:
      */
     void closeEvent(QCloseEvent*) override;
 
+    /**
+         * @brief Look for Qt events
+         * @param object : GUI element that's generating a Qt event
+         * @param event : Qt event that's happening
+         * @return Returns false always
+         *
+         * Drag and drop functionality within the itinerary is implemented
+         * in this method.
+         */
+    bool eventFilter(QObject *object, QEvent *event) override;
+
 private:
     //General UI
     Ui::WINMain *ui;
@@ -76,6 +88,7 @@ private:
     QTimer* refreshTimer;
     VMCanvas vm;
     QVector<LCShapeLayer*> layerVwCells;
+    int rowNumberFromPickUpEvent;
     VMCanvas initCanvasVM();
     void initCanvasBackBt();
     void initAddRectBt();

@@ -14,6 +14,8 @@ WINMain::WINMain(QWidget *parent) :
     initTestimonialCreateBt();
 
     //Initialze UI on the canvas page
+    rowNumberFromPickUpEvent = -1;
+    ui->canvasPgLayerListVw->viewport()->installEventFilter(this);
     initCanvasBackBt();
     initAddRectBt();
     initAddSquareBt();
@@ -63,11 +65,53 @@ void WINMain::paintEvent(QPaintEvent*)
     painter.fillRect(ui->canvasVw->rect(), Qt::GlobalColor::black);
 
     //Draw all shapes in memory (going backwards is important because 0 is lowest z-axis layer)
-    for (unsigned int x = vm.getNumberOfShapesOnCanvas(); x > 0; --x)
+    for (int x = vm.getNumberOfShapesOnCanvas(); x > 0; --x)
     {
         vm.getShapeAtLayer(x - 1)->draw(painter);
     }
     painter.end();
+}
+
+bool WINMain::eventFilter(QObject *object, QEvent *event)
+{
+    //The event is happening in the layers list view
+    if (object == ui->canvasPgLayerListVw->viewport())
+    {
+        QPoint pos;           //Helps model determine which row to drop to
+        QModelIndex model;    //Determines row drop location
+        QListWidget *listVw;  //The layer list view (just so I can type less
+
+        //On drop events
+        if (QDropEvent* castedDropEvent = dynamic_cast<QDropEvent*>(event))
+        {
+            listVw = ui->canvasPgLayerListVw;
+            pos = castedDropEvent->pos();
+            model = listVw->indexAt(pos);
+
+            switch (event->type())
+            {
+            case QEvent::DragEnter:
+                rowNumberFromPickUpEvent = listVw->currentRow();
+                break;
+            case QEvent::Drop:
+                //Ignore Qt's default drop behavior
+                castedDropEvent->setDropAction(Qt::IgnoreAction);
+
+                //Don't reorder backing data if row number is invalid
+                if (rowNumberFromPickUpEvent != -1)
+                {
+                    //Ask the view model to reorder the data
+                    vm.changeShapeLayer(rowNumberFromPickUpEvent, model.row());
+                }
+                refreshLayersVw();
+                rowNumberFromPickUpEvent = -1;  //Reset this
+                break;
+            default:
+                break;
+            }
+        }
+    }
+    return false;
 }
 
 void WINMain::initStartBt()
@@ -134,7 +178,7 @@ void WINMain::refreshLayersVw()
         listVw->addItem(newRow);
         listVw->setItemWidget(newRow, newCell);
         newRow->setSizeHint(newCell->minimumSizeHint());
-        newCell->populateWith(vm.getShapeAtLayer(static_cast<unsigned int>(x)),
+        newCell->populateWith(vm.getShapeAtLayer(x),
                               [this](int delID)
         {
             qDebug() << "Delete " << delID;
