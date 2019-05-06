@@ -41,7 +41,8 @@ SOURCES += \
     ui/dlgcontactform.cpp \
     viewmodels/vmcanvas.cpp \
     ui/dlgshapeadderrect.cpp \
-    models/shapesquare.cpp
+    models/shapesquare.cpp \
+    models/jsonshape.cpp
 
 HEADERS += \
     models/shapecircle.h \
@@ -61,6 +62,7 @@ HEADERS += \
     ui/dlgcontactform.h \
     viewmodels/vmcanvas.h \
     ui/dlgshapeadderrect.h \
+    models/jsonshape.h \
     models/shapesquare.h
 
 FORMS += \

@@ -14,6 +14,7 @@
 #include <QMainWindow>
 #include <QPainter>
 #include <QDebug>
+#include <QTimer>
 
 namespace Ui {
 class WINMain;
@@ -28,6 +29,11 @@ class WINMain : public QMainWindow
     Q_OBJECT
 
 public:
+    /**
+     * @brief The different screens WINMain can switch between.
+     */
+    enum ScreensInWINMain {welcome, guest, canvas};
+
     /**
      * @brief Constructor.
      *
@@ -47,34 +53,34 @@ protected:
      * @param QPaintEvent pointer (unused).
      */
     virtual void paintEvent(QPaintEvent*) override;
+    /**
+     * @brief Lifecycle event that fires when the window is closed.
+     *
+     * @param QCloseEvent pointer (unused).
+     */
+    void closeEvent(QCloseEvent*) override;
 
 private:
-    Ui::WINMain *ui; /**< WINMain's UI pointer. */
-    DLGTestimonialCreate *testimonialFormWin; /**< Pointer to the testimonial creation dialogue. */
-    DLGContactForm *contactFormWin; /**< Pointer to the contact form dialogue. */
-    VMCanvas vm; /**< View model for the canvas that contains business logic and UI definitions. */
-    DLGShapeAdderRect *dlgAddShapeRect; /** < Dialog that creates rectangles. */
+    Ui::WINMain *ui;
+    DLGTestimonialCreate *testimonialFormWin;
+    DLGContactForm *contactFormWin;
+    DLGShapeAdderRect *dlgAddShapeRect;
+    VMCanvas vm;
 
-    /**
-     * @brief Initializes the button behavior that launches the canvas view.
-     *
-     */
+    //Canvas functions
+    VMCanvas initCanvasVM();
+    void redrawWhateverCurrentCanvasIsShowing();
+
+    //UI functions
+    void switchScreenToShow(ScreensInWINMain);
+
+    //UI on welcome screen
     void initStartBt();
-    /**
-     * @brief Initializes the button behavior that summons the testimonial creation dialogue.
-     *
-     */
     void initTestimonialCreateBt();
-    /**
-     * @brief Initializes the button that summons the contact form dialogue.
-     *
-     */
     void initContactUsBt();
-    /**
-     * @brief Initializes the view model that contains the canvas business logic.
-     *
-     */
-    VMCanvas initVM();
+
+    //UI on canvas screen
+    void initCanvasBackBt();
     void initAddRectBt();
     void initAddSquareBt();
 };
