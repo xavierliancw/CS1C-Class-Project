@@ -1,7 +1,6 @@
 #ifndef DTOTESTIMONIAL_H
 #define DTOTESTIMONIAL_H
 #include <string>
-#include <optional>
 
 /**
  * @brief POCO that represents a customer testimonial.

@@ -33,7 +33,7 @@
        <number>1</number>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="welcomePg">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -57,6 +57,40 @@
            <string>Contact Us</string>
           </property>
          </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="guestPreviewPg">
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="2">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="guestPreviewBackBt">
+          <property name="text">
+           <string>&lt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QPushButton" name="guestPreviewEditBt">
+          <property name="text">
+           <string>Edit</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="3">
+         <widget class="QOpenGLWidget" name="guestCanvasVw"/>
         </item>
        </layout>
       </widget>
