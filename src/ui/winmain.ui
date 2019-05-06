@@ -396,26 +396,6 @@
                     <string>Dense 7</string>
                    </property>
                   </item>
-                  <item>
-                   <property name="text">
-                    <string>Linear Gradient</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Radial Gradient</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Conical Gradient</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Texture</string>
-                   </property>
-                  </item>
                  </widget>
                 </item>
                 <item row="2" column="0">

@@ -25,6 +25,7 @@ WINMain::WINMain(QWidget *parent) :
     initAddSquareBt();
     initLayerSelectionBehavior();
     ui->splitter->setSizes(QList<int>() << 1 << 1); //This evens out canvas and editor UI somehow
+    initPropertyInspector();
 
     //Start the refresh timer that live renders the canvas
     refreshTimer = new QTimer(this);
@@ -354,11 +355,132 @@ void WINMain::initLayerSelectionBehavior()
     });
 }
 
-void WINMain::updatePropertyInspectorFor(IShape * shape)
+void WINMain::initPropertyInspector()
 {
+    //Brush color
+    connect(ui->propInspBrushClrBt, &QPushButton::clicked, ui->propInspBrushClrBt, [this]()
+    {
+        QColor curColor = vm.getShapeAtLayer(ui->canvasPgLayerListVw->currentRow())->brush.color();
+        QColor color = QColorDialog::getColor(curColor, this);
+        if (color.isValid())
+        {
+            IShape* currShape = vm.getShapeAtLayer(ui->canvasPgLayerListVw->currentRow());
+            currShape->brush.setColor(color);
+            this->updatePropertyInspectorFor(currShape);
+        }
+    });
+
+    //Brush style
+    connect(ui->propInspBrushStyleCB,
+            static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            ui->propInspBrushStyleCB,
+            [this](int newSelection)
+    {
+        IShape* currShape = vm.getShapeAtLayer(ui->canvasPgLayerListVw->currentRow());
+        switch (newSelection)
+        {
+        case 0: currShape->brush.setStyle(Qt::BrushStyle::NoBrush); break;
+        case 1: currShape->brush.setStyle(Qt::BrushStyle::SolidPattern); break;
+        case 2: currShape->brush.setStyle(Qt::BrushStyle::HorPattern); break;
+        case 3: currShape->brush.setStyle(Qt::BrushStyle::VerPattern); break;
+        case 4: currShape->brush.setStyle(Qt::BrushStyle::CrossPattern); break;
+        case 5: currShape->brush.setStyle(Qt::BrushStyle::BDiagPattern); break;
+        case 6: currShape->brush.setStyle(Qt::BrushStyle::FDiagPattern); break;
+        case 7: currShape->brush.setStyle(Qt::BrushStyle::DiagCrossPattern); break;
+        case 8: currShape->brush.setStyle(Qt::BrushStyle::Dense1Pattern); break;
+        case 9: currShape->brush.setStyle(Qt::BrushStyle::Dense2Pattern); break;
+        case 10: currShape->brush.setStyle(Qt::BrushStyle::Dense3Pattern); break;
+        case 11: currShape->brush.setStyle(Qt::BrushStyle::Dense4Pattern); break;
+        case 12: currShape->brush.setStyle(Qt::BrushStyle::Dense5Pattern); break;
+        case 13: currShape->brush.setStyle(Qt::BrushStyle::Dense6Pattern); break;
+        case 14: currShape->brush.setStyle(Qt::BrushStyle::Dense7Pattern); break;
+        default: currShape->brush.setStyle(Qt::BrushStyle::NoBrush); break;
+        }
+    });
+
+    //Pen cap style
+    connect(ui->propInspPenCapCB,
+            static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            ui->propInspPenCapCB,
+            [this](int newSelection)
+    {
+        IShape* currShape = vm.getShapeAtLayer(ui->canvasPgLayerListVw->currentRow());
+        switch (newSelection)
+        {
+        case 0: currShape->pen.setCapStyle(Qt::PenCapStyle::SquareCap); break;
+        case 1: currShape->pen.setCapStyle(Qt::PenCapStyle::RoundCap); break;
+        case 2: currShape->pen.setCapStyle(Qt::PenCapStyle::FlatCap); break;
+        default: currShape->pen.setCapStyle(Qt::PenCapStyle::SquareCap); break;
+        }
+    });
+
+    //Pen color
+    connect(ui->propInspPenClrBt, &QPushButton::clicked, ui->propInspPenClrBt, [this]()
+    {
+        QColor curColor = vm.getShapeAtLayer(ui->canvasPgLayerListVw->currentRow())->pen.color();
+        QColor color = QColorDialog::getColor(curColor, this);
+        if (color.isValid())
+        {
+            IShape* currShape = vm.getShapeAtLayer(ui->canvasPgLayerListVw->currentRow());
+            currShape->pen.setColor(color);
+            this->updatePropertyInspectorFor(currShape);
+        }
+    });
+
+    //Pen join style
+    connect(ui->propInspPenJoinStyleCB,
+            static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            ui->propInspPenJoinStyleCB,
+            [this](int newSelection)
+    {
+        IShape* currShape = vm.getShapeAtLayer(ui->canvasPgLayerListVw->currentRow());
+        switch (newSelection)
+        {
+        case 0: currShape->pen.setJoinStyle(Qt::PenJoinStyle::BevelJoin); break;
+        case 1: currShape->pen.setJoinStyle(Qt::PenJoinStyle::RoundJoin); break;
+        case 2: currShape->pen.setJoinStyle(Qt::PenJoinStyle::MiterJoin); break;
+        case 3: currShape->pen.setJoinStyle(Qt::PenJoinStyle::SvgMiterJoin); break;
+        default: currShape->pen.setJoinStyle(Qt::PenJoinStyle::BevelJoin); break;
+        }
+    });
+
+    //Pen style
+    connect(ui->propInspPenStyleCB,
+            static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            ui->propInspPenStyleCB,
+            [this](int newSelection)
+    {
+        IShape* currShape = vm.getShapeAtLayer(ui->canvasPgLayerListVw->currentRow());
+        switch (newSelection)
+        {
+        case 0: currShape->pen.setStyle(Qt::PenStyle::SolidLine); break;
+        case 1: currShape->pen.setStyle(Qt::PenStyle::DashLine); break;
+        case 2: currShape->pen.setStyle(Qt::PenStyle::DotLine); break;
+        case 3: currShape->pen.setStyle(Qt::PenStyle::DashDotLine); break;
+        case 4: currShape->pen.setStyle(Qt::PenStyle::DashDotDotLine); break;
+        case 5: currShape->pen.setStyle(Qt::PenStyle::NoPen); break;
+        default: currShape->pen.setStyle(Qt::PenStyle::SolidLine); break;
+        }
+    });
+
+    //Pen width
+    connect(ui->propInspPenWidthSB,
+            static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged),
+            ui->propInspPenWidthSB,
+            [this](int newVal)
+    {
+        IShape* currShape = vm.getShapeAtLayer(ui->canvasPgLayerListVw->currentRow());
+        currShape->pen.setWidth(newVal);
+    });
+}
+
+void WINMain::updatePropertyInspectorFor(const IShape * shape)
+{
+    //Brush color
     ui->propInspBrushClrBt->
             setStyleSheet(QString("background-color: %1").arg(shape->brush.color().name()));
 
+    //Brush style
     int brushStyleIndex = -1;
     switch (shape->brush.style())
     {
@@ -377,26 +499,29 @@ void WINMain::updatePropertyInspectorFor(IShape * shape)
     case Qt::BrushStyle::Dense5Pattern: brushStyleIndex = 12; break;
     case Qt::BrushStyle::Dense6Pattern: brushStyleIndex = 13; break;
     case Qt::BrushStyle::Dense7Pattern: brushStyleIndex = 14; break;
-    case Qt::BrushStyle::LinearGradientPattern: brushStyleIndex = 15; break;
-    case Qt::BrushStyle::RadialGradientPattern: brushStyleIndex = 16; break;
-    case Qt::BrushStyle::ConicalGradientPattern: brushStyleIndex = 17; break;
-    case Qt::BrushStyle::TexturePattern: brushStyleIndex = 18; break;
+    case Qt::BrushStyle::LinearGradientPattern: brushStyleIndex = -1; break;
+    case Qt::BrushStyle::RadialGradientPattern: brushStyleIndex = -1; break;
+    case Qt::BrushStyle::ConicalGradientPattern: brushStyleIndex = -1; break;
+    case Qt::BrushStyle::TexturePattern: brushStyleIndex = -1; break;
     }
     if (brushStyleIndex != -1) {ui->propInspBrushStyleCB->setCurrentIndex(brushStyleIndex);}
 
+    //Pen cap style
     int capStyleIndex = -1;
     switch (shape->pen.capStyle())
     {
-    case Qt::PenCapStyle::FlatCap: capStyleIndex = 2; break;
-    case Qt::PenCapStyle::RoundCap: capStyleIndex = 1; break;
     case Qt::PenCapStyle::SquareCap: capStyleIndex = 0; break;
+    case Qt::PenCapStyle::RoundCap: capStyleIndex = 1; break;
+    case Qt::PenCapStyle::FlatCap: capStyleIndex = 2; break;
     case Qt::PenCapStyle::MPenCapStyle: capStyleIndex = -1; break;
     }
     if (capStyleIndex != -1) {ui->propInspPenCapCB->setCurrentIndex(capStyleIndex);}
 
+    //Pen color
     ui->propInspPenClrBt->
             setStyleSheet(QString("background-color: %1").arg(shape->pen.color().name()));
 
+    //Pen join style
     int joinStyleIndex = -1;
     switch (shape->pen.joinStyle())
     {
@@ -408,6 +533,7 @@ void WINMain::updatePropertyInspectorFor(IShape * shape)
     }
     if (joinStyleIndex != -1) {ui->propInspPenJoinStyleCB->setCurrentIndex(joinStyleIndex);}
 
+    //Pen style
     int penStyleIndex = -1;
     switch (shape->pen.style())
     {
@@ -422,5 +548,6 @@ void WINMain::updatePropertyInspectorFor(IShape * shape)
     }
     if (penStyleIndex != -1) {ui->propInspPenStyleCB->setCurrentIndex(penStyleIndex);}
 
+    //Pen width
     ui->propInspPenWidthSB->setValue(shape->pen.width());
 }

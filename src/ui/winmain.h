@@ -20,6 +20,7 @@
 #include <QTimer>
 #include <QListWidgetItem>
 #include <QDropEvent>
+#include <QColorDialog>
 
 namespace Ui {
 class WINMain;
@@ -101,7 +102,8 @@ private:
     void initLayerSelectionBehavior();
     void redrawWhateverCurrentCanvasIsShowing();
     void summonDlgThatEdits(IShape*);
-    void updatePropertyInspectorFor(IShape*);
+    void updatePropertyInspectorFor(const IShape*);
+    void initPropertyInspector();
 
     //Welcome screen UI
     void initStartBt();
