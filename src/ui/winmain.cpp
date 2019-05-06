@@ -80,9 +80,10 @@ void WINMain::initStartBt()
 
 void WINMain::initContactUsBt()
 {
-    QPixmap pixmap("C:/Users/huntm/Desktop/Golden Cone/experimental_logo.png");
+    QPixmap pixmap(":/Cone/experimental_logo.png");
     QIcon ButtonIcon(pixmap);
     ui->contactBt->setIcon(ButtonIcon);
+    //ui->contactBt->setIconSize(pixmap.rect().size());
    ui->contactBt->setIconSize(QSize(65, 65));
     connect(ui->contactBt, &QPushButton::clicked, ui->contactBt, [this]()
     {
