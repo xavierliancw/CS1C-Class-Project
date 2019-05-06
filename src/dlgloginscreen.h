@@ -1,6 +1,5 @@
 #ifndef DLGLOGINSCREEN_H
 #define DLGLOGINSCREEN_H
-
 #include <QDialog>
 #include <functional>
 
