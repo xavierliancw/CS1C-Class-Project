@@ -77,7 +77,7 @@ struct JSONShape
         }
         if (json.contains(keyPenClr) && json[keyPenClr].isString())
         {
-            penClr = deserializeQtColorFrom(json[keyBrushClr].toString(), penClr);
+            penClr = deserializeQtColorFrom(json[keyPenClr].toString(), penClr);
         }
         if (json.contains(keyPenWidth))
         {

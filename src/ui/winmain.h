@@ -101,6 +101,7 @@ private:
     void initLayerSelectionBehavior();
     void redrawWhateverCurrentCanvasIsShowing();
     void summonDlgThatEdits(IShape*);
+    void updatePropertyInspectorFor(IShape*);
 
     //Welcome screen UI
     void initStartBt();

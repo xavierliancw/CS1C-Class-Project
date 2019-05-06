@@ -182,7 +182,7 @@ void WINMain::initGuestAuthenticateBt()
     {
         dlgLogin = new DLGLoginScreen(nullptr, [this]()
         {
-            this->ui->stackWdgt->setCurrentWidget(ui->canvasPg);
+            this->switchScreenToShow(ScreensInWINMain::canvas);
         });
         dlgLogin->setAttribute(Qt::WA_DeleteOnClose);
         dlgLogin->show();
@@ -344,9 +344,83 @@ void WINMain::initAddSquareBt()
 
 void WINMain::initLayerSelectionBehavior()
 {
-    connect(ui->canvasPgLayerListVw, &QListWidget::itemSelectionChanged, ui->canvasPgLayerListVw,
+    connect(ui->canvasPgLayerListVw,
+            &QListWidget::itemSelectionChanged,
+            ui->canvasPgLayerListVw,
             [this]()
     {
-        qDebug() << "current selection is: " << ui->canvasPgLayerListVw->currentRow(); //TODO finish thisss
+        this->
+        updatePropertyInspectorFor(vm.getShapeAtLayer(ui->canvasPgLayerListVw->currentRow()));
     });
+}
+
+void WINMain::updatePropertyInspectorFor(IShape * shape)
+{
+    ui->propInspBrushClrBt->
+            setStyleSheet(QString("background-color: %1").arg(shape->brush.color().name()));
+
+    int brushStyleIndex = -1;
+    switch (shape->brush.style())
+    {
+    case Qt::BrushStyle::NoBrush: brushStyleIndex = 0; break;
+    case Qt::BrushStyle::SolidPattern: brushStyleIndex = 1; break;
+    case Qt::BrushStyle::HorPattern: brushStyleIndex = 2; break;
+    case Qt::BrushStyle::VerPattern: brushStyleIndex = 3; break;
+    case Qt::BrushStyle::CrossPattern: brushStyleIndex = 4; break;
+    case Qt::BrushStyle::BDiagPattern: brushStyleIndex = 5; break;
+    case Qt::BrushStyle::FDiagPattern: brushStyleIndex = 6; break;
+    case Qt::BrushStyle::DiagCrossPattern: brushStyleIndex = 7; break;
+    case Qt::BrushStyle::Dense1Pattern: brushStyleIndex = 8; break;
+    case Qt::BrushStyle::Dense2Pattern: brushStyleIndex = 9; break;
+    case Qt::BrushStyle::Dense3Pattern: brushStyleIndex = 10; break;
+    case Qt::BrushStyle::Dense4Pattern: brushStyleIndex = 11; break;
+    case Qt::BrushStyle::Dense5Pattern: brushStyleIndex = 12; break;
+    case Qt::BrushStyle::Dense6Pattern: brushStyleIndex = 13; break;
+    case Qt::BrushStyle::Dense7Pattern: brushStyleIndex = 14; break;
+    case Qt::BrushStyle::LinearGradientPattern: brushStyleIndex = 15; break;
+    case Qt::BrushStyle::RadialGradientPattern: brushStyleIndex = 16; break;
+    case Qt::BrushStyle::ConicalGradientPattern: brushStyleIndex = 17; break;
+    case Qt::BrushStyle::TexturePattern: brushStyleIndex = 18; break;
+    }
+    if (brushStyleIndex != -1) {ui->propInspBrushStyleCB->setCurrentIndex(brushStyleIndex);}
+
+    int capStyleIndex = -1;
+    switch (shape->pen.capStyle())
+    {
+    case Qt::PenCapStyle::FlatCap: capStyleIndex = 2; break;
+    case Qt::PenCapStyle::RoundCap: capStyleIndex = 1; break;
+    case Qt::PenCapStyle::SquareCap: capStyleIndex = 0; break;
+    case Qt::PenCapStyle::MPenCapStyle: capStyleIndex = -1; break;
+    }
+    if (capStyleIndex != -1) {ui->propInspPenCapCB->setCurrentIndex(capStyleIndex);}
+
+    ui->propInspPenClrBt->
+            setStyleSheet(QString("background-color: %1").arg(shape->pen.color().name()));
+
+    int joinStyleIndex = -1;
+    switch (shape->pen.joinStyle())
+    {
+    case Qt::PenJoinStyle::BevelJoin: joinStyleIndex = 0; break;
+    case Qt::PenJoinStyle::RoundJoin: joinStyleIndex = 1; break;
+    case Qt::PenJoinStyle::MiterJoin: joinStyleIndex = 2; break;
+    case Qt::PenJoinStyle::SvgMiterJoin: joinStyleIndex = 3; break;
+    case Qt::PenJoinStyle::MPenJoinStyle: joinStyleIndex = -1; break;
+    }
+    if (joinStyleIndex != -1) {ui->propInspPenJoinStyleCB->setCurrentIndex(joinStyleIndex);}
+
+    int penStyleIndex = -1;
+    switch (shape->pen.style())
+    {
+    case Qt::PenStyle::SolidLine: penStyleIndex = 0; break;
+    case Qt::PenStyle::DashLine: penStyleIndex = 1; break;
+    case Qt::PenStyle::DotLine: penStyleIndex = 2; break;
+    case Qt::PenStyle::DashDotLine: penStyleIndex = 3; break;
+    case Qt::PenStyle::DashDotDotLine: penStyleIndex = 4; break;
+    case Qt::PenStyle::NoPen: penStyleIndex = 5; break;
+    case Qt::PenStyle::MPenStyle: penStyleIndex = -1; break;
+    case Qt::PenStyle::CustomDashLine: penStyleIndex = -1; break;
+    }
+    if (penStyleIndex != -1) {ui->propInspPenStyleCB->setCurrentIndex(penStyleIndex);}
+
+    ui->propInspPenWidthSB->setValue(shape->pen.width());
 }
