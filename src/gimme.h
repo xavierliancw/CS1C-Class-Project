@@ -27,9 +27,13 @@ public:
      */
     const QString fileNameForTestimonials = "testimonials.json";
     /**
-     * Nameo of the JSON file that persists the graphics canvas.
+     * Name of the JSON file that persists the graphics canvas.
      */
     const QString fileNameForSavedGraphicsCanvas = "canvas.json";
+    /**
+     * Name of the JSON file that persists customer inquiries.
+     */
+    const QString fileNameForSavedCustomerInquiries = "inquiries.json";
 };
 
 #endif // GIMME_H
