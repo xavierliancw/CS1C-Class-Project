@@ -44,7 +44,9 @@ SOURCES += \
     models/shapesquare.cpp \
     models/jsonshape.cpp \
     ui/lcshapelayer.cpp \
-    ui/dlgshapegeneditrectangles.cpp
+    ui/dlgshapegeneditrectangles.cpp \
+    ui/lceditvertex.cpp \
+    ui/dlgeditorvertices.cpp
 
 HEADERS += \
     dlgloginscreen.h \
@@ -66,7 +68,9 @@ HEADERS += \
     models/jsonshape.h \
     models/shapesquare.h \
     ui/lcshapelayer.h \
-    ui/dlgshapegeneditrectangles.h
+    ui/dlgshapegeneditrectangles.h \
+    ui/lceditvertex.h \
+    ui/dlgeditorvertices.h
 
 FORMS += \
     dlgloginscreen.ui \
@@ -75,7 +79,9 @@ FORMS += \
     ui/dlgshapeselector.ui \
     ui/dlgcontactform.ui \
     ui/DLGShapeGenEditRectangles.ui \
-    ui/lcshapelayer.ui
+    ui/lcshapelayer.ui \
+    ui/lceditvertex.ui \
+    ui/dlgeditorvertices.ui
 
 CONFIG += mobility
 MOBILITY = 

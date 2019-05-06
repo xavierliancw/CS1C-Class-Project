@@ -1,7 +1,7 @@
 #include "shapepolygon.h"
 #include <cmath>
 
-ShapePolygon :: ShapePolygon(int id, const QVector<QPoint>& points) : IShape(id, ShapeType::Polygon)
+ShapePolygon :: ShapePolygon(const QVector<QPoint>& points): IShape(-1, ShapeType::Polygon)
 {
     poly = QPolygon(points);
 }
