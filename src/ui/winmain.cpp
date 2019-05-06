@@ -120,13 +120,9 @@ void WINMain::initGuestAuthenticateBt()
 {
     connect(ui->guestPreviewEditBt, &QPushButton::clicked, ui->guestPreviewEditBt, [this]()
     {
-        loginFormWin = new DLGLoginScreen(nullptr, [this](bool authenticated)
+        loginFormWin = new DLGLoginScreen(nullptr, [this]()
         {
-            if (authenticated)
-            {
-                this->ui->stackWdgt->setCurrentWidget(ui->canvasPg);
-                //TODO this is not on the main thread so it's not working
-            }
+            this->ui->stackWdgt->setCurrentWidget(ui->canvasPg);
         });
         loginFormWin->setAttribute(Qt::WA_DeleteOnClose);
         loginFormWin->show();

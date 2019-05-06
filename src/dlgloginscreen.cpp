@@ -3,7 +3,7 @@
 #include <QMessageBox>
 
 DLGLoginScreen::DLGLoginScreen(QWidget *parent,
-                               std::function<void(bool)> authCallback) :
+                               std::function<void()> authCallback) :
     QDialog(parent),
     ui(new Ui::DLGLoginScreen),
     authCallback(authCallback)
@@ -16,31 +16,20 @@ DLGLoginScreen::~DLGLoginScreen()
     delete ui;
 }
 
-bool DLGLoginScreen::check()
-{
-    return administrator;
-}
-
+//This is where the login screen inputs get checked to know whether or not to pull up the add shapes window
 void DLGLoginScreen::on_verifiy_clicked()
 {
-    bool verified = false;
     QString user = ui->username->text();
     QString pass = ui->password->text();
 
     if (user == "username" && pass == "password")
     {
         QMessageBox::information(this, "Login", "The username and password are correct");
-        verified = true;
-        authCallback(verified);
+        authCallback();
         close();
     }
-    else {
-
+    else
+    {
         QMessageBox::warning(this, "Login", "The username and password entered in are incorrect");
-        verified = false;
-
     }
-
-    administrator = verified;
-
 }

@@ -77,8 +77,19 @@ private:
      *
      */
     VMCanvas initVM();
+    /**
+     * @brief Initializes the edit button which calls the login screen to change
+     * the screen to the canvas.
+     */
     void initGuestAuthenticateBt();
+    /**
+     * @brief Initializes the back button on the guest view to switch back to the
+     * main welcome page.
+     */
     void initGuestBackBt();
+    /**
+     * @brief Initializes the back button on the canvas that goes back to the welcome page
+     */
     void initCanvasBackBt();
 };
 

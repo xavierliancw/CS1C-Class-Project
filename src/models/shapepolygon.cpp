@@ -21,9 +21,10 @@ double ShapePolygon :: perimeter() const
 {
 
 
+return 0;
 }
 
 double ShapePolygon :: area() const
 {
-
+    return 0;
 }
