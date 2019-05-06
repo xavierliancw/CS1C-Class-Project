@@ -2,6 +2,12 @@
 #define DLGCONTACTFORM_H
 
 #include <QDialog>
+#include <models/dtocustomerinquiry.h>
+#include <models/jsoncustomerinquiry.h>
+#include <chrono>
+#include <QJsonArray>
+#include "services/svcjson.h"
+#include "gimme.h"
 
 namespace Ui {class DLGContactForm;}
 
@@ -15,6 +21,9 @@ public:
 
 private:
     Ui::DLGContactForm *ui;
+
+    void sendCustomerInquiry();
+    void showSuccessScreen();
 };
 
 #endif // DLGCONTACTFORM_H

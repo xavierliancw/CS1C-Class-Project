@@ -43,7 +43,8 @@ SOURCES += \
     viewmodels/vmcanvas.cpp \
     ui/dlgshapeadderrect.cpp \
     models/shapesquare.cpp \
-    models/jsonshape.cpp
+    models/jsonshape.cpp \
+    models/jsoncustomerinquiry.cpp
 
 HEADERS += \
     ui/dlgloginscreen.h \
@@ -64,7 +65,9 @@ HEADERS += \
     viewmodels/vmcanvas.h \
     ui/dlgshapeadderrect.h \
     models/jsonshape.h \
-    models/shapesquare.h
+    models/shapesquare.h \
+    models/dtocustomerinquiry.h \
+    models/jsoncustomerinquiry.h
 
 FORMS += \
     ui/dlgloginscreen.ui \
