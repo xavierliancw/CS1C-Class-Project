@@ -53,7 +53,7 @@ void WINMain::paintEvent(QPaintEvent*)
 {
     //Don't even think about drawing until we're on a canvas page
     if (ui->stackWdgt->currentWidget() != ui->canvasPg)// &&
-//            ui->stackWdgt->currentWidget() != ui->guestPg)
+        //            ui->stackWdgt->currentWidget() != ui->guestPg)
     {
         return;
     }
@@ -144,14 +144,61 @@ void WINMain::initTestimonialCreateBt()
 
 VMCanvas WINMain::initCanvasVM()
 {
-    return VMCanvas([this]()    //Lambda to refresh the UI elements on the canvas
-    {
+    return VMCanvas([this]() {   //Lambda to refresh the UI elements on the canvas
         this->refreshLayersVw();
     },
-    [this](IShape* shapeToEdit) //Lambda to edit a shape
-    {
-        qDebug() << "gonna edit" << shapeToEdit->id;    //TODO
+    [this](IShape* shapeToEdit) { //Lambda to edit a shape
+        this->summonDlgThatEdits(shapeToEdit);
     });
+}
+
+void WINMain::summonDlgThatEdits(IShape * shapeToEdit)
+{
+    switch (shapeToEdit->getShape())
+    {
+    case IShape::ShapeType::Line:
+        break;
+    case IShape::ShapeType::Text:
+        break;
+    case IShape::ShapeType::Circle:
+        break;
+    case IShape::ShapeType::Square:
+        if (ShapeSquare* castedRect = dynamic_cast<ShapeSquare*>(shapeToEdit))
+        {
+            DLGShapeGenEditRectangles* rectEditor = new DLGShapeGenEditRectangles(
+                        nullptr,
+                        castedRect,
+                        DLGShapeGenEditRectangles::Mode::SquareCreate,
+                        [](IShape*){}
+                    );
+            rectEditor->setAttribute(Qt::WA_DeleteOnClose);
+            rectEditor->show();
+        }
+        break;
+    case IShape::ShapeType::Ellipse:
+        break;
+    case IShape::ShapeType::NoShape:
+        break;
+    case IShape::ShapeType::Polygon:
+        break;
+    case IShape::ShapeType::Polyline:
+        break;
+    case IShape::ShapeType::Triangle:
+        break;
+    case IShape::ShapeType::Rectangle:
+        if (ShapeRect* castedRect = dynamic_cast<ShapeRect*>(shapeToEdit))
+        {
+            DLGShapeGenEditRectangles* rectEditor = new DLGShapeGenEditRectangles(
+                        nullptr,
+                        castedRect,
+                        DLGShapeGenEditRectangles::Mode::RectCreate,
+                        [](IShape*){}
+                    );
+            rectEditor->setAttribute(Qt::WA_DeleteOnClose);
+            rectEditor->show();
+        }
+        break;
+    }
 }
 
 void WINMain::refreshLayersVw()
@@ -183,26 +230,23 @@ void WINMain::refreshLayersVw()
         {
             qDebug() << "Delete " << delID;
         },
-        [this](int edID)
-        {
-            qDebug() << "edit " << edID;
-        });
+        [this](int edID) {vm.editShapeAtLayer(edID);}); //Lambda to edit a shape
         layerVwCells.push_back(newCell);
     }
 }
 
 void WINMain::redrawWhateverCurrentCanvasIsShowing()
 {
-        if (this->ui->stackWdgt->currentWidget() == this->ui->canvasPg)
-        {
-            this->update();
-            this->ui->canvasVw->update();
-        }
-        //    else if (this->ui->stackWdgt->currentWidget() == this->ui->guestPg)
-        //    {
-        //        this->update();
-        //        this->ui->guestCanvasVw->update();
-        //    }
+    if (this->ui->stackWdgt->currentWidget() == this->ui->canvasPg)
+    {
+        this->update();
+        this->ui->canvasVw->update();
+    }
+    //    else if (this->ui->stackWdgt->currentWidget() == this->ui->guestPg)
+    //    {
+    //        this->update();
+    //        this->ui->guestCanvasVw->update();
+    //    }
 }
 
 void WINMain::switchScreenToShow(ScreensInWINMain screen)
@@ -210,7 +254,7 @@ void WINMain::switchScreenToShow(ScreensInWINMain screen)
     switch (screen)
     {
     case guest:
-//        ui->stackWdgt->setCurrentWidget(ui->guestPg);
+        //        ui->stackWdgt->setCurrentWidget(ui->guestPg);
         switchScreenToShow(ScreensInWINMain::welcome);  //TODO replace this line with the comment above
         break;
     case canvas:
@@ -227,14 +271,15 @@ void WINMain::initAddRectBt()
 {
     connect(ui->addRectBt, &QPushButton::clicked, ui->addRectBt, [this]()
     {
-        dlgAddShapeRect = new DLGShapeGenEditRectangles(nullptr,
-                                                DLGShapeGenEditRectangles::Mode::RectCreate,
-                                                [this](IShape* rectIn)
+        dlgRectEditor = new DLGShapeGenEditRectangles(nullptr,
+                                                      nullptr,
+                                                      DLGShapeGenEditRectangles::Mode::RectCreate,
+                                                      [this](IShape* rectIn)
         {
-            this->vm.addShape(rectIn);
-        });
-        dlgAddShapeRect->setAttribute(Qt::WA_DeleteOnClose);
-        dlgAddShapeRect->show();
+                this->vm.addShape(rectIn);
+    });
+        dlgRectEditor->setAttribute(Qt::WA_DeleteOnClose);
+        dlgRectEditor->show();
     });
 }
 
@@ -242,14 +287,15 @@ void WINMain::initAddSquareBt()
 {
     connect(ui->addSquareBt, &QPushButton::clicked, ui->addSquareBt, [this]()
     {
-        dlgAddShapeRect = new DLGShapeGenEditRectangles(nullptr,
-                                                DLGShapeGenEditRectangles::Mode::SquareCreate,
-                                                [this](IShape* rectIn)
-        {
-            this->vm.addShape(rectIn);
-        });
-        dlgAddShapeRect->setAttribute(Qt::WA_DeleteOnClose);
-        dlgAddShapeRect->show();
+        dlgRectEditor = new DLGShapeGenEditRectangles(
+                    nullptr,
+                    nullptr,
+                    DLGShapeGenEditRectangles::Mode::SquareCreate,
+                    [this](IShape* rectIn)
+        {this->vm.addShape(rectIn);}
+                );
+        dlgRectEditor->setAttribute(Qt::WA_DeleteOnClose);
+        dlgRectEditor->show();
     });
 }
 

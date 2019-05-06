@@ -30,10 +30,13 @@ public:
      * @brief Constructor.
      *
      * @param parent: Parent pointer.
+     * @param possRectToEdit: If this is passed in, then this dialog will be editing that shape
+     * instead of generating a new shape.
      * @param startingMode: Mode to start with (generate a rect or a square).
      * @param rectResult: Callback for possible generated shapes.
      */
     explicit DLGShapeGenEditRectangles(QWidget *parent = nullptr,
+                                       ShapeRect* possRectToEdit = nullptr,
                                        Mode startingMode = RectCreate,
                                        std::function<void(IShape*)> rectResult = [](IShape*){});
     /**
@@ -47,6 +50,7 @@ private:
     std::function<void(IShape*)> lambdaRectResult; /**< Callback lambda. */
     QIntValidator* intValidator; /**< Field validator object that forces only numeric input. */
     Mode currentDisplayMode; /** < The mode this dialog is currently in. */
+    ShapeRect* possRectBeingEdited;
 
     /**
      * @brief This updates the enable state of the add button.

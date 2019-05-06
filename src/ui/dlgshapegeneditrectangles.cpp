@@ -1,11 +1,13 @@
 #include "dlgshapegeneditrectangles.h"
-#include "ui_dlgshapegeneditrectangles.h"
+#include "ui_DLGShapeGenEditRectangles.h"
 
 DLGShapeGenEditRectangles::DLGShapeGenEditRectangles(QWidget *parent,
+                                                     ShapeRect* possRectToEdit,
                                                      Mode startingMode,
                                                      std::function<void(IShape*)> rectResult) :
     QDialog(parent),
-    ui(new Ui::DLGShapeGenEditRectangles)
+    ui(new Ui::DLGShapeGenEditRectangles),
+    possRectBeingEdited(possRectToEdit)
 {
     ui->setupUi(this);
 
@@ -69,6 +71,24 @@ DLGShapeGenEditRectangles::DLGShapeGenEditRectangles(QWidget *parent,
     }
     //Initialize state
     updateAddBtEnableState();
+
+    //Check if this dialog is going to be editing an existing shape
+    if (this->possRectBeingEdited != nullptr)
+    {
+        //Set up for editing, prefilling fields with existing values
+        ui->addBt->setText("Apply Changes");
+        if (this->possRectBeingEdited->getShape() == IShape::ShapeType::Rectangle)
+        {
+            ui->titleLbl->setText("Edit Rectangle");
+        }
+        else {
+            ui->titleLbl->setText("Edit Square");
+        }
+        ui->field1LE->setText(QString::number(possRectBeingEdited->frame.x()));
+        ui->field2LE->setText(QString::number(possRectBeingEdited->frame.y()));
+        ui->field3LE->setText(QString::number(possRectBeingEdited->frame.width()));
+        ui->field4LE->setText(QString::number(possRectBeingEdited->frame.height()));
+    }
 }
 
 DLGShapeGenEditRectangles::~DLGShapeGenEditRectangles()
@@ -84,29 +104,51 @@ void DLGShapeGenEditRectangles::updateAddBtEnableState()
 
 void DLGShapeGenEditRectangles::giveDLGSummonerCreatedRectIfPossible()
 {
-    IShape* newRect = nullptr;
-
-    //Generate rect is possible
-    if (inputsAreValid())
+    if (this->possRectBeingEdited == nullptr)
     {
-        //Determine what kind of rect to return
+        //Create a new rect
+        IShape* newRect = nullptr;
+
+        //Generate rect is possible
+        if (inputsAreValid())
+        {
+            //Determine what kind of rect to return
+            switch (currentDisplayMode)
+            {
+            case RectCreate:
+                newRect = new ShapeRect(IShape::ShapeType::Rectangle,
+                                        ui->field1LE->text().toInt(),
+                                        ui->field2LE->text().toInt(),
+                                        ui->field3LE->text().toInt(),
+                                        ui->field4LE->text().toInt());
+                break;
+            case SquareCreate:
+                newRect = new ShapeSquare(ui->field1LE->text().toInt(),
+                                          ui->field2LE->text().toInt(),
+                                          ui->field3LE->text().toInt());
+                break;
+            }
+        }
+        lambdaRectResult(newRect);
+        return;
+    }
+    else
+    {
+        //Return the edited rect
+        this->possRectBeingEdited->frame.setX(ui->field1LE->text().toInt());
+        this->possRectBeingEdited->frame.setY(ui->field2LE->text().toInt());
+        this->possRectBeingEdited->frame.setWidth(ui->field3LE->text().toInt());
         switch (currentDisplayMode)
         {
         case RectCreate:
-            newRect = new ShapeRect(IShape::ShapeType::Rectangle,
-                                    ui->field1LE->text().toInt(),
-                                    ui->field2LE->text().toInt(),
-                                    ui->field3LE->text().toInt(),
-                                    ui->field4LE->text().toInt());
+            this->possRectBeingEdited->frame.setHeight(ui->field4LE->text().toInt());
             break;
         case SquareCreate:
-            newRect = new ShapeSquare(ui->field1LE->text().toInt(),
-                                      ui->field2LE->text().toInt(),
-                                      ui->field3LE->text().toInt());
+            this->possRectBeingEdited->frame.setHeight(ui->field3LE->text().toInt());
             break;
         }
+        lambdaRectResult(this->possRectBeingEdited);
     }
-    lambdaRectResult(newRect);
 }
 
 bool DLGShapeGenEditRectangles::inputsAreValid()

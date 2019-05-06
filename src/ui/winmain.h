@@ -82,7 +82,7 @@ private:
     //Pop up UI
     DLGTestimonialCreate *testimonialFormWin;
     DLGContactForm *contactFormWin;
-    DLGShapeGenEditRectangles *dlgAddShapeRect;
+    DLGShapeGenEditRectangles *dlgRectEditor;
 
     //Canvas UI
     QTimer* refreshTimer;
@@ -96,6 +96,7 @@ private:
     void refreshLayersVw();
     void initLayerSelectionBehavior();
     void redrawWhateverCurrentCanvasIsShowing();
+    void summonDlgThatEdits(IShape*);
 
     //Welcome screen UI
     void initStartBt();
