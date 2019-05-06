@@ -41,9 +41,10 @@ SOURCES += \
     ui/dlgshapeselector.cpp \
     ui/dlgcontactform.cpp \
     viewmodels/vmcanvas.cpp \
-    ui/dlgshapeadderrect.cpp \
     models/shapesquare.cpp \
-    models/jsonshape.cpp
+    models/jsonshape.cpp \
+    ui/lcshapelayer.cpp \
+    ui/dlgshapegeneditrectangles.cpp
 
 HEADERS += \
     dlgloginscreen.h \
@@ -62,9 +63,10 @@ HEADERS += \
     util/goldenconevector.h \
     ui/dlgcontactform.h \
     viewmodels/vmcanvas.h \
-    ui/dlgshapeadderrect.h \
     models/jsonshape.h \
-    models/shapesquare.h
+    models/shapesquare.h \
+    ui/lcshapelayer.h \
+    ui/dlgshapegeneditrectangles.h
 
 FORMS += \
     dlgloginscreen.ui \
@@ -72,7 +74,8 @@ FORMS += \
     ui/dlgtestimonialcreate.ui \
     ui/dlgshapeselector.ui \
     ui/dlgcontactform.ui \
-    ui/dlgshapeadderrect.ui
+    ui/DLGShapeGenEditRectangles.ui \
+    ui/lcshapelayer.ui
 
 CONFIG += mobility
 MOBILITY = 

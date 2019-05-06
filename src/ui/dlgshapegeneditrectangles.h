@@ -7,16 +7,14 @@
 #include <QIntValidator>
 #include <functional>
 
-namespace Ui {
-class DLGShapeAdderRect;
-}
+namespace Ui {class DLGShapeGenEditRectangles;}
 
 /**
  * @brief Dialog that generates a rectangle shape in dynamic memory, returning a pointer to it
  * through a lambda initialized in its constructor.
  *
  */
-class DLGShapeAdderRect : public QDialog
+class DLGShapeGenEditRectangles : public QDialog
 {
     Q_OBJECT
 
@@ -32,23 +30,27 @@ public:
      * @brief Constructor.
      *
      * @param parent: Parent pointer.
+     * @param possRectToEdit: If this is passed in, then this dialog will be editing that shape
+     * instead of generating a new shape.
      * @param startingMode: Mode to start with (generate a rect or a square).
      * @param rectResult: Callback for possible generated shapes.
      */
-    explicit DLGShapeAdderRect(QWidget *parent = nullptr,
-                               Mode startingMode = RectCreate,
-                               std::function<void(IShape*)> rectResult = [](IShape*){});
+    explicit DLGShapeGenEditRectangles(QWidget *parent = nullptr,
+                                       ShapeRect* possRectToEdit = nullptr,
+                                       Mode startingMode = RectCreate,
+                                       std::function<void(IShape*)> rectResult = [](IShape*){});
     /**
      * @brief Destructor.
      *
      */
-    ~DLGShapeAdderRect() override;
+    ~DLGShapeGenEditRectangles() override;
 
 private:
-    Ui::DLGShapeAdderRect *ui; /**< UI pointer. */
+    Ui::DLGShapeGenEditRectangles *ui; /**< UI pointer. */
     std::function<void(IShape*)> lambdaRectResult; /**< Callback lambda. */
     QIntValidator* intValidator; /**< Field validator object that forces only numeric input. */
     Mode currentDisplayMode; /** < The mode this dialog is currently in. */
+    ShapeRect* possRectBeingEdited;
 
     /**
      * @brief This updates the enable state of the add button.

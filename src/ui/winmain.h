@@ -2,7 +2,7 @@
 #define WINMAIN_H
 
 #include "dlgcontactform.h"
-#include "dlgshapeadderrect.h"
+#include "dlgshapegeneditrectangles.h"
 #include "dlgtestimonialcreate.h"
 #include "dlgloginscreen.h"
 #include "dlgshapeselector.h"
@@ -10,6 +10,7 @@
 #include "models/ishape.h"
 #include "models/shapecircle.h"
 #include "viewmodels/vmcanvas.h"
+#include "ui/lcshapelayer.h"
 #include <util/goldenconevector.h>
 #include <chrono>
 #include <QDialog>
@@ -17,6 +18,9 @@
 #include <QPainter>
 #include <QDebug>
 #include <QTimer>
+#include <QListWidgetItem>
+#include <QDropEvent>
+#include <QColorDialog>
 
 namespace Ui {
 class WINMain;
@@ -63,22 +67,45 @@ protected:
      */
     void closeEvent(QCloseEvent*) override;
 
+    /**
+         * @brief Look for Qt events
+         * @param object : GUI element that's generating a Qt event
+         * @param event : Qt event that's happening
+         * @return Returns false always
+         *
+         * Drag and drop functionality within the itinerary is implemented
+         * in this method.
+         */
+    bool eventFilter(QObject *object, QEvent *event) override;
+
 private:
+    //General UI
     Ui::WINMain *ui;
-    DLGTestimonialCreate *testimonialFormWin;
-    DLGContactForm *contactFormWin;
-    DLGShapeAdderRect *dlgAddShapeRect;
-    DLGLoginScreen *dlgLogin;
-    VMCanvas vm;
-
-    //Canvas functions
-    VMCanvas initCanvasVM();
-    void redrawWhateverCurrentCanvasIsShowing();
-
-    //UI functions
     void switchScreenToShow(ScreensInWINMain);
 
-    //UI on welcome screen
+    //Pop up UI
+    DLGTestimonialCreate *testimonialFormWin;
+    DLGContactForm *contactFormWin;
+    DLGShapeGenEditRectangles *dlgRectEditor;
+    DLGLoginScreen *dlgLogin;
+
+    //Canvas UI
+    QTimer* refreshTimer;
+    VMCanvas vm;
+    QVector<LCShapeLayer*> layerVwCells;
+    int rowNumberFromPickUpEvent;
+    VMCanvas initCanvasVM();
+    void initCanvasBackBt();
+    void initAddRectBt();
+    void initAddSquareBt();
+    void refreshLayersVw();
+    void initLayerSelectionBehavior();
+    void redrawWhateverCurrentCanvasIsShowing();
+    void summonDlgThatEdits(IShape*);
+    void updatePropertyInspectorFor(const IShape*);
+    void initPropertyInspector();
+
+    //Welcome screen UI
     void initStartBt();
     void initTestimonialCreateBt();
     void initContactUsBt();
@@ -86,10 +113,6 @@ private:
     void initGuestAuthenticateBt();
     void initGuestBackBt();
 
-    //UI on canvas screen
-    void initCanvasBackBt();
-    void initAddRectBt();
-    void initAddSquareBt();
 };
 
 #endif // WINMAIN_H

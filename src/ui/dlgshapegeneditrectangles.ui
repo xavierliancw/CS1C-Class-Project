@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DLGShapeAdderRect</class>
- <widget class="QDialog" name="DLGShapeAdderRect">
+ <class>DLGShapeGenEditRectangles</class>
+ <widget class="QDialog" name="DLGShapeGenEditRectangles">
   <property name="geometry">
    <rect>
     <x>0</x>
