@@ -4,6 +4,8 @@
 #include "dlgcontactform.h"
 #include "dlgshapegeneditrectangles.h"
 #include "dlgtestimonialcreate.h"
+#include "dlgloginscreen.h"
+#include "dlgshapeselector.h"
 #include "models/shapeellipse.h"
 #include "models/ishape.h"
 #include "models/shapecircle.h"
@@ -56,6 +58,7 @@ protected:
      * @param QPaintEvent pointer (unused).
      */
     virtual void paintEvent(QPaintEvent*) override;
+
     /**
      * @brief Lifecycle event that fires when the window is closed.
      *
@@ -83,6 +86,7 @@ private:
     DLGTestimonialCreate *testimonialFormWin;
     DLGContactForm *contactFormWin;
     DLGShapeGenEditRectangles *dlgRectEditor;
+    DLGLoginScreen *dlgLogin;
 
     //Canvas UI
     QTimer* refreshTimer;
@@ -102,6 +106,9 @@ private:
     void initStartBt();
     void initTestimonialCreateBt();
     void initContactUsBt();
+    VMCanvas initVM();
+    void initGuestAuthenticateBt();
+    void initGuestBackBt();
 
 };
 

@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    dlgloginscreen.cpp \
     main.cpp \
     models/shapecircle.cpp \
     models/shapeellipse.cpp \
@@ -46,6 +47,7 @@ SOURCES += \
     ui/dlgshapegeneditrectangles.cpp
 
 HEADERS += \
+    dlgloginscreen.h \
     models/shapecircle.h \
     models/shapeellipse.h \
     models/shapepolygon.h \
@@ -58,7 +60,6 @@ HEADERS += \
     models/ishape.h \
     models/shaperect.h \
     ui/dlgshapeselector.h \
-    models/ishape.h \
     util/goldenconevector.h \
     ui/dlgcontactform.h \
     viewmodels/vmcanvas.h \
@@ -68,6 +69,7 @@ HEADERS += \
     ui/dlgshapegeneditrectangles.h
 
 FORMS += \
+    dlgloginscreen.ui \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
     ui/dlgshapeselector.ui \
