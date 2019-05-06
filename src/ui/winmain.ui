@@ -111,7 +111,7 @@
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout">
             <item>
-             <widget class="QPushButton" name="canvasBackBt">
+             <widget class="QPushButton" name="canvasPgBackBt">
               <property name="text">
                <string>&lt;</string>
               </property>

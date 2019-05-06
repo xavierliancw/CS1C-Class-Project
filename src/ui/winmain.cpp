@@ -4,7 +4,7 @@
 WINMain::WINMain(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::WINMain),
-    vm(initVM())
+    vm(initCanvasVM())
 {
     ui->setupUi(this);
 
@@ -18,9 +18,11 @@ WINMain::WINMain(QWidget *parent) :
     initGuestBackBt();
 
     //Initialze UI on the canvas page
+    initCanvasBackBt();
     initAddRectBt();
     initAddSquareBt();
     initCanvasBackBt();
+    switchScreenToShow(ScreensInWINMain::welcome);  //Force welcome screen on start
 }
 
 WINMain::~WINMain()
@@ -28,9 +30,14 @@ WINMain::~WINMain()
     delete ui;
 }
 
+void WINMain::closeEvent(QCloseEvent*)
+{
+    vm.persistCanvasToStorage();
+}
+
 void WINMain::paintEvent(QPaintEvent*)
 {
-    //Don't even think about drawing until we're on the canvas page
+    //Don't even think about drawing until we're on a canvas page
     if (ui->stackWdgt->currentWidget() != ui->canvasPg &&
             ui->stackWdgt->currentWidget() != ui->guestPreviewPg)
     {
@@ -67,7 +74,7 @@ void WINMain::initStartBt()
 {
     connect(ui->startBt, &QPushButton::clicked, ui->startBt, [this]()
     {
-        this->ui->stackWdgt->setCurrentWidget(this->ui->guestPreviewPg);
+        this->switchScreenToShow(ScreensInWINMain::guest);
     });
 }
 
@@ -91,11 +98,10 @@ void WINMain::initTestimonialCreateBt()
     });
 }
 
-VMCanvas WINMain::initVM()
+VMCanvas WINMain::initCanvasVM()
 {
     return VMCanvas([this]() {      //Lambda to refresh the canvas
-        this->update();
-        this->ui->canvasVw->update();
+        this->redrawWhateverCurrentCanvasIsShowing();
     },
     [this](IShape* shapeToEdit) {   //Lambda to edit a shape
         qDebug() << "gonna edit" << shapeToEdit->id;    //TODO
@@ -114,21 +120,56 @@ void WINMain::initGuestAuthenticateBt()
 {
     connect(ui->guestPreviewEditBt, &QPushButton::clicked, ui->guestPreviewEditBt, [this]()
     {
-        loginFormWin = new DLGLoginScreen(nullptr, [this]()
+        dlgLogin = new DLGLoginScreen(nullptr, [this]()
         {
             this->ui->stackWdgt->setCurrentWidget(ui->canvasPg);
         });
-        loginFormWin->setAttribute(Qt::WA_DeleteOnClose);
-        loginFormWin->show();
+        dlgLogin->setAttribute(Qt::WA_DeleteOnClose);
+        dlgLogin->show();
     });
 }
 
 void WINMain::initCanvasBackBt()
 {
-    connect(ui->canvasBackBt, &QPushButton::clicked, ui->canvasBackBt, [this]()
+    connect(ui->canvasPgBackBt, &QPushButton::clicked, ui->canvasPgBackBt, [this]()
     {
         this->ui->stackWdgt->setCurrentWidget(ui->welcomePg);
     });
+}
+
+void WINMain::redrawWhateverCurrentCanvasIsShowing()
+{
+    //Put a "delay (even though the delay is 0)" on this so the redraws happen at the right time
+    QTimer::singleShot(0, this, [this]()
+    {
+        this->update();
+        if (this->ui->stackWdgt->currentWidget() == this->ui->canvasPg)
+        {
+            this->ui->canvasVw->update();
+        }
+        //    else if (this->ui->stackWdgt->currentWidget() == this->ui->guestPg)
+        //    {
+        //        this->ui->guestCanvasVw->update();
+        //    }
+    });
+}
+
+void WINMain::switchScreenToShow(ScreensInWINMain screen)
+{
+    switch (screen)
+    {
+    case guest:
+        ui->stackWdgt->setCurrentWidget(ui->guestPreviewPg);
+        redrawWhateverCurrentCanvasIsShowing();
+        break;
+    case canvas:
+        ui->stackWdgt->setCurrentWidget(ui->canvasPg);
+        redrawWhateverCurrentCanvasIsShowing();
+        break;
+    case welcome:
+        ui->stackWdgt->setCurrentWidget(ui->welcomePg);
+        break;
+    }
 }
 
 void WINMain::initAddRectBt()

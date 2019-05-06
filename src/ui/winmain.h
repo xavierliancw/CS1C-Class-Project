@@ -16,6 +16,7 @@
 #include <QMainWindow>
 #include <QPainter>
 #include <QDebug>
+#include <QTimer>
 
 namespace Ui {
 class WINMain;
@@ -30,6 +31,11 @@ class WINMain : public QMainWindow
     Q_OBJECT
 
 public:
+    /**
+     * @brief The different screens WINMain can switch between.
+     */
+    enum ScreensInWINMain {welcome, guest, canvas};
+
     /**
      * @brief Constructor.
      *
@@ -50,47 +56,37 @@ protected:
      */
     virtual void paintEvent(QPaintEvent*) override;
 
-private:
-    Ui::WINMain *ui; /**< WINMain's UI pointer. */
-    DLGTestimonialCreate *testimonialFormWin; /**< Pointer to the testimonial creation dialogue. */
-    DLGContactForm *contactFormWin; /**< Pointer to the contact form dialogue. */
-    DLGLoginScreen *loginFormWin; /** < Dialog that authenticates modelers. */
-    VMCanvas vm; /**< View model for the canvas that contains business logic and UI definitions. */
-    DLGShapeAdderRect *dlgAddShapeRect; /** < Dialog that creates rectangles. */
+    /**
+     * @brief Lifecycle event that fires when the window is closed.
+     *
+     * @param QCloseEvent pointer (unused).
+     */
+    void closeEvent(QCloseEvent*) override;
 
-    /**
-     * @brief Initializes the button behavior that launches the canvas view.
-     *
-     */
+private:
+    Ui::WINMain *ui;
+    DLGTestimonialCreate *testimonialFormWin;
+    DLGContactForm *contactFormWin;
+    DLGShapeAdderRect *dlgAddShapeRect;
+    DLGLoginScreen *dlgLogin;
+    VMCanvas vm;
+
+    //Canvas functions
+    VMCanvas initCanvasVM();
+    void redrawWhateverCurrentCanvasIsShowing();
+
+    //UI functions
+    void switchScreenToShow(ScreensInWINMain);
+
+    //UI on welcome screen
     void initStartBt();
-    /**
-     * @brief Initializes the button behavior that summons the testimonial creation dialogue.
-     *
-     */
     void initTestimonialCreateBt();
-    /**
-     * @brief Initializes the button that summons the contact form dialogue.
-     *
-     */
     void initContactUsBt();
-    /**
-     * @brief Initializes the view model that contains the canvas business logic.
-     *
-     */
     VMCanvas initVM();
-    /**
-     * @brief Initializes the edit button which calls the login screen to change
-     * the screen to the canvas.
-     */
     void initGuestAuthenticateBt();
-    /**
-     * @brief Initializes the back button on the guest view to switch back to the
-     * main welcome page.
-     */
     void initGuestBackBt();
-    /**
-     * @brief Initializes the back button on the canvas that goes back to the welcome page
-     */
+
+    //UI on canvas screen
     void initCanvasBackBt();
     void initAddRectBt();
     void initAddSquareBt();
