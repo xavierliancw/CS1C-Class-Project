@@ -46,7 +46,8 @@ SOURCES += \
     ui/lcshapelayer.cpp \
     ui/dlgshapegeneditrectangles.cpp \
     ui/lceditvertex.cpp \
-    ui/dlgeditorvertices.cpp
+    ui/dlgeditorvertices.cpp \
+    viewmodels/vmeditorvertices.cpp
 
 HEADERS += \
     dlgloginscreen.h \
@@ -70,7 +71,8 @@ HEADERS += \
     ui/lcshapelayer.h \
     ui/dlgshapegeneditrectangles.h \
     ui/lceditvertex.h \
-    ui/dlgeditorvertices.h
+    ui/dlgeditorvertices.h \
+    viewmodels/vmeditorvertices.h
 
 FORMS += \
     dlgloginscreen.ui \
