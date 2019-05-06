@@ -27,6 +27,7 @@ CONFIG += c++11
 SOURCES += \
     dlgloginscreen.cpp \
     main.cpp \
+    models/shapecircle.cpp \
     models/shapeellipse.cpp \
     models/shapepolygon.cpp \
     models/shapetext.cpp \
@@ -40,10 +41,12 @@ SOURCES += \
     ui/dlgshapeselector.cpp \
     ui/dlgcontactform.cpp \
     viewmodels/vmcanvas.cpp \
-    ui/dlgshapeadderrect.cpp
+    ui/dlgshapeadderrect.cpp \
+    models/shapesquare.cpp
 
 HEADERS += \
     dlgloginscreen.h \
+    models/shapecircle.h \
     models/shapeellipse.h \
     models/shapepolygon.h \
     models/shapetext.h \
@@ -58,7 +61,8 @@ HEADERS += \
     util/goldenconevector.h \
     ui/dlgcontactform.h \
     viewmodels/vmcanvas.h \
-    ui/dlgshapeadderrect.h
+    ui/dlgshapeadderrect.h \
+    models/shapesquare.h
 
 FORMS += \
     dlgloginscreen.ui \

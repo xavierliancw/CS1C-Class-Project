@@ -2,12 +2,16 @@
 #include "ui_dlgshapeadderrect.h"
 
 DLGShapeAdderRect::DLGShapeAdderRect(QWidget *parent,
-                                     std::function<void(ShapeRect*)> rectResult) :
+                                     Mode startingMode,
+                                     std::function<void(IShape*)> rectResult) :
     QDialog(parent),
     ui(new Ui::DLGShapeAdderRect)
 {
     ui->setupUi(this);
+
+    //Initialize properties
     this->lambdaRectResult = rectResult;
+    this->currentDisplayMode = startingMode;
 
     //Set up add button
     connect(ui->addBt, &QPushButton::clicked, ui->addBt, [this]()
@@ -45,6 +49,24 @@ DLGShapeAdderRect::DLGShapeAdderRect(QWidget *parent,
     ui->field3LE->setValidator(intValidator);
     ui->field4LE->setValidator(intValidator);
 
+    //Set up UI
+    ui->prompt1Lbl->setText("Top Left X Coordinate:");
+    ui->prompt2Lbl->setText("Top Left Y Coordinate:");
+    switch (currentDisplayMode)
+    {
+    case RectCreate:
+        ui->titleLbl->setText("New Rectangle");
+        ui->prompt3Lbl->setText("Width:");
+        ui->prompt4Lbl->setText("Height:");
+        break;
+    case SquareCreate:
+        ui->titleLbl->setText("New Square");
+        ui->prompt3Lbl->setText("Size:");
+        ui->prompt4Lbl->setText("This shouldn't show!");
+        ui->prompt4Lbl->hide();
+        ui->field4LE->hide();
+        break;
+    }
     //Initialize state
     updateAddBtEnableState();
 }
@@ -57,19 +79,48 @@ DLGShapeAdderRect::~DLGShapeAdderRect()
 
 void DLGShapeAdderRect::updateAddBtEnableState()
 {
-    ui->addBt->setEnabled(!ui->field1LE->text().isEmpty() &&
-                          !ui->field2LE->text().isEmpty() &&
-                          !ui->field3LE->text().isEmpty() &&
-                          !ui->field4LE->text().isEmpty());
+    ui->addBt->setEnabled(inputsAreValid());
 }
 
 void DLGShapeAdderRect::giveDLGSummonerCreatedRectIfPossible()
 {
-    //Validation systems in this class are already validating the input
-    ShapeRect* newRect = new ShapeRect(-1,
-                                       ui->field1LE->text().toInt(),
-                                       ui->field2LE->text().toInt(),
-                                       ui->field3LE->text().toInt(),
-                                       ui->field4LE->text().toInt());
+    IShape* newRect = nullptr;
+
+    //Generate rect is possible
+    if (inputsAreValid())
+    {
+        //Determine what kind of rect to return
+        switch (currentDisplayMode)
+        {
+        case RectCreate:
+            newRect = new ShapeRect(IShape::ShapeType::Rectangle,
+                                    ui->field1LE->text().toInt(),
+                                    ui->field2LE->text().toInt(),
+                                    ui->field3LE->text().toInt(),
+                                    ui->field4LE->text().toInt());
+            break;
+        case SquareCreate:
+            newRect = new ShapeSquare(ui->field1LE->text().toInt(),
+                                      ui->field2LE->text().toInt(),
+                                      ui->field3LE->text().toInt());
+            break;
+        }
+    }
     lambdaRectResult(newRect);
+}
+
+bool DLGShapeAdderRect::inputsAreValid()
+{
+    switch (currentDisplayMode)
+    {
+    case RectCreate:
+        return !ui->field1LE->text().isEmpty() &&
+                !ui->field2LE->text().isEmpty() &&
+                !ui->field3LE->text().isEmpty() &&
+                !ui->field4LE->text().isEmpty();
+    case SquareCreate:
+        return !ui->field1LE->text().isEmpty() &&
+                !ui->field2LE->text().isEmpty() &&
+                !ui->field3LE->text().isEmpty();
+    }
 }

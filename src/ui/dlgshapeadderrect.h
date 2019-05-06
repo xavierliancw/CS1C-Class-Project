@@ -2,6 +2,7 @@
 #define DLGSHAPEADDERRECT_H
 
 #include "models/shaperect.h"
+#include "models/shapesquare.h"
 #include <QDialog>
 #include <QIntValidator>
 #include <functional>
@@ -20,14 +21,23 @@ class DLGShapeAdderRect : public QDialog
     Q_OBJECT
 
 public:
+
+    /**
+     * @brief Different modes this dialog can be in.
+     *
+     */
+    enum Mode {RectCreate, SquareCreate};
+
     /**
      * @brief Constructor.
      *
      * @param parent: Parent pointer.
-     * @param rectResult: Callback for possible generated rectangle.
+     * @param startingMode: Mode to start with (generate a rect or a square).
+     * @param rectResult: Callback for possible generated shapes.
      */
     explicit DLGShapeAdderRect(QWidget *parent = nullptr,
-                               std::function<void(ShapeRect*)> rectResult = [](ShapeRect*){});
+                               Mode startingMode = RectCreate,
+                               std::function<void(IShape*)> rectResult = [](IShape*){});
     /**
      * @brief Destructor.
      *
@@ -36,8 +46,9 @@ public:
 
 private:
     Ui::DLGShapeAdderRect *ui; /**< UI pointer. */
-    std::function<void(ShapeRect*)> lambdaRectResult; /**< Callback lambda. */
+    std::function<void(IShape*)> lambdaRectResult; /**< Callback lambda. */
     QIntValidator* intValidator; /**< Field validator object that forces only numeric input. */
+    Mode currentDisplayMode; /** < The mode this dialog is currently in. */
 
     /**
      * @brief This updates the enable state of the add button.
@@ -50,6 +61,13 @@ private:
      *
      */
     void giveDLGSummonerCreatedRectIfPossible();
+
+    /**
+     * @brief Looks at appropriate UI elements and determines if their inputs are appropriate to
+     * generate a shape.
+     * @return True if shape can be generated, false otherwise.
+     */
+    bool inputsAreValid();
 };
 
 #endif // DLGSHAPEADDERRECT_H

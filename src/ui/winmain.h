@@ -8,6 +8,7 @@
 #include "dlgshapeselector.h"
 #include "models/shapeellipse.h"
 #include "models/ishape.h"
+#include "models/shapecircle.h"
 #include "viewmodels/vmcanvas.h"
 #include <util/goldenconevector.h>
 #include <chrono>
@@ -91,6 +92,8 @@ private:
      * @brief Initializes the back button on the canvas that goes back to the welcome page
      */
     void initCanvasBackBt();
+    void initAddRectBt();
+    void initAddSquareBt();
 };
 
 #endif // WINMAIN_H
