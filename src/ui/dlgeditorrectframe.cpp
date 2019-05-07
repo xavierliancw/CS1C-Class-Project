@@ -1,12 +1,12 @@
-#include "dlgshapegeneditrectangles.h"
-#include "ui_DLGShapeGenEditRectangles.h"
+#include "dlgeditorrectframe.h"
+#include "ui_dlgeditorrectframe.h"
 
-DLGShapeGenEditRectangles::DLGShapeGenEditRectangles(QWidget *parent,
-                                                     ShapeRect* possRectToEdit,
-                                                     Mode startingMode,
-                                                     std::function<void(IShape*)> rectResult) :
+DLGEditorRectFrame::DLGEditorRectFrame(QWidget *parent,
+                                       ShapeRect* possRectToEdit,
+                                       Mode startingMode,
+                                       std::function<void(IShape*)> rectResult) :
     QDialog(parent),
-    ui(new Ui::DLGShapeGenEditRectangles),
+    ui(new Ui::DLGEditorRectFrame),
     possRectBeingEdited(possRectToEdit)
 {
     ui->setupUi(this);
@@ -91,18 +91,18 @@ DLGShapeGenEditRectangles::DLGShapeGenEditRectangles(QWidget *parent,
     }
 }
 
-DLGShapeGenEditRectangles::~DLGShapeGenEditRectangles()
+DLGEditorRectFrame::~DLGEditorRectFrame()
 {
     delete intValidator;
     delete ui;
 }
 
-void DLGShapeGenEditRectangles::updateAddBtEnableState()
+void DLGEditorRectFrame::updateAddBtEnableState()
 {
     ui->addBt->setEnabled(inputsAreValid());
 }
 
-void DLGShapeGenEditRectangles::giveDLGSummonerCreatedRectIfPossible()
+void DLGEditorRectFrame::giveDLGSummonerCreatedRectIfPossible()
 {
     if (this->possRectBeingEdited == nullptr)
     {
@@ -151,7 +151,7 @@ void DLGShapeGenEditRectangles::giveDLGSummonerCreatedRectIfPossible()
     }
 }
 
-bool DLGShapeGenEditRectangles::inputsAreValid()
+bool DLGEditorRectFrame::inputsAreValid()
 {
     switch (currentDisplayMode)
     {

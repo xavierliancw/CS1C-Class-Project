@@ -218,10 +218,10 @@ void WINMain::summonDlgThatEdits(IShape * shapeToEdit)
     case IShape::ShapeType::Square:
         if (ShapeSquare* castedRect = dynamic_cast<ShapeSquare*>(shapeToEdit))
         {
-            DLGShapeGenEditRectangles* rectEditor = new DLGShapeGenEditRectangles(
+            DLGEditorRectFrame* rectEditor = new DLGEditorRectFrame(
                         nullptr,
                         castedRect,
-                        DLGShapeGenEditRectangles::Mode::SquareCreate,
+                        DLGEditorRectFrame::Mode::SquareCreate,
                         [](IShape*){}
                     );
             rectEditor->setAttribute(Qt::WA_DeleteOnClose);
@@ -253,10 +253,10 @@ void WINMain::summonDlgThatEdits(IShape * shapeToEdit)
     case IShape::ShapeType::Rectangle:
         if (ShapeRect* castedRect = dynamic_cast<ShapeRect*>(shapeToEdit))
         {
-            DLGShapeGenEditRectangles* rectEditor = new DLGShapeGenEditRectangles(
+            DLGEditorRectFrame* rectEditor = new DLGEditorRectFrame(
                         nullptr,
                         castedRect,
-                        DLGShapeGenEditRectangles::Mode::RectCreate,
+                        DLGEditorRectFrame::Mode::RectCreate,
                         [](IShape*){}
                     );
             rectEditor->setAttribute(Qt::WA_DeleteOnClose);
@@ -336,10 +336,10 @@ void WINMain::initAddRectBt()
 {
     connect(ui->addRectBt, &QPushButton::clicked, ui->addRectBt, [this]()
     {
-        dlgRectEditor = new DLGShapeGenEditRectangles(
+        dlgRectEditor = new DLGEditorRectFrame(
                     nullptr,
                     nullptr,
-                    DLGShapeGenEditRectangles::Mode::RectCreate,
+                    DLGEditorRectFrame::Mode::RectCreate,
                     [this](IShape* rectIn) {this->vm.addShape(rectIn);}
                 );
         dlgRectEditor->setAttribute(Qt::WA_DeleteOnClose);
@@ -351,10 +351,10 @@ void WINMain::initAddSquareBt()
 {
     connect(ui->addSquareBt, &QPushButton::clicked, ui->addSquareBt, [this]()
     {
-        dlgRectEditor = new DLGShapeGenEditRectangles(
+        dlgRectEditor = new DLGEditorRectFrame(
                     nullptr,
                     nullptr,
-                    DLGShapeGenEditRectangles::Mode::SquareCreate,
+                    DLGEditorRectFrame::Mode::SquareCreate,
                     [this](IShape* rectIn) {this->vm.addShape(rectIn);}
                 );
         dlgRectEditor->setAttribute(Qt::WA_DeleteOnClose);

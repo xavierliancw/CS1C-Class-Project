@@ -2,7 +2,7 @@
 #define WINMAIN_H
 
 #include "dlgcontactform.h"
-#include "dlgshapegeneditrectangles.h"
+#include "dlgeditorrectframe.h"
 #include "dlgtestimonialcreate.h"
 #include "dlgloginscreen.h"
 #include "dlgshapeselector.h"
@@ -87,7 +87,7 @@ private:
     //Pop up UI
     DLGTestimonialCreate *testimonialFormWin;
     DLGContactForm *contactFormWin;
-    DLGShapeGenEditRectangles *dlgRectEditor;
+    DLGEditorRectFrame *dlgRectEditor;
     DLGLoginScreen *dlgLogin;
 
     //Canvas UI

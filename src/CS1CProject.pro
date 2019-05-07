@@ -46,10 +46,10 @@ SOURCES += \
     models/shapesquare.cpp \
     models/jsonshape.cpp \
     ui/lcshapelayer.cpp \
-    ui/dlgshapegeneditrectangles.cpp \
     ui/lceditvertex.cpp \
     ui/dlgeditorvertices.cpp \
-    viewmodels/vmeditorvertices.cpp
+    viewmodels/vmeditorvertices.cpp \
+    ui/dlgeditorrectframe.cpp
 
 HEADERS += \
     dlgloginscreen.h \
@@ -73,10 +73,10 @@ HEADERS += \
     models/jsonshape.h \
     models/shapesquare.h \
     ui/lcshapelayer.h \
-    ui/dlgshapegeneditrectangles.h \
     ui/lceditvertex.h \
     ui/dlgeditorvertices.h \
-    viewmodels/vmeditorvertices.h
+    viewmodels/vmeditorvertices.h \
+    ui/dlgeditorrectframe.h
 
 FORMS += \
     dlgloginscreen.ui \
@@ -84,7 +84,7 @@ FORMS += \
     ui/dlgtestimonialcreate.ui \
     ui/dlgshapeselector.ui \
     ui/dlgcontactform.ui \
-    ui/DLGShapeGenEditRectangles.ui \
+    ui/dlgeditorrectframe.ui \
     ui/lcshapelayer.ui \
     ui/lceditvertex.ui \
     ui/dlgeditorvertices.ui

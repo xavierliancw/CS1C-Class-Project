@@ -1,5 +1,5 @@
-#ifndef DLGSHAPEADDERRECT_H
-#define DLGSHAPEADDERRECT_H
+#ifndef DLGEDITORRECTFRAME_H
+#define DLGEDITORRECTFRAME_H
 
 #include "models/shaperect.h"
 #include "models/shapesquare.h"
@@ -7,14 +7,15 @@
 #include <QIntValidator>
 #include <functional>
 
-namespace Ui {class DLGShapeGenEditRectangles;}
+namespace Ui {class DLGEditorRectFrame;}
 
 /**
- * @brief Dialog that generates a rectangle shape in dynamic memory, returning a pointer to it
- * through a lambda initialized in its constructor.
+ * @brief Dialog that edits rects which allows for generating rectangles and circles.
+ * This generates a rectangle shape in dynamic memory, returning a pointer to it
+ * through a lambda callback initialized in its constructor.
  *
  */
-class DLGShapeGenEditRectangles : public QDialog
+class DLGEditorRectFrame : public QDialog
 {
     Q_OBJECT
 
@@ -35,18 +36,18 @@ public:
      * @param startingMode: Mode to start with (generate a rect or a square).
      * @param rectResult: Callback for possible generated shapes.
      */
-    explicit DLGShapeGenEditRectangles(QWidget *parent = nullptr,
-                                       ShapeRect* possRectToEdit = nullptr,
-                                       Mode startingMode = RectCreate,
-                                       std::function<void(IShape*)> rectResult = [](IShape*){});
+    explicit DLGEditorRectFrame(QWidget *parent = nullptr,
+                                ShapeRect* possRectToEdit = nullptr,
+                                Mode startingMode = RectCreate,
+                                std::function<void(IShape*)> rectResult = [](IShape*){});
     /**
      * @brief Destructor.
      *
      */
-    ~DLGShapeGenEditRectangles() override;
+    ~DLGEditorRectFrame() override;
 
 private:
-    Ui::DLGShapeGenEditRectangles *ui; /**< UI pointer. */
+    Ui::DLGEditorRectFrame *ui; /**< UI pointer. */
     std::function<void(IShape*)> lambdaRectResult; /**< Callback lambda. */
     QIntValidator* intValidator; /**< Field validator object that forces only numeric input. */
     Mode currentDisplayMode; /** < The mode this dialog is currently in. */
@@ -72,4 +73,4 @@ private:
     bool inputsAreValid();
 };
 
-#endif // DLGSHAPEADDERRECT_H
+#endif // DLGEDITORRECTFRAME_H
