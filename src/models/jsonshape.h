@@ -9,14 +9,25 @@
 #include "shapeline.h"
 #include "shapeellipse.h"
 #include "shapecircle.h"
+#include "shapetext.h"
 
 #include <QJsonObject>
 #include <QString>
 #include <QDebug>
 #include <QJsonArray>
 
+/**
+ * @brief Transformational struct that serializes and deserializes shapes to and from JSON.
+ *
+ */
 struct JSONShape
 {
+    /**
+     * @brief Converts a shape to JSON.
+     *
+     * @param shapeToSerialize: The shape to serialize.
+     * @return QJsonObject
+     */
     static QJsonObject toJSON(const IShape* shapeToSerialize)
     {
         QJsonObject newJson;
@@ -32,9 +43,23 @@ struct JSONShape
         newJson[keyBrushClr] = shapeToSerialize->brush.color().name();
         newJson[keyBrushStyle] = serializedQtBrushStyleFrom(shapeToSerialize->brush.style());
 
+        //Text is speshul
+        if (const ShapeText* castTxt = dynamic_cast<const ShapeText*>(shapeToSerialize))
+        {
+            newJson[keyText] = castTxt->m_text;
+            newJson[keyTxtFont] = castTxt->font.family();
+            newJson[keyTxtPtSize] = castTxt->font.pointSize();
+            newJson[keyTxtWeight] = castTxt->font.weight();
+        }
         return newJson;
     }
 
+    /**
+     * @brief Generates a shape in dynamic memory from JSON.
+     *
+     * @param json: JSON to read from.
+     * @return IShape
+     */
     static IShape* fromJSON(const QJsonObject &json)
     {
         //Defaults
@@ -108,6 +133,21 @@ struct JSONShape
         {
             brushStyle = deserializeBrushStyleFrom(json[keyBrushStyle].toString(), brushStyle);
         }
+        //Text is speshul
+        if (ShapeText* txtCast = dynamic_cast<ShapeText*>(retShape))
+        {
+            if (json.contains(keyText) && json[keyText].isString())
+            {
+                txtCast->m_text = json[keyText].toString();
+            }
+            if (json.contains(keyTxtPtSize) && json.contains(keyTxtFont) &&
+                    json[keyTxtFont].isString() && json.contains(keyTxtWeight))
+            {
+                txtCast->font = QFont(json[keyTxtFont].toString(),
+                                      json[keyTxtPtSize].toInt(),
+                                      json[keyTxtWeight].toInt());
+            }
+        }
         //Init the other properties
         retShape->id = id;
         retShape->pen.setColor(penClr);
@@ -131,6 +171,9 @@ private:
     static const QString keyBrushClr;
     static const QString keyBrushStyle;
     static const QString keyText;
+    static const QString keyTxtPtSize;
+    static const QString keyTxtFont;
+    static const QString keyTxtWeight;
 
     static IShape* dynmaicallyIinitializedShapeGiven(const IShape::ShapeType shType,
                                                      const QString rawShapeTypeJSONStr,
@@ -150,8 +193,13 @@ private:
                 badDimensEncountered = false;
             }
             break;
-        //        case IShape::ShapeType::Text:
-        //            retShape = new Text?
+        case IShape::ShapeType::Text:
+            if (dimens.size() == 2)
+            {
+                retShape = new ShapeText(dimens[0], dimens[1], "");
+                badDimensEncountered = false;
+            }
+            break;
         case IShape::ShapeType::Ellipse:
             if (dimens.size() == 4)
             {
@@ -282,6 +330,11 @@ private:
             }
             break;
         case IShape::ShapeType::Text:
+            if (const ShapeText* castTxt = dynamic_cast<const ShapeText*>(shapeToSerialize))
+            {
+                jsonAr.append(QJsonValue(castTxt->m_point.x()));
+                jsonAr.append(QJsonValue(castTxt->m_point.y()));
+            }
             break;
         case IShape::ShapeType::Circle:
             if (const ShapeCircle* cir = dynamic_cast<const ShapeCircle*>(shapeToSerialize))

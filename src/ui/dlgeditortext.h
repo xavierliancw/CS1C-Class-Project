@@ -11,14 +11,29 @@ namespace Ui {
 class DLGEditorText;
 }
 
+/**
+ * @brief Dialog that edits text.
+ *
+ */
 class DLGEditorText : public QDialog
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief Constructor.
+     *
+     * @param parent: Parent pointer.
+     * @param txtToEdit: Text shape to edit if specified.
+     * @param newGeneratedTxtCallback: Dynamically allocated new text shape if txtToEdit is null.
+     */
     explicit DLGEditorText(QWidget *parent,
                            ShapeText* txtToEdit,
                            std::function<void(ShapeText*)> newGeneratedTxtCallback);
+    /**
+     * @brief Destructor.
+     *
+     */
     ~DLGEditorText();
 
 private:
@@ -28,6 +43,7 @@ private:
 
     QFont fontToApply;
     QIntValidator *intValidator;
+
     void updateSubmitBt();
 };
 
