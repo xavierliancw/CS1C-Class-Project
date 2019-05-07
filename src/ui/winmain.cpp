@@ -142,6 +142,11 @@ void WINMain::initStartBt()
 
 void WINMain::initContactUsBt()
 {
+    QPixmap pixmap(":/image/final_icon.png");
+    QIcon ButtonIcon(pixmap);
+    ui->contactBt->setIcon(ButtonIcon);
+    //ui->contactBt->setIconSize(pixmap.rect().size());
+   ui->contactBt->setIconSize(QSize(65, 65));
     connect(ui->contactBt, &QPushButton::clicked, ui->contactBt, [this]()
     {
         contactFormWin = new DLGContactForm();

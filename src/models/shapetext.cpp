@@ -18,13 +18,3 @@ void ShapeText :: move(int scootX, int scootY)
 {
     m_point = QPoint(m_point.x() + scootX, m_point.y() + scootY);
 }
-
-double ShapeText :: perimeter() const
-{
-    return 0;
-}
-
-double ShapeText :: area() const
-{
-    return 0;
-}

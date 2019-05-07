@@ -25,7 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-    dlgloginscreen.cpp \
+    ui/dlgloginscreen.cpp \
     main.cpp \
     models/shapecircle.cpp \
     models/shapeellipse.cpp \
@@ -45,6 +45,7 @@ SOURCES += \
     viewmodels/vmcanvas.cpp \
     models/shapesquare.cpp \
     models/jsonshape.cpp \
+    models/jsoncustomerinquiry.cpp \
     ui/lcshapelayer.cpp \
     ui/lceditvertex.cpp \
     ui/dlgeditorvertices.cpp \
@@ -54,7 +55,7 @@ SOURCES += \
     ui/dlgeditortext.cpp
 
 HEADERS += \
-    dlgloginscreen.h \
+    ui/dlgloginscreen.h \
     models/shapecircle.h \
     models/shapeellipse.h \
     models/shapeline.h \
@@ -74,6 +75,8 @@ HEADERS += \
     viewmodels/vmcanvas.h \
     models/jsonshape.h \
     models/shapesquare.h \
+    models/dtocustomerinquiry.h \
+    models/jsoncustomerinquiry.h \
     ui/lcshapelayer.h \
     ui/lceditvertex.h \
     ui/dlgeditorvertices.h \
@@ -83,7 +86,7 @@ HEADERS += \
     ui/dlgeditortext.h
 
 FORMS += \
-    dlgloginscreen.ui \
+    ui/dlgloginscreen.ui \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
     ui/dlgshapeselector.ui \
@@ -104,4 +107,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    images.qrc
+    cone.qrc \
+    logo.qrc
