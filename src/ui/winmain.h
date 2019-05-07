@@ -97,8 +97,6 @@ private:
     int rowNumberFromPickUpEvent;
     VMCanvas initCanvasVM();
     void initCanvasBackBt();
-    void initAddRectBt();
-    void initAddSquareBt();
     void refreshLayersVw();
     void initLayerSelectionBehavior();
     void redrawWhateverCurrentCanvasIsShowing();

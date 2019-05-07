@@ -286,7 +286,16 @@ void VMEditorRectFrame::applyState(Mode stateToApply, bool justInitialized)
     int x = vmDidWantRawX().toInt(&everyInputIsAValidInt);
     int y = vmDidWantRawY().toInt(&everyInputIsAValidInt);
     int w = vmDidWantRawW().toInt(&everyInputIsAValidInt);
-    int h = vmDidWantRawH().toInt(&everyInputIsAValidInt);
+    int h;
+    if (currentUIMode == newSquare || currentUIMode == editSquare ||
+            currentUIMode == newCircle || currentUIMode == editCicle)
+    {
+        h = w;
+    }
+    else
+    {
+        h = vmDidWantRawH().toInt(&everyInputIsAValidInt);
+    }
     if (everyInputIsAValidInt)
     {
         finalizedFrame = new QRect(x, y, w, h);
@@ -305,4 +314,24 @@ void VMEditorRectFrame::reset()
     shapeCurrentlyBeingEdited = nullptr;
     delete finalizedFrame;
     finalizedFrame = nullptr;
+}
+
+QString VMEditorRectFrame::getRawX() const
+{
+    return rawX;
+}
+
+QString VMEditorRectFrame::getRawY() const
+{
+    return rawY;
+}
+
+QString VMEditorRectFrame::getRawW() const
+{
+    return rawW;
+}
+
+QString VMEditorRectFrame::getRawH() const
+{
+    return rawH;
 }

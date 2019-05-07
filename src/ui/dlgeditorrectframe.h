@@ -6,6 +6,7 @@
 #include <QDialog>
 #include <QIntValidator>
 #include <functional>
+#include "viewmodels/vmeditorrectframe.h"
 
 namespace Ui {class DLGEditorRectFrame;}
 
@@ -22,24 +23,23 @@ class DLGEditorRectFrame : public QDialog
 public:
 
     /**
-     * @brief Different modes this dialog can be in.
-     *
-     */
-    enum Mode {RectCreate, SquareCreate};
-
-    /**
-     * @brief Constructor.
+     * @brief Constructor used for generating new shapes.
      *
      * @param parent: Parent pointer.
-     * @param possRectToEdit: If this is passed in, then this dialog will be editing that shape
-     * instead of generating a new shape.
-     * @param startingMode: Mode to start with (generate a rect or a square).
-     * @param rectResult: Callback for possible generated shapes.
+     * @param shapeTypeToGen: The kind of shape to generate.
+     * @param rectResult: Callback for generated shapes.
      */
-    explicit DLGEditorRectFrame(QWidget *parent = nullptr,
-                                ShapeRect* possRectToEdit = nullptr,
-                                Mode startingMode = RectCreate,
-                                std::function<void(IShape*)> rectResult = [](IShape*){});
+    explicit DLGEditorRectFrame(QWidget *parent,
+                                IShape::ShapeType shapeTypeToGen,
+                                std::function<void(IShape*)> dlgDidGiveRectResult);
+    /**
+     * @brief Constructor used for editing existing shapes.
+     *
+     * @param parent: Parent pointer.
+     * @param shapeToEdit: The shape to edit.
+     */
+    explicit DLGEditorRectFrame(QWidget *parent,
+                                IShape *shapeToEdit);
     /**
      * @brief Destructor.
      *
@@ -47,30 +47,13 @@ public:
     ~DLGEditorRectFrame() override;
 
 private:
-    Ui::DLGEditorRectFrame *ui; /**< UI pointer. */
-    std::function<void(IShape*)> lambdaRectResult; /**< Callback lambda. */
-    QIntValidator* intValidator; /**< Field validator object that forces only numeric input. */
-    Mode currentDisplayMode; /** < The mode this dialog is currently in. */
-    ShapeRect* possRectBeingEdited;
+    Ui::DLGEditorRectFrame *ui;
+    QIntValidator* intValidator;
+    std::function<void(IShape*)> dlgDidGiveRectResult;
+    VMEditorRectFrame vm;
 
-    /**
-     * @brief This updates the enable state of the add button.
-     *
-     */
-    void updateAddBtEnableState();
-    /**
-     * @brief This dymaically generates a rectangle in memory if inputs are valid. It'll call
-     * the callback lambda if successful.
-     *
-     */
-    void giveDLGSummonerCreatedRectIfPossible();
-
-    /**
-     * @brief Looks at appropriate UI elements and determines if their inputs are appropriate to
-     * generate a shape.
-     * @return True if shape can be generated, false otherwise.
-     */
-    bool inputsAreValid();
+    VMEditorRectFrame initVM();
+    void initGeneralUI();
 };
 
 #endif // DLGEDITORRECTFRAME_H

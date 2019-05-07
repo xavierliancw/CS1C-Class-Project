@@ -13,51 +13,78 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0">
-    <spacer name="verticalSpacer_2">
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="titleLbl">
+     <property name="text">
+      <string>TITLE</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="Line" name="line">
      <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="3" column="0">
-    <widget class="QLabel" name="prompt2Lbl">
-     <property name="text">
-      <string>Y</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </item>
-   <item row="4" column="0">
-    <widget class="QLabel" name="prompt3Lbl">
-     <property name="text">
-      <string>WIDTH</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="field3LE"/>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="field4LE"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="field1LE"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="field2LE"/>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="prompt1Lbl">
+       <property name="text">
+        <string>X</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="prompt2Lbl">
+       <property name="text">
+        <string>Y</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="prompt3Lbl">
+       <property name="text">
+        <string>WIDTH</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="prompt4Lbl">
+       <property name="text">
+        <string>HEIGHT</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="prompt1Lbl">
-     <property name="text">
-      <string>X</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="0">
+   <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -70,24 +97,7 @@
      </property>
     </spacer>
    </item>
-   <item row="0" column="0">
-    <widget class="QLabel" name="titleLbl">
-     <property name="text">
-      <string>ADD RECT</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="0">
-    <widget class="QLabel" name="prompt4Lbl">
-     <property name="text">
-      <string>HEIGHT</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="7" column="0" colspan="3">
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <spacer name="horizontalSpacer">
@@ -124,20 +134,16 @@
      </item>
     </layout>
    </item>
-   <item row="2" column="1">
-    <widget class="QLineEdit" name="field1LE"/>
-   </item>
-   <item row="3" column="1">
-    <widget class="QLineEdit" name="field2LE"/>
-   </item>
-   <item row="4" column="1">
-    <widget class="QLineEdit" name="field3LE"/>
-   </item>
-   <item row="5" column="1">
-    <widget class="QLineEdit" name="field4LE"/>
-   </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>field1LE</tabstop>
+  <tabstop>field2LE</tabstop>
+  <tabstop>field3LE</tabstop>
+  <tabstop>field4LE</tabstop>
+  <tabstop>addBt</tabstop>
+  <tabstop>cancelBt</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

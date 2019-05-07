@@ -107,6 +107,27 @@ public:
      */
     void performActionsWhenDoneEditing();
 
+    /**
+     * @brief Obtains what the VM is currently holding for the input X value.
+     * @return  QString
+     */
+    QString getRawX() const;
+    /**
+     * @brief Obtains what the VM is currently holding for the input Y value.
+     * @return  QString
+     */
+    QString getRawY() const;
+    /**
+     * @brief Obtains what the VM is currently holding for the input width value.
+     * @return  QString
+     */
+    QString getRawW() const;
+    /**
+     * @brief Obtains what the VM is currently holding for the input height value.
+     * @return  QString
+     */
+    QString getRawH() const;
+
 private:
     enum Mode {newRectangle, editRectangle,
                newSquare, editSquare,

@@ -21,8 +21,6 @@ WINMain::WINMain(QWidget *parent) :
     rowNumberFromPickUpEvent = -1;
     ui->canvasPgLayerListVw->viewport()->installEventFilter(this);
     initCanvasBackBt();
-    initAddRectBt();
-    initAddSquareBt();
     initRectEditor();
     initLayerSelectionBehavior();
     ui->splitter->setSizes(QList<int>() << 1 << 1); //This evens out canvas and editor UI somehow
@@ -215,21 +213,28 @@ void WINMain::summonDlgThatEdits(IShape * shapeToEdit)
     case IShape::ShapeType::Text:
         break;
     case IShape::ShapeType::Circle:
+        if (ShapeCircle* casted = dynamic_cast<ShapeCircle*>(shapeToEdit))
+        {
+            DLGEditorRectFrame* rectEditor = new DLGEditorRectFrame(nullptr,  casted);
+            rectEditor->setAttribute(Qt::WA_DeleteOnClose);
+            rectEditor->show();
+        }
         break;
     case IShape::ShapeType::Square:
-        if (ShapeSquare* castedRect = dynamic_cast<ShapeSquare*>(shapeToEdit))
+        if (ShapeSquare* casted = dynamic_cast<ShapeSquare*>(shapeToEdit))
         {
-            DLGEditorRectFrame* rectEditor = new DLGEditorRectFrame(
-                        nullptr,
-                        castedRect,
-                        DLGEditorRectFrame::Mode::SquareCreate,
-                        [](IShape*){}
-                    );
+            DLGEditorRectFrame* rectEditor = new DLGEditorRectFrame(nullptr, casted);
             rectEditor->setAttribute(Qt::WA_DeleteOnClose);
             rectEditor->show();
         }
         break;
     case IShape::ShapeType::Ellipse:
+        if (ShapeEllipse* casted = dynamic_cast<ShapeEllipse*>(shapeToEdit))
+        {
+            DLGEditorRectFrame* rectEditor = new DLGEditorRectFrame(nullptr, casted);
+            rectEditor->setAttribute(Qt::WA_DeleteOnClose);
+            rectEditor->show();
+        }
         break;
     case IShape::ShapeType::NoShape:
         break;
@@ -252,14 +257,9 @@ void WINMain::summonDlgThatEdits(IShape * shapeToEdit)
     case IShape::ShapeType::Triangle:
         break;
     case IShape::ShapeType::Rectangle:
-        if (ShapeRect* castedRect = dynamic_cast<ShapeRect*>(shapeToEdit))
+        if (ShapeRect* casted = dynamic_cast<ShapeRect*>(shapeToEdit))
         {
-            DLGEditorRectFrame* rectEditor = new DLGEditorRectFrame(
-                        nullptr,
-                        castedRect,
-                        DLGEditorRectFrame::Mode::RectCreate,
-                        [](IShape*){}
-                    );
+            DLGEditorRectFrame* rectEditor = new DLGEditorRectFrame(nullptr, casted);
             rectEditor->setAttribute(Qt::WA_DeleteOnClose);
             rectEditor->show();
         }
@@ -331,36 +331,6 @@ void WINMain::switchScreenToShow(ScreensInWINMain screen)
         ui->stackWdgt->setCurrentWidget(ui->welcomePg);
         break;
     }
-}
-
-void WINMain::initAddRectBt()
-{
-    connect(ui->addRectBt, &QPushButton::clicked, ui->addRectBt, [this]()
-    {
-        dlgRectEditor = new DLGEditorRectFrame(
-                    nullptr,
-                    nullptr,
-                    DLGEditorRectFrame::Mode::RectCreate,
-                    [this](IShape* rectIn) {this->vm.addShape(rectIn);}
-                );
-        dlgRectEditor->setAttribute(Qt::WA_DeleteOnClose);
-        dlgRectEditor->show();
-    });
-}
-
-void WINMain::initAddSquareBt()
-{
-    connect(ui->addSquareBt, &QPushButton::clicked, ui->addSquareBt, [this]()
-    {
-        dlgRectEditor = new DLGEditorRectFrame(
-                    nullptr,
-                    nullptr,
-                    DLGEditorRectFrame::Mode::SquareCreate,
-                    [this](IShape* rectIn) {this->vm.addShape(rectIn);}
-                );
-        dlgRectEditor->setAttribute(Qt::WA_DeleteOnClose);
-        dlgRectEditor->show();
-    });
 }
 
 void WINMain::initLayerSelectionBehavior()
@@ -608,9 +578,43 @@ void WINMain::initVertexEditor()
 
 void WINMain::initRectEditor()
 {
+    connect(ui->addRectBt, &QPushButton::clicked, ui->addRectBt, [this]()
+    {
+        DLGEditorRectFrame* dlg = new DLGEditorRectFrame(
+                    nullptr,
+                    IShape::ShapeType::Rectangle,
+                    [this](IShape* newShape) {vm.addShape(newShape);}
+                );
+        dlg->setAttribute(Qt::WA_DeleteOnClose);
+        dlg->show();
+    });
+    connect(ui->addSquareBt, &QPushButton::clicked, ui->addSquareBt, [this]()
+    {
+        DLGEditorRectFrame* dlg = new DLGEditorRectFrame(
+                    nullptr,
+                    IShape::ShapeType::Square,
+                    [this](IShape* newShape) {vm.addShape(newShape);}
+                );
+        dlg->setAttribute(Qt::WA_DeleteOnClose);
+        dlg->show();
+    });
     connect(ui->addEllipseBt, &QPushButton::clicked, ui->addEllipseBt, [this]()
     {
-        DLGEditorRectFrame* dlg = new DLGEditorRectFrame(); //TODO set dependencies in constructor and apply to other rect shapes
+        DLGEditorRectFrame* dlg = new DLGEditorRectFrame(
+                    nullptr,
+                    IShape::ShapeType::Ellipse,
+                    [this](IShape* newShape) {vm.addShape(newShape);}
+                );
+        dlg->setAttribute(Qt::WA_DeleteOnClose);
+        dlg->show();
+    });
+    connect(ui->addCircleBt, &QPushButton::clicked, ui->addCircleBt, [this]()
+    {
+        DLGEditorRectFrame* dlg = new DLGEditorRectFrame(
+                    nullptr,
+                    IShape::ShapeType::Circle,
+                    [this](IShape* newShape) {vm.addShape(newShape);}
+                );
         dlg->setAttribute(Qt::WA_DeleteOnClose);
         dlg->show();
     });

@@ -155,7 +155,7 @@ private:
         case IShape::ShapeType::Ellipse:
             if (dimens.size() == 4)
             {
-                retShape = new ShapeEllipse(shType, dimens[0], dimens[1], dimens[2], dimens[3]);
+                retShape = new ShapeEllipse(shType, dimens[0], dimens[1], dimens[3], dimens[2]);
                 badDimensEncountered = false;
             }
             break;
