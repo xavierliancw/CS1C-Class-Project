@@ -6,6 +6,7 @@
 #include "shapesquare.h"
 #include "shapepolygon.h"
 #include "shapepolyline.h"
+#include "shapeline.h"
 
 #include <QJsonObject>
 #include <QString>
@@ -140,8 +141,13 @@ private:
 
         switch (shType)
         {
-        //        case IShape::ShapeType::Line:
-        //            retShape = new Line?
+        case IShape::ShapeType::Line:
+            if (dimens.size() == 4)
+            {
+                retShape = new ShapeLine(dimens[0], dimens[1], dimens[2], dimens[3]);
+                badDimensEncountered = false;
+            }
+            break;
         //        case IShape::ShapeType::Text:
         //            retShape = new Text?
         //        case IShape::ShapeType::Ellipse:
@@ -157,10 +163,11 @@ private:
                     x = x + 2;
                 }
                 retShape = new ShapePolygon(polyDimens);
+                badDimensEncountered = false;
             }
             break;
         case IShape::ShapeType::Polyline:
-            if (dimens.size() > 2)
+            if (dimens.size() > 4)
             {
                 QVector<QPoint> polyDimens;
                 int x = 0;
@@ -169,7 +176,8 @@ private:
                     polyDimens.push_back(QPoint(dimens[x], dimens[x + 1]));
                     x = x + 2;
                 }
-                retShape = new ShapePolyLine(polyDimens);
+                retShape = new ShapePolyLine(IShape::ShapeType::Polyline, polyDimens);
+                badDimensEncountered = false;
             }
             break;
         case IShape::ShapeType::Rectangle:
@@ -250,6 +258,14 @@ private:
         switch (shapeToSerialize->getShape())
         {
         case IShape::ShapeType::Line:
+            if (const ShapeLine* line = dynamic_cast<const ShapeLine*>(shapeToSerialize))
+            {
+                for (QPoint vert: line->polyLine)
+                {
+                    jsonAr.append(QJsonValue(vert.x()));
+                    jsonAr.append(QJsonValue(vert.y()));
+                }
+            }
             break;
         case IShape::ShapeType::Text:
             break;

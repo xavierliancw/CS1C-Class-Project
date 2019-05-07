@@ -204,6 +204,12 @@ void WINMain::summonDlgThatEdits(IShape * shapeToEdit)
     switch (shapeToEdit->getShape())
     {
     case IShape::ShapeType::Line:
+        if (ShapeLine* castedLine = dynamic_cast<ShapeLine*>(shapeToEdit))
+        {
+            DLGEditorVertices* vertEditor = new DLGEditorVertices(this, castedLine);
+            vertEditor->setAttribute(Qt::WA_DeleteOnClose);
+            vertEditor->show();
+        }
         break;
     case IShape::ShapeType::Text:
         break;
@@ -587,4 +593,13 @@ void WINMain::initVertexEditor()
         dlgVertexEditor->setAttribute(Qt::WA_DeleteOnClose);
         dlgVertexEditor->show();
     });
-}
+    connect(ui->addLineBt, &QPushButton::clicked, ui->addLineBt, [this]()
+    {
+        DLGEditorVertices *dlgVertexEditor = new DLGEditorVertices(
+                    this,
+                    IShape::ShapeType::Line,
+                    [this](IShape* newShapeCallback) {this->vm.addShape(newShapeCallback);}
+                );
+        dlgVertexEditor->setAttribute(Qt::WA_DeleteOnClose);
+        dlgVertexEditor->show();
+    });}

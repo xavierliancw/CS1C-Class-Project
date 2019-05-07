@@ -12,7 +12,7 @@ class ShapePolyLine: public IShape
 public:
     QPolygon polyLine;
 
-    ShapePolyLine(QVector<QPoint>& points);
+    ShapePolyLine(IShape::ShapeType shapeType, QVector<QPoint> points);
     ShapePolyLine(const ShapePolyLine&) = delete;
 
     ShapePolyLine& operator=(const ShapePolyLine&) = delete;

@@ -10,6 +10,7 @@
 #include "models/ishape.h"
 #include "models/shapepolygon.h"
 #include "models/shapepolyline.h"
+#include "models/shapeline.h"
 
 /**
  * @brief

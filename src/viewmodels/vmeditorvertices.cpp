@@ -54,7 +54,14 @@ void VMEditorVertices::resetStateUsing(IShape *shapeToBeEdited)
             break;
         case IShape::ShapeType::Line:
             currentEditMode = editLine;
-            qDebug() << "Line editing not implemented yet.";
+            if (ShapeLine* castedLine = dynamic_cast<ShapeLine*>(shapeToBeEdited))
+            {
+                for (QPoint vert: castedLine->polyLine)
+                {
+                    this->vertices.push_back(std::make_tuple(QString::number(vert.x()),
+                                                             QString::number(vert.y())));
+                }
+            }
             break;
         default:
             currentEditMode = noMode;
@@ -202,6 +209,15 @@ void VMEditorVertices::finishEditing()
         }
         break;
     case editLine:
+        if (ShapeLine* castedLine = dynamic_cast<ShapeLine*>(shapeBeingEdited))
+        {
+            castedLine->polyLine.clear();
+            for (std::tuple<QString, QString> vert: vertices)
+            {
+                castedLine->polyLine.push_back(QPoint(std::get<0>(vert).toInt(),
+                                                      std::get<1>(vert).toInt()));
+            }
+        }
         break;
     case noMode:
         break;
@@ -261,7 +277,7 @@ IShape* VMEditorVertices::generateNewShape()
     case addPolyline:
         if (finalVerts.size() > 2)
         {
-            return new ShapePolyLine(finalVerts);
+            return new ShapePolyLine(IShape::ShapeType::Polyline, finalVerts);
         }
         break;
     case addLine:

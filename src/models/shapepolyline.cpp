@@ -1,7 +1,7 @@
 #include "shapepolyline.h"
 
-ShapePolyLine::ShapePolyLine(QVector<QPoint>& points):
-    IShape(-1, ShapeType::Polyline)
+ShapePolyLine::ShapePolyLine(IShape::ShapeType shapeType, QVector<QPoint> points):
+    IShape(-1, shapeType)
 {
    polyLine = QPolygon(points);
 }
