@@ -5,12 +5,12 @@
 
 class ShapeText : public IShape
 {
-private:
-    QString m_text;
+public:
+    QFont font;
+    QString m_text = "";
     QPoint m_point;
 
-public:
-    ShapeText(int id, int originX, int originY, const QString& text);
+    ShapeText(int originX, int originY, const QString& text);
     ShapeText(const ShapeText&) = delete;
 
     ShapeText& operator = (const ShapeText&) = delete;

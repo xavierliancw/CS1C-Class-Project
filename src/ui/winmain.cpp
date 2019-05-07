@@ -26,6 +26,7 @@ WINMain::WINMain(QWidget *parent) :
     ui->splitter->setSizes(QList<int>() << 1 << 1); //This evens out canvas and editor UI somehow
     initPropertyInspector();
     initVertexEditor();
+    initTxtEditor();
 
     //Start the refresh timer that live renders the canvas
     refreshTimer = new QTimer(this);
@@ -211,6 +212,14 @@ void WINMain::summonDlgThatEdits(IShape * shapeToEdit)
         }
         break;
     case IShape::ShapeType::Text:
+        if (ShapeText* casted = dynamic_cast<ShapeText*>(shapeToEdit))
+        {
+            DLGEditorText* txtEditor = new DLGEditorText(nullptr,
+                                                         casted,
+                                                         [](ShapeText*){});
+            txtEditor->setAttribute(Qt::WA_DeleteOnClose);
+            txtEditor->show();
+        }
         break;
     case IShape::ShapeType::Circle:
         if (ShapeCircle* casted = dynamic_cast<ShapeCircle*>(shapeToEdit))
@@ -619,3 +628,16 @@ void WINMain::initRectEditor()
         dlg->show();
     });
 }
+
+void WINMain::initTxtEditor()
+{
+    connect(ui->addTxtBt, &QPushButton::clicked, ui->addTxtBt, [this]()
+    {
+        DLGEditorText* dlg = new DLGEditorText(nullptr,
+                                               nullptr,
+                                               [this](ShapeText* newTxt) {vm.addShape(newTxt);});
+        dlg->setAttribute(Qt::WA_DeleteOnClose);
+        dlg->show();
+    });
+}
+

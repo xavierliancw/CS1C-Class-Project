@@ -12,6 +12,7 @@
 #include "viewmodels/vmcanvas.h"
 #include "ui/dlgeditorvertices.h"
 #include "ui/lcshapelayer.h"
+#include "ui/dlgeditortext.h"
 #include <util/goldenconevector.h>
 #include <chrono>
 #include <QDialog>
@@ -105,6 +106,7 @@ private:
     void initPropertyInspector();
     void initVertexEditor();
     void initRectEditor();
+    void initTxtEditor();
 
     //Welcome screen UI
     void initStartBt();

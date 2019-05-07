@@ -1,6 +1,6 @@
 #include "shapetext.h"
 
-ShapeText :: ShapeText(int id, int originX, int originY, const QString& text) : IShape(id, ShapeType::Text)
+ShapeText :: ShapeText(int originX, int originY, const QString& text) : IShape(-1, ShapeType::Text)
 {
     m_text = text;
     m_point = QPoint(originX, originY);
@@ -8,6 +8,7 @@ ShapeText :: ShapeText(int id, int originX, int originY, const QString& text) : 
 
 void ShapeText :: draw(QPainter& painter)
 {
+    painter.setFont(font);
     painter.setPen(pen);
     painter.setBrush(brush);
     painter.drawText(m_point, m_text);
