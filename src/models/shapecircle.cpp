@@ -1,7 +1,7 @@
 #include "shapecircle.h"
 
-ShapeCircle::ShapeCircle(int x, int y, int radius):
-    ShapeEllipse(ShapeType::Circle, x, y, radius, radius)
+ShapeCircle::ShapeCircle(int x, int y, int diameter):
+    ShapeEllipse(ShapeType::Circle, x, y, diameter, diameter)
 {}
 
 double ShapeCircle::perimeter() const

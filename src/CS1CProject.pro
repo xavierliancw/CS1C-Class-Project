@@ -49,7 +49,8 @@ SOURCES += \
     ui/lceditvertex.cpp \
     ui/dlgeditorvertices.cpp \
     viewmodels/vmeditorvertices.cpp \
-    ui/dlgeditorrectframe.cpp
+    ui/dlgeditorrectframe.cpp \
+    viewmodels/vmeditorrectframe.cpp
 
 HEADERS += \
     dlgloginscreen.h \
@@ -76,7 +77,8 @@ HEADERS += \
     ui/lceditvertex.h \
     ui/dlgeditorvertices.h \
     viewmodels/vmeditorvertices.h \
-    ui/dlgeditorrectframe.h
+    ui/dlgeditorrectframe.h \
+    viewmodels/vmeditorrectframe.h
 
 FORMS += \
     dlgloginscreen.ui \

@@ -5,7 +5,7 @@
 class ShapeCircle: public ShapeEllipse
 {
 public:
-    ShapeCircle(int x, int y, int radius);
+    ShapeCircle(int x, int y, int diameter);
     ShapeCircle(const ShapeCircle&) = delete;
 
     ShapeCircle& operator = (const ShapeCircle&) = delete;

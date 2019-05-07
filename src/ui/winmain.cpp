@@ -23,6 +23,7 @@ WINMain::WINMain(QWidget *parent) :
     initCanvasBackBt();
     initAddRectBt();
     initAddSquareBt();
+    initRectEditor();
     initLayerSelectionBehavior();
     ui->splitter->setSizes(QList<int>() << 1 << 1); //This evens out canvas and editor UI somehow
     initPropertyInspector();
@@ -602,4 +603,15 @@ void WINMain::initVertexEditor()
                 );
         dlgVertexEditor->setAttribute(Qt::WA_DeleteOnClose);
         dlgVertexEditor->show();
-    });}
+    });
+}
+
+void WINMain::initRectEditor()
+{
+    connect(ui->addEllipseBt, &QPushButton::clicked, ui->addEllipseBt, [this]()
+    {
+        DLGEditorRectFrame* dlg = new DLGEditorRectFrame(); //TODO set dependencies in constructor and apply to other rect shapes
+        dlg->setAttribute(Qt::WA_DeleteOnClose);
+        dlg->show();
+    });
+}

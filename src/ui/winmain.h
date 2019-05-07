@@ -106,6 +106,7 @@ private:
     void updatePropertyInspectorFor(const IShape*);
     void initPropertyInspector();
     void initVertexEditor();
+    void initRectEditor();
 
     //Welcome screen UI
     void initStartBt();

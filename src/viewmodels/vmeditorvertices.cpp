@@ -273,6 +273,11 @@ IShape* VMEditorVertices::generateNewShape()
         }
         break;
     case addTriangle:
+        if (finalVerts.size() == 3)
+        {
+//            return new ShapeTriangle(finalVerts[0], finalVerts[1], finalVerts[2]);
+            qDebug() << "Triangle generation not implemented yet";
+        }
         break;
     case addPolyline:
         if (finalVerts.size() > 2)
@@ -281,6 +286,12 @@ IShape* VMEditorVertices::generateNewShape()
         }
         break;
     case addLine:
+        if (finalVerts.size() == 2)
+        {
+            return new ShapeLine(finalVerts[0].x(), finalVerts[0].y(),
+                    finalVerts[1].x(), finalVerts[2].y());
+        }
+        break;
     case editPolygon:
     case editTriangle:
     case editPolyline:
