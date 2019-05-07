@@ -22,6 +22,15 @@ WINMain::WINMain(QWidget *parent) :
         dlgAddShapeRect->setAttribute(Qt::WA_DeleteOnClose);
         dlgAddShapeRect->show();
     });
+    connect(ui->pushButton_6, &QPushButton::clicked, ui->pushButton_6, [this]()
+    {
+        dlgAddShapeTri = new DLGShapeAdderTri(nullptr, [this](triangle* triIn)
+        {
+            this->vm.addShape(triIn);
+        });
+        dlgAddShapeTri->setAttribute(Qt::WA_DeleteOnClose);
+        dlgAddShapeTri->show();
+    });
 }
 
 WINMain::~WINMain()

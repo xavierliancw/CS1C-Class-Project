@@ -30,6 +30,7 @@ SOURCES += \
     models/triangle.cpp \
     models/shapepolygon.cpp \
     models/shapetext.cpp \
+    ui/dlgshapeaddtri.cpp \
     ui/winmain.cpp \
     services/svcjson.cpp \
     ui/dlgtestimonialcreate.cpp \
@@ -47,6 +48,7 @@ HEADERS += \
     models/triangle.h \
     models/shapepolygon.h \
     models/shapetext.h \
+    ui/dlgshapeaddtri.h \
     ui/winmain.h \
     services/svcjson.h \
     ui/dlgtestimonialcreate.h \
@@ -62,6 +64,7 @@ HEADERS += \
     ui/dlgshapeadderrect.h
 
 FORMS += \
+    ui/dlgshapeaddtri.ui \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
     ui/dlgshapeselector.ui \

@@ -4,8 +4,10 @@
 #include "dlgcontactform.h"
 #include "dlgshapeadderrect.h"
 #include "dlgtestimonialcreate.h"
+#include "dlgshapeaddtri.h"
 #include "models/shapeellipse.h"
 #include "models/ishape.h"
+#include "models/triangle.h"
 #include "viewmodels/vmcanvas.h"
 #include <util/goldenconevector.h>
 #include <chrono>
@@ -53,6 +55,7 @@ private:
     DLGContactForm *contactFormWin; /**< Pointer to the contact form dialogue. */
     VMCanvas vm; /**< View model for the canvas that contains business logic and UI definitions. */
     DLGShapeAdderRect *dlgAddShapeRect; /** < Dialog that creates rectangles. */
+    DLGShapeAdderTri *dlgAddShapeTri; /** < Dialog that creates triangles. */
 
     /**
      * @brief Initializes the button behavior that launches the canvas view.
