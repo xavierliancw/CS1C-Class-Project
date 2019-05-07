@@ -10,6 +10,7 @@
 #include "models/ishape.h"
 #include "models/shapecircle.h"
 #include "viewmodels/vmcanvas.h"
+#include "ui/dlgeditorvertices.h"
 #include "ui/lcshapelayer.h"
 #include <util/goldenconevector.h>
 #include <chrono>
@@ -104,6 +105,7 @@ private:
     void summonDlgThatEdits(IShape*);
     void updatePropertyInspectorFor(const IShape*);
     void initPropertyInspector();
+    void initVertexEditor();
 
     //Welcome screen UI
     void initStartBt();

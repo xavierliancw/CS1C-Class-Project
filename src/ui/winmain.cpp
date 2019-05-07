@@ -26,6 +26,7 @@ WINMain::WINMain(QWidget *parent) :
     initLayerSelectionBehavior();
     ui->splitter->setSizes(QList<int>() << 1 << 1); //This evens out canvas and editor UI somehow
     initPropertyInspector();
+    initVertexEditor();
 
     //Start the refresh timer that live renders the canvas
     refreshTimer = new QTimer(this);
@@ -226,6 +227,12 @@ void WINMain::summonDlgThatEdits(IShape * shapeToEdit)
     case IShape::ShapeType::NoShape:
         break;
     case IShape::ShapeType::Polygon:
+        if (ShapePolygon* castedPoly = dynamic_cast<ShapePolygon*>(shapeToEdit))
+        {
+            DLGEditorVertices* vertEditor = new DLGEditorVertices(this, castedPoly);
+            vertEditor->setAttribute(Qt::WA_DeleteOnClose);
+            vertEditor->show();
+        }
         break;
     case IShape::ShapeType::Polyline:
         break;
@@ -550,4 +557,18 @@ void WINMain::updatePropertyInspectorFor(const IShape * shape)
 
     //Pen width
     ui->propInspPenWidthSB->setValue(shape->pen.width());
+}
+
+void WINMain::initVertexEditor()
+{
+    connect(ui->addPolygonBt, &QPushButton::clicked, ui->addPolygonBt, [this]()
+    {
+        DLGEditorVertices *dlgVertexEditor = new DLGEditorVertices(
+                    this,
+                    IShape::ShapeType::Polygon,
+                    [this](IShape* newShapeCallback) {this->vm.addShape(newShapeCallback);}
+                );
+        dlgVertexEditor->setAttribute(Qt::WA_DeleteOnClose);
+        dlgVertexEditor->show();
+    });
 }

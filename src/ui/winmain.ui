@@ -126,7 +126,7 @@
                 <item>
                  <widget class="QPushButton" name="pushButton">
                   <property name="text">
-                   <string>S</string>
+                   <string>P</string>
                   </property>
                  </widget>
                 </item>
@@ -168,7 +168,7 @@
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <widget class="QPushButton" name="pushButton_5">
+                 <widget class="QPushButton" name="addPolygonBt">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -176,7 +176,7 @@
                    </sizepolicy>
                   </property>
                   <property name="text">
-                   <string>?</string>
+                   <string>P</string>
                   </property>
                  </widget>
                 </item>
@@ -253,10 +253,10 @@
               </property>
               <widget class="QWidget" name="propInsp0">
                <layout class="QGridLayout" name="gridLayout_8">
-                <item row="3" column="0" rowspan="2">
-                 <widget class="QLabel" name="label_4">
+                <item row="12" column="0">
+                 <widget class="QLabel" name="label_7">
                   <property name="text">
-                   <string>Pen Cap Style</string>
+                   <string>Pen Width</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -264,44 +264,10 @@
                  </widget>
                 </item>
                 <item row="10" column="2">
-                 <widget class="QComboBox" name="propInspPenStyleCB">
+                 <widget class="QComboBox" name="propInspPenJoinStyleCB">
                   <item>
                    <property name="text">
-                    <string>Solid</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Dashed</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Dotted</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Dash Dot</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Dash Dot Dot</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>None</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-                <item row="4" column="2">
-                 <widget class="QComboBox" name="propInspPenCapCB">
-                  <item>
-                   <property name="text">
-                    <string>Square</string>
+                    <string>Bevel</string>
                    </property>
                   </item>
                   <item>
@@ -311,9 +277,58 @@
                   </item>
                   <item>
                    <property name="text">
-                    <string>Flat</string>
+                    <string>Miter</string>
                    </property>
                   </item>
+                  <item>
+                   <property name="text">
+                    <string>SVG Miter</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="10" column="0">
+                 <widget class="QLabel" name="label_2">
+                  <property name="text">
+                   <string>Pen Join Style</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="11" column="0">
+                 <widget class="QLabel" name="label">
+                  <property name="text">
+                   <string>Pen Style</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="2">
+                 <layout class="QHBoxLayout" name="horizontalLayout_2">
+                  <item>
+                   <widget class="QPushButton" name="propInspPenClrBt">
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item row="12" column="2">
+                 <widget class="QSpinBox" name="propInspPenWidthSB">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimum">
+                   <number>0</number>
+                  </property>
                  </widget>
                 </item>
                 <item row="2" column="2">
@@ -398,90 +413,13 @@
                   </item>
                  </widget>
                 </item>
-                <item row="2" column="0">
-                 <widget class="QLabel" name="label_3">
-                  <property name="text">
-                   <string>Brush Style</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item row="9" column="2">
-                 <widget class="QComboBox" name="propInspPenJoinStyleCB">
-                  <item>
-                   <property name="text">
-                    <string>Bevel</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Round</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Miter</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>SVG Miter</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-                <item row="10" column="0">
-                 <widget class="QLabel" name="label">
-                  <property name="text">
-                   <string>Pen Style</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item row="6" column="0">
+                <item row="7" column="0">
                  <widget class="QLabel" name="label_6">
                   <property name="text">
                    <string>Pen Color</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item row="11" column="0">
-                 <widget class="QLabel" name="label_7">
-                  <property name="text">
-                   <string>Pen Width</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item row="9" column="0">
-                 <widget class="QLabel" name="label_2">
-                  <property name="text">
-                   <string>Pen Join Style</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item row="11" column="2">
-                 <widget class="QSpinBox" name="propInspPenWidthSB">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimum">
-                   <number>0</number>
                   </property>
                  </widget>
                 </item>
@@ -495,6 +433,50 @@
                   </property>
                  </widget>
                 </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="label_3">
+                  <property name="text">
+                   <string>Brush Style</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="11" column="2">
+                 <widget class="QComboBox" name="propInspPenStyleCB">
+                  <item>
+                   <property name="text">
+                    <string>Solid</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Dashed</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Dotted</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Dash Dot</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Dash Dot Dot</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>None</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
                 <item row="0" column="2">
                  <layout class="QHBoxLayout" name="brushLyt">
                   <item>
@@ -506,16 +488,34 @@
                   </item>
                  </layout>
                 </item>
-                <item row="6" column="2">
-                 <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <item row="3" column="0">
+                 <widget class="QLabel" name="label_4">
+                  <property name="text">
+                   <string>Pen Cap Style</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="2">
+                 <widget class="QComboBox" name="propInspPenCapCB">
                   <item>
-                   <widget class="QPushButton" name="propInspPenClrBt">
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
+                   <property name="text">
+                    <string>Square</string>
+                   </property>
                   </item>
-                 </layout>
+                  <item>
+                   <property name="text">
+                    <string>Round</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Flat</string>
+                   </property>
+                  </item>
+                 </widget>
                 </item>
                </layout>
               </widget>

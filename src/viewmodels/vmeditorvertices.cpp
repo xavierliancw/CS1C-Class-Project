@@ -2,14 +2,16 @@
 
 VMEditorVertices::VMEditorVertices(std::function<void(bool)>vmDidHideAddVertexBt,
                                    std::function<void(bool)>vmDidEnableSubmitBt,
-                                   std::function<void()>vmDidRefreshUI,
+                                   std::function<void()>vmDidProvideStartingUIState,
                                    std::function<void(IShape*)>vmDidGenerateNewShape,
-                                   std::function<void(bool)>vmDidDisableVertexDeleting):
+                                   std::function<void(bool)>vmDidDisableVertexDeleting,
+                                   std::function<void()>vmDidRefreshVertexList):
     vmDidHideAddVertexBt(vmDidHideAddVertexBt),
     vmDidEnableSubmitBt(vmDidEnableSubmitBt),
-    vmDidRefreshUI(vmDidRefreshUI),
+    vmDidProvideStartingUIState(vmDidProvideStartingUIState),
     vmDidGenerateNewShape(vmDidGenerateNewShape),
-    vmDidDisableVertexDeleting(vmDidDisableVertexDeleting)
+    vmDidDisableVertexDeleting(vmDidDisableVertexDeleting),
+    vmDidRefreshVertexList(vmDidRefreshVertexList)
 {}
 
 void VMEditorVertices::resetStateUsing(IShape *shapeToBeEdited)
@@ -54,7 +56,7 @@ void VMEditorVertices::resetStateUsing(IShape *shapeToBeEdited)
             break;
         }
     }
-    applyState();
+    applyState(true, false, true);
 }
 
 void VMEditorVertices::resetStateUsing(IShape::ShapeType shapeTypeToGenerate)
@@ -62,24 +64,24 @@ void VMEditorVertices::resetStateUsing(IShape::ShapeType shapeTypeToGenerate)
     switch (shapeTypeToGenerate)
     {
     case IShape::ShapeType::Polygon:
-        currentEditMode = editPolygon;
+        currentEditMode = addPolygon;
         vertices.push_back(std::make_tuple("", ""));
         vertices.push_back(std::make_tuple("", ""));
         vertices.push_back(std::make_tuple("", ""));
         break;
     case IShape::ShapeType::Triangle:
-        currentEditMode = editTriangle;
+        currentEditMode = addTriangle;
         vertices.push_back(std::make_tuple("", ""));
         vertices.push_back(std::make_tuple("", ""));
         vertices.push_back(std::make_tuple("", ""));
         break;
     case IShape::ShapeType::Polyline:
-        currentEditMode = editPolyline;
+        currentEditMode = addPolyline;
         vertices.push_back(std::make_tuple("", ""));
         vertices.push_back(std::make_tuple("", ""));
         break;
     case IShape::ShapeType::Line:
-        currentEditMode = editLine;
+        currentEditMode = addLine;
         vertices.push_back(std::make_tuple("", ""));
         vertices.push_back(std::make_tuple("", ""));
         break;
@@ -89,7 +91,7 @@ void VMEditorVertices::resetStateUsing(IShape::ShapeType shapeTypeToGenerate)
         qDebug() << "Tried to generate a shape that is unsupported by this shape editor";
         break;
     }
-    applyState();
+    applyState(true, false, true);
 }
 
 QString VMEditorVertices::getLblTxtTitle() const
@@ -131,6 +133,17 @@ QString VMEditorVertices::getBtTxtSubmit() const
     if (creating) {return "Add";} else {return "Done";}
 }
 
+int VMEditorVertices::getCurrentVertexCount() const
+{
+    return vertices.size();
+}
+
+std::tuple<QString, QString> VMEditorVertices::getVertexAt(int index) const
+{
+    return vertices[index];
+}
+
+
 void VMEditorVertices::reorderVertex(int fromIndex, int toDestIndex)
 {
     if (fromIndex > -1 && toDestIndex > -1 &&
@@ -138,7 +151,7 @@ void VMEditorVertices::reorderVertex(int fromIndex, int toDestIndex)
     {
         vertices.move(fromIndex, toDestIndex);
     }
-    applyState();
+    applyState(true, true, false);
 }
 
 void VMEditorVertices::finishEditing()
@@ -158,6 +171,16 @@ void VMEditorVertices::finishEditing()
         vmDidGenerateNewShape(generateNewShape());
         break;
     case editPolygon:
+        if (ShapePolygon* castedPoly = dynamic_cast<ShapePolygon*>(shapeBeingEdited))
+        {
+            castedPoly->poly.clear();
+            for (std::tuple<QString, QString> vert: vertices)
+            {
+                castedPoly->poly.push_back(QPoint(std::get<0>(vert).toInt(),
+                                                  std::get<1>(vert).toInt()));
+            }
+        }
+        break;
     case editTriangle:
     case editPolyline:
     case editLine:
@@ -169,7 +192,7 @@ void VMEditorVertices::finishEditing()
 void VMEditorVertices::createVertex()
 {
     vertices.push_back(std::make_tuple<QString, QString>("", ""));
-    applyState();
+    applyState(true, false, false);
 }
 
 std::tuple<QString, QString> VMEditorVertices::readVertextAt(int index) const
@@ -180,13 +203,13 @@ std::tuple<QString, QString> VMEditorVertices::readVertextAt(int index) const
 void VMEditorVertices::updateVertexAt(int index, QString newX, QString newY)
 {
     vertices.replace(index, std::make_tuple(newX, newY));
-    applyState();
+    applyState(false, false, false);
 }
 
 void VMEditorVertices::removeVertexAt(int index)
 {
     vertices.removeAt(index);
-    applyState();
+    applyState(false, true, false);
 }
 
 IShape* VMEditorVertices::generateNewShape()
@@ -226,7 +249,7 @@ IShape* VMEditorVertices::generateNewShape()
     return nullptr;
 }
 
-void VMEditorVertices::applyState()
+void VMEditorVertices::applyState(bool justAddedVert, bool justRemovedVert, bool justInitialized)
 {
     bool hideVertexAddBt = true;
     bool enableSubmitBt = false;
@@ -290,10 +313,17 @@ void VMEditorVertices::applyState()
         disableVertexDeleting = true;
         break;
     }
+    if (justInitialized)
+    {
+        vmDidProvideStartingUIState();
+    }
+    if ((justAddedVert || justRemovedVert) && !justInitialized)
+    {
+        vmDidRefreshVertexList();
+    }
     vmDidHideAddVertexBt(hideVertexAddBt);
     vmDidEnableSubmitBt(enableSubmitBt);
     vmDidDisableVertexDeleting(disableVertexDeleting);
-    vmDidRefreshUI();
 }
 
 bool VMEditorVertices::allCurrentVerticesAreValid()

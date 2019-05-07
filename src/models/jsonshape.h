@@ -4,6 +4,7 @@
 #include "ishape.h"
 #include "shaperect.h"
 #include "shapesquare.h"
+#include "shapepolygon.h"
 
 #include <QJsonObject>
 #include <QString>
@@ -144,8 +145,19 @@ private:
         //            retShape = new Text?
         //        case IShape::ShapeType::Ellipse:
         //            retShape = new ShapeElipse?
-        //        case IShape::ShapeType::Polygon:
-        //            retShape =
+        case IShape::ShapeType::Polygon:
+            if (dimens.size() > 2)
+            {
+                QVector<QPoint> polyDimens;
+                int x = 0;
+                while (x < dimens.size())
+                {
+                    polyDimens.push_back(QPoint(dimens[x], dimens[x + 1]));
+                    x = x + 2;
+                }
+                retShape = new ShapePolygon(polyDimens);
+            }
+            break;
         //        case IShape::ShapeType::Polyline:
         //            retShape =
         case IShape::ShapeType::Rectangle:
@@ -245,6 +257,14 @@ private:
         case IShape::ShapeType::NoShape:
             break;
         case IShape::ShapeType::Polygon:
+            if (const ShapePolygon* poly = dynamic_cast<const ShapePolygon*>(shapeToSerialize))
+            {
+                for (QPoint vert: poly->poly)
+                {
+                    jsonAr.append(QJsonValue(vert.x()));
+                    jsonAr.append(QJsonValue(vert.y()));
+                }
+            }
             break;
         case IShape::ShapeType::Polyline:
             break;
