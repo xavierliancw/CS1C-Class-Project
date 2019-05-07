@@ -88,4 +88,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     cone.qrc \
-    images.qrc
+    logo.qrc

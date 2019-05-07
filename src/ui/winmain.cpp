@@ -80,7 +80,7 @@ void WINMain::initStartBt()
 
 void WINMain::initContactUsBt()
 {
-    QPixmap pixmap(":/Cone/experimental_logo.png");
+    QPixmap pixmap(":/image/final_icon.png");
     QIcon ButtonIcon(pixmap);
     ui->contactBt->setIcon(ButtonIcon);
     //ui->contactBt->setIconSize(pixmap.rect().size());

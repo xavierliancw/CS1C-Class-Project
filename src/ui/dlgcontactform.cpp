@@ -1,11 +1,27 @@
 #include "dlgcontactform.h"
 #include "ui_dlgcontactform.h"
+#include <QMessageBox>
 
 DLGContactForm::DLGContactForm(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DLGContactForm)
 {
-    ui->setupUi(this);
+    ui->setupUi(this); 
+    ui->submitBt->setDisabled(true);
+
+    connect(ui->inquiryTE, &QTextEdit::textChanged, ui->inquiryTE, [this](){
+        this->updateSubmitButton();
+    });
+
+    connect(ui->emailLE, &QLineEdit::textChanged, ui->emailLE, [this](){
+        this->updateSubmitButton();
+    });
+
+    connect(ui->submitBt, &QPushButton::clicked, this, [this]()
+    {
+        this->sendCustomerInquiry();
+        close();
+    });
 }
 
 DLGContactForm::~DLGContactForm()
@@ -58,5 +74,11 @@ void DLGContactForm::sendCustomerInquiry()
 
 void DLGContactForm::showSuccessScreen()
 {
-    throw;
+    QMessageBox::information(this, "Contact Us", "Your input has been recorded.");
+}
+
+void DLGContactForm :: updateSubmitButton()
+{
+    ui->submitBt->setEnabled(!ui->emailLE->text().isEmpty() &&
+                             !ui->inquiryTE->toPlainText().isEmpty());
 }
