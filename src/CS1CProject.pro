@@ -25,7 +25,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    dlgloginscreen.cpp \
     main.cpp \
+    models/shapecircle.cpp \
     models/shapeellipse.cpp \
     models/shapeline.cpp \
     models/shapepolyline.cpp \
@@ -41,9 +43,17 @@ SOURCES += \
     ui/dlgshapeselector.cpp \
     ui/dlgcontactform.cpp \
     viewmodels/vmcanvas.cpp \
-    ui/dlgshapeadderrect.cpp
+    models/shapesquare.cpp \
+    models/jsonshape.cpp \
+    ui/lcshapelayer.cpp \
+    ui/dlgshapegeneditrectangles.cpp \
+    ui/lceditvertex.cpp \
+    ui/dlgeditorvertices.cpp \
+    viewmodels/vmeditorvertices.cpp
 
 HEADERS += \
+    dlgloginscreen.h \
+    models/shapecircle.h \
     models/shapeellipse.h \
     models/shapeline.h \
     models/shapepolyline.h \
@@ -57,18 +67,27 @@ HEADERS += \
     models/ishape.h \
     models/shaperect.h \
     ui/dlgshapeselector.h \
-    models/ishape.h \
     util/goldenconevector.h \
     ui/dlgcontactform.h \
     viewmodels/vmcanvas.h \
-    ui/dlgshapeadderrect.h
+    models/jsonshape.h \
+    models/shapesquare.h \
+    ui/lcshapelayer.h \
+    ui/dlgshapegeneditrectangles.h \
+    ui/lceditvertex.h \
+    ui/dlgeditorvertices.h \
+    viewmodels/vmeditorvertices.h
 
 FORMS += \
+    dlgloginscreen.ui \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
     ui/dlgshapeselector.ui \
     ui/dlgcontactform.ui \
-    ui/dlgshapeadderrect.ui
+    ui/DLGShapeGenEditRectangles.ui \
+    ui/lcshapelayer.ui \
+    ui/lceditvertex.ui \
+    ui/dlgeditorvertices.ui
 
 CONFIG += mobility
 MOBILITY = 

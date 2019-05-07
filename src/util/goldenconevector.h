@@ -21,6 +21,9 @@ public:
     //Copy Constructor
     GoldenConeVector(const GoldenConeVector&);
 
+    //DESTRUCTOR:
+    ~GoldenConeVector();
+
 //OVERLOADED OPERATORS:
     //overloaded assignment operator
     GoldenConeVector& operator = (const GoldenConeVector& other);
@@ -127,6 +130,12 @@ GoldenConeVector<Type> :: GoldenConeVector(int size) //specific size constructor
     m_count = 0;
     m_size = 0;
     reserve(size);
+}
+
+template <typename Type>
+GoldenConeVector<Type>::~GoldenConeVector()  //destructor
+{
+    delete [] mp_data;
 }
 
 template<typename Type>

@@ -5,6 +5,13 @@ VMCanvas::VMCanvas(std::function<void(void)> lambdaCanvasDidRefresh,
 {
     this->lambdaCanvasDidRefresh = lambdaCanvasDidRefresh;
     this->lambdaCanvasDidEditShapeAtLayer = lambdaCanvasDidEditShapeAtLayer;
+
+    try
+    {
+        loadSavedCanvasGraphicsFromStorage();
+    }
+    catch (SVCJson::JsonFileSystemError x)
+    {/*Ignore this exception because the program will sometimes start with no saved file*/}
 }
 
 void VMCanvas::addShape(IShape* shape)
@@ -14,29 +21,30 @@ void VMCanvas::addShape(IShape* shape)
     lambdaCanvasDidRefresh();
 }
 
-unsigned int VMCanvas::getNumberOfShapesOnCanvas() const
+int VMCanvas::getNumberOfShapesOnCanvas() const
 {
-    return static_cast<unsigned int>(shapesInMemory.size());
+    return shapesInMemory.size();
 }
 
-IShape* VMCanvas::getShapeAtLayer(unsigned int layerID)
+IShape* VMCanvas::getShapeAtLayer(int layerID)
 {
     if (invalid(layerID)) {return nullptr;}
-    return shapesInMemory[layerID];
+    return shapesInMemory[static_cast<unsigned int>(layerID)];
 }
 
-void VMCanvas::editShapeAtLayer(unsigned int layerID)
+void VMCanvas::editShapeAtLayer(int layerID)
 {
     if (invalid(layerID)) {return;}
-    lambdaCanvasDidEditShapeAtLayer(shapesInMemory[layerID]);
+    lambdaCanvasDidEditShapeAtLayer(shapesInMemory[static_cast<unsigned int>(layerID)]);
 }
 
-void VMCanvas::removeShapeAtLayer(unsigned int layerID)
+void VMCanvas::removeShapeAtLayer(int layerID)
 {
     if (invalid(layerID)) {return;}
     IShape** shapeToDelete = shapesInMemory.begin();
     shapeToDelete += layerID;
-    shapesInMemory.erase(shapeToDelete);    //Delete the shape
+    delete shapesInMemory[static_cast<unsigned int>(layerID)];  //Delete the shape
+    shapesInMemory.erase(shapeToDelete);                        //Remove the slot in the vector
 
     //Restore ID order
     for (unsigned int x = 0; x < static_cast<unsigned int>(shapesInMemory.size()); ++x)
@@ -50,40 +58,111 @@ void VMCanvas::updateCanvasToDisplayMostCurrentDrawing()
     lambdaCanvasDidRefresh();
 }
 
-void VMCanvas::changeShapeLayer(unsigned int layerID, unsigned int destinationLayerID)
+void VMCanvas::changeShapeLayer(int layerID, int destinationLayerID)
 {
+    //When something's negative, it means the user dragged the shape to an invalid spot.
+    //Return early here to avoid the bound check error message
+    if (layerID < 0 || destinationLayerID < 0) {return;}
+
     //Make sure layer IDs are in bounds
-    if (invalid(layerID) || invalid(destinationLayerID)) {return;}
-
-    //Look at the shape that's going to be shifted
-    IShape* shapeToShift = shapesInMemory[layerID];
-
-    //"Remove" the shape (decrement all indices after layer ID)
-    for (unsigned int x = layerID + 1;
-         x < static_cast<unsigned int>(shapesInMemory.size());
-         ++x)
+    if (invalid(layerID) || invalid(destinationLayerID))
     {
-        shapesInMemory[x]->id -= 1;
+        qDebug() << "There are " << shapesInMemory.size() <<
+                    " shapes in memory. Tried to access index " << layerID <<
+                    " to put at destination " << destinationLayerID;
+        return;
     }
-    //"Insert" the shape (increment all indices after destination ID)
-    for (unsigned int x = destinationLayerID + 1;
-         x < static_cast<unsigned int>(shapesInMemory.size());
-         ++x)
+    QVector<IShape*> tempVect;
+    for (int x = 0; x < shapesInMemory.size(); ++x)
     {
-        shapesInMemory[x]->id += 1;
+        tempVect.push_back(shapesInMemory[static_cast<unsigned int>(x)]);
     }
-    //Now "insert" the shape into its final destination
-    shapeToShift->id = static_cast<int>(destinationLayerID);
+    tempVect.move(layerID, destinationLayerID);
 
-    //Sort the vector to reorder the layers
-    throw qt_error_string();    //TODO add in a sort to reorder the layers
-
+    //Don't do any of this stuff if the vector is empty
+    if (shapesInMemory.size() > 0)
+    {
+        //Clear shapes in memory
+        IShape** delCursor = shapesInMemory.end() - 1;
+        while (delCursor > shapesInMemory.begin() - 1)
+        {
+            shapesInMemory.erase(delCursor);
+            delCursor--;
+        }
+        //Move them back from the temp vector
+        for (int x = 0; x < tempVect.size(); ++x)
+        {
+            tempVect[x]->id = x;
+            shapesInMemory.push_back(tempVect[x]);
+        }
+    }
     //Refresh the canvas to reflect the layer shift
     lambdaCanvasDidRefresh();
 }
 
-bool VMCanvas::invalid(unsigned int layerID)
+bool VMCanvas::invalid(int layerID)
 {
     return shapesInMemory.size() == 0 ||
-            layerID + 1 > static_cast<unsigned int>(shapesInMemory.size());
+            layerID + 1 > shapesInMemory.size() ||
+            layerID < 0;
+}
+
+void VMCanvas::persistCanvasToStorage()
+{
+    QJsonArray jsonArrayOfShapesToSave;
+
+    //Serialize shapes to JSON
+    for (IShape* saveThisShape: shapesInMemory)
+    {
+        jsonArrayOfShapesToSave.push_back(JSONShape::toJSON(saveThisShape));
+    }
+    //Save to memory
+    SVCJson::getInstance()->
+            persistJSONToLocalFileSystem(jsonArrayOfShapesToSave,
+                                         Gimme::theShared()->fileNameForSavedGraphicsCanvas);
+}
+
+void VMCanvas::loadSavedCanvasGraphicsFromStorage()
+{
+    QJsonArray loadedJSONShapes;
+    IShape* possRestoredShape = nullptr;
+    QVector<IShape*> buildVect;
+
+    //Load data from saved canvas file into memory
+    loadedJSONShapes= SVCJson::getInstance()->
+            readJsonArrayFile(Gimme::theShared()->fileNameForSavedGraphicsCanvas);
+
+    //Regenerate shapes from the JSON
+    for (QJsonValueRef jsonRef: loadedJSONShapes)
+    {
+        possRestoredShape = nullptr;    //Reset this every time to avoid duplicate shapes on fails
+        if (jsonRef.isObject())
+        {
+            possRestoredShape = JSONShape::fromJSON(jsonRef.toObject());
+        }
+        if (possRestoredShape != nullptr)
+        {
+            buildVect.push_back(possRestoredShape);
+        }
+    }
+    //Clear out memory in current canvas
+    for (IShape* oldShape: shapesInMemory)
+    {
+        delete oldShape;
+    }
+    //Clear out current canvas
+    IShape** delCursor = shapesInMemory.begin();
+    while (delCursor != shapesInMemory.end())
+    {
+        shapesInMemory.erase(delCursor);
+    }
+    //Finally
+    for (int x = 0; x < buildVect.size(); ++x)
+    {
+        //Make sure the IDs are contiguous and proper when importing
+        buildVect[x]->id = x;
+
+        //Move stuff from the built vector into canvas memory
+        shapesInMemory.push_back(buildVect[x]);
+    }
 }
