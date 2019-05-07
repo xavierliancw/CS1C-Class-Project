@@ -2,22 +2,16 @@
 #define SHAPECIRCLE_H
 #include "shapeellipse.h"
 
-class ShapeCircle : public ShapeEllipse
+class ShapeCircle: public ShapeEllipse
 {
 public:
-    ShapeCircle(int id, int x, int y, int radius);
+    ShapeCircle(int x, int y, int diameter);
     ShapeCircle(const ShapeCircle&) = delete;
 
     ShapeCircle& operator = (const ShapeCircle&) = delete;
 
     virtual double perimeter() const;
     virtual double area() const;
-
-    int m_radius;
 };
-
-
-
-
 
 #endif // SHAPECIRCLE_H

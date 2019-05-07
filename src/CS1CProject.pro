@@ -29,6 +29,8 @@ SOURCES += \
     main.cpp \
     models/shapecircle.cpp \
     models/shapeellipse.cpp \
+    models/shapeline.cpp \
+    models/shapepolyline.cpp \
     models/shapepolygon.cpp \
     models/shapetext.cpp \
     ui/winmain.cpp \
@@ -41,15 +43,22 @@ SOURCES += \
     ui/dlgshapeselector.cpp \
     ui/dlgcontactform.cpp \
     viewmodels/vmcanvas.cpp \
-    ui/dlgshapeadderrect.cpp \
     models/shapesquare.cpp \
     models/jsonshape.cpp \
     models/jsoncustomerinquiry.cpp
+    ui/lcshapelayer.cpp \
+    ui/lceditvertex.cpp \
+    ui/dlgeditorvertices.cpp \
+    viewmodels/vmeditorvertices.cpp \
+    ui/dlgeditorrectframe.cpp \
+    viewmodels/vmeditorrectframe.cpp
 
 HEADERS += \
     ui/dlgloginscreen.h \
     models/shapecircle.h \
     models/shapeellipse.h \
+    models/shapeline.h \
+    models/shapepolyline.h \
     models/shapepolygon.h \
     models/shapetext.h \
     ui/winmain.h \
@@ -63,11 +72,16 @@ HEADERS += \
     util/goldenconevector.h \
     ui/dlgcontactform.h \
     viewmodels/vmcanvas.h \
-    ui/dlgshapeadderrect.h \
     models/jsonshape.h \
     models/shapesquare.h \
     models/dtocustomerinquiry.h \
     models/jsoncustomerinquiry.h
+    ui/lcshapelayer.h \
+    ui/lceditvertex.h \
+    ui/dlgeditorvertices.h \
+    viewmodels/vmeditorvertices.h \
+    ui/dlgeditorrectframe.h \
+    viewmodels/vmeditorrectframe.h
 
 FORMS += \
     ui/dlgloginscreen.ui \
@@ -75,7 +89,10 @@ FORMS += \
     ui/dlgtestimonialcreate.ui \
     ui/dlgshapeselector.ui \
     ui/dlgcontactform.ui \
-    ui/dlgshapeadderrect.ui
+    ui/dlgeditorrectframe.ui \
+    ui/lcshapelayer.ui \
+    ui/lceditvertex.ui \
+    ui/dlgeditorvertices.ui
 
 CONFIG += mobility
 MOBILITY = 

@@ -1,0 +1,297 @@
+\hypertarget{class_v_m_editor_rect_frame}{}\section{V\+M\+Editor\+Rect\+Frame Class Reference}
+\label{class_v_m_editor_rect_frame}\index{VMEditorRectFrame@{VMEditorRectFrame}}
+
+
+View model for the dialog that edits shapes that use Q\+Rects to render.  
+
+
+
+
+{\ttfamily \#include $<$vmeditorrectframe.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_v_m_editor_rect_frame_a72a9481e229b4ac80e62b1e5cd17eb1d}{V\+M\+Editor\+Rect\+Frame}} (std\+::function$<$ void(bool)$>$ vm\+Did\+Set\+Submit\+Bt\+Enabled, std\+::function$<$ void(bool)$>$ vm\+Did\+Set\+Fourth\+Prompt\+Hidden, std\+::function$<$ void(\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$)$>$ vm\+Did\+Generate\+New\+Shape, std\+::function$<$ Q\+String()$>$ vm\+Did\+Want\+RawX, std\+::function$<$ Q\+String()$>$ vm\+Did\+Want\+RawY, std\+::function$<$ Q\+String()$>$ vm\+Did\+Want\+RawW, std\+::function$<$ Q\+String()$>$ vm\+Did\+Want\+RawH, std\+::function$<$ void()$>$ vm\+Did\+Init\+New\+State)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_m_editor_rect_frame_afc272dc994d9f1848ea4a1d444d12065}{$\sim$\+V\+M\+Editor\+Rect\+Frame}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_m_editor_rect_frame_ade820d17c7487ae91721d49121d2f264}{perform\+Actions\+On\+Input\+Edit}} ()
+\begin{DoxyCompactList}\small\item\em Call this whenver a text field changes so the VM can update its state. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_v_m_editor_rect_frame_a6a264071219d7ecd70bd488c28ccb186}{get\+Txt\+Lbl\+Title}} () const
+\begin{DoxyCompactList}\small\item\em Gets the title text for the current mode. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_v_m_editor_rect_frame_aef01144aec98320cbd4699140bc19d41}{get\+Txt\+Bt\+Cancel}} () const
+\begin{DoxyCompactList}\small\item\em Grabs the cancel button text. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_v_m_editor_rect_frame_af0fbf30acf7e87c5ab5511d51d6b0714}{get\+Txt\+Bt\+Submit}} () const
+\begin{DoxyCompactList}\small\item\em Grabs the submit button text for the current mode. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_v_m_editor_rect_frame_a0eb52752938820c82bcebf8b372164bf}{get\+Txt\+Prompt1}} () const
+\begin{DoxyCompactList}\small\item\em Gets the text for prompt 1. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_v_m_editor_rect_frame_add4d767616edfde7a5133aafc44dbd8e}{get\+Txt\+Prompt2}} () const
+\begin{DoxyCompactList}\small\item\em Gets the text for prompt 2. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_v_m_editor_rect_frame_ac547d797a8f4309bc1f0ab97bfdc262f}{get\+Txt\+Prompt3}} () const
+\begin{DoxyCompactList}\small\item\em Gets the text for prompt 3. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_v_m_editor_rect_frame_a6ae15857de45e5c9f239be713e744a2b}{get\+Txt\+Prompt4}} () const
+\begin{DoxyCompactList}\small\item\em Gets the text for prompt 4. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_m_editor_rect_frame_ac7282ca7fde9018068e261e40e1cf47d}{set\+Mode\+With\+Dependency}} (\mbox{\hyperlink{class_i_shape_a8f50993477b5ddb44c0547ef3d547cdc}{I\+Shape\+::\+Shape\+Type}} shape\+Type\+To\+Generate)
+\begin{DoxyCompactList}\small\item\em Initializes the VM\textquotesingle{}s state machine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_m_editor_rect_frame_abedc584604fbdc11e18898e7e0951dc3}{set\+Mode\+With\+Dependency}} (\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$shape\+To\+Edit)
+\begin{DoxyCompactList}\small\item\em Initializes the VM\textquotesingle{}s state machine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_m_editor_rect_frame_ac6a551f7a631ed2b7ca4c48c7883fdfb}{perform\+Actions\+When\+Done\+Editing}} ()
+\begin{DoxyCompactList}\small\item\em Call this when the submit button is pressed. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_v_m_editor_rect_frame_abb4f009c3158864d941b06a534627407}{get\+RawX}} () const
+\begin{DoxyCompactList}\small\item\em Obtains what the VM is currently holding for the input X value. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_v_m_editor_rect_frame_a46d9f854d0ffbac7f7e58f115da98ef0}{get\+RawY}} () const
+\begin{DoxyCompactList}\small\item\em Obtains what the VM is currently holding for the input Y value. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_v_m_editor_rect_frame_afd8cd030942478a3e2072a934dc099a5}{get\+RawW}} () const
+\begin{DoxyCompactList}\small\item\em Obtains what the VM is currently holding for the input width value. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_v_m_editor_rect_frame_a05a412c6f1b55fbd9b78ecdb71f6b327}{get\+RawH}} () const
+\begin{DoxyCompactList}\small\item\em Obtains what the VM is currently holding for the input height value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+View model for the dialog that edits shapes that use Q\+Rects to render. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_v_m_editor_rect_frame_a72a9481e229b4ac80e62b1e5cd17eb1d}\label{class_v_m_editor_rect_frame_a72a9481e229b4ac80e62b1e5cd17eb1d}} 
+\index{VMEditorRectFrame@{VMEditorRectFrame}!VMEditorRectFrame@{VMEditorRectFrame}}
+\index{VMEditorRectFrame@{VMEditorRectFrame}!VMEditorRectFrame@{VMEditorRectFrame}}
+\subsubsection{\texorpdfstring{VMEditorRectFrame()}{VMEditorRectFrame()}}
+{\footnotesize\ttfamily V\+M\+Editor\+Rect\+Frame\+::\+V\+M\+Editor\+Rect\+Frame (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(bool)$>$}]{vm\+Did\+Set\+Submit\+Bt\+Enabled,  }\item[{std\+::function$<$ void(bool)$>$}]{vm\+Did\+Set\+Fourth\+Prompt\+Hidden,  }\item[{std\+::function$<$ void(\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$)$>$}]{vm\+Did\+Generate\+New\+Shape,  }\item[{std\+::function$<$ Q\+String()$>$}]{vm\+Did\+Want\+RawX,  }\item[{std\+::function$<$ Q\+String()$>$}]{vm\+Did\+Want\+RawY,  }\item[{std\+::function$<$ Q\+String()$>$}]{vm\+Did\+Want\+RawW,  }\item[{std\+::function$<$ Q\+String()$>$}]{vm\+Did\+Want\+RawH,  }\item[{std\+::function$<$ void()$>$}]{vm\+Did\+Init\+New\+State }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vm\+Did\+Set\+Submit\+Bt\+Enabled} & Controls if submit button is enabled or not. \\
+\hline
+{\em vm\+Did\+Set\+Fourth\+Prompt\+Hidden} & Controls if fourth prompt is hidden or not. \\
+\hline
+{\em vm\+Did\+Generate\+New\+Shape} & Callback for when this dialog generates a new shape. \\
+\hline
+{\em vm\+Did\+Want\+RawX} & Gives this VM a way to grab input for the X coord. \\
+\hline
+{\em vm\+Did\+Want\+RawY} & Gives this VM a way to grab input for the Y coord. \\
+\hline
+{\em vm\+Did\+Want\+RawW} & Gives this VM a way to grab input for the width; \\
+\hline
+{\em vm\+Did\+Want\+RawH} & Gives this VM a way to grab input for the height; \\
+\hline
+{\em vm\+Did\+Init\+New\+State} & Controls when general UI gets updated. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_v_m_editor_rect_frame_afc272dc994d9f1848ea4a1d444d12065}\label{class_v_m_editor_rect_frame_afc272dc994d9f1848ea4a1d444d12065}} 
+\index{VMEditorRectFrame@{VMEditorRectFrame}!````~VMEditorRectFrame@{$\sim$VMEditorRectFrame}}
+\index{````~VMEditorRectFrame@{$\sim$VMEditorRectFrame}!VMEditorRectFrame@{VMEditorRectFrame}}
+\subsubsection{\texorpdfstring{$\sim$VMEditorRectFrame()}{~VMEditorRectFrame()}}
+{\footnotesize\ttfamily V\+M\+Editor\+Rect\+Frame\+::$\sim$\+V\+M\+Editor\+Rect\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_v_m_editor_rect_frame_a05a412c6f1b55fbd9b78ecdb71f6b327}\label{class_v_m_editor_rect_frame_a05a412c6f1b55fbd9b78ecdb71f6b327}} 
+\index{VMEditorRectFrame@{VMEditorRectFrame}!getRawH@{getRawH}}
+\index{getRawH@{getRawH}!VMEditorRectFrame@{VMEditorRectFrame}}
+\subsubsection{\texorpdfstring{getRawH()}{getRawH()}}
+{\footnotesize\ttfamily Q\+String V\+M\+Editor\+Rect\+Frame\+::get\+RawH (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtains what the VM is currently holding for the input height value. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_editor_rect_frame_afd8cd030942478a3e2072a934dc099a5}\label{class_v_m_editor_rect_frame_afd8cd030942478a3e2072a934dc099a5}} 
+\index{VMEditorRectFrame@{VMEditorRectFrame}!getRawW@{getRawW}}
+\index{getRawW@{getRawW}!VMEditorRectFrame@{VMEditorRectFrame}}
+\subsubsection{\texorpdfstring{getRawW()}{getRawW()}}
+{\footnotesize\ttfamily Q\+String V\+M\+Editor\+Rect\+Frame\+::get\+RawW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtains what the VM is currently holding for the input width value. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_editor_rect_frame_abb4f009c3158864d941b06a534627407}\label{class_v_m_editor_rect_frame_abb4f009c3158864d941b06a534627407}} 
+\index{VMEditorRectFrame@{VMEditorRectFrame}!getRawX@{getRawX}}
+\index{getRawX@{getRawX}!VMEditorRectFrame@{VMEditorRectFrame}}
+\subsubsection{\texorpdfstring{getRawX()}{getRawX()}}
+{\footnotesize\ttfamily Q\+String V\+M\+Editor\+Rect\+Frame\+::get\+RawX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtains what the VM is currently holding for the input X value. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_editor_rect_frame_a46d9f854d0ffbac7f7e58f115da98ef0}\label{class_v_m_editor_rect_frame_a46d9f854d0ffbac7f7e58f115da98ef0}} 
+\index{VMEditorRectFrame@{VMEditorRectFrame}!getRawY@{getRawY}}
+\index{getRawY@{getRawY}!VMEditorRectFrame@{VMEditorRectFrame}}
+\subsubsection{\texorpdfstring{getRawY()}{getRawY()}}
+{\footnotesize\ttfamily Q\+String V\+M\+Editor\+Rect\+Frame\+::get\+RawY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtains what the VM is currently holding for the input Y value. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_editor_rect_frame_aef01144aec98320cbd4699140bc19d41}\label{class_v_m_editor_rect_frame_aef01144aec98320cbd4699140bc19d41}} 
+\index{VMEditorRectFrame@{VMEditorRectFrame}!getTxtBtCancel@{getTxtBtCancel}}
+\index{getTxtBtCancel@{getTxtBtCancel}!VMEditorRectFrame@{VMEditorRectFrame}}
+\subsubsection{\texorpdfstring{getTxtBtCancel()}{getTxtBtCancel()}}
+{\footnotesize\ttfamily Q\+String V\+M\+Editor\+Rect\+Frame\+::get\+Txt\+Bt\+Cancel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Grabs the cancel button text. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_editor_rect_frame_af0fbf30acf7e87c5ab5511d51d6b0714}\label{class_v_m_editor_rect_frame_af0fbf30acf7e87c5ab5511d51d6b0714}} 
+\index{VMEditorRectFrame@{VMEditorRectFrame}!getTxtBtSubmit@{getTxtBtSubmit}}
+\index{getTxtBtSubmit@{getTxtBtSubmit}!VMEditorRectFrame@{VMEditorRectFrame}}
+\subsubsection{\texorpdfstring{getTxtBtSubmit()}{getTxtBtSubmit()}}
+{\footnotesize\ttfamily Q\+String V\+M\+Editor\+Rect\+Frame\+::get\+Txt\+Bt\+Submit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Grabs the submit button text for the current mode. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_editor_rect_frame_a6a264071219d7ecd70bd488c28ccb186}\label{class_v_m_editor_rect_frame_a6a264071219d7ecd70bd488c28ccb186}} 
+\index{VMEditorRectFrame@{VMEditorRectFrame}!getTxtLblTitle@{getTxtLblTitle}}
+\index{getTxtLblTitle@{getTxtLblTitle}!VMEditorRectFrame@{VMEditorRectFrame}}
+\subsubsection{\texorpdfstring{getTxtLblTitle()}{getTxtLblTitle()}}
+{\footnotesize\ttfamily Q\+String V\+M\+Editor\+Rect\+Frame\+::get\+Txt\+Lbl\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the title text for the current mode. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_editor_rect_frame_a0eb52752938820c82bcebf8b372164bf}\label{class_v_m_editor_rect_frame_a0eb52752938820c82bcebf8b372164bf}} 
+\index{VMEditorRectFrame@{VMEditorRectFrame}!getTxtPrompt1@{getTxtPrompt1}}
+\index{getTxtPrompt1@{getTxtPrompt1}!VMEditorRectFrame@{VMEditorRectFrame}}
+\subsubsection{\texorpdfstring{getTxtPrompt1()}{getTxtPrompt1()}}
+{\footnotesize\ttfamily Q\+String V\+M\+Editor\+Rect\+Frame\+::get\+Txt\+Prompt1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the text for prompt 1. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_editor_rect_frame_add4d767616edfde7a5133aafc44dbd8e}\label{class_v_m_editor_rect_frame_add4d767616edfde7a5133aafc44dbd8e}} 
+\index{VMEditorRectFrame@{VMEditorRectFrame}!getTxtPrompt2@{getTxtPrompt2}}
+\index{getTxtPrompt2@{getTxtPrompt2}!VMEditorRectFrame@{VMEditorRectFrame}}
+\subsubsection{\texorpdfstring{getTxtPrompt2()}{getTxtPrompt2()}}
+{\footnotesize\ttfamily Q\+String V\+M\+Editor\+Rect\+Frame\+::get\+Txt\+Prompt2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the text for prompt 2. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_editor_rect_frame_ac547d797a8f4309bc1f0ab97bfdc262f}\label{class_v_m_editor_rect_frame_ac547d797a8f4309bc1f0ab97bfdc262f}} 
+\index{VMEditorRectFrame@{VMEditorRectFrame}!getTxtPrompt3@{getTxtPrompt3}}
+\index{getTxtPrompt3@{getTxtPrompt3}!VMEditorRectFrame@{VMEditorRectFrame}}
+\subsubsection{\texorpdfstring{getTxtPrompt3()}{getTxtPrompt3()}}
+{\footnotesize\ttfamily Q\+String V\+M\+Editor\+Rect\+Frame\+::get\+Txt\+Prompt3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the text for prompt 3. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_editor_rect_frame_a6ae15857de45e5c9f239be713e744a2b}\label{class_v_m_editor_rect_frame_a6ae15857de45e5c9f239be713e744a2b}} 
+\index{VMEditorRectFrame@{VMEditorRectFrame}!getTxtPrompt4@{getTxtPrompt4}}
+\index{getTxtPrompt4@{getTxtPrompt4}!VMEditorRectFrame@{VMEditorRectFrame}}
+\subsubsection{\texorpdfstring{getTxtPrompt4()}{getTxtPrompt4()}}
+{\footnotesize\ttfamily Q\+String V\+M\+Editor\+Rect\+Frame\+::get\+Txt\+Prompt4 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the text for prompt 4. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_editor_rect_frame_ade820d17c7487ae91721d49121d2f264}\label{class_v_m_editor_rect_frame_ade820d17c7487ae91721d49121d2f264}} 
+\index{VMEditorRectFrame@{VMEditorRectFrame}!performActionsOnInputEdit@{performActionsOnInputEdit}}
+\index{performActionsOnInputEdit@{performActionsOnInputEdit}!VMEditorRectFrame@{VMEditorRectFrame}}
+\subsubsection{\texorpdfstring{performActionsOnInputEdit()}{performActionsOnInputEdit()}}
+{\footnotesize\ttfamily void V\+M\+Editor\+Rect\+Frame\+::perform\+Actions\+On\+Input\+Edit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Call this whenver a text field changes so the VM can update its state. 
+
+\mbox{\Hypertarget{class_v_m_editor_rect_frame_ac6a551f7a631ed2b7ca4c48c7883fdfb}\label{class_v_m_editor_rect_frame_ac6a551f7a631ed2b7ca4c48c7883fdfb}} 
+\index{VMEditorRectFrame@{VMEditorRectFrame}!performActionsWhenDoneEditing@{performActionsWhenDoneEditing}}
+\index{performActionsWhenDoneEditing@{performActionsWhenDoneEditing}!VMEditorRectFrame@{VMEditorRectFrame}}
+\subsubsection{\texorpdfstring{performActionsWhenDoneEditing()}{performActionsWhenDoneEditing()}}
+{\footnotesize\ttfamily void V\+M\+Editor\+Rect\+Frame\+::perform\+Actions\+When\+Done\+Editing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Call this when the submit button is pressed. 
+
+\mbox{\Hypertarget{class_v_m_editor_rect_frame_ac7282ca7fde9018068e261e40e1cf47d}\label{class_v_m_editor_rect_frame_ac7282ca7fde9018068e261e40e1cf47d}} 
+\index{VMEditorRectFrame@{VMEditorRectFrame}!setModeWithDependency@{setModeWithDependency}}
+\index{setModeWithDependency@{setModeWithDependency}!VMEditorRectFrame@{VMEditorRectFrame}}
+\subsubsection{\texorpdfstring{setModeWithDependency()}{setModeWithDependency()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void V\+M\+Editor\+Rect\+Frame\+::set\+Mode\+With\+Dependency (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_shape_a8f50993477b5ddb44c0547ef3d547cdc}{I\+Shape\+::\+Shape\+Type}}}]{shape\+Type\+To\+Generate }\end{DoxyParamCaption})}
+
+
+
+Initializes the VM\textquotesingle{}s state machine. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape\+Type\+To\+Generate} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_v_m_editor_rect_frame_abedc584604fbdc11e18898e7e0951dc3}\label{class_v_m_editor_rect_frame_abedc584604fbdc11e18898e7e0951dc3}} 
+\index{VMEditorRectFrame@{VMEditorRectFrame}!setModeWithDependency@{setModeWithDependency}}
+\index{setModeWithDependency@{setModeWithDependency}!VMEditorRectFrame@{VMEditorRectFrame}}
+\subsubsection{\texorpdfstring{setModeWithDependency()}{setModeWithDependency()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void V\+M\+Editor\+Rect\+Frame\+::set\+Mode\+With\+Dependency (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$}]{shape\+To\+Edit }\end{DoxyParamCaption})}
+
+
+
+Initializes the VM\textquotesingle{}s state machine. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape\+To\+Edit} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+viewmodels/vmeditorrectframe.\+h\item 
+viewmodels/vmeditorrectframe.\+cpp\end{DoxyCompactItemize}

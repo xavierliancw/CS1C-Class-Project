@@ -1,0 +1,170 @@
+\hypertarget{class_v_m_canvas}{}\section{V\+M\+Canvas Class Reference}
+\label{class_v_m_canvas}\index{VMCanvas@{VMCanvas}}
+
+
+View model for the graphics canvas. This contains the resources and business logic for the canvas UI.  
+
+
+
+
+{\ttfamily \#include $<$vmcanvas.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_v_m_canvas_a82b848f9bd6e7fac849fdf1096bfb682}{V\+M\+Canvas}} (std\+::function$<$ void(void)$>$ lambda\+Canvas\+Did\+Refresh, std\+::function$<$ void(\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$)$>$ lambda\+Canvas\+Did\+Edit\+Shape\+At\+Layer)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_m_canvas_a1dafa7eb89dc594c677a4570475c9d39}{add\+Shape}} (\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$shape)
+\begin{DoxyCompactList}\small\item\em Adds a shape to the canvas, assigning it a layer ID (A\+KA shape ID). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_v_m_canvas_a92907a64db6ce0b762490f1846ef4abe}{get\+Number\+Of\+Shapes\+On\+Canvas}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of shapes currently rendered on the canvas. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$ \mbox{\hyperlink{class_v_m_canvas_aa0d7e62214392970b7e229f25b5d270b}{get\+Shape\+At\+Layer}} (int layer\+ID)
+\begin{DoxyCompactList}\small\item\em Gets a shape on the canvas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_m_canvas_a6eeef544d176c394bad40cecde432938}{edit\+Shape\+At\+Layer}} (int layer\+ID)
+\begin{DoxyCompactList}\small\item\em Triggers an edit event of a shape on the canvas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_m_canvas_a58092a70072af434ce7f712eff21c187}{remove\+Shape\+At\+Layer}} (int layer\+ID)
+\begin{DoxyCompactList}\small\item\em Removes a shape from the canvas, updating all other shape layer I\+Ds. Nothing happens if the layer ID parameter is out of bounds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_m_canvas_a66bc48cf35def60c67cb5ba06d31f2a8}{update\+Canvas\+To\+Display\+Most\+Current\+Drawing}} ()
+\begin{DoxyCompactList}\small\item\em Triggers a canvas redraw event so the UI can render whatever just changed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_m_canvas_afaf8c4eae3d74035b250e95bd7d03ea3}{change\+Shape\+Layer}} (int layer\+ID, int destination\+Layer\+ID)
+\begin{DoxyCompactList}\small\item\em Shifts a shape to a different layer, updating appropriate layer I\+Ds. Nothing happens if any of the parameters are out of bounds. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_v_m_canvas_a70ba23931f797c593346a8f5f9277488}\label{class_v_m_canvas_a70ba23931f797c593346a8f5f9277488}} 
+void \mbox{\hyperlink{class_v_m_canvas_a70ba23931f797c593346a8f5f9277488}{persist\+Canvas\+To\+Storage}} ()
+\begin{DoxyCompactList}\small\item\em Saves the current state of user-\/generated graphics to persistent storage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+View model for the graphics canvas. This contains the resources and business logic for the canvas UI. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_v_m_canvas_a82b848f9bd6e7fac849fdf1096bfb682}\label{class_v_m_canvas_a82b848f9bd6e7fac849fdf1096bfb682}} 
+\index{VMCanvas@{VMCanvas}!VMCanvas@{VMCanvas}}
+\index{VMCanvas@{VMCanvas}!VMCanvas@{VMCanvas}}
+\subsubsection{\texorpdfstring{VMCanvas()}{VMCanvas()}}
+{\footnotesize\ttfamily V\+M\+Canvas\+::\+V\+M\+Canvas (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(void)$>$}]{lambda\+Canvas\+Did\+Refresh,  }\item[{std\+::function$<$ void(\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$)$>$}]{lambda\+Canvas\+Did\+Edit\+Shape\+At\+Layer }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lambda\+Canvas\+Did\+Refresh} & Lambda to trigger a redraw of the canvas UI. \\
+\hline
+{\em lambda\+Canvas\+Did\+Edit\+Shape\+At\+Layer} & Lambda to summon a shape editor form for the \mbox{\hyperlink{class_i_shape}{I\+Shape}}. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_v_m_canvas_a1dafa7eb89dc594c677a4570475c9d39}\label{class_v_m_canvas_a1dafa7eb89dc594c677a4570475c9d39}} 
+\index{VMCanvas@{VMCanvas}!addShape@{addShape}}
+\index{addShape@{addShape}!VMCanvas@{VMCanvas}}
+\subsubsection{\texorpdfstring{addShape()}{addShape()}}
+{\footnotesize\ttfamily void V\+M\+Canvas\+::add\+Shape (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$}]{shape }\end{DoxyParamCaption})}
+
+
+
+Adds a shape to the canvas, assigning it a layer ID (A\+KA shape ID). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape} & The shape to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_v_m_canvas_afaf8c4eae3d74035b250e95bd7d03ea3}\label{class_v_m_canvas_afaf8c4eae3d74035b250e95bd7d03ea3}} 
+\index{VMCanvas@{VMCanvas}!changeShapeLayer@{changeShapeLayer}}
+\index{changeShapeLayer@{changeShapeLayer}!VMCanvas@{VMCanvas}}
+\subsubsection{\texorpdfstring{changeShapeLayer()}{changeShapeLayer()}}
+{\footnotesize\ttfamily void V\+M\+Canvas\+::change\+Shape\+Layer (\begin{DoxyParamCaption}\item[{int}]{layer\+ID,  }\item[{int}]{destination\+Layer\+ID }\end{DoxyParamCaption})}
+
+
+
+Shifts a shape to a different layer, updating appropriate layer I\+Ds. Nothing happens if any of the parameters are out of bounds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer\+ID} & The shape layer to shift. \\
+\hline
+{\em destination\+Layer\+ID} & The destination layer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_v_m_canvas_a6eeef544d176c394bad40cecde432938}\label{class_v_m_canvas_a6eeef544d176c394bad40cecde432938}} 
+\index{VMCanvas@{VMCanvas}!editShapeAtLayer@{editShapeAtLayer}}
+\index{editShapeAtLayer@{editShapeAtLayer}!VMCanvas@{VMCanvas}}
+\subsubsection{\texorpdfstring{editShapeAtLayer()}{editShapeAtLayer()}}
+{\footnotesize\ttfamily void V\+M\+Canvas\+::edit\+Shape\+At\+Layer (\begin{DoxyParamCaption}\item[{int}]{layer\+ID }\end{DoxyParamCaption})}
+
+
+
+Triggers an edit event of a shape on the canvas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer\+ID} & The shape layer to edit. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_v_m_canvas_a92907a64db6ce0b762490f1846ef4abe}\label{class_v_m_canvas_a92907a64db6ce0b762490f1846ef4abe}} 
+\index{VMCanvas@{VMCanvas}!getNumberOfShapesOnCanvas@{getNumberOfShapesOnCanvas}}
+\index{getNumberOfShapesOnCanvas@{getNumberOfShapesOnCanvas}!VMCanvas@{VMCanvas}}
+\subsubsection{\texorpdfstring{getNumberOfShapesOnCanvas()}{getNumberOfShapesOnCanvas()}}
+{\footnotesize\ttfamily int V\+M\+Canvas\+::get\+Number\+Of\+Shapes\+On\+Canvas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the number of shapes currently rendered on the canvas. 
+
+\begin{DoxyReturn}{Returns}
+unsigned int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_canvas_aa0d7e62214392970b7e229f25b5d270b}\label{class_v_m_canvas_aa0d7e62214392970b7e229f25b5d270b}} 
+\index{VMCanvas@{VMCanvas}!getShapeAtLayer@{getShapeAtLayer}}
+\index{getShapeAtLayer@{getShapeAtLayer}!VMCanvas@{VMCanvas}}
+\subsubsection{\texorpdfstring{getShapeAtLayer()}{getShapeAtLayer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$ V\+M\+Canvas\+::get\+Shape\+At\+Layer (\begin{DoxyParamCaption}\item[{int}]{layer\+ID }\end{DoxyParamCaption})}
+
+
+
+Gets a shape on the canvas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer\+ID} & The layer to retrieve the shape from (A\+KA shape\+ID). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_i_shape}{I\+Shape}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_canvas_a58092a70072af434ce7f712eff21c187}\label{class_v_m_canvas_a58092a70072af434ce7f712eff21c187}} 
+\index{VMCanvas@{VMCanvas}!removeShapeAtLayer@{removeShapeAtLayer}}
+\index{removeShapeAtLayer@{removeShapeAtLayer}!VMCanvas@{VMCanvas}}
+\subsubsection{\texorpdfstring{removeShapeAtLayer()}{removeShapeAtLayer()}}
+{\footnotesize\ttfamily void V\+M\+Canvas\+::remove\+Shape\+At\+Layer (\begin{DoxyParamCaption}\item[{int}]{layer\+ID }\end{DoxyParamCaption})}
+
+
+
+Removes a shape from the canvas, updating all other shape layer I\+Ds. Nothing happens if the layer ID parameter is out of bounds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer\+ID} & The shape layer to remove. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_v_m_canvas_a66bc48cf35def60c67cb5ba06d31f2a8}\label{class_v_m_canvas_a66bc48cf35def60c67cb5ba06d31f2a8}} 
+\index{VMCanvas@{VMCanvas}!updateCanvasToDisplayMostCurrentDrawing@{updateCanvasToDisplayMostCurrentDrawing}}
+\index{updateCanvasToDisplayMostCurrentDrawing@{updateCanvasToDisplayMostCurrentDrawing}!VMCanvas@{VMCanvas}}
+\subsubsection{\texorpdfstring{updateCanvasToDisplayMostCurrentDrawing()}{updateCanvasToDisplayMostCurrentDrawing()}}
+{\footnotesize\ttfamily void V\+M\+Canvas\+::update\+Canvas\+To\+Display\+Most\+Current\+Drawing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Triggers a canvas redraw event so the UI can render whatever just changed. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+viewmodels/vmcanvas.\+h\item 
+viewmodels/vmcanvas.\+cpp\end{DoxyCompactItemize}

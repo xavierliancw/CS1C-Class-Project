@@ -1,0 +1,112 @@
+\hypertarget{class_shape_line}{}\section{Shape\+Line Class Reference}
+\label{class_shape_line}\index{ShapeLine@{ShapeLine}}
+Inheritance diagram for Shape\+Line\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_shape_line}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_shape_line_a64e5a4ebb948b249de5bd26ec09cbb43}\label{class_shape_line_a64e5a4ebb948b249de5bd26ec09cbb43}} 
+{\bfseries Shape\+Line} (int x1, int y1, int x2, int y2)
+\item 
+\mbox{\Hypertarget{class_shape_line_a4acb4bc45f72c1c812fc1eb46ff1fec5}\label{class_shape_line_a4acb4bc45f72c1c812fc1eb46ff1fec5}} 
+{\bfseries Shape\+Line} (const \mbox{\hyperlink{class_shape_line}{Shape\+Line}} \&)=delete
+\item 
+\mbox{\Hypertarget{class_shape_line_a4c9674af8f603496953ba824ba70dfc7}\label{class_shape_line_a4c9674af8f603496953ba824ba70dfc7}} 
+\mbox{\hyperlink{class_shape_line}{Shape\+Line}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_shape_line}{Shape\+Line}} \&)=delete
+\item 
+virtual void \mbox{\hyperlink{class_shape_line_a8b4dbfe05387934a0f9c4a053a798239}{draw}} (Q\+Painter \&)
+\begin{DoxyCompactList}\small\item\em Renders this shape by giving instructions to a given Q\+Painter object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_shape_line_a5b6d9bcf7ed64ab2454d5efa66486ee9}{move}} (int scootX, int scootY)
+\begin{DoxyCompactList}\small\item\em Shifts this shape around given integer values. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_shape_line_a68b22013926993e9bd9c2d146519a5af}{perimeter}} () const
+\begin{DoxyCompactList}\small\item\em Calculates the perimeter of this shape. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_shape_line_a6f33bdd78706ad73e570b4ba53bbc00b}{area}} () const
+\begin{DoxyCompactList}\small\item\em Calculates the area of this shape. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_shape_line_a6f33bdd78706ad73e570b4ba53bbc00b}\label{class_shape_line_a6f33bdd78706ad73e570b4ba53bbc00b}} 
+\index{ShapeLine@{ShapeLine}!area@{area}}
+\index{area@{area}!ShapeLine@{ShapeLine}}
+\subsubsection{\texorpdfstring{area()}{area()}}
+{\footnotesize\ttfamily double Shape\+Line\+::area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the area of this shape. 
+
+\begin{DoxyReturn}{Returns}
+double\+: The area of this shape in pixels$^\wedge$2. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_shape_poly_line_ace9d3c1eefec00364034dc420262c91e}{Shape\+Poly\+Line}}.
+
+\mbox{\Hypertarget{class_shape_line_a8b4dbfe05387934a0f9c4a053a798239}\label{class_shape_line_a8b4dbfe05387934a0f9c4a053a798239}} 
+\index{ShapeLine@{ShapeLine}!draw@{draw}}
+\index{draw@{draw}!ShapeLine@{ShapeLine}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Shape\+Line\+::draw (\begin{DoxyParamCaption}\item[{Q\+Painter \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Renders this shape by giving instructions to a given Q\+Painter object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & Q\+Painter object that will perform the rendering. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_shape_poly_line_a6aaca4bd2767644f9ea0f68065fa1f98}{Shape\+Poly\+Line}}.
+
+\mbox{\Hypertarget{class_shape_line_a5b6d9bcf7ed64ab2454d5efa66486ee9}\label{class_shape_line_a5b6d9bcf7ed64ab2454d5efa66486ee9}} 
+\index{ShapeLine@{ShapeLine}!move@{move}}
+\index{move@{move}!ShapeLine@{ShapeLine}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Shape\+Line\+::move (\begin{DoxyParamCaption}\item[{int}]{,  }\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Shifts this shape around given integer values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & Number of pixels to shift in the x direction. \\
+\hline
+{\em int} & Number of pixels to shift in the y direction. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_shape_poly_line_a7c1971596b171c4c08ec5657b6592354}{Shape\+Poly\+Line}}.
+
+\mbox{\Hypertarget{class_shape_line_a68b22013926993e9bd9c2d146519a5af}\label{class_shape_line_a68b22013926993e9bd9c2d146519a5af}} 
+\index{ShapeLine@{ShapeLine}!perimeter@{perimeter}}
+\index{perimeter@{perimeter}!ShapeLine@{ShapeLine}}
+\subsubsection{\texorpdfstring{perimeter()}{perimeter()}}
+{\footnotesize\ttfamily double Shape\+Line\+::perimeter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the perimeter of this shape. 
+
+\begin{DoxyReturn}{Returns}
+double\+: The perimeter of this shape in pixels. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_shape_poly_line_a3d6664ada9c9dd883303a3dcb63d6188}{Shape\+Poly\+Line}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+models/shapeline.\+h\item 
+models/shapeline.\+cpp\end{DoxyCompactItemize}

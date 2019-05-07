@@ -103,6 +103,11 @@ public:
     ShapeType getShape() const;
 
     /**
+     * @brief Retrieves the type of shape this shape object is as a string.
+     */
+    QString getShapeStr() const;
+
+    /**
      * @brief Resets the styling attributes to the default settings.
      *
      */

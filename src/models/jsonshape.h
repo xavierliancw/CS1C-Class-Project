@@ -4,6 +4,11 @@
 #include "ishape.h"
 #include "shaperect.h"
 #include "shapesquare.h"
+#include "shapepolygon.h"
+#include "shapepolyline.h"
+#include "shapeline.h"
+#include "shapeellipse.h"
+#include "shapecircle.h"
 
 #include <QJsonObject>
 #include <QString>
@@ -77,7 +82,7 @@ struct JSONShape
         }
         if (json.contains(keyPenClr) && json[keyPenClr].isString())
         {
-            penClr = deserializeQtColorFrom(json[keyBrushClr].toString(), penClr);
+            penClr = deserializeQtColorFrom(json[keyPenClr].toString(), penClr);
         }
         if (json.contains(keyPenWidth))
         {
@@ -138,16 +143,57 @@ private:
 
         switch (shType)
         {
-        //        case IShape::ShapeType::Line:
-        //            retShape = new Line?
+        case IShape::ShapeType::Line:
+            if (dimens.size() == 4)
+            {
+                retShape = new ShapeLine(dimens[0], dimens[1], dimens[2], dimens[3]);
+                badDimensEncountered = false;
+            }
+            break;
         //        case IShape::ShapeType::Text:
         //            retShape = new Text?
-        //        case IShape::ShapeType::Ellipse:
-        //            retShape = new ShapeElipse?
-        //        case IShape::ShapeType::Polygon:
-        //            retShape =
-        //        case IShape::ShapeType::Polyline:
-        //            retShape =
+        case IShape::ShapeType::Ellipse:
+            if (dimens.size() == 4)
+            {
+                retShape = new ShapeEllipse(shType, dimens[0], dimens[1], dimens[3], dimens[2]);
+                badDimensEncountered = false;
+            }
+            break;
+        case IShape::ShapeType::Circle:
+            if (dimens.size() == 3)
+            {
+                retShape = new ShapeCircle(dimens[0], dimens[1], dimens[2]);
+                badDimensEncountered = false;
+            }
+            break;
+        case IShape::ShapeType::Polygon:
+            if (dimens.size() > 2)
+            {
+                QVector<QPoint> polyDimens;
+                int x = 0;
+                while (x < dimens.size())
+                {
+                    polyDimens.push_back(QPoint(dimens[x], dimens[x + 1]));
+                    x = x + 2;
+                }
+                retShape = new ShapePolygon(polyDimens);
+                badDimensEncountered = false;
+            }
+            break;
+        case IShape::ShapeType::Polyline:
+            if (dimens.size() > 4)
+            {
+                QVector<QPoint> polyDimens;
+                int x = 0;
+                while (x < dimens.size())
+                {
+                    polyDimens.push_back(QPoint(dimens[x], dimens[x + 1]));
+                    x = x + 2;
+                }
+                retShape = new ShapePolyLine(IShape::ShapeType::Polyline, polyDimens);
+                badDimensEncountered = false;
+            }
+            break;
         case IShape::ShapeType::Rectangle:
             if (dimens.size() == 4)
             {
@@ -226,10 +272,25 @@ private:
         switch (shapeToSerialize->getShape())
         {
         case IShape::ShapeType::Line:
+            if (const ShapeLine* line = dynamic_cast<const ShapeLine*>(shapeToSerialize))
+            {
+                for (QPoint vert: line->polyLine)
+                {
+                    jsonAr.append(QJsonValue(vert.x()));
+                    jsonAr.append(QJsonValue(vert.y()));
+                }
+            }
             break;
         case IShape::ShapeType::Text:
             break;
         case IShape::ShapeType::Circle:
+            if (const ShapeCircle* cir = dynamic_cast<const ShapeCircle*>(shapeToSerialize))
+            {
+                QJsonValue x(cir->frame.x()); QJsonValue y(cir->frame.y());
+                QJsonValue w(cir->frame.width());
+                jsonAr.append(x); jsonAr.append(y);
+                jsonAr.append(w);
+            }
             break;
         case IShape::ShapeType::Square:
             if (const ShapeSquare* sq = dynamic_cast<const ShapeSquare*>(shapeToSerialize))
@@ -241,12 +302,35 @@ private:
             }
             break;
         case IShape::ShapeType::Ellipse:
+            if (const ShapeEllipse* ell = dynamic_cast<const ShapeEllipse*>(shapeToSerialize))
+            {
+                QJsonValue x(ell->frame.x()); QJsonValue y(ell->frame.y());
+                QJsonValue w(ell->frame.width()); QJsonValue h(ell->frame.height());
+                jsonAr.append(x); jsonAr.append(y);
+                jsonAr.append(w); jsonAr.append(h);
+            }
             break;
         case IShape::ShapeType::NoShape:
             break;
         case IShape::ShapeType::Polygon:
+            if (const ShapePolygon* poly = dynamic_cast<const ShapePolygon*>(shapeToSerialize))
+            {
+                for (QPoint vert: poly->poly)
+                {
+                    jsonAr.append(QJsonValue(vert.x()));
+                    jsonAr.append(QJsonValue(vert.y()));
+                }
+            }
             break;
         case IShape::ShapeType::Polyline:
+            if (const ShapePolyLine* line = dynamic_cast<const ShapePolyLine*>(shapeToSerialize))
+            {
+                for (QPoint vert: line->polyLine)
+                {
+                    jsonAr.append(QJsonValue(vert.x()));
+                    jsonAr.append(QJsonValue(vert.y()));
+                }
+            }
             break;
         case IShape::ShapeType::Triangle:
             break;
