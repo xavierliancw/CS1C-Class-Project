@@ -33,7 +33,7 @@
        <number>1</number>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="welcomePg">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -60,119 +60,549 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="canvasPg">
-       <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="4" rowspan="3">
-         <widget class="QListWidget" name="layersScrollVw">
-          <property name="maximumSize">
-           <size>
-            <width>150</width>
-            <height>16777215</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2" rowspan="3" colspan="2">
-         <widget class="QOpenGLWidget" name="canvasVw">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>1</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <spacer name="verticalSpacer">
+      <widget class="QWidget" name="guestPreviewPg">
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="2">
+         <spacer name="horizontalSpacer">
           <property name="orientation">
-           <enum>Qt::Vertical</enum>
+           <enum>Qt::Horizontal</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>20</width>
-            <height>40</height>
+            <width>40</width>
+            <height>20</height>
            </size>
           </property>
          </spacer>
         </item>
-        <item row="1" column="1">
-         <layout class="QVBoxLayout" name="verticalLayout">
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout">
-            <item>
-             <widget class="QPushButton" name="pushButton_2">
-              <property name="text">
-               <string>&lt;</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="pushButton">
-              <property name="text">
-               <string>S</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="Line" name="line">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="guestPreviewBackBt">
+          <property name="text">
+           <string>&lt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QPushButton" name="guestPreviewEditBt">
+          <property name="text">
+           <string>Edit</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="3">
+         <widget class="QOpenGLWidget" name="guestCanvasVw"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="canvasPg">
+       <layout class="QGridLayout" name="gridLayout_7">
+        <item row="0" column="0">
+         <widget class="QSplitter" name="splitter">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="handleWidth">
+           <number>10</number>
+          </property>
+          <property name="childrenCollapsible">
+           <bool>false</bool>
+          </property>
+          <widget class="QWidget" name="gridLayoutWidget">
+           <layout class="QGridLayout" name="gridLayout_6">
+            <property name="rightMargin">
+             <number>5</number>
             </property>
-           </widget>
-          </item>
-          <item>
-           <layout class="QGridLayout" name="gridLayout_4">
-            <item row="0" column="1">
-             <widget class="QPushButton" name="pushButton_3">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text">
-               <string>E</string>
-              </property>
-             </widget>
-            </item>
             <item row="0" column="0">
-             <widget class="QPushButton" name="addRectBt">
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <item>
+                 <widget class="QPushButton" name="canvasPgBackBt">
+                  <property name="text">
+                   <string>Back</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton">
+                  <property name="text">
+                   <string>Print</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="Line" name="line">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QGridLayout" name="gridLayout_4">
+                <item row="0" column="0">
+                 <widget class="QPushButton" name="addRectBt">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>█</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QPushButton" name="addLineBt">
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>—</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QPushButton" name="addSquareBt">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>■</string>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>16</width>
+                    <height>16</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QPushButton" name="addPolygonBt">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>♦</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QPushButton" name="addEllipseBt">
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>0</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QPushButton" name="addCircleBt">
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                    <underline>false</underline>
+                    <strikeout>false</strikeout>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>○</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QPushButton" name="addTriangle">
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>▲</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QPushButton" name="addPolyLineBt">
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>⌂</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="1" rowspan="2">
+             <widget class="QOpenGLWidget" name="canvasVw">
               <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>1</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="gridLayoutWidget_2">
+           <layout class="QGridLayout" name="gridLayout_2">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetDefaultConstraint</enum>
+            </property>
+            <item row="0" column="0">
+             <widget class="QListWidget" name="canvasPgLayerListVw">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
-              <property name="text">
-               <string>R</string>
+              <property name="editTriggers">
+               <set>QAbstractItemView::NoEditTriggers</set>
+              </property>
+              <property name="dragDropMode">
+               <enum>QAbstractItemView::InternalMove</enum>
+              </property>
+              <property name="defaultDropAction">
+               <enum>Qt::MoveAction</enum>
+              </property>
+              <property name="alternatingRowColors">
+               <bool>true</bool>
+              </property>
+              <property name="selectionBehavior">
+               <enum>QAbstractItemView::SelectRows</enum>
               </property>
              </widget>
             </item>
-            <item row="4" column="0">
-             <widget class="QPushButton" name="pushButton_5">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
+            <item row="1" column="0">
+             <widget class="QStackedWidget" name="canvasPgPropInspStck">
+              <property name="currentIndex">
+               <number>0</number>
               </property>
-              <property name="text">
-               <string>?</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="0">
-             <widget class="QPushButton" name="pushButton_6">
-              <property name="text">
-               <string>▲</string>
-              </property>
+              <widget class="QWidget" name="propInsp0">
+               <layout class="QGridLayout" name="gridLayout_8">
+                <item row="12" column="0">
+                 <widget class="QLabel" name="label_7">
+                  <property name="text">
+                   <string>Pen Width</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="10" column="2">
+                 <widget class="QComboBox" name="propInspPenJoinStyleCB">
+                  <item>
+                   <property name="text">
+                    <string>Bevel</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Round</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Miter</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>SVG Miter</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="10" column="0">
+                 <widget class="QLabel" name="label_2">
+                  <property name="text">
+                   <string>Pen Join Style</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="11" column="0">
+                 <widget class="QLabel" name="label">
+                  <property name="text">
+                   <string>Pen Style</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="2">
+                 <layout class="QHBoxLayout" name="horizontalLayout_2">
+                  <item>
+                   <widget class="QPushButton" name="propInspPenClrBt">
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item row="12" column="2">
+                 <widget class="QSpinBox" name="propInspPenWidthSB">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimum">
+                   <number>0</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="2">
+                 <widget class="QComboBox" name="propInspBrushStyleCB">
+                  <property name="frame">
+                   <bool>true</bool>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>None</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Solid</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Horizontal</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Vertical</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Cross</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Backward Diagonals</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Forward Diagonals</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Crossing Diagonals</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Dense 1</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Dense 2</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Dense 3</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Dense 4</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Dense 5</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Dense 6</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Dense 7</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="7" column="0">
+                 <widget class="QLabel" name="label_6">
+                  <property name="text">
+                   <string>Pen Color</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_5">
+                  <property name="text">
+                   <string>Brush Color</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="label_3">
+                  <property name="text">
+                   <string>Brush Style</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="11" column="2">
+                 <widget class="QComboBox" name="propInspPenStyleCB">
+                  <item>
+                   <property name="text">
+                    <string>Solid</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Dashed</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Dotted</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Dash Dot</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Dash Dot Dot</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>None</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <layout class="QHBoxLayout" name="brushLyt">
+                  <item>
+                   <widget class="QPushButton" name="propInspBrushClrBt">
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="label_4">
+                  <property name="text">
+                   <string>Pen Cap Style</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="2">
+                 <widget class="QComboBox" name="propInspPenCapCB">
+                  <item>
+                   <property name="text">
+                    <string>Square</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Round</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Flat</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
              </widget>
             </item>
            </layout>
-          </item>
-         </layout>
+          </widget>
+         </widget>
         </item>
        </layout>
       </widget>

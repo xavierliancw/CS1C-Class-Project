@@ -16,10 +16,15 @@ public:
     QBrush brush; /**< The QBrush that provides some shape styling. */
 
     /**
-     * @brief Names for supported shape prototypes.
+     * @brief Names for supported shapes that can be modelled.
      *
      */
-    enum class ShapeType {NoShape, Line, Polyline, Polygon, Triangle, Rectangle, Ellipse, Text};
+    enum class ShapeType {NoShape,
+                          Polyline, Line,
+                          Polygon, Triangle,
+                          Rectangle, Square,
+                          Ellipse, Circle,
+                          Text};
 
     /**
      * @brief Constructor.
@@ -96,6 +101,11 @@ public:
      * @return ShapeType
      */
     ShapeType getShape() const;
+
+    /**
+     * @brief Retrieves the type of shape this shape object is as a string.
+     */
+    QString getShapeStr() const;
 
     /**
      * @brief Resets the styling attributes to the default settings.

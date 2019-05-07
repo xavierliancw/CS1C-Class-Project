@@ -25,12 +25,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    dlgloginscreen.cpp \
     main.cpp \
+    models/shapecircle.cpp \
     models/shapeellipse.cpp \
-    models/triangle.cpp \
+    models/shapeline.cpp \
+    models/shapepolyline.cpp \
     models/shapepolygon.cpp \
     models/shapetext.cpp \
-    ui/dlgshapeaddtri.cpp \
+    models/shapetriangle.cpp \
     ui/winmain.cpp \
     services/svcjson.cpp \
     ui/dlgtestimonialcreate.cpp \
@@ -41,14 +44,24 @@ SOURCES += \
     ui/dlgshapeselector.cpp \
     ui/dlgcontactform.cpp \
     viewmodels/vmcanvas.cpp \
-    ui/dlgshapeadderrect.cpp
+    models/shapesquare.cpp \
+    models/jsonshape.cpp \
+    ui/lcshapelayer.cpp \
+    ui/lceditvertex.cpp \
+    ui/dlgeditorvertices.cpp \
+    viewmodels/vmeditorvertices.cpp \
+    ui/dlgeditorrectframe.cpp \
+    viewmodels/vmeditorrectframe.cpp
 
 HEADERS += \
+    dlgloginscreen.h \
+    models/shapecircle.h \
     models/shapeellipse.h \
-    models/triangle.h \
+    models/shapeline.h \
+    models/shapepolyline.h \
     models/shapepolygon.h \
     models/shapetext.h \
-    ui/dlgshapeaddtri.h \
+    models/shapetriangle.h \
     ui/winmain.h \
     services/svcjson.h \
     ui/dlgtestimonialcreate.h \
@@ -57,19 +70,27 @@ HEADERS += \
     models/ishape.h \
     models/shaperect.h \
     ui/dlgshapeselector.h \
-    models/ishape.h \
     util/goldenconevector.h \
     ui/dlgcontactform.h \
     viewmodels/vmcanvas.h \
-    ui/dlgshapeadderrect.h
+    models/shapesquare.h \
+    ui/lcshapelayer.h \
+    ui/lceditvertex.h \
+    ui/dlgeditorvertices.h \
+    viewmodels/vmeditorvertices.h \
+    ui/dlgeditorrectframe.h \
+    viewmodels/vmeditorrectframe.h
 
 FORMS += \
-    ui/dlgshapeaddtri.ui \
+    dlgloginscreen.ui \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
     ui/dlgshapeselector.ui \
     ui/dlgcontactform.ui \
-    ui/dlgshapeadderrect.ui
+    ui/dlgeditorrectframe.ui \
+    ui/lcshapelayer.ui \
+    ui/lceditvertex.ui \
+    ui/dlgeditorvertices.ui
 
 CONFIG += mobility
 MOBILITY = 

@@ -1,9 +1,15 @@
 #ifndef VMCANVAS_H
 #define VMCANVAS_H
 
+#include "gimme.h"
+#include "services/svcjson.h"
+#include "models/jsonshape.h"
 #include <util/goldenconevector.h>
 #include <models/ishape.h>
 #include <functional>
+#include <QVector>
+#include <QJsonValueRef>
+#include <QJsonArray>
 
 /**
  * @brief View model for the graphics canvas. This contains the resources and business logic for
@@ -33,27 +39,27 @@ public:
      *
      * @return unsigned int
      */
-    unsigned int getNumberOfShapesOnCanvas() const;
+    int getNumberOfShapesOnCanvas() const;
     /**
      * @brief Gets a shape on the canvas.
      *
      * @param layerID: The layer to retrieve the shape from (AKA shapeID).
      * @return IShape
      */
-    IShape* getShapeAtLayer(unsigned int layerID);
+    IShape* getShapeAtLayer(int layerID);
     /**
      * @brief Triggers an edit event of a shape on the canvas.
      *
      * @param layerID: The shape layer to edit.
      */
-    void editShapeAtLayer(unsigned int layerID);
+    void editShapeAtLayer(int layerID);
     /**
      * @brief Removes a shape from the canvas, updating all other shape layer IDs.
      * Nothing happens if the layer ID parameter is out of bounds.
      *
      * @param layerID: The shape layer to remove.
      */
-    void removeShapeAtLayer(unsigned int layerID);
+    void removeShapeAtLayer(int layerID);
     /**
      * @brief Triggers a canvas redraw event so the UI can render whatever just changed.
      *
@@ -66,7 +72,12 @@ public:
      * @param layerID: The shape layer to shift.
      * @param destinationLayerID: The destination layer.
      */
-    void changeShapeLayer(unsigned int layerID, unsigned int destinationLayerID);
+    void changeShapeLayer(int layerID, int destinationLayerID);
+
+    /**
+     * @brief Saves the current state of user-generated graphics to persistent storage.
+     */
+    void persistCanvasToStorage();
 
 private:
     /**
@@ -87,7 +98,8 @@ private:
      * @param layerID: The layer ID to check.
      * @return bool: True if layer ID in question does not exist, false otherwise.
      */
-    bool invalid(unsigned int layerID);
+    bool invalid(int layerID);
+    void loadSavedCanvasGraphicsFromStorage();
 };
 
 #endif // VMCANVAS_H

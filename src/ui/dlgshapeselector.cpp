@@ -12,3 +12,8 @@ DLGShapeSelector::~DLGShapeSelector()
 {
     delete ui;
 }
+
+void DLGShapeSelector::on_pushButton_clicked()
+{
+    close();
+}

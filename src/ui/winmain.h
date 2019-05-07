@@ -2,19 +2,30 @@
 #define WINMAIN_H
 
 #include "dlgcontactform.h"
-#include "dlgshapeadderrect.h"
+#include "dlgeditorrectframe.h"
 #include "dlgtestimonialcreate.h"
 #include "dlgshapeaddtri.h"
 #include "models/shapeellipse.h"
 #include "models/ishape.h"
-#include "models/triangle.h"
+#include "models/shapetriangle.h"
+#include "dlgloginscreen.h"
+#include "dlgshapeselector.h"
+#include "models/shapeellipse.h"
+#include "models/ishape.h"
+#include "models/shapecircle.h" 
 #include "viewmodels/vmcanvas.h"
+#include "ui/dlgeditorvertices.h"
+#include "ui/lcshapelayer.h"
 #include <util/goldenconevector.h>
 #include <chrono>
 #include <QDialog>
 #include <QMainWindow>
 #include <QPainter>
 #include <QDebug>
+#include <QTimer>
+#include <QListWidgetItem>
+#include <QDropEvent>
+#include <QColorDialog>
 
 namespace Ui {
 class WINMain;
@@ -29,6 +40,11 @@ class WINMain : public QMainWindow
     Q_OBJECT
 
 public:
+    /**
+     * @brief The different screens WINMain can switch between.
+     */
+    enum ScreensInWINMain {welcome, guest, canvas};
+
     /**
      * @brief Constructor.
      *
@@ -54,29 +70,58 @@ private:
     DLGTestimonialCreate *testimonialFormWin; /**< Pointer to the testimonial creation dialogue. */
     DLGContactForm *contactFormWin; /**< Pointer to the contact form dialogue. */
     VMCanvas vm; /**< View model for the canvas that contains business logic and UI definitions. */
-    DLGShapeAdderRect *dlgAddShapeRect; /** < Dialog that creates rectangles. */
+    DLGEditorRectFrame *dlgAddShapeRect; /** < Dialog that creates rectangles. */
     DLGShapeAdderTri *dlgAddShapeTri; /** < Dialog that creates triangles. */
 
     /**
-     * @brief Initializes the button behavior that launches the canvas view.
+     * @brief Lifecycle event that fires when the window is closed.
      *
+     * @param QCloseEvent pointer (unused).
      */
+    void closeEvent(QCloseEvent*) override;
+
+    /**
+         * @brief Look for Qt events
+         * @param object : GUI element that's generating a Qt event
+         * @param event : Qt event that's happening
+         * @return Returns false always
+         *
+         * Drag and drop functionality within the itinerary is implemented
+         * in this method.
+         */
+    bool eventFilter(QObject *object, QEvent *event) override;
+
+private:
+    //General UI
+    void switchScreenToShow(ScreensInWINMain);
+
+    //Pop up UI
+    DLGEditorRectFrame *dlgRectEditor;
+    DLGLoginScreen *dlgLogin;
+
+    //Canvas UI
+    QTimer* refreshTimer;
+    QVector<LCShapeLayer*> layerVwCells;
+    int rowNumberFromPickUpEvent;
+    VMCanvas initCanvasVM();
+    void initCanvasBackBt();
+    void refreshLayersVw();
+    void initLayerSelectionBehavior();
+    void redrawWhateverCurrentCanvasIsShowing();
+    void summonDlgThatEdits(IShape*);
+    void updatePropertyInspectorFor(const IShape*);
+    void initPropertyInspector();
+    void initVertexEditor();
+    void initRectEditor();
+
+    //Welcome screen UI
     void initStartBt();
-    /**
-     * @brief Initializes the button behavior that summons the testimonial creation dialogue.
-     *
-     */
     void initTestimonialCreateBt();
-    /**
-     * @brief Initializes the button that summons the contact form dialogue.
-     *
-     */
     void initContactUsBt();
-    /**
-     * @brief Initializes the view model that contains the canvas business logic.
-     *
-     */
     VMCanvas initVM();
+    void initGuestAuthenticateBt();
+    void initGuestBackBt();
+
 };
 
 #endif // WINMAIN_H

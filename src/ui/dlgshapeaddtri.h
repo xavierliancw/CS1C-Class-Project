@@ -1,10 +1,11 @@
 #ifndef DLGSHAPEADDTRI_H
 #define DLGSHAPEADDTRI_H
 
-#include "models/triangle.h"
+#include "models/shapetriangle.h"
 #include <QDialog>
 #include <QIntValidator>
 #include <functional>
+#include "viewmodels/vmeditorrectframe.h"
 
 namespace Ui {
 class DLGShapeAdderTri;
@@ -26,8 +27,11 @@ public:
      * @param parent: Parent pointer.
      * @param rectResult: Callback for possible generated rectangle.
      */
-    explicit DLGShapeAdderTri(QWidget *parent = nullptr,
-                               std::function<void(triangle*)> TriResult = [](triangle*){});
+    explicit DLGShapeAdderTri(QWidget *parent,
+                              IShape::ShapeType shapeTypeToGen,
+                              std::function<void(IShape*)> dlgDidGiveTriResult);
+    explicit DLGShapeAdderTri(QWidget *parent,
+                                IShape *shapeToEdit);
     /**
      * @brief Destructor.
      *
@@ -35,20 +39,12 @@ public:
     ~DLGShapeAdderTri() override;
 
 private:
-    Ui::DLGShapeAdderTri *ui; /**< UI pointer. */
-    std::function<void(triangle*)> lambdaTriResult; /**< Callback lambda. */
-    QIntValidator* intValidator; /**< Field validator object that forces only numeric input. */
+    Ui::DLGShapeAdderTri *ui;
+    QIntValidator* intValidator;
+    std::function<void(IShape*)> dlgDidGiveTriResult;
+    VMEditorRectFrame vm;
 
-    /**
-     * @brief This updates the enable state of the add button.
-     *
-     */
-    void updateAddBtEnableState();
-    /**
-     * @brief This dymaically generates a rectangle in memory if inputs are valid. It'll call
-     * the callback lambda if successful.
-     *
-     */
-    void giveDLGSummonerCreatedRectIfPossible();
+    VMEditorRectFrame initVM();
+    void initGeneralUI();
 };
 #endif // DLGSHAPEADDTRI_H

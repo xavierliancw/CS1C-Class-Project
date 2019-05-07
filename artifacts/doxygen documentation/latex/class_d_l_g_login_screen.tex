@@ -1,0 +1,54 @@
+\hypertarget{class_d_l_g_login_screen}{}\section{D\+L\+G\+Login\+Screen Class Reference}
+\label{class_d_l_g_login_screen}\index{DLGLoginScreen@{DLGLoginScreen}}
+
+
+The \mbox{\hyperlink{class_d_l_g_login_screen}{D\+L\+G\+Login\+Screen}} class\+: This is a class that inherits from the Q\+Dialog class and creates the login screen used to authenticate a modeler so he or she can begin to add shapes.  
+
+
+
+
+{\ttfamily \#include $<$dlgloginscreen.\+h$>$}
+
+Inheritance diagram for D\+L\+G\+Login\+Screen\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_d_l_g_login_screen}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_d_l_g_login_screen_aabc315a7cca94bcccf1965a5dd2d6dd4}{D\+L\+G\+Login\+Screen}} (Q\+Widget $\ast$parent=nullptr, std\+::function$<$ void()$>$ auth\+Success\+Callback=\mbox{[}$\,$\mbox{]}()\{\})
+\begin{DoxyCompactList}\small\item\em The constructor takes a pointer to Qwidget and a function pointer to transfer the login state around the program and instantitates the \mbox{\hyperlink{class_d_l_g_login_screen}{D\+L\+G\+Login\+Screen}} ui based on the parameters passed in. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_d_l_g_login_screen_a3c2f15f994982c0ddbaba8aea9eedf2a}\label{class_d_l_g_login_screen_a3c2f15f994982c0ddbaba8aea9eedf2a}} 
+\mbox{\hyperlink{class_d_l_g_login_screen_a3c2f15f994982c0ddbaba8aea9eedf2a}{$\sim$\+D\+L\+G\+Login\+Screen}} ()
+\begin{DoxyCompactList}\small\item\em The desturctor deletes the ui when it goes out of scope, so that no memory leaks take place. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \mbox{\hyperlink{class_d_l_g_login_screen}{D\+L\+G\+Login\+Screen}} class\+: This is a class that inherits from the Q\+Dialog class and creates the login screen used to authenticate a modeler so he or she can begin to add shapes. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_d_l_g_login_screen_aabc315a7cca94bcccf1965a5dd2d6dd4}\label{class_d_l_g_login_screen_aabc315a7cca94bcccf1965a5dd2d6dd4}} 
+\index{DLGLoginScreen@{DLGLoginScreen}!DLGLoginScreen@{DLGLoginScreen}}
+\index{DLGLoginScreen@{DLGLoginScreen}!DLGLoginScreen@{DLGLoginScreen}}
+\subsubsection{\texorpdfstring{DLGLoginScreen()}{DLGLoginScreen()}}
+{\footnotesize\ttfamily D\+L\+G\+Login\+Screen\+::\+D\+L\+G\+Login\+Screen (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr},  }\item[{std\+::function$<$ void()$>$}]{auth\+Success\+Callback = {\ttfamily \mbox{[}\mbox{]}()\{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+The constructor takes a pointer to Qwidget and a function pointer to transfer the login state around the program and instantitates the \mbox{\hyperlink{class_d_l_g_login_screen}{D\+L\+G\+Login\+Screen}} ui based on the parameters passed in. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The Q\+Widget pointer is used to instantiate the screnn by casting the Q\+Widget to a Q\+Dialog \\
+\hline
+{\em auth\+Success\+Callback} & function pointer that is used to instantiate the canvas page if the information is correctly inputed. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dlgloginscreen.\+h\item 
+dlgloginscreen.\+cpp\end{DoxyCompactItemize}

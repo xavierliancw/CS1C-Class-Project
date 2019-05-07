@@ -54,5 +54,22 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>DLGShapeSelector</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>352</x>
+     <y>283</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>393</x>
+     <y>270</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

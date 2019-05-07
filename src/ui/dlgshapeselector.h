@@ -15,6 +15,9 @@ public:
     explicit DLGShapeSelector(QWidget *parent = nullptr);
     ~DLGShapeSelector();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::DLGShapeSelector *ui;
 };

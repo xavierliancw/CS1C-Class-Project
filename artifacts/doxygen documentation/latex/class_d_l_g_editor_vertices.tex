@@ -1,0 +1,114 @@
+\hypertarget{class_d_l_g_editor_vertices}{}\section{D\+L\+G\+Editor\+Vertices Class Reference}
+\label{class_d_l_g_editor_vertices}\index{DLGEditorVertices@{DLGEditorVertices}}
+
+
+Dialog to edit vertices. Good for making polylines and polygons.  
+
+
+
+
+{\ttfamily \#include $<$dlgeditorvertices.\+h$>$}
+
+Inheritance diagram for D\+L\+G\+Editor\+Vertices\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_d_l_g_editor_vertices}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_d_l_g_editor_vertices_a504eb7ba34267ade2ef50d1220672e85}{D\+L\+G\+Editor\+Vertices}} (Q\+Widget $\ast$parent, \mbox{\hyperlink{class_i_shape_a8f50993477b5ddb44c0547ef3d547cdc}{I\+Shape\+::\+Shape\+Type}} shape\+Type\+To\+Gen, std\+::function$<$ void(\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$)$>$dlg\+Did\+Generate\+New\+Shape)
+\begin{DoxyCompactList}\small\item\em Constructor to initialize mode that generates new shapes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_d_l_g_editor_vertices_a6e22bdc8ab5efdc8861644f3a1ff6819}{D\+L\+G\+Editor\+Vertices}} (Q\+Widget $\ast$parent, \mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$shape\+To\+Edit)
+\begin{DoxyCompactList}\small\item\em Constructor to initialize mode that edits an existing shape;. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_d_l_g_editor_vertices_abc874114034d506eb9835042524fc586}{$\sim$\+D\+L\+G\+Editor\+Vertices}} () override
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_d_l_g_editor_vertices_a2e6c698e2749d8c3a2dedcdcf95a1c79}{event\+Filter}} (Q\+Object $\ast$object, Q\+Event $\ast$event) override
+\begin{DoxyCompactList}\small\item\em Event filter used for vertex dragging and dropping. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Dialog to edit vertices. Good for making polylines and polygons. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_d_l_g_editor_vertices_a504eb7ba34267ade2ef50d1220672e85}\label{class_d_l_g_editor_vertices_a504eb7ba34267ade2ef50d1220672e85}} 
+\index{DLGEditorVertices@{DLGEditorVertices}!DLGEditorVertices@{DLGEditorVertices}}
+\index{DLGEditorVertices@{DLGEditorVertices}!DLGEditorVertices@{DLGEditorVertices}}
+\subsubsection{\texorpdfstring{DLGEditorVertices()}{DLGEditorVertices()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily D\+L\+G\+Editor\+Vertices\+::\+D\+L\+G\+Editor\+Vertices (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent,  }\item[{\mbox{\hyperlink{class_i_shape_a8f50993477b5ddb44c0547ef3d547cdc}{I\+Shape\+::\+Shape\+Type}}}]{shape\+Type\+To\+Gen,  }\item[{std\+::function$<$ void(\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$)$>$}]{dlg\+Did\+Generate\+New\+Shape }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor to initialize mode that generates new shapes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Parent pointer. \\
+\hline
+{\em shape\+Type\+To\+Gen} & Kind of shape to generate. \\
+\hline
+{\em dlg\+Did\+Generate\+New\+Shape} & New shape callback. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_d_l_g_editor_vertices_a6e22bdc8ab5efdc8861644f3a1ff6819}\label{class_d_l_g_editor_vertices_a6e22bdc8ab5efdc8861644f3a1ff6819}} 
+\index{DLGEditorVertices@{DLGEditorVertices}!DLGEditorVertices@{DLGEditorVertices}}
+\index{DLGEditorVertices@{DLGEditorVertices}!DLGEditorVertices@{DLGEditorVertices}}
+\subsubsection{\texorpdfstring{DLGEditorVertices()}{DLGEditorVertices()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily D\+L\+G\+Editor\+Vertices\+::\+D\+L\+G\+Editor\+Vertices (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent,  }\item[{\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$}]{shape\+To\+Edit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor to initialize mode that edits an existing shape;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Parent pointer. \\
+\hline
+{\em shape\+To\+Edit} & Shape to edit. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_d_l_g_editor_vertices_abc874114034d506eb9835042524fc586}\label{class_d_l_g_editor_vertices_abc874114034d506eb9835042524fc586}} 
+\index{DLGEditorVertices@{DLGEditorVertices}!````~DLGEditorVertices@{$\sim$DLGEditorVertices}}
+\index{````~DLGEditorVertices@{$\sim$DLGEditorVertices}!DLGEditorVertices@{DLGEditorVertices}}
+\subsubsection{\texorpdfstring{$\sim$DLGEditorVertices()}{~DLGEditorVertices()}}
+{\footnotesize\ttfamily D\+L\+G\+Editor\+Vertices\+::$\sim$\+D\+L\+G\+Editor\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Destructor. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_d_l_g_editor_vertices_a2e6c698e2749d8c3a2dedcdcf95a1c79}\label{class_d_l_g_editor_vertices_a2e6c698e2749d8c3a2dedcdcf95a1c79}} 
+\index{DLGEditorVertices@{DLGEditorVertices}!eventFilter@{eventFilter}}
+\index{eventFilter@{eventFilter}!DLGEditorVertices@{DLGEditorVertices}}
+\subsubsection{\texorpdfstring{eventFilter()}{eventFilter()}}
+{\footnotesize\ttfamily bool D\+L\+G\+Editor\+Vertices\+::event\+Filter (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{object,  }\item[{Q\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Event filter used for vertex dragging and dropping. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em object} & Object that event is happening to. \\
+\hline
+{\em event} & Event that\textquotesingle{}s happening. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+: Whatever super implementation returns. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+ui/dlgeditorvertices.\+h\item 
+ui/dlgeditorvertices.\+cpp\end{DoxyCompactItemize}
