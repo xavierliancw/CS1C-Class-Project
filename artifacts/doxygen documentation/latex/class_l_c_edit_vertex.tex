@@ -1,0 +1,82 @@
+\hypertarget{class_l_c_edit_vertex}{}\section{L\+C\+Edit\+Vertex Class Reference}
+\label{class_l_c_edit_vertex}\index{LCEditVertex@{LCEditVertex}}
+
+
+A list cell that edits a vertex\textquotesingle{}s x and y coordinates.  
+
+
+
+
+{\ttfamily \#include $<$lceditvertex.\+h$>$}
+
+Inheritance diagram for L\+C\+Edit\+Vertex\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_l_c_edit_vertex}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_l_c_edit_vertex_a91308e9570ce130c5eeed30679788f9f}{L\+C\+Edit\+Vertex}} (Q\+Widget $\ast$parent, std\+::function$<$ void(int, Q\+String, Q\+String)$>$ on\+Coord\+Update\+Act, std\+::function$<$ void(int)$>$ on\+Del\+Bt\+Press\+For\+Index)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_l_c_edit_vertex_afa2b6af39e75885099b07ad550032708}\label{class_l_c_edit_vertex_afa2b6af39e75885099b07ad550032708}} 
+\mbox{\hyperlink{class_l_c_edit_vertex_afa2b6af39e75885099b07ad550032708}{$\sim$\+L\+C\+Edit\+Vertex}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_edit_vertex_a2e2c193ce93d858f79897a162f5c9e23}{populate\+With}} (int index\+Num, Q\+String x, Q\+String y, bool del\+Bt\+Enabled)
+\begin{DoxyCompactList}\small\item\em Populates this cell with data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A list cell that edits a vertex\textquotesingle{}s x and y coordinates. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_l_c_edit_vertex_a91308e9570ce130c5eeed30679788f9f}\label{class_l_c_edit_vertex_a91308e9570ce130c5eeed30679788f9f}} 
+\index{LCEditVertex@{LCEditVertex}!LCEditVertex@{LCEditVertex}}
+\index{LCEditVertex@{LCEditVertex}!LCEditVertex@{LCEditVertex}}
+\subsubsection{\texorpdfstring{LCEditVertex()}{LCEditVertex()}}
+{\footnotesize\ttfamily L\+C\+Edit\+Vertex\+::\+L\+C\+Edit\+Vertex (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent,  }\item[{std\+::function$<$ void(int, Q\+String, Q\+String)$>$}]{on\+Coord\+Update\+Act,  }\item[{std\+::function$<$ void(int)$>$}]{on\+Del\+Bt\+Press\+For\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Parent pointer. \\
+\hline
+{\em on\+Coord\+Update\+Act} & Lambda that executes when either x or y coordinate gets updated. \\
+\hline
+{\em on\+Del\+Bt\+Press\+For\+Index} & Lambda that executes when the delete button is pressed. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_l_c_edit_vertex_a2e2c193ce93d858f79897a162f5c9e23}\label{class_l_c_edit_vertex_a2e2c193ce93d858f79897a162f5c9e23}} 
+\index{LCEditVertex@{LCEditVertex}!populateWith@{populateWith}}
+\index{populateWith@{populateWith}!LCEditVertex@{LCEditVertex}}
+\subsubsection{\texorpdfstring{populateWith()}{populateWith()}}
+{\footnotesize\ttfamily void L\+C\+Edit\+Vertex\+::populate\+With (\begin{DoxyParamCaption}\item[{int}]{index\+Num,  }\item[{Q\+String}]{x,  }\item[{Q\+String}]{y,  }\item[{bool}]{del\+Bt\+Enabled }\end{DoxyParamCaption})}
+
+
+
+Populates this cell with data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+Num} & The number that indicates which row this cell is in. \\
+\hline
+{\em x} & X coordinate to fill. \\
+\hline
+{\em y} & Y coordinate to fill. \\
+\hline
+{\em del\+Bt\+Enabled} & Controls if delete button is enabled or not. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+ui/lceditvertex.\+h\item 
+ui/lceditvertex.\+cpp\end{DoxyCompactItemize}
