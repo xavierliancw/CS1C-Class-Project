@@ -1,19 +1,15 @@
 #include "shapecircle.h"
-#include<cmath>
 
-ShapeCircle :: ShapeCircle(int id, int x, int y, int radius):
-    ShapeEllipse (id,x,y,radius,radius)
+ShapeCircle::ShapeCircle(int x, int y, int radius):
+    ShapeEllipse(ShapeType::Circle, x, y, radius, radius)
+{}
+
+double ShapeCircle::perimeter() const
 {
-    frame = QRect(x,y,radius,radius);
-    m_radius = radius;
+    return (2 * pi * (static_cast<double>(frame.height()) / 2));
 }
 
-double ShapeCircle :: perimeter() const
+double ShapeCircle::area() const
 {
-    return (2*pi*m_radius);
-}
-
-double ShapeCircle :: area() const
-{
-    return (pi * (pow(m_radius ,2)));
+    return (pi * (pow((static_cast<double>(frame.height()) / 2), 2)));
 }

@@ -7,6 +7,8 @@
 #include "shapepolygon.h"
 #include "shapepolyline.h"
 #include "shapeline.h"
+#include "shapeellipse.h"
+#include "shapecircle.h"
 
 #include <QJsonObject>
 #include <QString>
@@ -150,8 +152,20 @@ private:
             break;
         //        case IShape::ShapeType::Text:
         //            retShape = new Text?
-        //        case IShape::ShapeType::Ellipse:
-        //            retShape = new ShapeElipse?
+        case IShape::ShapeType::Ellipse:
+            if (dimens.size() == 4)
+            {
+                retShape = new ShapeEllipse(shType, dimens[0], dimens[1], dimens[2], dimens[3]);
+                badDimensEncountered = false;
+            }
+            break;
+        case IShape::ShapeType::Circle:
+            if (dimens.size() == 3)
+            {
+                retShape = new ShapeCircle(dimens[0], dimens[1], dimens[2]);
+                badDimensEncountered = false;
+            }
+            break;
         case IShape::ShapeType::Polygon:
             if (dimens.size() > 2)
             {
@@ -270,6 +284,13 @@ private:
         case IShape::ShapeType::Text:
             break;
         case IShape::ShapeType::Circle:
+            if (const ShapeCircle* cir = dynamic_cast<const ShapeCircle*>(shapeToSerialize))
+            {
+                QJsonValue x(cir->frame.x()); QJsonValue y(cir->frame.y());
+                QJsonValue w(cir->frame.width());
+                jsonAr.append(x); jsonAr.append(y);
+                jsonAr.append(w);
+            }
             break;
         case IShape::ShapeType::Square:
             if (const ShapeSquare* sq = dynamic_cast<const ShapeSquare*>(shapeToSerialize))
@@ -281,6 +302,13 @@ private:
             }
             break;
         case IShape::ShapeType::Ellipse:
+            if (const ShapeEllipse* ell = dynamic_cast<const ShapeEllipse*>(shapeToSerialize))
+            {
+                QJsonValue x(ell->frame.x()); QJsonValue y(ell->frame.y());
+                QJsonValue w(ell->frame.width()); QJsonValue h(ell->frame.height());
+                jsonAr.append(x); jsonAr.append(y);
+                jsonAr.append(w); jsonAr.append(h);
+            }
             break;
         case IShape::ShapeType::NoShape:
             break;
