@@ -181,9 +181,9 @@
                  </widget>
                 </item>
                 <item row="1" column="1">
-                 <widget class="QPushButton" name="pushButton_4">
+                 <widget class="QPushButton" name="addPolyLineBt">
                   <property name="text">
-                   <string>E</string>
+                   <string>PL</string>
                   </property>
                  </widget>
                 </item>

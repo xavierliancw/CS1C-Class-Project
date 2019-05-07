@@ -43,7 +43,14 @@ void VMEditorVertices::resetStateUsing(IShape *shapeToBeEdited)
             break;
         case IShape::ShapeType::Polyline:
             currentEditMode = editPolyline;
-            qDebug() << "Polyline editing not implemented yet.";
+            if (ShapePolyLine* castedPLine = dynamic_cast<ShapePolyLine*>(shapeToBeEdited))
+            {
+                for (QPoint vert: castedPLine->polyLine)
+                {
+                    this->vertices.push_back(std::make_tuple(QString::number(vert.x()),
+                                                             QString::number(vert.y())));
+                }
+            }
             break;
         case IShape::ShapeType::Line:
             currentEditMode = editLine;
@@ -182,8 +189,20 @@ void VMEditorVertices::finishEditing()
         }
         break;
     case editTriangle:
+        break;
     case editPolyline:
+        if (ShapePolyLine* castedPLine = dynamic_cast<ShapePolyLine*>(shapeBeingEdited))
+        {
+            castedPLine->polyLine.clear();
+            for (std::tuple<QString, QString> vert: vertices)
+            {
+                castedPLine->polyLine.push_back(QPoint(std::get<0>(vert).toInt(),
+                                                       std::get<1>(vert).toInt()));
+            }
+        }
+        break;
     case editLine:
+        break;
     case noMode:
         break;
     }
@@ -236,8 +255,15 @@ IShape* VMEditorVertices::generateNewShape()
         {
             return new ShapePolygon(finalVerts);
         }
+        break;
     case addTriangle:
+        break;
     case addPolyline:
+        if (finalVerts.size() > 2)
+        {
+            return new ShapePolyLine(finalVerts);
+        }
+        break;
     case addLine:
     case editPolygon:
     case editTriangle:
@@ -262,10 +288,10 @@ void VMEditorVertices::applyState(bool justAddedVert, bool justRemovedVert, bool
         hideVertexAddBt = false;
 
         //Submit button is enabled when there are at least 3 verts and all verts are valid
-        enableSubmitBt = vertices.size() > 2 && allCurrentVerticesAreValid();
+        enableSubmitBt = vertices.size() >= 3 && allCurrentVerticesAreValid();
 
         //Never allow the UI to drop below 4 points
-        disableVertexDeleting = vertices.size() < 4;
+        disableVertexDeleting = vertices.size() <= 3;
         break;
     case addTriangle:
         //Triangles only have three fixed points, so prevent adding more
@@ -279,8 +305,8 @@ void VMEditorVertices::applyState(bool justAddedVert, bool justRemovedVert, bool
         break;
     case addPolyline:
         hideVertexAddBt = false;
-        enableSubmitBt = vertices.size() > 1 && allCurrentVerticesAreValid();
-        disableVertexDeleting = vertices.size() < 3;
+        enableSubmitBt = vertices.size() >= 2 && allCurrentVerticesAreValid();
+        disableVertexDeleting = vertices.size() <= 2;
         break;
     case addLine:
         hideVertexAddBt = true;
@@ -289,8 +315,8 @@ void VMEditorVertices::applyState(bool justAddedVert, bool justRemovedVert, bool
         break;
     case editPolygon:
         hideVertexAddBt = false;
-        enableSubmitBt = vertices.size() > 2 && allCurrentVerticesAreValid();
-        disableVertexDeleting = vertices.size() < 4;
+        enableSubmitBt = vertices.size() >= 3 && allCurrentVerticesAreValid();
+        disableVertexDeleting = vertices.size() <= 3;
         break;
     case editTriangle:
         hideVertexAddBt = true;
@@ -299,8 +325,8 @@ void VMEditorVertices::applyState(bool justAddedVert, bool justRemovedVert, bool
         break;
     case editPolyline:
         hideVertexAddBt = false;
-        enableSubmitBt = vertices.size() > 1 && allCurrentVerticesAreValid();
-        disableVertexDeleting = vertices.size() < 3;
+        enableSubmitBt = vertices.size() >= 2 && allCurrentVerticesAreValid();
+        disableVertexDeleting = vertices.size() <= 2;
         break;
     case editLine:
         hideVertexAddBt = true;

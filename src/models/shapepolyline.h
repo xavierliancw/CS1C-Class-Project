@@ -10,7 +10,9 @@
 class ShapePolyLine: public IShape
 {
 public:
-    ShapePolyLine(int id, QVector<QPoint>& points);
+    QPolygon polyLine;
+
+    ShapePolyLine(QVector<QPoint>& points);
     ShapePolyLine(const ShapePolyLine&) = delete;
 
     ShapePolyLine& operator=(const ShapePolyLine&) = delete;
@@ -19,9 +21,6 @@ public:
     virtual void move(int scootX, int scootY);
     virtual double perimeter() const;
     virtual double area() const;
-
-private:
-    QPolygon polyLine;
 };
 
 #endif // SHAPEPOLYLINE_H

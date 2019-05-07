@@ -1,11 +1,11 @@
 #include "shapepolyline.h"
 
-ShapePolyLine::ShapePolyLine(int id, QVector<QPoint>& points):
-    IShape(id, ShapeType::Polyline)
+ShapePolyLine::ShapePolyLine(QVector<QPoint>& points):
+    IShape(-1, ShapeType::Polyline)
 {
    polyLine = QPolygon(points);
-
 }
+
 void ShapePolyLine::draw(QPainter &painter)
 {
     painter.setPen(pen);
@@ -20,7 +20,7 @@ void ShapePolyLine::move(int scootX, int scootY)
 
 double ShapePolyLine::perimeter() const
 {
-    double perimeter;
+    double perimeter = 0;
 
     if(polyLine.size() == 1)
     {

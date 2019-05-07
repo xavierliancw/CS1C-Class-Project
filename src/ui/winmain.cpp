@@ -235,6 +235,12 @@ void WINMain::summonDlgThatEdits(IShape * shapeToEdit)
         }
         break;
     case IShape::ShapeType::Polyline:
+        if (ShapePolyLine* castedPoly = dynamic_cast<ShapePolyLine*>(shapeToEdit))
+        {
+            DLGEditorVertices* vertEditor = new DLGEditorVertices(this, castedPoly);
+            vertEditor->setAttribute(Qt::WA_DeleteOnClose);
+            vertEditor->show();
+        }
         break;
     case IShape::ShapeType::Triangle:
         break;
@@ -566,6 +572,16 @@ void WINMain::initVertexEditor()
         DLGEditorVertices *dlgVertexEditor = new DLGEditorVertices(
                     this,
                     IShape::ShapeType::Polygon,
+                    [this](IShape* newShapeCallback) {this->vm.addShape(newShapeCallback);}
+                );
+        dlgVertexEditor->setAttribute(Qt::WA_DeleteOnClose);
+        dlgVertexEditor->show();
+    });
+    connect(ui->addPolyLineBt, &QPushButton::clicked, ui->addPolyLineBt, [this]()
+    {
+        DLGEditorVertices *dlgVertexEditor = new DLGEditorVertices(
+                    this,
+                    IShape::ShapeType::Polyline,
                     [this](IShape* newShapeCallback) {this->vm.addShape(newShapeCallback);}
                 );
         dlgVertexEditor->setAttribute(Qt::WA_DeleteOnClose);

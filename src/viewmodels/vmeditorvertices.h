@@ -9,6 +9,7 @@
 #include <tuple>
 #include "models/ishape.h"
 #include "models/shapepolygon.h"
+#include "models/shapepolyline.h"
 
 /**
  * @brief
