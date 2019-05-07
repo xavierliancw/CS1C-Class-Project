@@ -4,6 +4,9 @@
 #include "ishape.h"
 #include <cmath>
 
+/**
+ * @brief The ShapeEllipse class!
+ */
 class ShapeEllipse : public IShape
 {
 public:
