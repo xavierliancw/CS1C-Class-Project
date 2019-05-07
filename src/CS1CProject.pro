@@ -45,7 +45,7 @@ SOURCES += \
     viewmodels/vmcanvas.cpp \
     models/shapesquare.cpp \
     models/jsonshape.cpp \
-    models/jsoncustomerinquiry.cpp
+    models/jsoncustomerinquiry.cpp \
     ui/lcshapelayer.cpp \
     ui/lceditvertex.cpp \
     ui/dlgeditorvertices.cpp \
@@ -75,7 +75,7 @@ HEADERS += \
     models/jsonshape.h \
     models/shapesquare.h \
     models/dtocustomerinquiry.h \
-    models/jsoncustomerinquiry.h
+    models/jsoncustomerinquiry.h \
     ui/lcshapelayer.h \
     ui/lceditvertex.h \
     ui/dlgeditorvertices.h \
