@@ -646,3 +646,7 @@ void WINMain::initTxtEditor()
     });
 }
 
+void WINMain::shapeReport()
+{
+    connect(ui->saveReport, &QPushButton::clicked, this, SLOT(&VMCanvas::saveShapeReport));
+}

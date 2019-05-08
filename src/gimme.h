@@ -34,6 +34,10 @@ public:
      * Name of the JSON file that persists customer inquiries.
      */
     const QString fileNameForSavedCustomerInquiries = "inquiries.json";
+
+    const QString fileNameForSavedShapeReports = "reports.json";
+    const QString fileNameForSavedShapeReportsArea = "reportsArea.json";
+    const QString fileNameForSavedShapeReportsPerimeter = "reportsPerimeter.json";
 };
 
 #endif // GIMME_H

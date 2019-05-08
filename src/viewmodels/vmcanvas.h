@@ -79,6 +79,9 @@ public:
      */
     void persistCanvasToStorage();
 
+public slots:
+    void saveShapeReport();
+
 private:
     /**
      * Holds all shapes on the canvas in memory. The order of the shapes in this vector matters

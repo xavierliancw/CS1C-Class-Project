@@ -137,9 +137,9 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="pushButton">
+                 <widget class="QPushButton" name="saveReport">
                   <property name="text">
-                   <string>P</string>
+                   <string>Report</string>
                   </property>
                  </widget>
                 </item>

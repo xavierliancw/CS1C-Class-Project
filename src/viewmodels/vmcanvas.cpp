@@ -166,3 +166,54 @@ void VMCanvas::loadSavedCanvasGraphicsFromStorage()
         shapesInMemory.push_back(buildVect[x]);
     }
 }
+
+void VMCanvas::saveShapeReport()
+{
+    QJsonArray jsonArrayOfShapesToSave;
+
+    std::sort(shapesInMemory.begin(), shapesInMemory.end());
+    GoldenConeVector<IShape*> shapesInMemoryOut;
+    shapesInMemoryOut = shapesInMemory;
+
+    //Serialize shapes to JSON
+    for (IShape* saveThisShape: shapesInMemoryOut)
+    {
+        jsonArrayOfShapesToSave.push_back(JSONShape::toJSON(saveThisShape));
+    }
+    //Save to memory
+    SVCJson::getInstance()->
+            persistJSONToLocalFileSystem(jsonArrayOfShapesToSave,
+                                         Gimme::theShared()->fileNameForSavedShapeReports);
+////////////////////////////////////////////////////////////////////
+//Save Area
+    IShape** traverse;
+    int i = 0;
+    for(traverse = shapesInMemoryOut.begin(); traverse != shapesInMemoryOut.end(); ++traverse, ++i)
+    {
+        if(traverse[i]->area() == 0.0)
+        {
+            shapesInMemoryOut.erase(traverse);
+        }
+    }
+    //Serialize shapes to JSON
+    for (IShape* saveThisShape: shapesInMemoryOut)
+    {
+        jsonArrayOfShapesToSave.push_back(JSONShape::toJSON(saveThisShape));
+    }
+    //Save to memory
+    SVCJson::getInstance()->
+            persistJSONToLocalFileSystem(jsonArrayOfShapesToSave,
+                                         Gimme::theShared()->fileNameForSavedShapeReportsArea);
+/////////////////////////////////////////////////////////////////////
+//Save Perimeter
+
+    //Serialize shapes to JSON
+    for (IShape* saveThisShape: shapesInMemoryOut)
+    {
+        jsonArrayOfShapesToSave.push_back(JSONShape::toJSON(saveThisShape));
+    }
+    //Save to memory
+    SVCJson::getInstance()->
+            persistJSONToLocalFileSystem(jsonArrayOfShapesToSave,
+                                         Gimme::theShared()->fileNameForSavedShapeReportsPerimeter);
+}

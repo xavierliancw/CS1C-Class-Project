@@ -33,6 +33,7 @@ SOURCES += \
     models/shapepolyline.cpp \
     models/shapepolygon.cpp \
     models/shapetext.cpp \
+    ui/dlgshapereport.cpp \
     ui/winmain.cpp \
     services/svcjson.cpp \
     ui/dlgtestimonialcreate.cpp \
@@ -62,6 +63,7 @@ HEADERS += \
     models/shapepolyline.h \
     models/shapepolygon.h \
     models/shapetext.h \
+    ui/dlgshapereport.h \
     ui/winmain.h \
     services/svcjson.h \
     ui/dlgtestimonialcreate.h \
@@ -87,6 +89,7 @@ HEADERS += \
 
 FORMS += \
     ui/dlgloginscreen.ui \
+    ui/dlgshapereport.ui \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
     ui/dlgshapeselector.ui \

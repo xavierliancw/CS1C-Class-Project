@@ -107,6 +107,7 @@ private:
     void initVertexEditor();
     void initRectEditor();
     void initTxtEditor();
+    void shapeReport();
 
     //Welcome screen UI
     void initStartBt();
