@@ -1,5 +1,14 @@
 \hypertarget{class_shape_text}{}\section{Shape\+Text Class Reference}
 \label{class_shape_text}\index{ShapeText@{ShapeText}}
+
+
+Text that can be rendered on the canvas.  
+
+
+
+
+{\ttfamily \#include $<$shapetext.\+h$>$}
+
 Inheritance diagram for Shape\+Text\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,39 +18,90 @@ Inheritance diagram for Shape\+Text\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_shape_text_a4597efa4aa9d2d80e6fd4759432a5443}\label{class_shape_text_a4597efa4aa9d2d80e6fd4759432a5443}} 
-{\bfseries Shape\+Text} (int \mbox{\hyperlink{class_i_shape_a6ff2d631831c1079b88eeebc8ac65bb0}{id}}, int originX, int originY, const Q\+String \&text)
-\item 
-\mbox{\Hypertarget{class_shape_text_a7a0ed54eebed7e3e0b0a8c7139a22aa7}\label{class_shape_text_a7a0ed54eebed7e3e0b0a8c7139a22aa7}} 
-{\bfseries Shape\+Text} (const \mbox{\hyperlink{class_shape_text}{Shape\+Text}} \&)=delete
-\item 
-\mbox{\Hypertarget{class_shape_text_a420d8e795e693a4e9f087786152f931a}\label{class_shape_text_a420d8e795e693a4e9f087786152f931a}} 
-\mbox{\hyperlink{class_shape_text}{Shape\+Text}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_shape_text}{Shape\+Text}} \&)=delete
-\item 
+\mbox{\hyperlink{class_shape_text_ab05926268592835c6b3dae338ac0066d}{Shape\+Text}} (int originX, int originY, const Q\+String \&text)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_shape_text_a7a0ed54eebed7e3e0b0a8c7139a22aa7}{Shape\+Text}} (const \mbox{\hyperlink{class_shape_text}{Shape\+Text}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted Copy Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_shape_text}{Shape\+Text}} \& \mbox{\hyperlink{class_shape_text_a420d8e795e693a4e9f087786152f931a}{operator=}} (const \mbox{\hyperlink{class_shape_text}{Shape\+Text}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_shape_text_a554bed75c86d0ca7d555eefbc7aff7dc}{draw}} (Q\+Painter \&)
-\begin{DoxyCompactList}\small\item\em Renders this shape by giving instructions to a given Q\+Painter object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Renders this text through a given Q\+Painter object. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_shape_text_ae7b73f317077c9873f4bd59c98b89c60}{move}} (int scootX, int scootY)
-\begin{DoxyCompactList}\small\item\em Shifts this shape around given integer values. \end{DoxyCompactList}\item 
-virtual double \mbox{\hyperlink{class_shape_text_a01a24fe247554c614f98756f964ca0f8}{perimeter}} () const
-\begin{DoxyCompactList}\small\item\em Calculates the perimeter of this shape. \end{DoxyCompactList}\item 
-virtual double \mbox{\hyperlink{class_shape_text_ae7af61e4159b53963fa6342024baca70}{area}} () const
-\begin{DoxyCompactList}\small\item\em Calculates the area of this shape. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Moves text coordinates a specified amount. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_shape_text_a76550783952e8dc25f187cd4996ebf2b}{perimeter}} () const
+\begin{DoxyCompactList}\small\item\em Returns 0. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_shape_text_a0aad29654b21ec4dc1990df2c236b2da}{area}} () const
+\begin{DoxyCompactList}\small\item\em Returns 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_shape_text_aed22454e8dd02ae1bb1a712afca1fd40}\label{class_shape_text_aed22454e8dd02ae1bb1a712afca1fd40}} 
+Q\+Font {\bfseries font}
+\item 
+\mbox{\Hypertarget{class_shape_text_aa4efe4cfbe6c64e96a0e8605797f0a06}\label{class_shape_text_aa4efe4cfbe6c64e96a0e8605797f0a06}} 
+Q\+String {\bfseries m\+\_\+text} = \char`\"{}\char`\"{}
+\item 
+\mbox{\Hypertarget{class_shape_text_a01dc23369f46389ead48f14baca5fb61}\label{class_shape_text_a01dc23369f46389ead48f14baca5fb61}} 
+Q\+Point {\bfseries m\+\_\+point}
+\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
+\subsection{Detailed Description}
+Text that can be rendered on the canvas. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_shape_text_ab05926268592835c6b3dae338ac0066d}\label{class_shape_text_ab05926268592835c6b3dae338ac0066d}} 
+\index{ShapeText@{ShapeText}!ShapeText@{ShapeText}}
+\index{ShapeText@{ShapeText}!ShapeText@{ShapeText}}
+\subsubsection{\texorpdfstring{ShapeText()}{ShapeText()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Shape\+Text\+::\+Shape\+Text (\begin{DoxyParamCaption}\item[{int}]{originX,  }\item[{int}]{originY,  }\item[{const Q\+String \&}]{text }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Determines which shapes overlap others on the canvas, (0 is closest to the back) \\
+\hline
+{\em originX} & Starting x pixel position of the origin \\
+\hline
+{\em originY} & Starting y pixel position of the origin \\
+\hline
+{\em text} & Text to be written to the canvas \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_shape_text_a7a0ed54eebed7e3e0b0a8c7139a22aa7}\label{class_shape_text_a7a0ed54eebed7e3e0b0a8c7139a22aa7}} 
+\index{ShapeText@{ShapeText}!ShapeText@{ShapeText}}
+\index{ShapeText@{ShapeText}!ShapeText@{ShapeText}}
+\subsubsection{\texorpdfstring{ShapeText()}{ShapeText()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Shape\+Text\+::\+Shape\+Text (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_shape_text}{Shape\+Text}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted Copy Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Shapte\+Text} & to copy from \\
+\hline
+\end{DoxyParams}
+
+
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_shape_text_ae7af61e4159b53963fa6342024baca70}\label{class_shape_text_ae7af61e4159b53963fa6342024baca70}} 
+\mbox{\Hypertarget{class_shape_text_a0aad29654b21ec4dc1990df2c236b2da}\label{class_shape_text_a0aad29654b21ec4dc1990df2c236b2da}} 
 \index{ShapeText@{ShapeText}!area@{area}}
 \index{area@{area}!ShapeText@{ShapeText}}
 \subsubsection{\texorpdfstring{area()}{area()}}
-{\footnotesize\ttfamily double Shape\+Text\+::area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual double Shape\+Text\+::area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
-Calculates the area of this shape. 
+Returns 0. 
 
 \begin{DoxyReturn}{Returns}
-double\+: The area of this shape in pixels$^\wedge$2. 
+Returns 0 
 \end{DoxyReturn}
 
 
@@ -51,15 +111,15 @@ Implements \mbox{\hyperlink{class_i_shape_aed742a160acdd13c9cfdeb16e605afea}{I\+
 \index{ShapeText@{ShapeText}!draw@{draw}}
 \index{draw@{draw}!ShapeText@{ShapeText}}
 \subsubsection{\texorpdfstring{draw()}{draw()}}
-{\footnotesize\ttfamily void Shape\+Text\+::draw (\begin{DoxyParamCaption}\item[{Q\+Painter \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Shape\+Text\+::draw (\begin{DoxyParamCaption}\item[{Q\+Painter \&}]{painter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
-Renders this shape by giving instructions to a given Q\+Painter object. 
+Renders this text through a given Q\+Painter object. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em The} & Q\+Painter object that will perform the rendering. \\
+{\em the} & Q\+Painter object that handles rendering the shapes \\
 \hline
 \end{DoxyParams}
 
@@ -70,35 +130,53 @@ Implements \mbox{\hyperlink{class_i_shape_ad97c626e7e2c9afb9f51efc41b836e6f}{I\+
 \index{ShapeText@{ShapeText}!move@{move}}
 \index{move@{move}!ShapeText@{ShapeText}}
 \subsubsection{\texorpdfstring{move()}{move()}}
-{\footnotesize\ttfamily void Shape\+Text\+::move (\begin{DoxyParamCaption}\item[{int}]{,  }\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Shape\+Text\+::move (\begin{DoxyParamCaption}\item[{int}]{scootX,  }\item[{int}]{scootY }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
-Shifts this shape around given integer values. 
+Moves text coordinates a specified amount. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em int} & Number of pixels to shift in the x direction. \\
+{\em scootX} & Numbers of pixels to scoot this text in the X direction. \\
 \hline
-{\em int} & Number of pixels to shift in the y direction. \\
+{\em scootY} & Number of pixels to scoot this text in the Y direction. \\
 \hline
 \end{DoxyParams}
 
 
 Implements \mbox{\hyperlink{class_i_shape_a3d23494cd34e658cc6b39a2e2db0b7fe}{I\+Shape}}.
 
-\mbox{\Hypertarget{class_shape_text_a01a24fe247554c614f98756f964ca0f8}\label{class_shape_text_a01a24fe247554c614f98756f964ca0f8}} 
+\mbox{\Hypertarget{class_shape_text_a420d8e795e693a4e9f087786152f931a}\label{class_shape_text_a420d8e795e693a4e9f087786152f931a}} 
+\index{ShapeText@{ShapeText}!operator=@{operator=}}
+\index{operator=@{operator=}!ShapeText@{ShapeText}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_shape_text}{Shape\+Text}}\& Shape\+Text\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_shape_text}{Shape\+Text}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted copy assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_shape_text}{Shape\+Text}}} & to copy from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_shape_text}{Shape\+Text}} \&operator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shape_text_a76550783952e8dc25f187cd4996ebf2b}\label{class_shape_text_a76550783952e8dc25f187cd4996ebf2b}} 
 \index{ShapeText@{ShapeText}!perimeter@{perimeter}}
 \index{perimeter@{perimeter}!ShapeText@{ShapeText}}
 \subsubsection{\texorpdfstring{perimeter()}{perimeter()}}
-{\footnotesize\ttfamily double Shape\+Text\+::perimeter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual double Shape\+Text\+::perimeter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
-Calculates the perimeter of this shape. 
+Returns 0. 
 
 \begin{DoxyReturn}{Returns}
-double\+: The perimeter of this shape in pixels. 
+Returns 0 
 \end{DoxyReturn}
 
 
@@ -108,5 +186,5 @@ Implements \mbox{\hyperlink{class_i_shape_a485f6770c4e56b31c76d368b959b6f00}{I\+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-models/shapetext.\+h\item 
-models/shapetext.\+cpp\end{DoxyCompactItemize}
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/models/shapetext.\+h\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/models/shapetext.\+cpp\end{DoxyCompactItemize}

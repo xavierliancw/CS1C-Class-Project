@@ -1,5 +1,14 @@
 \hypertarget{class_shape_poly_line}{}\section{Shape\+Poly\+Line Class Reference}
 \label{class_shape_poly_line}\index{ShapePolyLine@{ShapePolyLine}}
+
+
+A shape that consists of lines between multiple vertices.  
+
+
+
+
+{\ttfamily \#include $<$shapepolyline.\+h$>$}
+
 Inheritance diagram for Shape\+Poly\+Line\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,30 +18,66 @@ Inheritance diagram for Shape\+Poly\+Line\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_shape_poly_line_ad791dac03e16988066b2e8e074fed381}\label{class_shape_poly_line_ad791dac03e16988066b2e8e074fed381}} 
-{\bfseries Shape\+Poly\+Line} (\mbox{\hyperlink{class_i_shape_a8f50993477b5ddb44c0547ef3d547cdc}{I\+Shape\+::\+Shape\+Type}} shape\+Type, Q\+Vector$<$ Q\+Point $>$ points)
-\item 
-\mbox{\Hypertarget{class_shape_poly_line_a86ba6279c0c0fae57568d7696442c271}\label{class_shape_poly_line_a86ba6279c0c0fae57568d7696442c271}} 
-{\bfseries Shape\+Poly\+Line} (const \mbox{\hyperlink{class_shape_poly_line}{Shape\+Poly\+Line}} \&)=delete
-\item 
-\mbox{\Hypertarget{class_shape_poly_line_a57631de758dda4361bc5c8317ae88a85}\label{class_shape_poly_line_a57631de758dda4361bc5c8317ae88a85}} 
-\mbox{\hyperlink{class_shape_poly_line}{Shape\+Poly\+Line}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_shape_poly_line}{Shape\+Poly\+Line}} \&)=delete
-\item 
+\mbox{\hyperlink{class_shape_poly_line_ad791dac03e16988066b2e8e074fed381}{Shape\+Poly\+Line}} (\mbox{\hyperlink{class_i_shape_a8f50993477b5ddb44c0547ef3d547cdc}{I\+Shape\+::\+Shape\+Type}} shape\+Type, Q\+Vector$<$ Q\+Point $>$ points)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_shape_poly_line_a86ba6279c0c0fae57568d7696442c271}{Shape\+Poly\+Line}} (const \mbox{\hyperlink{class_shape_poly_line}{Shape\+Poly\+Line}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_shape_poly_line}{Shape\+Poly\+Line}} \& \mbox{\hyperlink{class_shape_poly_line_a57631de758dda4361bc5c8317ae88a85}{operator=}} (const \mbox{\hyperlink{class_shape_poly_line}{Shape\+Poly\+Line}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_shape_poly_line_a6aaca4bd2767644f9ea0f68065fa1f98}{draw}} (Q\+Painter \&)
-\begin{DoxyCompactList}\small\item\em Renders this shape by giving instructions to a given Q\+Painter object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Renders the polyline through a given Q\+Painter object. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_shape_poly_line_a7c1971596b171c4c08ec5657b6592354}{move}} (int scootX, int scootY)
-\begin{DoxyCompactList}\small\item\em Shifts this shape around given integer values. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Translates without changing its size. \end{DoxyCompactList}\item 
 virtual double \mbox{\hyperlink{class_shape_poly_line_a3d6664ada9c9dd883303a3dcb63d6188}{perimeter}} () const
-\begin{DoxyCompactList}\small\item\em Calculates the perimeter of this shape. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calculates the perimeter of this shape (total length of this polyline). \end{DoxyCompactList}\item 
 virtual double \mbox{\hyperlink{class_shape_poly_line_ace9d3c1eefec00364034dc420262c91e}{area}} () const
-\begin{DoxyCompactList}\small\item\em Calculates the area of this shape. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Calculates the area of this line... which is 0 always... \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_shape_poly_line_ab73d17354e6862c275b8ab495cd8e995}\label{class_shape_poly_line_ab73d17354e6862c275b8ab495cd8e995}} 
-Q\+Polygon {\bfseries poly\+Line}
+Q\+Polygon \mbox{\hyperlink{class_shape_poly_line_ab73d17354e6862c275b8ab495cd8e995}{poly\+Line}}
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A shape that consists of lines between multiple vertices. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_shape_poly_line_ad791dac03e16988066b2e8e074fed381}\label{class_shape_poly_line_ad791dac03e16988066b2e8e074fed381}} 
+\index{ShapePolyLine@{ShapePolyLine}!ShapePolyLine@{ShapePolyLine}}
+\index{ShapePolyLine@{ShapePolyLine}!ShapePolyLine@{ShapePolyLine}}
+\subsubsection{\texorpdfstring{ShapePolyLine()}{ShapePolyLine()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Shape\+Poly\+Line\+::\+Shape\+Poly\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_shape_a8f50993477b5ddb44c0547ef3d547cdc}{I\+Shape\+::\+Shape\+Type}}}]{shape\+Type,  }\item[{Q\+Vector$<$ Q\+Point $>$}]{points }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape\+Type} & Specifies what kind of shape this is (necessary for shapes that subclass this). \\
+\hline
+{\em points} & The vertices to initialize with. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_shape_poly_line_a86ba6279c0c0fae57568d7696442c271}\label{class_shape_poly_line_a86ba6279c0c0fae57568d7696442c271}} 
+\index{ShapePolyLine@{ShapePolyLine}!ShapePolyLine@{ShapePolyLine}}
+\index{ShapePolyLine@{ShapePolyLine}!ShapePolyLine@{ShapePolyLine}}
+\subsubsection{\texorpdfstring{ShapePolyLine()}{ShapePolyLine()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Shape\+Poly\+Line\+::\+Shape\+Poly\+Line (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_shape_poly_line}{Shape\+Poly\+Line}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Object} & to copy from. \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Member Function Documentation}
@@ -44,10 +89,10 @@ Q\+Polygon {\bfseries poly\+Line}
 
 
 
-Calculates the area of this shape. 
+Calculates the area of this line... which is 0 always... 
 
 \begin{DoxyReturn}{Returns}
-double\+: The area of this shape in pixels$^\wedge$2. 
+double 
 \end{DoxyReturn}
 
 
@@ -61,15 +106,15 @@ Reimplemented in \mbox{\hyperlink{class_shape_line_a6f33bdd78706ad73e570b4ba53bb
 \index{ShapePolyLine@{ShapePolyLine}!draw@{draw}}
 \index{draw@{draw}!ShapePolyLine@{ShapePolyLine}}
 \subsubsection{\texorpdfstring{draw()}{draw()}}
-{\footnotesize\ttfamily void Shape\+Poly\+Line\+::draw (\begin{DoxyParamCaption}\item[{Q\+Painter \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Shape\+Poly\+Line\+::draw (\begin{DoxyParamCaption}\item[{Q\+Painter \&}]{painter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
-Renders this shape by giving instructions to a given Q\+Painter object. 
+Renders the polyline through a given Q\+Painter object. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em The} & Q\+Painter object that will perform the rendering. \\
+{\em painter} & The Q\+Painter object. \\
 \hline
 \end{DoxyParams}
 
@@ -84,17 +129,17 @@ Reimplemented in \mbox{\hyperlink{class_shape_line_a8b4dbfe05387934a0f9c4a053a79
 \index{ShapePolyLine@{ShapePolyLine}!move@{move}}
 \index{move@{move}!ShapePolyLine@{ShapePolyLine}}
 \subsubsection{\texorpdfstring{move()}{move()}}
-{\footnotesize\ttfamily void Shape\+Poly\+Line\+::move (\begin{DoxyParamCaption}\item[{int}]{,  }\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Shape\+Poly\+Line\+::move (\begin{DoxyParamCaption}\item[{int}]{scootX,  }\item[{int}]{scootY }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
-Shifts this shape around given integer values. 
+Translates without changing its size. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em int} & Number of pixels to shift in the x direction. \\
+{\em scootX} & X direction to scoot. \\
 \hline
-{\em int} & Number of pixels to shift in the y direction. \\
+{\em scootY} & Y direction to scoot. \\
 \hline
 \end{DoxyParams}
 
@@ -105,6 +150,24 @@ Implements \mbox{\hyperlink{class_i_shape_a3d23494cd34e658cc6b39a2e2db0b7fe}{I\+
 
 Reimplemented in \mbox{\hyperlink{class_shape_line_a5b6d9bcf7ed64ab2454d5efa66486ee9}{Shape\+Line}}.
 
+\mbox{\Hypertarget{class_shape_poly_line_a57631de758dda4361bc5c8317ae88a85}\label{class_shape_poly_line_a57631de758dda4361bc5c8317ae88a85}} 
+\index{ShapePolyLine@{ShapePolyLine}!operator=@{operator=}}
+\index{operator=@{operator=}!ShapePolyLine@{ShapePolyLine}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_shape_poly_line}{Shape\+Poly\+Line}}\& Shape\+Poly\+Line\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_shape_poly_line}{Shape\+Poly\+Line}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted copy assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Object} & to copy from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_shape_poly_line}{Shape\+Poly\+Line}} \&operator 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_shape_poly_line_a3d6664ada9c9dd883303a3dcb63d6188}\label{class_shape_poly_line_a3d6664ada9c9dd883303a3dcb63d6188}} 
 \index{ShapePolyLine@{ShapePolyLine}!perimeter@{perimeter}}
 \index{perimeter@{perimeter}!ShapePolyLine@{ShapePolyLine}}
@@ -113,10 +176,10 @@ Reimplemented in \mbox{\hyperlink{class_shape_line_a5b6d9bcf7ed64ab2454d5efa6648
 
 
 
-Calculates the perimeter of this shape. 
+Calculates the perimeter of this shape (total length of this polyline). 
 
 \begin{DoxyReturn}{Returns}
-double\+: The perimeter of this shape in pixels. 
+double 
 \end{DoxyReturn}
 
 
@@ -128,7 +191,16 @@ Reimplemented in \mbox{\hyperlink{class_shape_line_a68b22013926993e9bd9c2d146519
 
 
 
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_shape_poly_line_ab73d17354e6862c275b8ab495cd8e995}\label{class_shape_poly_line_ab73d17354e6862c275b8ab495cd8e995}} 
+\index{ShapePolyLine@{ShapePolyLine}!polyLine@{polyLine}}
+\index{polyLine@{polyLine}!ShapePolyLine@{ShapePolyLine}}
+\subsubsection{\texorpdfstring{polyLine}{polyLine}}
+{\footnotesize\ttfamily Q\+Polygon Shape\+Poly\+Line\+::poly\+Line}
+
+Holds the vertices of the polyline. 
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-models/shapepolyline.\+h\item 
-models/shapepolyline.\+cpp\end{DoxyCompactItemize}
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/models/shapepolyline.\+h\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/models/shapepolyline.\+cpp\end{DoxyCompactItemize}

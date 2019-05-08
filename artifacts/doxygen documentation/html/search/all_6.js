@@ -25,6 +25,6 @@ var searchData=
   ['gettxtprompt4',['getTxtPrompt4',['../class_v_m_editor_rect_frame.html#a6ae15857de45e5c9f239be713e744a2b',1,'VMEditorRectFrame']]],
   ['getvertexat',['getVertexAt',['../class_v_m_editor_vertices.html#a1fce7e9467a432c63700f889ab8d6d59',1,'VMEditorVertices']]],
   ['gimme',['Gimme',['../class_gimme.html',1,'']]],
-  ['goldenconevector',['GoldenConeVector',['../class_golden_cone_vector.html',1,'']]],
+  ['goldenconevector',['GoldenConeVector',['../class_golden_cone_vector.html',1,'GoldenConeVector&lt; Type &gt;'],['../class_golden_cone_vector.html#af61dbdecb7e52655da8a26353437e2f2',1,'GoldenConeVector::GoldenConeVector()'],['../class_golden_cone_vector.html#a71f4b758ace85746a4ad04625191e475',1,'GoldenConeVector::GoldenConeVector(int s)'],['../class_golden_cone_vector.html#ab130d9977c128b19b05028a524587f13',1,'GoldenConeVector::GoldenConeVector(const GoldenConeVector &amp;)']]],
   ['goldenconevector_3c_20ishape_20_2a_20_3e',['GoldenConeVector&lt; IShape * &gt;',['../class_golden_cone_vector.html',1,'']]]
 ];

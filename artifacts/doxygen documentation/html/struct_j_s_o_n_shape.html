@@ -20,12 +20,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="unknown.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="final_icon.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Golden Cone Shape Generator
    &#160;<span id="projectnumber">v1</span>
    </div>
-   <div id="projectbrief">This application models 2D graphics using the Qt SDK.</div>
+   <div id="projectbrief">This application was created by the Golden Cones models 2D graphics using the Qt SDK. Team Members: Andy, Julia, Matt, Milad, Myles, William, Xavier</div>
   </td>
  </tr>
  </tbody>
@@ -71,19 +71,97 @@ $(function() {
 <div class="title">JSONShape Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Transformational struct that serializes and deserializes shapes to and from JSON.  
+ <a href="struct_j_s_o_n_shape.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="jsonshape_8h_source.html">jsonshape.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a38bb052953becd55f29000f819aa314d"><td class="memItemLeft" align="right" valign="top"><a id="a38bb052953becd55f29000f819aa314d"></a>
-static QJsonObject&#160;</td><td class="memItemRight" valign="bottom"><b>toJSON</b> (const <a class="el" href="class_i_shape.html">IShape</a> *shapeToSerialize)</td></tr>
+<tr class="memitem:a38bb052953becd55f29000f819aa314d"><td class="memItemLeft" align="right" valign="top">static QJsonObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_j_s_o_n_shape.html#a38bb052953becd55f29000f819aa314d">toJSON</a> (const <a class="el" href="class_i_shape.html">IShape</a> *shapeToSerialize)</td></tr>
+<tr class="memdesc:a38bb052953becd55f29000f819aa314d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a shape to JSON.  <a href="#a38bb052953becd55f29000f819aa314d">More...</a><br /></td></tr>
 <tr class="separator:a38bb052953becd55f29000f819aa314d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3db5716fcc492a8c2628d77ea04d454"><td class="memItemLeft" align="right" valign="top"><a id="ae3db5716fcc492a8c2628d77ea04d454"></a>
-static <a class="el" href="class_i_shape.html">IShape</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>fromJSON</b> (const QJsonObject &amp;json)</td></tr>
+<tr class="memitem:ae3db5716fcc492a8c2628d77ea04d454"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_i_shape.html">IShape</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_j_s_o_n_shape.html#ae3db5716fcc492a8c2628d77ea04d454">fromJSON</a> (const QJsonObject &amp;json)</td></tr>
+<tr class="memdesc:ae3db5716fcc492a8c2628d77ea04d454"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a shape in dynamic memory from JSON.  <a href="#ae3db5716fcc492a8c2628d77ea04d454">More...</a><br /></td></tr>
 <tr class="separator:ae3db5716fcc492a8c2628d77ea04d454"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Transformational struct that serializes and deserializes shapes to and from JSON. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae3db5716fcc492a8c2628d77ea04d454"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3db5716fcc492a8c2628d77ea04d454">&#9670;&nbsp;</a></span>fromJSON()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_i_shape.html">IShape</a>* JSONShape::fromJSON </td>
+          <td>(</td>
+          <td class="paramtype">const QJsonObject &amp;&#160;</td>
+          <td class="paramname"><em>json</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates a shape in dynamic memory from JSON. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">json</td><td>JSON to read from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_i_shape.html" title="This is the interface that abstracts all common operations for all supported shapes....">IShape</a> </dd></dl>
+
+</div>
+</div>
+<a id="a38bb052953becd55f29000f819aa314d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38bb052953becd55f29000f819aa314d">&#9670;&nbsp;</a></span>toJSON()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static QJsonObject JSONShape::toJSON </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_i_shape.html">IShape</a> *&#160;</td>
+          <td class="paramname"><em>shapeToSerialize</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts a shape to JSON. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shapeToSerialize</td><td>The shape to serialize. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>QJsonObject </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following files:<ul>
-<li>models/<a class="el" href="jsonshape_8h_source.html">jsonshape.h</a></li>
-<li>models/jsonshape.cpp</li>
+<li>/Users/xavierlian/Dropbox/Saddleback College/CS1C/CS1CProject/src/models/<a class="el" href="jsonshape_8h_source.html">jsonshape.h</a></li>
+<li>/Users/xavierlian/Dropbox/Saddleback College/CS1C/CS1CProject/src/models/jsonshape.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

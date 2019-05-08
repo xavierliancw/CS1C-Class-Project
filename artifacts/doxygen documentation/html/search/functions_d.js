@@ -1,8 +1,13 @@
 var searchData=
 [
-  ['setmodewithdependency',['setModeWithDependency',['../class_v_m_editor_rect_frame.html#ac7282ca7fde9018068e261e40e1cf47d',1,'VMEditorRectFrame::setModeWithDependency(IShape::ShapeType shapeTypeToGenerate)'],['../class_v_m_editor_rect_frame.html#abedc584604fbdc11e18898e7e0951dc3',1,'VMEditorRectFrame::setModeWithDependency(IShape *shapeToEdit)']]],
-  ['shapepolygon',['ShapePolygon',['../class_shape_polygon.html#a61a8bdd77cdf95139b6ee728a9000e45',1,'ShapePolygon::ShapePolygon(const QVector&lt; QPoint &gt; &amp;points)'],['../class_shape_polygon.html#a51d433edd43f608acce1fae81e5583d5',1,'ShapePolygon::ShapePolygon(const ShapePolygon &amp;)=delete']]],
-  ['shaperect',['ShapeRect',['../class_shape_rect.html#ac5b445c75c6e4a14c8bdbe0fad5ac81a',1,'ShapeRect::ShapeRect(IShape::ShapeType shapeType, int originX, int originY, int width, int height)'],['../class_shape_rect.html#a5e2f220e75b55cb9c0405c4820f679f6',1,'ShapeRect::ShapeRect(const ShapeRect &amp;)=delete']]],
-  ['shapesquare',['ShapeSquare',['../class_shape_square.html#a88fab70ce4fa11871d12fdfdb60c2189',1,'ShapeSquare::ShapeSquare(int originX, int originY, int sideLength)'],['../class_shape_square.html#afebaae8c8dcbc004c637d9efee10e120',1,'ShapeSquare::ShapeSquare(const ShapeSquare &amp;)=delete']]],
-  ['submittestimonial',['submitTestimonial',['../class_v_m_testimonial_create.html#add444a0cb13f978e1cef24b45283bf92',1,'VMTestimonialCreate']]]
+  ['readjsonarrayfile',['readJsonArrayFile',['../class_s_v_c_json.html#a0f80c2f8372fdfe4158df6f49ccbe1ac',1,'SVCJson']]],
+  ['readjsonobjectfile',['readJsonObjectFile',['../class_s_v_c_json.html#aacff71253cc41cb2a403cf2226038962',1,'SVCJson']]],
+  ['readvertextat',['readVertextAt',['../class_v_m_editor_vertices.html#a3629c7c6ec4cdc153bc12bed2f1504e8',1,'VMEditorVertices']]],
+  ['removeshapeatlayer',['removeShapeAtLayer',['../class_v_m_canvas.html#a58092a70072af434ce7f712eff21c187',1,'VMCanvas']]],
+  ['removevertexat',['removeVertexAt',['../class_v_m_editor_vertices.html#a5f1f8f3172ff525863df9bd619d57001',1,'VMEditorVertices']]],
+  ['reordervertex',['reorderVertex',['../class_v_m_editor_vertices.html#a33f91a61158bbac2b540ca80ac75eaf1',1,'VMEditorVertices']]],
+  ['reserve',['reserve',['../class_golden_cone_vector.html#aae3c2e2056f3c7d3abfe27fc2fcdfd78',1,'GoldenConeVector']]],
+  ['resetstateusing',['resetStateUsing',['../class_v_m_editor_vertices.html#ada7b06ed4146f561c1472148a994a871',1,'VMEditorVertices::resetStateUsing(IShape *shapeToBeEdited)'],['../class_v_m_editor_vertices.html#abe3cb316fd9c1751b0163ab137c01148',1,'VMEditorVertices::resetStateUsing(IShape::ShapeType shapeTypeToGenerate)']]],
+  ['resettodefaultstyle',['resetToDefaultStyle',['../class_i_shape.html#a3f1e70475296c2e897df28a7facb5bad',1,'IShape']]],
+  ['resize',['resize',['../class_golden_cone_vector.html#a89a420c701f5439a9b418daaede53081',1,'GoldenConeVector']]]
 ];

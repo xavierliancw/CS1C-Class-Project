@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['timestamp_5funix',['timestamp_unix',['../struct_d_t_o_testimonial.html#a66672c5d252a46d247997e9e67c600c3',1,'DTOTestimonial']]],
-  ['txt',['txt',['../struct_d_t_o_testimonial.html#a2fe975367ddcb0e51ff4834ecf40a503',1,'DTOTestimonial']]]
+  ['savebttxt',['saveBtTxt',['../class_v_m_testimonial_create.html#af2b4326b5a7abd3f815df754880ae2d5',1,'VMTestimonialCreate']]],
+  ['successdonebttxt',['successDoneBtTxt',['../class_v_m_testimonial_create.html#afe5812a327160651286af17f65c62416',1,'VMTestimonialCreate']]],
+  ['successmsg',['successMsg',['../class_v_m_testimonial_create.html#ad496e34b013e7d4ee879f8bc8eaa434b',1,'VMTestimonialCreate']]]
 ];

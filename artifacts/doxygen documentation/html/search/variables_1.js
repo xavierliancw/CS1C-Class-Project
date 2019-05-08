@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['displayname',['displayName',['../struct_d_t_o_testimonial.html#a921b43f474c61d95bf567b35923e9054',1,'DTOTestimonial']]]
+  ['custemail',['custEmail',['../struct_d_t_o_customer_inquiry.html#aeab8e1bbcb3bb2776a1d447cd1ef421f',1,'DTOCustomerInquiry']]]
 ];

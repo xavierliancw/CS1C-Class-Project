@@ -1,5 +1,14 @@
 \hypertarget{class_shape_circle}{}\section{Shape\+Circle Class Reference}
 \label{class_shape_circle}\index{ShapeCircle@{ShapeCircle}}
+
+
+Circle shape that can be drawn on the graphics canvas.  
+
+
+
+
+{\ttfamily \#include $<$shapecircle.\+h$>$}
+
 Inheritance diagram for Shape\+Circle\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,20 +18,57 @@ Inheritance diagram for Shape\+Circle\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_shape_circle_a41ae4230eaf5b572a74fe3d9ad62c670}\label{class_shape_circle_a41ae4230eaf5b572a74fe3d9ad62c670}} 
-{\bfseries Shape\+Circle} (int x, int y, int diameter)
-\item 
-\mbox{\Hypertarget{class_shape_circle_a50e31cb35f2d632fcb9655ba209de3ac}\label{class_shape_circle_a50e31cb35f2d632fcb9655ba209de3ac}} 
-{\bfseries Shape\+Circle} (const \mbox{\hyperlink{class_shape_circle}{Shape\+Circle}} \&)=delete
-\item 
-\mbox{\Hypertarget{class_shape_circle_ac3c25bd9c3ab31cd8001c33d79b88409}\label{class_shape_circle_ac3c25bd9c3ab31cd8001c33d79b88409}} 
-\mbox{\hyperlink{class_shape_circle}{Shape\+Circle}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_shape_circle}{Shape\+Circle}} \&)=delete
-\item 
+\mbox{\hyperlink{class_shape_circle_a41ae4230eaf5b572a74fe3d9ad62c670}{Shape\+Circle}} (int x, int y, int diameter)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_shape_circle_a50e31cb35f2d632fcb9655ba209de3ac}{Shape\+Circle}} (const \mbox{\hyperlink{class_shape_circle}{Shape\+Circle}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted Copy Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_shape_circle}{Shape\+Circle}} \& \mbox{\hyperlink{class_shape_circle_ac3c25bd9c3ab31cd8001c33d79b88409}{operator=}} (const \mbox{\hyperlink{class_shape_circle}{Shape\+Circle}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
 virtual double \mbox{\hyperlink{class_shape_circle_ad393d13676b0d0fcb36346b9a90b74af}{perimeter}} () const
-\begin{DoxyCompactList}\small\item\em Calculates the perimeter of this shape. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calculates the perimeter of this circle. \end{DoxyCompactList}\item 
 virtual double \mbox{\hyperlink{class_shape_circle_aebc30fb4ad7165778deb75f0bd2d69bd}{area}} () const
-\begin{DoxyCompactList}\small\item\em Calculates the area of this shape. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Caluclates the area of this circle. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Circle shape that can be drawn on the graphics canvas. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_shape_circle_a41ae4230eaf5b572a74fe3d9ad62c670}\label{class_shape_circle_a41ae4230eaf5b572a74fe3d9ad62c670}} 
+\index{ShapeCircle@{ShapeCircle}!ShapeCircle@{ShapeCircle}}
+\index{ShapeCircle@{ShapeCircle}!ShapeCircle@{ShapeCircle}}
+\subsubsection{\texorpdfstring{ShapeCircle()}{ShapeCircle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Shape\+Circle\+::\+Shape\+Circle (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{diameter }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x coordinate of circle\textquotesingle{}s origin \\
+\hline
+{\em y} & y coordinate of circle\textquotesingle{}s origin \\
+\hline
+{\em diameter} & diamter of circle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_shape_circle_a50e31cb35f2d632fcb9655ba209de3ac}\label{class_shape_circle_a50e31cb35f2d632fcb9655ba209de3ac}} 
+\index{ShapeCircle@{ShapeCircle}!ShapeCircle@{ShapeCircle}}
+\index{ShapeCircle@{ShapeCircle}!ShapeCircle@{ShapeCircle}}
+\subsubsection{\texorpdfstring{ShapeCircle()}{ShapeCircle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Shape\+Circle\+::\+Shape\+Circle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_shape_circle}{Shape\+Circle}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted Copy Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_shape_circle}{Shape\+Circle}}} & to copy from \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Member Function Documentation}
@@ -34,15 +80,33 @@ virtual double \mbox{\hyperlink{class_shape_circle_aebc30fb4ad7165778deb75f0bd2d
 
 
 
-Calculates the area of this shape. 
+Caluclates the area of this circle. 
 
 \begin{DoxyReturn}{Returns}
-double\+: The area of this shape in pixels$^\wedge$2. 
+double\+: the area of this circle in pixels$^\wedge$2 
 \end{DoxyReturn}
 
 
 Reimplemented from \mbox{\hyperlink{class_shape_ellipse_a08287b301b7501eb941805eaf85fc00c}{Shape\+Ellipse}}.
 
+\mbox{\Hypertarget{class_shape_circle_ac3c25bd9c3ab31cd8001c33d79b88409}\label{class_shape_circle_ac3c25bd9c3ab31cd8001c33d79b88409}} 
+\index{ShapeCircle@{ShapeCircle}!operator=@{operator=}}
+\index{operator=@{operator=}!ShapeCircle@{ShapeCircle}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_shape_circle}{Shape\+Circle}}\& Shape\+Circle\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_shape_circle}{Shape\+Circle}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted copy assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_shape_circle}{Shape\+Circle}}} & to copy from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_shape_circle}{Shape\+Circle}} \&operator 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_shape_circle_ad393d13676b0d0fcb36346b9a90b74af}\label{class_shape_circle_ad393d13676b0d0fcb36346b9a90b74af}} 
 \index{ShapeCircle@{ShapeCircle}!perimeter@{perimeter}}
 \index{perimeter@{perimeter}!ShapeCircle@{ShapeCircle}}
@@ -51,10 +115,10 @@ Reimplemented from \mbox{\hyperlink{class_shape_ellipse_a08287b301b7501eb941805e
 
 
 
-Calculates the perimeter of this shape. 
+Calculates the perimeter of this circle. 
 
 \begin{DoxyReturn}{Returns}
-double\+: The perimeter of this shape in pixels. 
+double\+: the perimeter of this circle in pixels 
 \end{DoxyReturn}
 
 
@@ -64,5 +128,5 @@ Reimplemented from \mbox{\hyperlink{class_shape_ellipse_a397c01c912105854e065f6c
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-models/shapecircle.\+h\item 
-models/shapecircle.\+cpp\end{DoxyCompactItemize}
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/models/shapecircle.\+h\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/models/shapecircle.\+cpp\end{DoxyCompactItemize}
