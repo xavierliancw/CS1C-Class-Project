@@ -1,9 +1,10 @@
 #include "dlgtestimonialcreate.h"
 #include "ui_dlgtestimonialcreate.h"
 
-DLGTestimonialCreate::DLGTestimonialCreate(QWidget *parent) :
+DLGTestimonialCreate::DLGTestimonialCreate(QWidget *parent, std::function<void()> onDone) :
     QDialog(parent),
-    ui(new Ui::DLGTestimonialCreate)
+    ui(new Ui::DLGTestimonialCreate),
+    onDone(onDone)
 {
     ui->setupUi(this);
 
@@ -18,8 +19,9 @@ DLGTestimonialCreate::DLGTestimonialCreate(QWidget *parent) :
         this->vm->submitTestimonial(ui->topTE->text(), ui->bodyTE->toPlainText());
     });
     //Success screen done button behavior
-    connect(ui->successFinishBt, &QPushButton::clicked, this, [this]()
+    connect(ui->successFinishBt, &QPushButton::clicked, ui->successFinishBt, [this]()
     {
+        this->onDone();
         close();
     });
 

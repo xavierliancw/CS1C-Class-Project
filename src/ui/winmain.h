@@ -13,6 +13,7 @@
 #include "ui/dlgeditorvertices.h"
 #include "ui/lcshapelayer.h"
 #include "ui/dlgeditortext.h"
+#include "models/jsontestimonial.h"
 #include <util/goldenconevector.h>
 #include <chrono>
 #include <QDialog>
@@ -86,10 +87,13 @@ private:
     //General UI
     Ui::WINMain *ui;
     void switchScreenToShow(ScreensInWINMain);
+
+    //Welcome screen UI
     QMovie* movie;
+    QVector<QString> testimonials;
+    void refreshTestimonials();
 
     //Pop up UI
-    DLGTestimonialCreate *testimonialFormWin;
     DLGContactForm *contactFormWin;
     DLGEditorRectFrame *dlgRectEditor;
     DLGLoginScreen *dlgLogin;

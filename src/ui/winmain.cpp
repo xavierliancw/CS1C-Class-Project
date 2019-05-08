@@ -29,6 +29,7 @@ WINMain::WINMain(QWidget *parent) :
     initContactUsBt();
     initTestimonialCreateBt();
     ui->welcomeTestimonialListVw->viewport()->setAutoFillBackground(false);
+    refreshTestimonials();
 
     //Initialize guest preview page
     initGuestAuthenticateBt();
@@ -177,7 +178,10 @@ void WINMain::initTestimonialCreateBt()
 {
     connect(ui->addTestimonialBt, &QPushButton::clicked, ui->addTestimonialBt, [this]()
     {
-        testimonialFormWin = new DLGTestimonialCreate();
+        DLGTestimonialCreate *testimonialFormWin = new DLGTestimonialCreate(this, [this]()
+        {
+            this->refreshTestimonials();
+        });
         testimonialFormWin->setAttribute(Qt::WA_DeleteOnClose);
         testimonialFormWin->show();
     });
@@ -363,6 +367,7 @@ void WINMain::switchScreenToShow(ScreensInWINMain screen)
         break;
     case welcome:
         ui->stackWdgt->setCurrentWidget(ui->welcomePg);
+        refreshTestimonials();
         break;
     }
 }
@@ -647,7 +652,9 @@ void WINMain::initRectEditor()
         DLGEditorRectFrame* dlg = new DLGEditorRectFrame(
                     nullptr,
                     IShape::ShapeType::Square,
-                    [this](IShape* newShape) {vm.addShape(newShape);}
+                    [this](IShape* newShape) {
+                vm.addShape(newShape);
+    }
                 );
         dlg->setAttribute(Qt::WA_DeleteOnClose);
         dlg->show();
@@ -684,5 +691,38 @@ void WINMain::initTxtEditor()
         dlg->setAttribute(Qt::WA_DeleteOnClose);
         dlg->show();
     });
+}
+
+void WINMain::refreshTestimonials()
+{
+    QJsonArray jsonAr;
+    try
+    {
+        jsonAr = SVCJson::getInstance()->
+                readJsonArrayFile(Gimme::theShared()->fileNameForTestimonials);
+    }
+    catch (SVCJson::JsonFileSystemError fileErr)
+    {
+        //Do nothing because the file probably doesn't exist yet
+    }
+    ui->welcomeTestimonialListVw->clear();
+
+    //Regenerate testimonials from the JSON
+    for (QJsonValueRef jsonRef: jsonAr)
+    {
+        DTOTestimonial *test = nullptr;
+        if (jsonRef.isObject())
+        {
+            test = JSONTestimonial::fromJSON(jsonRef.toObject());
+        }
+        if (test != nullptr)
+        {
+            ui->welcomeTestimonialListVw->addItem(QString::fromStdString(test->txt) +
+                                                  "\n- " +
+                                                  QString::fromStdString(test->displayName) +
+                                                  "\n\n");
+            delete test;
+        }
+    }
 }
 
