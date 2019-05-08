@@ -305,12 +305,14 @@ void WINMain::refreshLayersVw()
         listVw->addItem(newRow);
         listVw->setItemWidget(newRow, newCell);
         newRow->setSizeHint(newCell->minimumSizeHint());
-        newCell->populateWith(vm.getShapeAtLayer(x),
-                              [this](int delID)
-        {
-            qDebug() << "Delete " << delID;
+        newCell->populateWith(
+                    vm.getShapeAtLayer(x),
+                    [this](int delID) { //Lambda to delete a shape
+            vm.removeShapeAtLayer(delID);
+            this->refreshLayersVw();
         },
-        [this](int edID) {vm.editShapeAtLayer(edID);}); //Lambda to edit a shape
+        [this](int edID) {vm.editShapeAtLayer(edID);} //Lambda to edit a shape
+        );
         layerVwCells.push_back(newCell);
     }
 }
@@ -349,13 +351,33 @@ void WINMain::switchScreenToShow(ScreensInWINMain screen)
 
 void WINMain::initLayerSelectionBehavior()
 {
+    //Hide or show property inspector when appropriate
+    if (ui->canvasPgLayerListVw->currentRow() == -1)
+    {
+        ui->canvasPgPropInspStck->setCurrentWidget(ui->propInspPg1);
+    }
+    else
+    {
+        ui->canvasPgPropInspStck->setCurrentWidget(ui->propInspPg0);
+    }
     connect(ui->canvasPgLayerListVw,
             &QListWidget::itemSelectionChanged,
             ui->canvasPgLayerListVw,
             [this]()
     {
-        this->
-        updatePropertyInspectorFor(vm.getShapeAtLayer(ui->canvasPgLayerListVw->currentRow()));
+        //Hide or show property inspector when appropriate
+        if (ui->canvasPgLayerListVw->currentRow() == -1)
+        {
+            ui->canvasPgPropInspStck->setCurrentWidget(ui->propInspPg1);
+        }
+        else
+        {
+            ui->canvasPgPropInspStck->setCurrentWidget(ui->propInspPg0);
+        }
+        //Update the property inspector regardless
+        this->updatePropertyInspectorFor(
+                    vm.getShapeAtLayer(ui->canvasPgLayerListVw->currentRow())
+                    );
     });
 }
 
