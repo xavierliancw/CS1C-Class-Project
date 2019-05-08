@@ -8,10 +8,27 @@ WINMain::WINMain(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    setWindowIcon(QIcon(":/image/final_icon.png"));
+    QCoreApplication::setApplicationName("Golden Cone Graphics");
+    setWindowTitle("Golden Cone Graphics");
+
+    //Setup start screen's gif by stacking widgets on top of each other
+    movie = new QMovie(":/image/car.gif");
+    ui->movieLbl->setMovie(movie);
+    ui->movieLbl->setAlignment(Qt::AlignCenter);
+    QStackedLayout *stackLay = new QStackedLayout;
+    stackLay->addWidget(ui->welcomeFrame);
+    stackLay->addWidget(ui->movieLbl);
+    stackLay->setStackingMode(QStackedLayout::StackAll);
+    ui->welcomePg->setLayout(stackLay);
+    ui->movieLbl->show();
+    movie->start();
+
     //Initialize UI on welcome page
     initStartBt();
     initContactUsBt();
     initTestimonialCreateBt();
+    ui->welcomeTestimonialListVw->viewport()->setAutoFillBackground(false);
 
     //Initialize guest preview page
     initGuestAuthenticateBt();
@@ -41,6 +58,7 @@ WINMain::WINMain(QWidget *parent) :
 
 WINMain::~WINMain()
 {
+    delete movie;
     refreshTimer->stop();
     delete refreshTimer;
     for (LCShapeLayer* freeThis: layerVwCells)

@@ -23,6 +23,8 @@
 #include <QListWidgetItem>
 #include <QDropEvent>
 #include <QColorDialog>
+#include <QMovie>
+#include <QStackedLayout>
 
 namespace Ui {
 class WINMain;
@@ -84,6 +86,7 @@ private:
     //General UI
     Ui::WINMain *ui;
     void switchScreenToShow(ScreensInWINMain);
+    QMovie* movie;
 
     //Pop up UI
     DLGTestimonialCreate *testimonialFormWin;

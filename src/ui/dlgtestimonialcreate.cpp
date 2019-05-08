@@ -7,6 +7,8 @@ DLGTestimonialCreate::DLGTestimonialCreate(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    QWidget::setWindowTitle("Leave a Review");
+
     //Initialize the view model
     vm = initializedVM();
 

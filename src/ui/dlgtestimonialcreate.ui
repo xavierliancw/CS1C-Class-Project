@@ -91,6 +91,12 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>topTE</tabstop>
+  <tabstop>bodyTE</tabstop>
+  <tabstop>saveBt</tabstop>
+  <tabstop>successFinishBt</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/image">
         <file>final_icon.png</file>
+        <file>car.gif</file>
     </qresource>
 </RCC>
