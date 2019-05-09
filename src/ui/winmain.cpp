@@ -150,8 +150,9 @@ bool WINMain::eventFilter(QObject *object, QEvent *event)
                 break;
             }
         }
+        updatePropInspectorVisibility();
     }
-    return false;
+    return QMainWindow::eventFilter(object, event);
 }
 
 void WINMain::initStartBt()
@@ -379,29 +380,14 @@ void WINMain::switchScreenToShow(ScreensInWINMain screen)
 
 void WINMain::initLayerSelectionBehavior()
 {
-    //Hide or show property inspector when appropriate
-    if (ui->canvasPgLayerListVw->currentRow() == -1)
-    {
-        ui->canvasPgPropInspStck->setCurrentWidget(ui->propInspPg1);
-    }
-    else
-    {
-        ui->canvasPgPropInspStck->setCurrentWidget(ui->propInspPg0);
-    }
+    updatePropInspectorVisibility();
     connect(ui->canvasPgLayerListVw,
             &QListWidget::itemSelectionChanged,
             ui->canvasPgLayerListVw,
             [this]()
     {
-        //Hide or show property inspector when appropriate
-        if (ui->canvasPgLayerListVw->currentRow() == -1)
-        {
-            ui->canvasPgPropInspStck->setCurrentWidget(ui->propInspPg1);
-        }
-        else
-        {
-            ui->canvasPgPropInspStck->setCurrentWidget(ui->propInspPg0);
-        }
+        this->updatePropInspectorVisibility();
+
         //Update the property inspector regardless
         this->updatePropertyInspectorFor(
                     vm.getShapeAtLayer(ui->canvasPgLayerListVw->currentRow())
@@ -414,7 +400,9 @@ void WINMain::initPropertyInspector()
     //Brush color
     connect(ui->propInspBrushClrBt, &QPushButton::clicked, ui->propInspBrushClrBt, [this]()
     {
-        QColor curColor = vm.getShapeAtLayer(ui->canvasPgLayerListVw->currentRow())->brush.color();
+        int currentRow = ui->canvasPgLayerListVw->currentRow();
+        if (currentRow < 0 || currentRow > vm.getNumberOfShapesOnCanvas() - 1) {return;}
+        QColor curColor = vm.getShapeAtLayer(currentRow)->brush.color();
         QColor color = QColorDialog::getColor(curColor, this);
         if (color.isValid())
         {
@@ -731,3 +719,15 @@ void WINMain::refreshTestimonials()
     }
 }
 
+void WINMain::updatePropInspectorVisibility()
+{
+    //Hide or show property inspector when appropriate
+    if (ui->canvasPgLayerListVw->currentRow() == -1)
+    {
+        ui->canvasPgPropInspStck->setCurrentWidget(ui->propInspPg1);
+    }
+    else
+    {
+        ui->canvasPgPropInspStck->setCurrentWidget(ui->propInspPg0);
+    }
+}

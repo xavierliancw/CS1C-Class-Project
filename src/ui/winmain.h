@@ -115,6 +115,7 @@ private:
     void initVertexEditor();
     void initRectEditor();
     void initTxtEditor();
+    void updatePropInspectorVisibility();
 
     //Welcome screen UI
     void initStartBt();
@@ -123,7 +124,6 @@ private:
     VMCanvas initVM();
     void initGuestAuthenticateBt();
     void initGuestBackBt();
-
 };
 
 #endif // WINMAIN_H
