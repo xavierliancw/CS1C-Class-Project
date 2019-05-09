@@ -1,0 +1,196 @@
+\hypertarget{class_shape_rect}{}\section{Shape\+Rect Class Reference}
+\label{class_shape_rect}\index{ShapeRect@{ShapeRect}}
+
+
+Rectangular shape that can be drawn on the graphics canvas.  
+
+
+
+
+{\ttfamily \#include $<$shaperect.\+h$>$}
+
+Inheritance diagram for Shape\+Rect\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_shape_rect}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_shape_rect_ac5b445c75c6e4a14c8bdbe0fad5ac81a}{Shape\+Rect}} (\mbox{\hyperlink{class_i_shape_a8f50993477b5ddb44c0547ef3d547cdc}{I\+Shape\+::\+Shape\+Type}} shape\+Type, int originX, int originY, int width, int height)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_shape_rect_a5e2f220e75b55cb9c0405c4820f679f6}{Shape\+Rect}} (const \mbox{\hyperlink{class_shape_rect}{Shape\+Rect}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_shape_rect}{Shape\+Rect}} \& \mbox{\hyperlink{class_shape_rect_aa5fd1e13562412ebceb977be0a455b18}{operator=}} (const \mbox{\hyperlink{class_shape_rect}{Shape\+Rect}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_shape_rect_acc35ed70d85acd941b56cc505b9fae6c}{draw}} (Q\+Painter \&)
+\begin{DoxyCompactList}\small\item\em Renders this rectangle through a given Q\+Painter object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_shape_rect_a79fcc5998d54d1bfd851646479804b32}{move}} (int scootX, int scootY)
+\begin{DoxyCompactList}\small\item\em Moves this rectangle\textquotesingle{}s coordinates a specified amount. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_shape_rect_a7dba46671dfd64188b37bff161d3bb89}{perimeter}} () const
+\begin{DoxyCompactList}\small\item\em Calculates the perimeter of this rectangle. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_shape_rect_a87e891eaa6975fc73f4148427076812e}{area}} () const
+\begin{DoxyCompactList}\small\item\em Calculates the area of this rectangle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Rect \mbox{\hyperlink{class_shape_rect_a238099eccd2cd32a7e82cb1719b36b51}{frame}}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Rectangular shape that can be drawn on the graphics canvas. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_shape_rect_ac5b445c75c6e4a14c8bdbe0fad5ac81a}\label{class_shape_rect_ac5b445c75c6e4a14c8bdbe0fad5ac81a}} 
+\index{ShapeRect@{ShapeRect}!ShapeRect@{ShapeRect}}
+\index{ShapeRect@{ShapeRect}!ShapeRect@{ShapeRect}}
+\subsubsection{\texorpdfstring{ShapeRect()}{ShapeRect()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Shape\+Rect\+::\+Shape\+Rect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_shape_a8f50993477b5ddb44c0547ef3d547cdc}{I\+Shape\+::\+Shape\+Type}}}]{shape\+Type,  }\item[{int}]{originX,  }\item[{int}]{originY,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape\+Type} & The shape type. \\
+\hline
+{\em originX} & Starting X pixel position of the origin. \\
+\hline
+{\em originY} & Starting Y pixel position of the origin. \\
+\hline
+{\em width} & Starting width in pixels. \\
+\hline
+{\em height} & Starting height in pixels. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_shape_rect_a5e2f220e75b55cb9c0405c4820f679f6}\label{class_shape_rect_a5e2f220e75b55cb9c0405c4820f679f6}} 
+\index{ShapeRect@{ShapeRect}!ShapeRect@{ShapeRect}}
+\index{ShapeRect@{ShapeRect}!ShapeRect@{ShapeRect}}
+\subsubsection{\texorpdfstring{ShapeRect()}{ShapeRect()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Shape\+Rect\+::\+Shape\+Rect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_shape_rect}{Shape\+Rect}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_shape_rect}{Shape\+Rect}}} & to copy from. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_shape_rect_a87e891eaa6975fc73f4148427076812e}\label{class_shape_rect_a87e891eaa6975fc73f4148427076812e}} 
+\index{ShapeRect@{ShapeRect}!area@{area}}
+\index{area@{area}!ShapeRect@{ShapeRect}}
+\subsubsection{\texorpdfstring{area()}{area()}}
+{\footnotesize\ttfamily double Shape\+Rect\+::area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the area of this rectangle. 
+
+\begin{DoxyReturn}{Returns}
+double\+: The area of this rectangle in pixels$^\wedge$2. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_shape_aed742a160acdd13c9cfdeb16e605afea}{I\+Shape}}.
+
+\mbox{\Hypertarget{class_shape_rect_acc35ed70d85acd941b56cc505b9fae6c}\label{class_shape_rect_acc35ed70d85acd941b56cc505b9fae6c}} 
+\index{ShapeRect@{ShapeRect}!draw@{draw}}
+\index{draw@{draw}!ShapeRect@{ShapeRect}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Shape\+Rect\+::draw (\begin{DoxyParamCaption}\item[{Q\+Painter \&}]{painter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Renders this rectangle through a given Q\+Painter object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & Q\+Painter object that handles rendering shapes. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_shape_ad97c626e7e2c9afb9f51efc41b836e6f}{I\+Shape}}.
+
+\mbox{\Hypertarget{class_shape_rect_a79fcc5998d54d1bfd851646479804b32}\label{class_shape_rect_a79fcc5998d54d1bfd851646479804b32}} 
+\index{ShapeRect@{ShapeRect}!move@{move}}
+\index{move@{move}!ShapeRect@{ShapeRect}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Shape\+Rect\+::move (\begin{DoxyParamCaption}\item[{int}]{scootX,  }\item[{int}]{scootY }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Moves this rectangle\textquotesingle{}s coordinates a specified amount. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scootX} & Number of pixels to scoot this rectangle in the X direction. \\
+\hline
+{\em scootY} & Number of pixels to scoot this rectangle in the Y direction. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_shape_a3d23494cd34e658cc6b39a2e2db0b7fe}{I\+Shape}}.
+
+\mbox{\Hypertarget{class_shape_rect_aa5fd1e13562412ebceb977be0a455b18}\label{class_shape_rect_aa5fd1e13562412ebceb977be0a455b18}} 
+\index{ShapeRect@{ShapeRect}!operator=@{operator=}}
+\index{operator=@{operator=}!ShapeRect@{ShapeRect}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_shape_rect}{Shape\+Rect}}\& Shape\+Rect\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_shape_rect}{Shape\+Rect}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted copy assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_shape_rect}{Shape\+Rect}}} & to copy from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_shape_rect}{Shape\+Rect}} \&operator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shape_rect_a7dba46671dfd64188b37bff161d3bb89}\label{class_shape_rect_a7dba46671dfd64188b37bff161d3bb89}} 
+\index{ShapeRect@{ShapeRect}!perimeter@{perimeter}}
+\index{perimeter@{perimeter}!ShapeRect@{ShapeRect}}
+\subsubsection{\texorpdfstring{perimeter()}{perimeter()}}
+{\footnotesize\ttfamily double Shape\+Rect\+::perimeter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the perimeter of this rectangle. 
+
+\begin{DoxyReturn}{Returns}
+double\+: The perimenter of this rectangle in pixels. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_shape_a485f6770c4e56b31c76d368b959b6f00}{I\+Shape}}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_shape_rect_a238099eccd2cd32a7e82cb1719b36b51}\label{class_shape_rect_a238099eccd2cd32a7e82cb1719b36b51}} 
+\index{ShapeRect@{ShapeRect}!frame@{frame}}
+\index{frame@{frame}!ShapeRect@{ShapeRect}}
+\subsubsection{\texorpdfstring{frame}{frame}}
+{\footnotesize\ttfamily Q\+Rect Shape\+Rect\+::frame}
+
+Stores the origin and size of this rectangle. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/models/shaperect.\+h\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/models/shaperect.\+cpp\end{DoxyCompactItemize}

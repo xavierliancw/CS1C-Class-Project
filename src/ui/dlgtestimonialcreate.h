@@ -3,6 +3,7 @@
 
 #include <viewmodels/vmtestimonialcreate.h>
 #include <QDialog>
+#include <functional>
 
 namespace Ui {
 class DLGTestimonialCreate;
@@ -21,8 +22,10 @@ public:
      * @brief Constructor.
      *
      * @param parent: Parent QWidget.
+     * @param onDone: Callback.
      */
-    explicit DLGTestimonialCreate(QWidget *parent = nullptr);
+    explicit DLGTestimonialCreate(QWidget *parent,
+                                  std::function<void()> onDone);
     /**
      * @brief Destructor.
      *
@@ -39,6 +42,7 @@ private:
      * @return VMTestimonialCreate: An initialized view model.
      */
     VMTestimonialCreate* initializedVM();
+    std::function<void()> onDone;
 };
 
 #endif // DLGTESTIMONIALCREATE_H

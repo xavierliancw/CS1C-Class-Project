@@ -17,7 +17,7 @@
    <item row="0" column="0">
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="pgTestimonialForm">
       <layout class="QGridLayout" name="gridLayout_2">
@@ -25,6 +25,12 @@
         <widget class="QPushButton" name="saveBt">
          <property name="text">
           <string>PushButton</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+         <property name="default">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -34,7 +40,7 @@
           <enum>Qt::Horizontal</enum>
          </property>
          <property name="standardButtons">
-          <set>QDialogButtonBox::Close</set>
+          <set>QDialogButtonBox::Cancel</set>
          </property>
         </widget>
        </item>
@@ -91,6 +97,12 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>topTE</tabstop>
+  <tabstop>bodyTE</tabstop>
+  <tabstop>saveBt</tabstop>
+  <tabstop>successFinishBt</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

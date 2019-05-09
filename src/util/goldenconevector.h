@@ -2,97 +2,140 @@
 #ifndef VECTOR_H_
 #define VECTOR_H_
 
+/**
+ * @brief Dynamic array to store data; stores the shapes that are drawn on the canvas.
+ */
 template<typename Type>
 class GoldenConeVector
 {
 private:
     int m_count; //amount of elements in mp_data array
-
     int m_size; //count + freespace
-
     Type* mp_data; //points to array of elements
 
 public:
-//CONSTRUCTORS:
-    //Default Constructor
+    /**
+     * @brief Constructor
+     */
     GoldenConeVector();
-    //Size specific (s) constructor
+
+    /**
+     * @brief Constructor
+     *
+     * @param s: the predefined size of internal array
+     */
     explicit GoldenConeVector(int s);
-    //Copy Constructor
+
+    /**
+     * @brief Copy Constructor
+     *
+     * @param GoldenConeVector to copy from
+     */
     GoldenConeVector(const GoldenConeVector&);
 
-//OVERLOADED OPERATORS:
-    //overloaded assignment operator
+    /**
+     *@brief Destructor
+     */
+    ~GoldenConeVector();
+
+    /**
+     * @brief Copy Assignment Operation
+     *
+     * @param other: GoldenConeVector to copy from
+     * @return GoldenConeVector& other
+     */
+
     GoldenConeVector& operator = (const GoldenConeVector& other);
 
-    //overloaded array access operator
+    /**
+     * @brief Returns the data at index n
+     *
+     * @param n: index of data in the array
+     * @return Type&: data at index n
+     */
     const Type& operator [] (unsigned int n);
 
-//MEMBER FUNCTIONS:
-    /*Function: size()
-     * POSTCONDITIONS: returns the current maximum size of the dynamic array needed before resizing
+    /**
+     * @brief Total size of the dynamic array
+     *
+     * @return unsigned int n: total size of the array
      */
     int size() const; //returns the maximum current size of the vector
 
-    /*Function: capacity()
-     * POSTCONDITIONS: returns the amount of space remaining before the dynamic array must be resized
+    /**
+     * @brief Remaining space in the dynamic array before more memory must be allocated
+     *
+     * @return int: remaining free space in the array
      */
     int capacity() const; //returns the free_space - count of the vector
 
-    /*Function: resize()
-     * PRECONDITIONS: newsize must be a positive integer
-     * POSTCONDITIONS: resizes the dynamic array
+    /**
+     * @brief Resizes the GoldenConeVector.
+     *
+     * @param newsize: new size of the vector
      */
+
     void resize(int newsize); //resizes the vector, removing data if needbe.
 
-    /*Function: push_back()
-     * PRECONDITIONS: val must be of the valid type
-     * POSTCONDITIONS: adds val to the end of the dynamic array, resizing the array if needbe
+    /**
+     * @brief Adds data to the end of the vector, resizing the vector if necessary
+     *
+     * @param val: data to be added to the vector.
      */
+
     void push_back(Type val); //adds new data to the end of the vector, resizing if neebe
 
-    /*Function: reserve()
-     * PRECONDITIONS: newalloc must be a positive integer
-     * POSTCONDITIONS: replaces the dynamic array adding newalloc to its maximum size
+    /**
+     * @brief Allocates additional memory to the array
+     *
+     * @param newalloc: increases size of array by this amount
      */
+
     void reserve(int newalloc); //adds to the maximum size of the vector
 
-    //establishes iterator as a pointer to Type
     using iterator = Type*;
 
     using const_iterator = const Type*;
 
-    /*Function: begin()
-     * POSTCONDITIONS: returns the address at the first element of the array.
+    /**
+     * @brief Set pointer to first element in the vector
+     *
+     * @return iterator: iterator pointing to first element
      */
     iterator begin(); //points to first element in array
 
-    /*Function: end()
-     * POSTCONDITIONS: returns the address of one passed the last element of the array
+    /**
+     * @brief set pointer to one passed the last element in the vector
+     *
+     * @return iterator: iterator pointing to one passed the last element
      */
     iterator end(); //returns one passed the last element in the array.
 
+    /**
+     * @brief set pointer to one passed the last element in the vector
+     *
+     * @return iterator: iterator pointing to one passed the last element
+     */
     const_iterator end() const; //returns one passed last element in array.
 
-    /*Function: insert()
-     * PRECONDITIONS: iterator must point to an element in the array.
-     * POSTCONDITIONS: inserts newData into the array before to where it is pointing
+    /**
+     * @brief inserts new data into vector at certain point
+     *
+     * @param it: points to element after newData
+     * @param newData: data added before it
+     * @return pointer to it
      */
     iterator insert(iterator it, const Type& newData);
 
-    /*Function: erase()
-     * PRECONDITIONS: iterator must point to an element in the array.
-     * POSTCONDITIONS: erases the data at it, and shifts the elements in the array to the left
+    /**
+     * @brief deletes pointed to data
+     *
+     * @param it: points to data to be removed
+     * @return data pointed to by it
      */
     iterator erase(iterator it);
 
-    /*Function: print()
-     * POSTCONDITIONS: prints the data using the cout operation
-     */
     void print(); //uses the << operator to print the data in the function.
-
-    //for debugging:
-    //void printinfo(); //prints m_size, m_count, and lists the data for debugging
 
 private:
     void push_data(int index, Type newData); //pushes data at 'index'
@@ -127,6 +170,12 @@ GoldenConeVector<Type> :: GoldenConeVector(int size) //specific size constructor
     m_count = 0;
     m_size = 0;
     reserve(size);
+}
+
+template <typename Type>
+GoldenConeVector<Type>::~GoldenConeVector()  //destructor
+{
+    delete [] mp_data;
 }
 
 template<typename Type>

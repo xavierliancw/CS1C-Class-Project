@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = CS1CProject
+TARGET = Golden" "Cone" "Graphics
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -25,9 +25,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    ui/dlgloginscreen.cpp \
     main.cpp \
+    models/shapecircle.cpp \
     models/shapeellipse.cpp \
     models/triangle.cpp \
+    models/shapeline.cpp \
+    models/shapepolyline.cpp \
     models/shapepolygon.cpp \
     models/shapetext.cpp \
     ui/dlgshapeaddtri.cpp \
@@ -41,11 +45,24 @@ SOURCES += \
     ui/dlgshapeselector.cpp \
     ui/dlgcontactform.cpp \
     viewmodels/vmcanvas.cpp \
-    ui/dlgshapeadderrect.cpp
+    models/shapesquare.cpp \
+    models/jsonshape.cpp \
+    models/jsoncustomerinquiry.cpp \
+    ui/lcshapelayer.cpp \
+    ui/lceditvertex.cpp \
+    ui/dlgeditorvertices.cpp \
+    viewmodels/vmeditorvertices.cpp \
+    ui/dlgeditorrectframe.cpp \
+    viewmodels/vmeditorrectframe.cpp \
+    ui/dlgeditortext.cpp
 
 HEADERS += \
+    ui/dlgloginscreen.h \
+    models/shapecircle.h \
     models/shapeellipse.h \
     models/triangle.h \
+    models/shapeline.h \
+    models/shapepolyline.h \
     models/shapepolygon.h \
     models/shapetext.h \
     ui/dlgshapeaddtri.h \
@@ -57,19 +74,33 @@ HEADERS += \
     models/ishape.h \
     models/shaperect.h \
     ui/dlgshapeselector.h \
-    models/ishape.h \
     util/goldenconevector.h \
     ui/dlgcontactform.h \
     viewmodels/vmcanvas.h \
-    ui/dlgshapeadderrect.h
+    models/jsonshape.h \
+    models/shapesquare.h \
+    models/dtocustomerinquiry.h \
+    models/jsoncustomerinquiry.h \
+    ui/lcshapelayer.h \
+    ui/lceditvertex.h \
+    ui/dlgeditorvertices.h \
+    viewmodels/vmeditorvertices.h \
+    ui/dlgeditorrectframe.h \
+    viewmodels/vmeditorrectframe.h \
+    ui/dlgeditortext.h
 
 FORMS += \
     ui/dlgshapeaddtri.ui \
+    ui/dlgloginscreen.ui \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
     ui/dlgshapeselector.ui \
     ui/dlgcontactform.ui \
-    ui/dlgshapeadderrect.ui
+    ui/dlgeditorrectframe.ui \
+    ui/lcshapelayer.ui \
+    ui/lceditvertex.ui \
+    ui/dlgeditorvertices.ui \
+    ui/dlgeditortext.ui
 
 CONFIG += mobility
 MOBILITY = 
@@ -81,4 +112,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    images.qrc
+    cone.qrc \
+    logo.qrc

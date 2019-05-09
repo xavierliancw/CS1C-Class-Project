@@ -1,0 +1,166 @@
+\hypertarget{class_v_m_testimonial_create}{}\section{V\+M\+Testimonial\+Create Class Reference}
+\label{class_v_m_testimonial_create}\index{VMTestimonialCreate@{VMTestimonialCreate}}
+
+
+View model for the UI that lets users create testimonials.  
+
+
+
+
+{\ttfamily \#include $<$vmtestimonialcreate.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_v_m_testimonial_create_a214643dddd4f760846692f71a9958e1a}{Mode}} \{ {\bfseries composing\+Test}, 
+{\bfseries submitted\+Test}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum for the different states this UI has. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_v_m_testimonial_create_a470df2e99d49a1e312a4cacf7bb5c1c5}{V\+M\+Testimonial\+Create}} (std\+::function$<$ void(bool)$>$ on\+Submit\+Button\+Enabled\+Update, std\+::function$<$ void(bool)$>$ on\+Show\+Success\+Mode)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_v_m_testimonial_create_a1031e0c42f0e86df90626123ebfceb8e}{$\sim$\+V\+M\+Testimonial\+Create}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_m_testimonial_create_add444a0cb13f978e1cef24b45283bf92}{submit\+Testimonial}} (const Q\+String display\+Name, const Q\+String testimonial\+Txt)
+\begin{DoxyCompactList}\small\item\em Saves a testimonial to wherever testimonials get stored. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_m_testimonial_create_a9f9c3ff96e890ff6a5e3b9d05824df27}{update\+Input\+State}} (const Q\+String display\+Name, const Q\+String testimonial\+Txt)
+\begin{DoxyCompactList}\small\item\em Inputs for the state machine that controls the primary business logic of this UI. This should be called whenever the text changes in either the display name or testimonial text text fields. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const Q\+String \mbox{\hyperlink{class_v_m_testimonial_create_a9f799e8461e4a67f01b7b8b30deadd04}{prompt1\+Txt}} = \char`\"{}Name\char`\"{}
+\item 
+const Q\+String \mbox{\hyperlink{class_v_m_testimonial_create_ab293b8c3bfa9945a4381e5ec24c572da}{prompt2\+Txt}} = \char`\"{}Your Testimonial\char`\"{}
+\item 
+const Q\+String \mbox{\hyperlink{class_v_m_testimonial_create_af2b4326b5a7abd3f815df754880ae2d5}{save\+Bt\+Txt}} = \char`\"{}Submit\char`\"{}
+\item 
+const Q\+String \mbox{\hyperlink{class_v_m_testimonial_create_ad496e34b013e7d4ee879f8bc8eaa434b}{success\+Msg}} = \char`\"{}Thank you for your feedback!\char`\"{}
+\item 
+const Q\+String \mbox{\hyperlink{class_v_m_testimonial_create_afe5812a327160651286af17f65c62416}{success\+Done\+Bt\+Txt}} = \char`\"{}Done\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+View model for the UI that lets users create testimonials. 
+
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_v_m_testimonial_create_a214643dddd4f760846692f71a9958e1a}\label{class_v_m_testimonial_create_a214643dddd4f760846692f71a9958e1a}} 
+\index{VMTestimonialCreate@{VMTestimonialCreate}!Mode@{Mode}}
+\index{Mode@{Mode}!VMTestimonialCreate@{VMTestimonialCreate}}
+\subsubsection{\texorpdfstring{Mode}{Mode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_v_m_testimonial_create_a214643dddd4f760846692f71a9958e1a}{V\+M\+Testimonial\+Create\+::\+Mode}}}
+
+
+
+Enum for the different states this UI has. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_v_m_testimonial_create_a470df2e99d49a1e312a4cacf7bb5c1c5}\label{class_v_m_testimonial_create_a470df2e99d49a1e312a4cacf7bb5c1c5}} 
+\index{VMTestimonialCreate@{VMTestimonialCreate}!VMTestimonialCreate@{VMTestimonialCreate}}
+\index{VMTestimonialCreate@{VMTestimonialCreate}!VMTestimonialCreate@{VMTestimonialCreate}}
+\subsubsection{\texorpdfstring{VMTestimonialCreate()}{VMTestimonialCreate()}}
+{\footnotesize\ttfamily V\+M\+Testimonial\+Create\+::\+V\+M\+Testimonial\+Create (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(bool)$>$}]{on\+Submit\+Button\+Enabled\+Update,  }\item[{std\+::function$<$ void(bool)$>$}]{on\+Show\+Success\+Mode }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em on\+Submit\+Button\+Enabled\+Update} & Lambda with boolean that dictates the state of the submit button (enable when true, disable when false). \\
+\hline
+{\em on\+Show\+Success\+Mode} & Lambda with boolean that dictates when the success state should be triggered (show success when true, don\textquotesingle{}t show success when false). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_v_m_testimonial_create_a1031e0c42f0e86df90626123ebfceb8e}\label{class_v_m_testimonial_create_a1031e0c42f0e86df90626123ebfceb8e}} 
+\index{VMTestimonialCreate@{VMTestimonialCreate}!````~VMTestimonialCreate@{$\sim$VMTestimonialCreate}}
+\index{````~VMTestimonialCreate@{$\sim$VMTestimonialCreate}!VMTestimonialCreate@{VMTestimonialCreate}}
+\subsubsection{\texorpdfstring{$\sim$VMTestimonialCreate()}{~VMTestimonialCreate()}}
+{\footnotesize\ttfamily V\+M\+Testimonial\+Create\+::$\sim$\+V\+M\+Testimonial\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_v_m_testimonial_create_add444a0cb13f978e1cef24b45283bf92}\label{class_v_m_testimonial_create_add444a0cb13f978e1cef24b45283bf92}} 
+\index{VMTestimonialCreate@{VMTestimonialCreate}!submitTestimonial@{submitTestimonial}}
+\index{submitTestimonial@{submitTestimonial}!VMTestimonialCreate@{VMTestimonialCreate}}
+\subsubsection{\texorpdfstring{submitTestimonial()}{submitTestimonial()}}
+{\footnotesize\ttfamily void V\+M\+Testimonial\+Create\+::submit\+Testimonial (\begin{DoxyParamCaption}\item[{const Q\+String}]{display\+Name,  }\item[{const Q\+String}]{testimonial\+Txt }\end{DoxyParamCaption})}
+
+
+
+Saves a testimonial to wherever testimonials get stored. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em display\+Name} & The display name of the testimonial author. \\
+\hline
+{\em testimonial\+Txt} & The text of the testimonial. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_v_m_testimonial_create_a9f9c3ff96e890ff6a5e3b9d05824df27}\label{class_v_m_testimonial_create_a9f9c3ff96e890ff6a5e3b9d05824df27}} 
+\index{VMTestimonialCreate@{VMTestimonialCreate}!updateInputState@{updateInputState}}
+\index{updateInputState@{updateInputState}!VMTestimonialCreate@{VMTestimonialCreate}}
+\subsubsection{\texorpdfstring{updateInputState()}{updateInputState()}}
+{\footnotesize\ttfamily void V\+M\+Testimonial\+Create\+::update\+Input\+State (\begin{DoxyParamCaption}\item[{const Q\+String}]{display\+Name,  }\item[{const Q\+String}]{testimonial\+Txt }\end{DoxyParamCaption})}
+
+
+
+Inputs for the state machine that controls the primary business logic of this UI. This should be called whenever the text changes in either the display name or testimonial text text fields. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em display\+Name} & The text that\textquotesingle{}s currently in the display name text field. \\
+\hline
+{\em testimonial\+Txt} & The text that\textquotesingle{}s currently in the text field for the testimonial text. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_v_m_testimonial_create_a9f799e8461e4a67f01b7b8b30deadd04}\label{class_v_m_testimonial_create_a9f799e8461e4a67f01b7b8b30deadd04}} 
+\index{VMTestimonialCreate@{VMTestimonialCreate}!prompt1Txt@{prompt1Txt}}
+\index{prompt1Txt@{prompt1Txt}!VMTestimonialCreate@{VMTestimonialCreate}}
+\subsubsection{\texorpdfstring{prompt1Txt}{prompt1Txt}}
+{\footnotesize\ttfamily const Q\+String V\+M\+Testimonial\+Create\+::prompt1\+Txt = \char`\"{}Name\char`\"{}}
+
+Prompt for the author\textquotesingle{}s display name. \mbox{\Hypertarget{class_v_m_testimonial_create_ab293b8c3bfa9945a4381e5ec24c572da}\label{class_v_m_testimonial_create_ab293b8c3bfa9945a4381e5ec24c572da}} 
+\index{VMTestimonialCreate@{VMTestimonialCreate}!prompt2Txt@{prompt2Txt}}
+\index{prompt2Txt@{prompt2Txt}!VMTestimonialCreate@{VMTestimonialCreate}}
+\subsubsection{\texorpdfstring{prompt2Txt}{prompt2Txt}}
+{\footnotesize\ttfamily const Q\+String V\+M\+Testimonial\+Create\+::prompt2\+Txt = \char`\"{}Your Testimonial\char`\"{}}
+
+Prompt for testimonial text. \mbox{\Hypertarget{class_v_m_testimonial_create_af2b4326b5a7abd3f815df754880ae2d5}\label{class_v_m_testimonial_create_af2b4326b5a7abd3f815df754880ae2d5}} 
+\index{VMTestimonialCreate@{VMTestimonialCreate}!saveBtTxt@{saveBtTxt}}
+\index{saveBtTxt@{saveBtTxt}!VMTestimonialCreate@{VMTestimonialCreate}}
+\subsubsection{\texorpdfstring{saveBtTxt}{saveBtTxt}}
+{\footnotesize\ttfamily const Q\+String V\+M\+Testimonial\+Create\+::save\+Bt\+Txt = \char`\"{}Submit\char`\"{}}
+
+Text that the submit button should display. \mbox{\Hypertarget{class_v_m_testimonial_create_afe5812a327160651286af17f65c62416}\label{class_v_m_testimonial_create_afe5812a327160651286af17f65c62416}} 
+\index{VMTestimonialCreate@{VMTestimonialCreate}!successDoneBtTxt@{successDoneBtTxt}}
+\index{successDoneBtTxt@{successDoneBtTxt}!VMTestimonialCreate@{VMTestimonialCreate}}
+\subsubsection{\texorpdfstring{successDoneBtTxt}{successDoneBtTxt}}
+{\footnotesize\ttfamily const Q\+String V\+M\+Testimonial\+Create\+::success\+Done\+Bt\+Txt = \char`\"{}Done\char`\"{}}
+
+Text that the done button should display. \mbox{\Hypertarget{class_v_m_testimonial_create_ad496e34b013e7d4ee879f8bc8eaa434b}\label{class_v_m_testimonial_create_ad496e34b013e7d4ee879f8bc8eaa434b}} 
+\index{VMTestimonialCreate@{VMTestimonialCreate}!successMsg@{successMsg}}
+\index{successMsg@{successMsg}!VMTestimonialCreate@{VMTestimonialCreate}}
+\subsubsection{\texorpdfstring{successMsg}{successMsg}}
+{\footnotesize\ttfamily const Q\+String V\+M\+Testimonial\+Create\+::success\+Msg = \char`\"{}Thank you for your feedback!\char`\"{}}
+
+Success message to display. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/viewmodels/vmtestimonialcreate.\+h\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/viewmodels/vmtestimonialcreate.\+cpp\end{DoxyCompactItemize}

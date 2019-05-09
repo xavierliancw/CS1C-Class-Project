@@ -1,0 +1,210 @@
+\hypertarget{class_shape_ellipse}{}\section{Shape\+Ellipse Class Reference}
+\label{class_shape_ellipse}\index{ShapeEllipse@{ShapeEllipse}}
+
+
+The \mbox{\hyperlink{class_shape_ellipse}{Shape\+Ellipse}} class!  
+
+
+
+
+{\ttfamily \#include $<$shapeellipse.\+h$>$}
+
+Inheritance diagram for Shape\+Ellipse\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_shape_ellipse}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_shape_ellipse_a80f7ee6f65112d606b348d89366feeee}{Shape\+Ellipse}} (\mbox{\hyperlink{class_i_shape_a8f50993477b5ddb44c0547ef3d547cdc}{Shape\+Type}} shape\+Type, int originX, int originY, int height, int width)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_shape_ellipse_a681b89e97838504d2c7f6c1771055b2e}{Shape\+Ellipse}} (const \mbox{\hyperlink{class_shape_ellipse}{Shape\+Ellipse}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_shape_ellipse}{Shape\+Ellipse}} \& \mbox{\hyperlink{class_shape_ellipse_ad9859459d9f53eac418601c054cf3289}{operator=}} (const \mbox{\hyperlink{class_shape_ellipse}{Shape\+Ellipse}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_shape_ellipse_ac7f0a33cb5a88c6956f2d876c0c5d313}{draw}} (Q\+Painter \&)
+\begin{DoxyCompactList}\small\item\em Renders this ellipse through a given Q\+Painter object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_shape_ellipse_a07ce6783744d01ccebbd5c2c8b4c7d9b}{move}} (int scootX, int scootY)
+\begin{DoxyCompactList}\small\item\em Moves this ellipse\textquotesingle{}s coordinates a specified amount. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_shape_ellipse_a397c01c912105854e065f6c2d766f73a}{perimeter}} () const
+\begin{DoxyCompactList}\small\item\em Calculates the perimeter of this Ellipse. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_shape_ellipse_a08287b301b7501eb941805eaf85fc00c}{area}} () const
+\begin{DoxyCompactList}\small\item\em Calculates area of this Ellipse. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{class_shape_ellipse_a8ee638d167c341015a7f0f82b7a8debb}{pi}} = 3.\+14159265358979
+\item 
+Q\+Rect \mbox{\hyperlink{class_shape_ellipse_ac9feb0571e6f658866ab142643230081}{frame}}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The \mbox{\hyperlink{class_shape_ellipse}{Shape\+Ellipse}} class! 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_shape_ellipse_a80f7ee6f65112d606b348d89366feeee}\label{class_shape_ellipse_a80f7ee6f65112d606b348d89366feeee}} 
+\index{ShapeEllipse@{ShapeEllipse}!ShapeEllipse@{ShapeEllipse}}
+\index{ShapeEllipse@{ShapeEllipse}!ShapeEllipse@{ShapeEllipse}}
+\subsubsection{\texorpdfstring{ShapeEllipse()}{ShapeEllipse()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Shape\+Ellipse\+::\+Shape\+Ellipse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_shape_a8f50993477b5ddb44c0547ef3d547cdc}{Shape\+Type}}}]{shape\+Type,  }\item[{int}]{originX,  }\item[{int}]{originY,  }\item[{int}]{height,  }\item[{int}]{width }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape\+Type} & the shape type \\
+\hline
+{\em originX} & Starting X pixel position of the origin \\
+\hline
+{\em originY} & Starting Y pixel position of the origin \\
+\hline
+{\em height} & starting height in pixels \\
+\hline
+{\em width} & starting width in pixels \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_shape_ellipse_a681b89e97838504d2c7f6c1771055b2e}\label{class_shape_ellipse_a681b89e97838504d2c7f6c1771055b2e}} 
+\index{ShapeEllipse@{ShapeEllipse}!ShapeEllipse@{ShapeEllipse}}
+\index{ShapeEllipse@{ShapeEllipse}!ShapeEllipse@{ShapeEllipse}}
+\subsubsection{\texorpdfstring{ShapeEllipse()}{ShapeEllipse()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Shape\+Ellipse\+::\+Shape\+Ellipse (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_shape_ellipse}{Shape\+Ellipse}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_shape_ellipse}{Shape\+Ellipse}}} & to copy from. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_shape_ellipse_a08287b301b7501eb941805eaf85fc00c}\label{class_shape_ellipse_a08287b301b7501eb941805eaf85fc00c}} 
+\index{ShapeEllipse@{ShapeEllipse}!area@{area}}
+\index{area@{area}!ShapeEllipse@{ShapeEllipse}}
+\subsubsection{\texorpdfstring{area()}{area()}}
+{\footnotesize\ttfamily double Shape\+Ellipse\+::area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates area of this Ellipse. 
+
+\begin{DoxyReturn}{Returns}
+double\+: the area of this Ellipse in pixels 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_shape_aed742a160acdd13c9cfdeb16e605afea}{I\+Shape}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_shape_circle_aebc30fb4ad7165778deb75f0bd2d69bd}{Shape\+Circle}}.
+
+\mbox{\Hypertarget{class_shape_ellipse_ac7f0a33cb5a88c6956f2d876c0c5d313}\label{class_shape_ellipse_ac7f0a33cb5a88c6956f2d876c0c5d313}} 
+\index{ShapeEllipse@{ShapeEllipse}!draw@{draw}}
+\index{draw@{draw}!ShapeEllipse@{ShapeEllipse}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Shape\+Ellipse\+::draw (\begin{DoxyParamCaption}\item[{Q\+Painter \&}]{painter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Renders this ellipse through a given Q\+Painter object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & Q\+Painter object that handles rendering shapes. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_shape_ad97c626e7e2c9afb9f51efc41b836e6f}{I\+Shape}}.
+
+\mbox{\Hypertarget{class_shape_ellipse_a07ce6783744d01ccebbd5c2c8b4c7d9b}\label{class_shape_ellipse_a07ce6783744d01ccebbd5c2c8b4c7d9b}} 
+\index{ShapeEllipse@{ShapeEllipse}!move@{move}}
+\index{move@{move}!ShapeEllipse@{ShapeEllipse}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Shape\+Ellipse\+::move (\begin{DoxyParamCaption}\item[{int}]{scootX,  }\item[{int}]{scootY }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Moves this ellipse\textquotesingle{}s coordinates a specified amount. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scootX} & Number of pixel to scoot this frame in the X direction \\
+\hline
+{\em scootY} & Number of pixels to scoot this rectangle in the Y direction \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_shape_a3d23494cd34e658cc6b39a2e2db0b7fe}{I\+Shape}}.
+
+\mbox{\Hypertarget{class_shape_ellipse_ad9859459d9f53eac418601c054cf3289}\label{class_shape_ellipse_ad9859459d9f53eac418601c054cf3289}} 
+\index{ShapeEllipse@{ShapeEllipse}!operator=@{operator=}}
+\index{operator=@{operator=}!ShapeEllipse@{ShapeEllipse}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_shape_ellipse}{Shape\+Ellipse}}\& Shape\+Ellipse\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_shape_ellipse}{Shape\+Ellipse}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted copy assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_shape_ellipse}{Shape\+Ellipse}}} & to copy from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_shape_ellipse}{Shape\+Ellipse}} \&operator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shape_ellipse_a397c01c912105854e065f6c2d766f73a}\label{class_shape_ellipse_a397c01c912105854e065f6c2d766f73a}} 
+\index{ShapeEllipse@{ShapeEllipse}!perimeter@{perimeter}}
+\index{perimeter@{perimeter}!ShapeEllipse@{ShapeEllipse}}
+\subsubsection{\texorpdfstring{perimeter()}{perimeter()}}
+{\footnotesize\ttfamily double Shape\+Ellipse\+::perimeter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the perimeter of this Ellipse. 
+
+\begin{DoxyReturn}{Returns}
+double\+: the perimeter of this Ellipse in pixels. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_shape_a485f6770c4e56b31c76d368b959b6f00}{I\+Shape}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_shape_circle_ad393d13676b0d0fcb36346b9a90b74af}{Shape\+Circle}}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_shape_ellipse_ac9feb0571e6f658866ab142643230081}\label{class_shape_ellipse_ac9feb0571e6f658866ab142643230081}} 
+\index{ShapeEllipse@{ShapeEllipse}!frame@{frame}}
+\index{frame@{frame}!ShapeEllipse@{ShapeEllipse}}
+\subsubsection{\texorpdfstring{frame}{frame}}
+{\footnotesize\ttfamily Q\+Rect Shape\+Ellipse\+::frame}
+
+Stores the origin and size of this ellipse \mbox{\Hypertarget{class_shape_ellipse_a8ee638d167c341015a7f0f82b7a8debb}\label{class_shape_ellipse_a8ee638d167c341015a7f0f82b7a8debb}} 
+\index{ShapeEllipse@{ShapeEllipse}!pi@{pi}}
+\index{pi@{pi}!ShapeEllipse@{ShapeEllipse}}
+\subsubsection{\texorpdfstring{pi}{pi}}
+{\footnotesize\ttfamily const double Shape\+Ellipse\+::pi = 3.\+14159265358979}
+
+stores generalized value of pi 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/models/shapeellipse.\+h\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/models/shapeellipse.\+cpp\end{DoxyCompactItemize}

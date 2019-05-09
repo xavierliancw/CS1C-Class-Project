@@ -1,0 +1,112 @@
+\hypertarget{struct_j_s_o_n_testimonial}{}\section{J\+S\+O\+N\+Testimonial Struct Reference}
+\label{struct_j_s_o_n_testimonial}\index{JSONTestimonial@{JSONTestimonial}}
+
+
+Tranformational object that facilitates J\+S\+ON serialization and deserialization of \mbox{\hyperlink{struct_d_t_o_testimonial}{D\+T\+O\+Testimonial}} objects through the Qt S\+DK.  
+
+
+
+
+{\ttfamily \#include $<$jsontestimonial.\+h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Q\+String \mbox{\hyperlink{struct_j_s_o_n_testimonial_ab6d5712fea11f101268091f80e865e14}{get\+Key\+Display\+Name}} ()
+\begin{DoxyCompactList}\small\item\em J\+S\+ON key for the display name property. \end{DoxyCompactList}\item 
+static Q\+String \mbox{\hyperlink{struct_j_s_o_n_testimonial_a5c08de626bca9d46be7728e8585d3638}{get\+Key\+Txt}} ()
+\begin{DoxyCompactList}\small\item\em J\+S\+ON key for the text property. \end{DoxyCompactList}\item 
+static Q\+String \mbox{\hyperlink{struct_j_s_o_n_testimonial_a367b6f1aa534c14199888a0cf6dfe8df}{get\+Key\+Timestamp}} ()
+\begin{DoxyCompactList}\small\item\em J\+S\+ON key for the timestamp property. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{struct_d_t_o_testimonial}{D\+T\+O\+Testimonial}} $\ast$ \mbox{\hyperlink{struct_j_s_o_n_testimonial_a8b6b42ef202b1566b27b0d42a3074650}{from\+J\+S\+ON}} (const Q\+Json\+Object \&json)
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{struct_d_t_o_testimonial}{D\+T\+O\+Testimonial}} object by deserializing a Q\+Json\+Object. \end{DoxyCompactList}\item 
+static Q\+Json\+Object \mbox{\hyperlink{struct_j_s_o_n_testimonial_a9fcbce44173627482821d8912f8531d5}{to\+J\+S\+ON}} (const \mbox{\hyperlink{struct_d_t_o_testimonial}{D\+T\+O\+Testimonial}} obj)
+\begin{DoxyCompactList}\small\item\em Creates a Q\+Json\+Object by serializing a \mbox{\hyperlink{struct_d_t_o_testimonial}{D\+T\+O\+Testimonial}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Tranformational object that facilitates J\+S\+ON serialization and deserialization of \mbox{\hyperlink{struct_d_t_o_testimonial}{D\+T\+O\+Testimonial}} objects through the Qt S\+DK. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_j_s_o_n_testimonial_a8b6b42ef202b1566b27b0d42a3074650}\label{struct_j_s_o_n_testimonial_a8b6b42ef202b1566b27b0d42a3074650}} 
+\index{JSONTestimonial@{JSONTestimonial}!fromJSON@{fromJSON}}
+\index{fromJSON@{fromJSON}!JSONTestimonial@{JSONTestimonial}}
+\subsubsection{\texorpdfstring{fromJSON()}{fromJSON()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{struct_d_t_o_testimonial}{D\+T\+O\+Testimonial}}$\ast$ J\+S\+O\+N\+Testimonial\+::from\+J\+S\+ON (\begin{DoxyParamCaption}\item[{const Q\+Json\+Object \&}]{json }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Creates a \mbox{\hyperlink{struct_d_t_o_testimonial}{D\+T\+O\+Testimonial}} object by deserializing a Q\+Json\+Object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em json} & The J\+S\+ON to deserialize. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_d_t_o_testimonial}{D\+T\+O\+Testimonial}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_j_s_o_n_testimonial_ab6d5712fea11f101268091f80e865e14}\label{struct_j_s_o_n_testimonial_ab6d5712fea11f101268091f80e865e14}} 
+\index{JSONTestimonial@{JSONTestimonial}!getKeyDisplayName@{getKeyDisplayName}}
+\index{getKeyDisplayName@{getKeyDisplayName}!JSONTestimonial@{JSONTestimonial}}
+\subsubsection{\texorpdfstring{getKeyDisplayName()}{getKeyDisplayName()}}
+{\footnotesize\ttfamily static Q\+String J\+S\+O\+N\+Testimonial\+::get\+Key\+Display\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+J\+S\+ON key for the display name property. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_j_s_o_n_testimonial_a367b6f1aa534c14199888a0cf6dfe8df}\label{struct_j_s_o_n_testimonial_a367b6f1aa534c14199888a0cf6dfe8df}} 
+\index{JSONTestimonial@{JSONTestimonial}!getKeyTimestamp@{getKeyTimestamp}}
+\index{getKeyTimestamp@{getKeyTimestamp}!JSONTestimonial@{JSONTestimonial}}
+\subsubsection{\texorpdfstring{getKeyTimestamp()}{getKeyTimestamp()}}
+{\footnotesize\ttfamily static Q\+String J\+S\+O\+N\+Testimonial\+::get\+Key\+Timestamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+J\+S\+ON key for the timestamp property. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_j_s_o_n_testimonial_a5c08de626bca9d46be7728e8585d3638}\label{struct_j_s_o_n_testimonial_a5c08de626bca9d46be7728e8585d3638}} 
+\index{JSONTestimonial@{JSONTestimonial}!getKeyTxt@{getKeyTxt}}
+\index{getKeyTxt@{getKeyTxt}!JSONTestimonial@{JSONTestimonial}}
+\subsubsection{\texorpdfstring{getKeyTxt()}{getKeyTxt()}}
+{\footnotesize\ttfamily static Q\+String J\+S\+O\+N\+Testimonial\+::get\+Key\+Txt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+J\+S\+ON key for the text property. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_j_s_o_n_testimonial_a9fcbce44173627482821d8912f8531d5}\label{struct_j_s_o_n_testimonial_a9fcbce44173627482821d8912f8531d5}} 
+\index{JSONTestimonial@{JSONTestimonial}!toJSON@{toJSON}}
+\index{toJSON@{toJSON}!JSONTestimonial@{JSONTestimonial}}
+\subsubsection{\texorpdfstring{toJSON()}{toJSON()}}
+{\footnotesize\ttfamily static Q\+Json\+Object J\+S\+O\+N\+Testimonial\+::to\+J\+S\+ON (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_d_t_o_testimonial}{D\+T\+O\+Testimonial}}}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Creates a Q\+Json\+Object by serializing a \mbox{\hyperlink{struct_d_t_o_testimonial}{D\+T\+O\+Testimonial}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & The testimonial P\+O\+CO to serialize. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Q\+Json\+Object 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/models/jsontestimonial.\+h\end{DoxyCompactItemize}

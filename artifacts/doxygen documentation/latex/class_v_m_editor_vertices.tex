@@ -1,0 +1,259 @@
+\hypertarget{class_v_m_editor_vertices}{}\section{V\+M\+Editor\+Vertices Class Reference}
+\label{class_v_m_editor_vertices}\index{VMEditorVertices@{VMEditorVertices}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_v_m_editor_vertices_ace292193ea7f4a08d79c590a17384c57}{V\+M\+Editor\+Vertices}} (std\+::function$<$ void(bool)$>$vm\+Did\+Hide\+Add\+Vertex\+Bt, std\+::function$<$ void(bool)$>$vm\+Did\+Enable\+Submit\+Bt, std\+::function$<$ void()$>$vm\+Did\+Provide\+Starting\+U\+I\+State, std\+::function$<$ void(\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$)$>$vm\+Did\+Generate\+New\+Shape, std\+::function$<$ void(bool)$>$vm\+Did\+Disable\+Vertex\+Deleting, std\+::function$<$ void()$>$vm\+Did\+Refresh\+Vertex\+List)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_m_editor_vertices_ada7b06ed4146f561c1472148a994a871}{reset\+State\+Using}} (\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$shape\+To\+Be\+Edited)
+\begin{DoxyCompactList}\small\item\em Resets VM given a dependency. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_m_editor_vertices_abe3cb316fd9c1751b0163ab137c01148}{reset\+State\+Using}} (\mbox{\hyperlink{class_i_shape_a8f50993477b5ddb44c0547ef3d547cdc}{I\+Shape\+::\+Shape\+Type}} shape\+Type\+To\+Generate)
+\begin{DoxyCompactList}\small\item\em Resets VM given a dependency. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_v_m_editor_vertices_acd45db915cce57f22aef0fa5869c78b8}{get\+Lbl\+Txt\+Title}} () const
+\begin{DoxyCompactList}\small\item\em Gets title string. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_v_m_editor_vertices_a0db2a882a7334d63902bbb5e93745efe}{get\+Bt\+Txt\+Cancel}} () const
+\begin{DoxyCompactList}\small\item\em Gets cancel button text. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_v_m_editor_vertices_added9bc98a3854b9639ea4f1e4c58e25}{get\+Bt\+Txt\+Submit}} () const
+\begin{DoxyCompactList}\small\item\em Gets submit button text for current mode. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_v_m_editor_vertices_ac126c0b810f29c803f54cea4a50b6953}{get\+Current\+Vertex\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Gets number of vertices in memory. \end{DoxyCompactList}\item 
+std\+::tuple$<$ Q\+String, Q\+String $>$ \mbox{\hyperlink{class_v_m_editor_vertices_a1fce7e9467a432c63700f889ab8d6d59}{get\+Vertex\+At}} (int index) const
+\begin{DoxyCompactList}\small\item\em Retrieves a vertex at a specified index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_m_editor_vertices_a3dafad61c61cfd7b90d2e1651daa79be}{finish\+Editing}} ()
+\begin{DoxyCompactList}\small\item\em Call this when user presses the submit button to finalize editing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_m_editor_vertices_a33f91a61158bbac2b540ca80ac75eaf1}{reorder\+Vertex}} (int from\+Index, int to\+Dest\+Index)
+\begin{DoxyCompactList}\small\item\em Moves a vertex to another spot to reorder the vertices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_m_editor_vertices_a990cf169787aa12ee32aebde378b99f8}{create\+Vertex}} ()
+\begin{DoxyCompactList}\small\item\em Creates a blank vertex in memory. \end{DoxyCompactList}\item 
+std\+::tuple$<$ Q\+String, Q\+String $>$ \mbox{\hyperlink{class_v_m_editor_vertices_a3629c7c6ec4cdc153bc12bed2f1504e8}{read\+Vertext\+At}} (int index) const
+\begin{DoxyCompactList}\small\item\em Retrieves a vertex from memory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_m_editor_vertices_addd6dff8c7d5a7d582d9b6cb4f677843}{update\+Vertex\+At}} (int index, Q\+String newX, Q\+String newY)
+\begin{DoxyCompactList}\small\item\em Updates the values for a vertex. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_v_m_editor_vertices_a5f1f8f3172ff525863df9bd619d57001}{remove\+Vertex\+At}} (int index)
+\begin{DoxyCompactList}\small\item\em Removes a vertex from memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_v_m_editor_vertices_ace292193ea7f4a08d79c590a17384c57}\label{class_v_m_editor_vertices_ace292193ea7f4a08d79c590a17384c57}} 
+\index{VMEditorVertices@{VMEditorVertices}!VMEditorVertices@{VMEditorVertices}}
+\index{VMEditorVertices@{VMEditorVertices}!VMEditorVertices@{VMEditorVertices}}
+\subsubsection{\texorpdfstring{VMEditorVertices()}{VMEditorVertices()}}
+{\footnotesize\ttfamily V\+M\+Editor\+Vertices\+::\+V\+M\+Editor\+Vertices (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(bool)$>$}]{vm\+Did\+Hide\+Add\+Vertex\+Bt,  }\item[{std\+::function$<$ void(bool)$>$}]{vm\+Did\+Enable\+Submit\+Bt,  }\item[{std\+::function$<$ void()$>$}]{vm\+Did\+Provide\+Starting\+U\+I\+State,  }\item[{std\+::function$<$ void(\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$)$>$}]{vm\+Did\+Generate\+New\+Shape,  }\item[{std\+::function$<$ void(bool)$>$}]{vm\+Did\+Disable\+Vertex\+Deleting,  }\item[{std\+::function$<$ void()$>$}]{vm\+Did\+Refresh\+Vertex\+List }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vm\+Did\+Hide\+Add\+Vertex\+Bt} & Dictates whether the add button should be hidden or not. \\
+\hline
+{\em vm\+Did\+Enable\+Submit\+Bt} & Dictates whether the submit button should be enabled or not. \\
+\hline
+{\em vm\+Did\+Provide\+Starting\+U\+I\+State} & Provides stuff necessary to style the UI on init. \\
+\hline
+{\em vm\+Did\+Generate\+New\+Shape} & Callback for when a new shape is generated. \\
+\hline
+{\em vm\+Did\+Disable\+Vertex\+Deleting} & Controls when deleting vertices is disabled or not. \\
+\hline
+{\em vm\+Did\+Refresh\+Vertex\+List} & Controls when the vertex list should be refreshed. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_v_m_editor_vertices_a990cf169787aa12ee32aebde378b99f8}\label{class_v_m_editor_vertices_a990cf169787aa12ee32aebde378b99f8}} 
+\index{VMEditorVertices@{VMEditorVertices}!createVertex@{createVertex}}
+\index{createVertex@{createVertex}!VMEditorVertices@{VMEditorVertices}}
+\subsubsection{\texorpdfstring{createVertex()}{createVertex()}}
+{\footnotesize\ttfamily void V\+M\+Editor\+Vertices\+::create\+Vertex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates a blank vertex in memory. 
+
+\mbox{\Hypertarget{class_v_m_editor_vertices_a3dafad61c61cfd7b90d2e1651daa79be}\label{class_v_m_editor_vertices_a3dafad61c61cfd7b90d2e1651daa79be}} 
+\index{VMEditorVertices@{VMEditorVertices}!finishEditing@{finishEditing}}
+\index{finishEditing@{finishEditing}!VMEditorVertices@{VMEditorVertices}}
+\subsubsection{\texorpdfstring{finishEditing()}{finishEditing()}}
+{\footnotesize\ttfamily void V\+M\+Editor\+Vertices\+::finish\+Editing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Call this when user presses the submit button to finalize editing. 
+
+\mbox{\Hypertarget{class_v_m_editor_vertices_a0db2a882a7334d63902bbb5e93745efe}\label{class_v_m_editor_vertices_a0db2a882a7334d63902bbb5e93745efe}} 
+\index{VMEditorVertices@{VMEditorVertices}!getBtTxtCancel@{getBtTxtCancel}}
+\index{getBtTxtCancel@{getBtTxtCancel}!VMEditorVertices@{VMEditorVertices}}
+\subsubsection{\texorpdfstring{getBtTxtCancel()}{getBtTxtCancel()}}
+{\footnotesize\ttfamily Q\+String V\+M\+Editor\+Vertices\+::get\+Bt\+Txt\+Cancel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets cancel button text. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_editor_vertices_added9bc98a3854b9639ea4f1e4c58e25}\label{class_v_m_editor_vertices_added9bc98a3854b9639ea4f1e4c58e25}} 
+\index{VMEditorVertices@{VMEditorVertices}!getBtTxtSubmit@{getBtTxtSubmit}}
+\index{getBtTxtSubmit@{getBtTxtSubmit}!VMEditorVertices@{VMEditorVertices}}
+\subsubsection{\texorpdfstring{getBtTxtSubmit()}{getBtTxtSubmit()}}
+{\footnotesize\ttfamily Q\+String V\+M\+Editor\+Vertices\+::get\+Bt\+Txt\+Submit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets submit button text for current mode. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_editor_vertices_ac126c0b810f29c803f54cea4a50b6953}\label{class_v_m_editor_vertices_ac126c0b810f29c803f54cea4a50b6953}} 
+\index{VMEditorVertices@{VMEditorVertices}!getCurrentVertexCount@{getCurrentVertexCount}}
+\index{getCurrentVertexCount@{getCurrentVertexCount}!VMEditorVertices@{VMEditorVertices}}
+\subsubsection{\texorpdfstring{getCurrentVertexCount()}{getCurrentVertexCount()}}
+{\footnotesize\ttfamily int V\+M\+Editor\+Vertices\+::get\+Current\+Vertex\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets number of vertices in memory. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_editor_vertices_acd45db915cce57f22aef0fa5869c78b8}\label{class_v_m_editor_vertices_acd45db915cce57f22aef0fa5869c78b8}} 
+\index{VMEditorVertices@{VMEditorVertices}!getLblTxtTitle@{getLblTxtTitle}}
+\index{getLblTxtTitle@{getLblTxtTitle}!VMEditorVertices@{VMEditorVertices}}
+\subsubsection{\texorpdfstring{getLblTxtTitle()}{getLblTxtTitle()}}
+{\footnotesize\ttfamily Q\+String V\+M\+Editor\+Vertices\+::get\+Lbl\+Txt\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets title string. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_editor_vertices_a1fce7e9467a432c63700f889ab8d6d59}\label{class_v_m_editor_vertices_a1fce7e9467a432c63700f889ab8d6d59}} 
+\index{VMEditorVertices@{VMEditorVertices}!getVertexAt@{getVertexAt}}
+\index{getVertexAt@{getVertexAt}!VMEditorVertices@{VMEditorVertices}}
+\subsubsection{\texorpdfstring{getVertexAt()}{getVertexAt()}}
+{\footnotesize\ttfamily std\+::tuple$<$ Q\+String, Q\+String $>$ V\+M\+Editor\+Vertices\+::get\+Vertex\+At (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves a vertex at a specified index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index to look at. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::tuple$<$\+Q\+String, Q\+String$>$\+: The vertex. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_editor_vertices_a3629c7c6ec4cdc153bc12bed2f1504e8}\label{class_v_m_editor_vertices_a3629c7c6ec4cdc153bc12bed2f1504e8}} 
+\index{VMEditorVertices@{VMEditorVertices}!readVertextAt@{readVertextAt}}
+\index{readVertextAt@{readVertextAt}!VMEditorVertices@{VMEditorVertices}}
+\subsubsection{\texorpdfstring{readVertextAt()}{readVertextAt()}}
+{\footnotesize\ttfamily std\+::tuple$<$ Q\+String, Q\+String $>$ V\+M\+Editor\+Vertices\+::read\+Vertext\+At (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves a vertex from memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index to look in. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::tuple$<$\+Q\+String, Q\+String$>$\+: The vertex data. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_v_m_editor_vertices_a5f1f8f3172ff525863df9bd619d57001}\label{class_v_m_editor_vertices_a5f1f8f3172ff525863df9bd619d57001}} 
+\index{VMEditorVertices@{VMEditorVertices}!removeVertexAt@{removeVertexAt}}
+\index{removeVertexAt@{removeVertexAt}!VMEditorVertices@{VMEditorVertices}}
+\subsubsection{\texorpdfstring{removeVertexAt()}{removeVertexAt()}}
+{\footnotesize\ttfamily void V\+M\+Editor\+Vertices\+::remove\+Vertex\+At (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Removes a vertex from memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The vertex number to remove. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_v_m_editor_vertices_a33f91a61158bbac2b540ca80ac75eaf1}\label{class_v_m_editor_vertices_a33f91a61158bbac2b540ca80ac75eaf1}} 
+\index{VMEditorVertices@{VMEditorVertices}!reorderVertex@{reorderVertex}}
+\index{reorderVertex@{reorderVertex}!VMEditorVertices@{VMEditorVertices}}
+\subsubsection{\texorpdfstring{reorderVertex()}{reorderVertex()}}
+{\footnotesize\ttfamily void V\+M\+Editor\+Vertices\+::reorder\+Vertex (\begin{DoxyParamCaption}\item[{int}]{from\+Index,  }\item[{int}]{to\+Dest\+Index }\end{DoxyParamCaption})}
+
+
+
+Moves a vertex to another spot to reorder the vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from\+Index} & Index to move. \\
+\hline
+{\em to\+Dest\+Index} & Index to move to. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_v_m_editor_vertices_ada7b06ed4146f561c1472148a994a871}\label{class_v_m_editor_vertices_ada7b06ed4146f561c1472148a994a871}} 
+\index{VMEditorVertices@{VMEditorVertices}!resetStateUsing@{resetStateUsing}}
+\index{resetStateUsing@{resetStateUsing}!VMEditorVertices@{VMEditorVertices}}
+\subsubsection{\texorpdfstring{resetStateUsing()}{resetStateUsing()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void V\+M\+Editor\+Vertices\+::reset\+State\+Using (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$}]{shape\+To\+Be\+Edited }\end{DoxyParamCaption})}
+
+
+
+Resets VM given a dependency. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape\+To\+Be\+Edited} & Triggers edit mode for this particular shape. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_v_m_editor_vertices_abe3cb316fd9c1751b0163ab137c01148}\label{class_v_m_editor_vertices_abe3cb316fd9c1751b0163ab137c01148}} 
+\index{VMEditorVertices@{VMEditorVertices}!resetStateUsing@{resetStateUsing}}
+\index{resetStateUsing@{resetStateUsing}!VMEditorVertices@{VMEditorVertices}}
+\subsubsection{\texorpdfstring{resetStateUsing()}{resetStateUsing()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void V\+M\+Editor\+Vertices\+::reset\+State\+Using (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_shape_a8f50993477b5ddb44c0547ef3d547cdc}{I\+Shape\+::\+Shape\+Type}}}]{shape\+Type\+To\+Generate }\end{DoxyParamCaption})}
+
+
+
+Resets VM given a dependency. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape\+Type\+To\+Generate} & Triggers shape generation mode for this kind of shape. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_v_m_editor_vertices_addd6dff8c7d5a7d582d9b6cb4f677843}\label{class_v_m_editor_vertices_addd6dff8c7d5a7d582d9b6cb4f677843}} 
+\index{VMEditorVertices@{VMEditorVertices}!updateVertexAt@{updateVertexAt}}
+\index{updateVertexAt@{updateVertexAt}!VMEditorVertices@{VMEditorVertices}}
+\subsubsection{\texorpdfstring{updateVertexAt()}{updateVertexAt()}}
+{\footnotesize\ttfamily void V\+M\+Editor\+Vertices\+::update\+Vertex\+At (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{Q\+String}]{newX,  }\item[{Q\+String}]{newY }\end{DoxyParamCaption})}
+
+
+
+Updates the values for a vertex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The vertex to edit. \\
+\hline
+{\em newX} & New value for x coordinate. \\
+\hline
+{\em newY} & New value for y coordinate. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/viewmodels/vmeditorvertices.\+h\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/viewmodels/vmeditorvertices.\+cpp\end{DoxyCompactItemize}

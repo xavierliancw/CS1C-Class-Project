@@ -1,7 +1,7 @@
 #include "shaperect.h"
 
-ShapeRect::ShapeRect(int id, int originX, int originY, int width, int height):
-    IShape(id, ShapeType::Rectangle)
+ShapeRect::ShapeRect(IShape::ShapeType shapeType, int originX, int originY, int width, int height):
+    IShape(-1, shapeType)
 {
     frame = QRect(originX, originY, width, height);
 }

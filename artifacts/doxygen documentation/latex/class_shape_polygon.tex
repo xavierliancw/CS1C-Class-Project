@@ -1,0 +1,188 @@
+\hypertarget{class_shape_polygon}{}\section{Shape\+Polygon Class Reference}
+\label{class_shape_polygon}\index{ShapePolygon@{ShapePolygon}}
+
+
+Polygon shape that can be drawn on the graphics canvas.  
+
+
+
+
+{\ttfamily \#include $<$shapepolygon.\+h$>$}
+
+Inheritance diagram for Shape\+Polygon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_shape_polygon}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_shape_polygon_a61a8bdd77cdf95139b6ee728a9000e45}{Shape\+Polygon}} (const Q\+Vector$<$ Q\+Point $>$ \&points)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_shape_polygon_a51d433edd43f608acce1fae81e5583d5}{Shape\+Polygon}} (const \mbox{\hyperlink{class_shape_polygon}{Shape\+Polygon}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_shape_polygon}{Shape\+Polygon}} \& \mbox{\hyperlink{class_shape_polygon_ae16e02c40d2c3e05aeba75613e38de12}{operator=}} (const \mbox{\hyperlink{class_shape_polygon}{Shape\+Polygon}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_shape_polygon_a6f4ed4749a739aaf44b5680d75ae8538}{draw}} (Q\+Painter \&)
+\begin{DoxyCompactList}\small\item\em Renders this polygon through a given Q\+Painter object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_shape_polygon_a1f67f660d14090b21c00e2892f764451}{move}} (int scootX, int scootY)
+\begin{DoxyCompactList}\small\item\em Moves the polygon\textquotesingle{}s coordinates a specified amount. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_shape_polygon_acb81cc3272ad00038abd6f1a7a155b2e}{perimeter}} () const
+\begin{DoxyCompactList}\small\item\em Calculates the perimeter of this polygon. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_shape_polygon_a60c6cad5af503e0c405523a06e9471eb}{area}} () const
+\begin{DoxyCompactList}\small\item\em Calculates the area of this polygon. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Polygon \mbox{\hyperlink{class_shape_polygon_a28be8d33f69f3e0e895acd9d574a814f}{poly}}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Polygon shape that can be drawn on the graphics canvas. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_shape_polygon_a61a8bdd77cdf95139b6ee728a9000e45}\label{class_shape_polygon_a61a8bdd77cdf95139b6ee728a9000e45}} 
+\index{ShapePolygon@{ShapePolygon}!ShapePolygon@{ShapePolygon}}
+\index{ShapePolygon@{ShapePolygon}!ShapePolygon@{ShapePolygon}}
+\subsubsection{\texorpdfstring{ShapePolygon()}{ShapePolygon()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Shape\+Polygon\+::\+Shape\+Polygon (\begin{DoxyParamCaption}\item[{const Q\+Vector$<$ Q\+Point $>$ \&}]{points }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Vector of points that define the vertices of the polygon. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_shape_polygon_a51d433edd43f608acce1fae81e5583d5}\label{class_shape_polygon_a51d433edd43f608acce1fae81e5583d5}} 
+\index{ShapePolygon@{ShapePolygon}!ShapePolygon@{ShapePolygon}}
+\index{ShapePolygon@{ShapePolygon}!ShapePolygon@{ShapePolygon}}
+\subsubsection{\texorpdfstring{ShapePolygon()}{ShapePolygon()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Shape\+Polygon\+::\+Shape\+Polygon (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_shape_polygon}{Shape\+Polygon}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_shape_polygon}{Shape\+Polygon}}} & to copy from. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_shape_polygon_a60c6cad5af503e0c405523a06e9471eb}\label{class_shape_polygon_a60c6cad5af503e0c405523a06e9471eb}} 
+\index{ShapePolygon@{ShapePolygon}!area@{area}}
+\index{area@{area}!ShapePolygon@{ShapePolygon}}
+\subsubsection{\texorpdfstring{area()}{area()}}
+{\footnotesize\ttfamily double Shape\+Polygon\+::area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the area of this polygon. 
+
+\begin{DoxyReturn}{Returns}
+double\+: The area of the polygon in pixels. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_shape_aed742a160acdd13c9cfdeb16e605afea}{I\+Shape}}.
+
+\mbox{\Hypertarget{class_shape_polygon_a6f4ed4749a739aaf44b5680d75ae8538}\label{class_shape_polygon_a6f4ed4749a739aaf44b5680d75ae8538}} 
+\index{ShapePolygon@{ShapePolygon}!draw@{draw}}
+\index{draw@{draw}!ShapePolygon@{ShapePolygon}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Shape\+Polygon\+::draw (\begin{DoxyParamCaption}\item[{Q\+Painter \&}]{painter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Renders this polygon through a given Q\+Painter object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & Q\+Painter object that handles rendering shapes. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_shape_ad97c626e7e2c9afb9f51efc41b836e6f}{I\+Shape}}.
+
+\mbox{\Hypertarget{class_shape_polygon_a1f67f660d14090b21c00e2892f764451}\label{class_shape_polygon_a1f67f660d14090b21c00e2892f764451}} 
+\index{ShapePolygon@{ShapePolygon}!move@{move}}
+\index{move@{move}!ShapePolygon@{ShapePolygon}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Shape\+Polygon\+::move (\begin{DoxyParamCaption}\item[{int}]{scootX,  }\item[{int}]{scootY }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Moves the polygon\textquotesingle{}s coordinates a specified amount. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scootX} & Number of pixels to scoot this rectangle in the X direction. \\
+\hline
+{\em scootY} & Number of pixels to scoot this rectangle in the Y direction. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_shape_a3d23494cd34e658cc6b39a2e2db0b7fe}{I\+Shape}}.
+
+\mbox{\Hypertarget{class_shape_polygon_ae16e02c40d2c3e05aeba75613e38de12}\label{class_shape_polygon_ae16e02c40d2c3e05aeba75613e38de12}} 
+\index{ShapePolygon@{ShapePolygon}!operator=@{operator=}}
+\index{operator=@{operator=}!ShapePolygon@{ShapePolygon}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_shape_polygon}{Shape\+Polygon}}\& Shape\+Polygon\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_shape_polygon}{Shape\+Polygon}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Deleted copy assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_shape_polygon}{Shape\+Polygon}}} & to copy from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_shape_polygon}{Shape\+Polygon}} \&operator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shape_polygon_acb81cc3272ad00038abd6f1a7a155b2e}\label{class_shape_polygon_acb81cc3272ad00038abd6f1a7a155b2e}} 
+\index{ShapePolygon@{ShapePolygon}!perimeter@{perimeter}}
+\index{perimeter@{perimeter}!ShapePolygon@{ShapePolygon}}
+\subsubsection{\texorpdfstring{perimeter()}{perimeter()}}
+{\footnotesize\ttfamily double Shape\+Polygon\+::perimeter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the perimeter of this polygon. 
+
+\begin{DoxyReturn}{Returns}
+double\+: The perimeter of the polygon in pixels. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_shape_a485f6770c4e56b31c76d368b959b6f00}{I\+Shape}}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_shape_polygon_a28be8d33f69f3e0e895acd9d574a814f}\label{class_shape_polygon_a28be8d33f69f3e0e895acd9d574a814f}} 
+\index{ShapePolygon@{ShapePolygon}!poly@{poly}}
+\index{poly@{poly}!ShapePolygon@{ShapePolygon}}
+\subsubsection{\texorpdfstring{poly}{poly}}
+{\footnotesize\ttfamily Q\+Polygon Shape\+Polygon\+::poly}
+
+Stores the vertices of this polygon. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/models/shapepolygon.\+h\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/models/shapepolygon.\+cpp\end{DoxyCompactItemize}

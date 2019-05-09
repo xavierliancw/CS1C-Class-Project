@@ -1,0 +1,68 @@
+\hypertarget{struct_j_s_o_n_shape}{}\section{J\+S\+O\+N\+Shape Struct Reference}
+\label{struct_j_s_o_n_shape}\index{JSONShape@{JSONShape}}
+
+
+Transformational struct that serializes and deserializes shapes to and from J\+S\+ON.  
+
+
+
+
+{\ttfamily \#include $<$jsonshape.\+h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Q\+Json\+Object \mbox{\hyperlink{struct_j_s_o_n_shape_a38bb052953becd55f29000f819aa314d}{to\+J\+S\+ON}} (const \mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$shape\+To\+Serialize)
+\begin{DoxyCompactList}\small\item\em Converts a shape to J\+S\+ON. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$ \mbox{\hyperlink{struct_j_s_o_n_shape_ae3db5716fcc492a8c2628d77ea04d454}{from\+J\+S\+ON}} (const Q\+Json\+Object \&json)
+\begin{DoxyCompactList}\small\item\em Generates a shape in dynamic memory from J\+S\+ON. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Transformational struct that serializes and deserializes shapes to and from J\+S\+ON. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_j_s_o_n_shape_ae3db5716fcc492a8c2628d77ea04d454}\label{struct_j_s_o_n_shape_ae3db5716fcc492a8c2628d77ea04d454}} 
+\index{JSONShape@{JSONShape}!fromJSON@{fromJSON}}
+\index{fromJSON@{fromJSON}!JSONShape@{JSONShape}}
+\subsubsection{\texorpdfstring{fromJSON()}{fromJSON()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_i_shape}{I\+Shape}}$\ast$ J\+S\+O\+N\+Shape\+::from\+J\+S\+ON (\begin{DoxyParamCaption}\item[{const Q\+Json\+Object \&}]{json }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Generates a shape in dynamic memory from J\+S\+ON. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em json} & J\+S\+ON to read from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_i_shape}{I\+Shape}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_j_s_o_n_shape_a38bb052953becd55f29000f819aa314d}\label{struct_j_s_o_n_shape_a38bb052953becd55f29000f819aa314d}} 
+\index{JSONShape@{JSONShape}!toJSON@{toJSON}}
+\index{toJSON@{toJSON}!JSONShape@{JSONShape}}
+\subsubsection{\texorpdfstring{toJSON()}{toJSON()}}
+{\footnotesize\ttfamily static Q\+Json\+Object J\+S\+O\+N\+Shape\+::to\+J\+S\+ON (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$}]{shape\+To\+Serialize }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Converts a shape to J\+S\+ON. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape\+To\+Serialize} & The shape to serialize. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Q\+Json\+Object 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/models/jsonshape.\+h\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/models/jsonshape.\+cpp\end{DoxyCompactItemize}

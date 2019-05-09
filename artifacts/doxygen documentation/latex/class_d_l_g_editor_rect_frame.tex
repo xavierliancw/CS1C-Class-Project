@@ -1,0 +1,86 @@
+\hypertarget{class_d_l_g_editor_rect_frame}{}\section{D\+L\+G\+Editor\+Rect\+Frame Class Reference}
+\label{class_d_l_g_editor_rect_frame}\index{DLGEditorRectFrame@{DLGEditorRectFrame}}
+
+
+Dialog that edits rects which allows for generating rectangles and circles. This generates a rectangle shape in dynamic memory, returning a pointer to it through a lambda callback initialized in its constructor.  
+
+
+
+
+{\ttfamily \#include $<$dlgeditorrectframe.\+h$>$}
+
+Inheritance diagram for D\+L\+G\+Editor\+Rect\+Frame\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_d_l_g_editor_rect_frame}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_d_l_g_editor_rect_frame_a9a800ac2abdc6abb515c12a911ff5477}{D\+L\+G\+Editor\+Rect\+Frame}} (Q\+Widget $\ast$parent, \mbox{\hyperlink{class_i_shape_a8f50993477b5ddb44c0547ef3d547cdc}{I\+Shape\+::\+Shape\+Type}} shape\+Type\+To\+Gen, std\+::function$<$ void(\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$)$>$ dlg\+Did\+Give\+Rect\+Result)
+\begin{DoxyCompactList}\small\item\em Constructor used for generating new shapes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_d_l_g_editor_rect_frame_aed3ab2ad2cd095c140b91357b93a0515}{D\+L\+G\+Editor\+Rect\+Frame}} (Q\+Widget $\ast$parent, \mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$shape\+To\+Edit)
+\begin{DoxyCompactList}\small\item\em Constructor used for editing existing shapes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_d_l_g_editor_rect_frame_a1d27bddcdac8f640544fd7768cfb0e02}{$\sim$\+D\+L\+G\+Editor\+Rect\+Frame}} () override
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Dialog that edits rects which allows for generating rectangles and circles. This generates a rectangle shape in dynamic memory, returning a pointer to it through a lambda callback initialized in its constructor. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_d_l_g_editor_rect_frame_a9a800ac2abdc6abb515c12a911ff5477}\label{class_d_l_g_editor_rect_frame_a9a800ac2abdc6abb515c12a911ff5477}} 
+\index{DLGEditorRectFrame@{DLGEditorRectFrame}!DLGEditorRectFrame@{DLGEditorRectFrame}}
+\index{DLGEditorRectFrame@{DLGEditorRectFrame}!DLGEditorRectFrame@{DLGEditorRectFrame}}
+\subsubsection{\texorpdfstring{DLGEditorRectFrame()}{DLGEditorRectFrame()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily D\+L\+G\+Editor\+Rect\+Frame\+::\+D\+L\+G\+Editor\+Rect\+Frame (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent,  }\item[{\mbox{\hyperlink{class_i_shape_a8f50993477b5ddb44c0547ef3d547cdc}{I\+Shape\+::\+Shape\+Type}}}]{shape\+Type\+To\+Gen,  }\item[{std\+::function$<$ void(\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$)$>$}]{dlg\+Did\+Give\+Rect\+Result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor used for generating new shapes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Parent pointer. \\
+\hline
+{\em shape\+Type\+To\+Gen} & The kind of shape to generate. \\
+\hline
+{\em rect\+Result} & Callback for generated shapes. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_d_l_g_editor_rect_frame_aed3ab2ad2cd095c140b91357b93a0515}\label{class_d_l_g_editor_rect_frame_aed3ab2ad2cd095c140b91357b93a0515}} 
+\index{DLGEditorRectFrame@{DLGEditorRectFrame}!DLGEditorRectFrame@{DLGEditorRectFrame}}
+\index{DLGEditorRectFrame@{DLGEditorRectFrame}!DLGEditorRectFrame@{DLGEditorRectFrame}}
+\subsubsection{\texorpdfstring{DLGEditorRectFrame()}{DLGEditorRectFrame()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily D\+L\+G\+Editor\+Rect\+Frame\+::\+D\+L\+G\+Editor\+Rect\+Frame (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent,  }\item[{\mbox{\hyperlink{class_i_shape}{I\+Shape}} $\ast$}]{shape\+To\+Edit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor used for editing existing shapes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Parent pointer. \\
+\hline
+{\em shape\+To\+Edit} & The shape to edit. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_d_l_g_editor_rect_frame_a1d27bddcdac8f640544fd7768cfb0e02}\label{class_d_l_g_editor_rect_frame_a1d27bddcdac8f640544fd7768cfb0e02}} 
+\index{DLGEditorRectFrame@{DLGEditorRectFrame}!````~DLGEditorRectFrame@{$\sim$DLGEditorRectFrame}}
+\index{````~DLGEditorRectFrame@{$\sim$DLGEditorRectFrame}!DLGEditorRectFrame@{DLGEditorRectFrame}}
+\subsubsection{\texorpdfstring{$\sim$DLGEditorRectFrame()}{~DLGEditorRectFrame()}}
+{\footnotesize\ttfamily D\+L\+G\+Editor\+Rect\+Frame\+::$\sim$\+D\+L\+G\+Editor\+Rect\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Destructor. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/ui/dlgeditorrectframe.\+h\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/ui/dlgeditorrectframe.\+cpp\end{DoxyCompactItemize}
