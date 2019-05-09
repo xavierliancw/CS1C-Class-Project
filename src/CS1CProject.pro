@@ -85,7 +85,8 @@ HEADERS += \
     ui/dlgeditorrectframe.h \
     viewmodels/vmeditorrectframe.h \
     ui/dlgeditortext.h \
-    ui/dlgshapereport.h
+    ui/dlgshapereport.h \
+    util/customsorts.h
 
 FORMS += \
     ui/dlgloginscreen.ui \
