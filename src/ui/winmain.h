@@ -1,6 +1,7 @@
 #ifndef WINMAIN_H
 #define WINMAIN_H
 
+#include "dlgshapereport.h"
 #include "dlgcontactform.h"
 #include "dlgeditorrectframe.h"
 #include "dlgtestimonialcreate.h"
@@ -116,6 +117,7 @@ private:
     void initRectEditor();
     void initTxtEditor();
     void updatePropInspectorVisibility();
+    void initReportGenBt();
 
     //Welcome screen UI
     void initStartBt();

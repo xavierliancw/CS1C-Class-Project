@@ -48,6 +48,7 @@ WINMain::WINMain(QWidget *parent) :
     initPropertyInspector();
     initVertexEditor();
     initTxtEditor();
+    initReportGenBt();
 
     //Start the refresh timer that live renders the canvas
     refreshTimer = new QTimer(this);
@@ -730,4 +731,19 @@ void WINMain::updatePropInspectorVisibility()
     {
         ui->canvasPgPropInspStck->setCurrentWidget(ui->propInspPg0);
     }
+}
+
+void WINMain::initReportGenBt()
+{
+    connect(ui->reportGenerateBt, &QPushButton::clicked, ui->reportGenerateBt, [this]()
+    {
+        QVector<IShape*> shapes;
+        for (int x = 0; x < vm.getNumberOfShapesOnCanvas(); ++x)
+        {
+            shapes.push_back(vm.getShapeAtLayer(x));
+        }
+        DLGShapeReport *dlg = new DLGShapeReport(this, shapes);
+        dlg->setAttribute(Qt::WA_DeleteOnClose);
+        dlg->exec();
+    });
 }

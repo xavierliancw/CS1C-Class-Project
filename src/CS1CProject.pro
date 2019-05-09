@@ -52,7 +52,8 @@ SOURCES += \
     viewmodels/vmeditorvertices.cpp \
     ui/dlgeditorrectframe.cpp \
     viewmodels/vmeditorrectframe.cpp \
-    ui/dlgeditortext.cpp
+    ui/dlgeditortext.cpp \
+    ui/dlgshapereport.cpp
 
 HEADERS += \
     ui/dlgloginscreen.h \
@@ -83,7 +84,8 @@ HEADERS += \
     viewmodels/vmeditorvertices.h \
     ui/dlgeditorrectframe.h \
     viewmodels/vmeditorrectframe.h \
-    ui/dlgeditortext.h
+    ui/dlgeditortext.h \
+    ui/dlgshapereport.h
 
 FORMS += \
     ui/dlgloginscreen.ui \
@@ -95,7 +97,8 @@ FORMS += \
     ui/lcshapelayer.ui \
     ui/lceditvertex.ui \
     ui/dlgeditorvertices.ui \
-    ui/dlgeditortext.ui
+    ui/dlgeditortext.ui \
+    ui/dlgshapereport.ui
 
 CONFIG += mobility
 MOBILITY = 
