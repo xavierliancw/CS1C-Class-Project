@@ -26,6 +26,7 @@
 #include <QColorDialog>
 #include <QMovie>
 #include <QStackedLayout>
+#include <QDesktopWidget>
 
 namespace Ui {
 class WINMain;

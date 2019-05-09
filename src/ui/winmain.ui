@@ -29,6 +29,18 @@
     </property>
     <item row="2" column="2">
      <widget class="QPushButton" name="contactBt">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>50</height>
+       </size>
+      </property>
       <property name="autoFillBackground">
        <bool>false</bool>
       </property>
@@ -73,9 +85,9 @@
         <property name="geometry">
          <rect>
           <x>40</x>
-          <y>40</y>
+          <y>-10</y>
           <width>631</width>
-          <height>402</height>
+          <height>411</height>
          </rect>
         </property>
         <property name="frameShape">
@@ -101,26 +113,6 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="2">
-          <spacer name="verticalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="2" column="2">
-          <widget class="QPushButton" name="startBt">
-           <property name="text">
-            <string>Begin</string>
-           </property>
-          </widget>
-         </item>
          <item row="0" column="1">
           <spacer name="horizontalSpacer_3">
            <property name="orientation">
@@ -134,7 +126,37 @@
            </property>
           </spacer>
          </item>
-         <item row="0" column="0" rowspan="4">
+         <item row="2" column="2">
+          <widget class="QPushButton" name="startBt">
+           <property name="text">
+            <string>Begin</string>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="4" column="2">
+          <widget class="QPushButton" name="quitBt">
+           <property name="text">
+            <string>Quit</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" rowspan="5">
           <widget class="QListWidget" name="welcomeTestimonialListVw">
            <property name="frameShape">
             <enum>QFrame::NoFrame</enum>
@@ -155,8 +177,8 @@
        <widget class="QLabel" name="movieLbl">
         <property name="geometry">
          <rect>
-          <x>410</x>
-          <y>20</y>
+          <x>680</x>
+          <y>40</y>
           <width>59</width>
           <height>16</height>
          </rect>
@@ -681,6 +703,32 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>startBt</tabstop>
+  <tabstop>contactBt</tabstop>
+  <tabstop>welcomeTestimonialListVw</tabstop>
+  <tabstop>guestPreviewBackBt</tabstop>
+  <tabstop>guestPreviewEditBt</tabstop>
+  <tabstop>canvasPgBackBt</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>addSquareBt</tabstop>
+  <tabstop>addRectBt</tabstop>
+  <tabstop>addLineBt</tabstop>
+  <tabstop>addPolyLineBt</tabstop>
+  <tabstop>addCircleBt</tabstop>
+  <tabstop>addPolygonBt</tabstop>
+  <tabstop>addEllipseBt</tabstop>
+  <tabstop>addTxtBt</tabstop>
+  <tabstop>canvasPgLayerListVw</tabstop>
+  <tabstop>propInspPenJoinStyleCB</tabstop>
+  <tabstop>propInspPenClrBt</tabstop>
+  <tabstop>propInspPenWidthSB</tabstop>
+  <tabstop>propInspBrushStyleCB</tabstop>
+  <tabstop>propInspPenStyleCB</tabstop>
+  <tabstop>propInspBrushClrBt</tabstop>
+  <tabstop>propInspPenCapCB</tabstop>
+  <tabstop>addTestimonialBt</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

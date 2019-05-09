@@ -8,6 +8,7 @@ DLGContactForm::DLGContactForm(QWidget *parent) :
 {
     ui->setupUi(this); 
     ui->submitBt->setDisabled(true);
+    QWidget::setWindowTitle("Contact Us");
 
     connect(ui->inquiryTE, &QTextEdit::textChanged, ui->inquiryTE, [this](){
         this->updateSubmitButton();

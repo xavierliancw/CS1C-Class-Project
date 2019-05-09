@@ -9,6 +9,7 @@ DLGLoginScreen::DLGLoginScreen(QWidget *parent,
     authCallback(authCallback)
 {
     ui->setupUi(this);
+    QWidget::setWindowTitle("Sign In");
 }
 
 DLGLoginScreen::~DLGLoginScreen()
@@ -24,7 +25,6 @@ void DLGLoginScreen::on_verifiy_clicked()
 
     if (user == "username" && pass == "password")
     {
-        QMessageBox::information(this, "Login", "The username and password are correct");
         authCallback();
         close();
     }

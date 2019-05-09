@@ -22,6 +22,9 @@ WINMain::WINMain(QWidget *parent) :
     stackLay->setStackingMode(QStackedLayout::StackAll);
     ui->welcomePg->setLayout(stackLay);
     ui->movieLbl->show();
+    QSize movieSize = QApplication::desktop()->size();
+    movieSize.setHeight(movieSize.height() - 50);   //Contact us button is 50 tall
+    movie->setScaledSize(movieSize);
     movie->start();
 
     //Initialize UI on welcome page
@@ -157,6 +160,7 @@ void WINMain::initStartBt()
     {
         this->switchScreenToShow(ScreensInWINMain::guest);
     });
+    connect(ui->quitBt, &QPushButton::clicked, ui->quitBt, [this]() {this->close();});
 }
 
 void WINMain::initContactUsBt()
@@ -168,9 +172,9 @@ void WINMain::initContactUsBt()
    ui->contactBt->setIconSize(QSize(65, 65));
     connect(ui->contactBt, &QPushButton::clicked, ui->contactBt, [this]()
     {
-        contactFormWin = new DLGContactForm();
+        contactFormWin = new DLGContactForm(this);
         contactFormWin->setAttribute(Qt::WA_DeleteOnClose);
-        contactFormWin->show();
+        contactFormWin->exec();
     });
 }
 
@@ -183,7 +187,7 @@ void WINMain::initTestimonialCreateBt()
             this->refreshTestimonials();
         });
         testimonialFormWin->setAttribute(Qt::WA_DeleteOnClose);
-        testimonialFormWin->show();
+        testimonialFormWin->exec();
     });
 }
 
@@ -209,12 +213,12 @@ void WINMain::initGuestAuthenticateBt()
 {
     connect(ui->guestPreviewEditBt, &QPushButton::clicked, ui->guestPreviewEditBt, [this]()
     {
-        dlgLogin = new DLGLoginScreen(nullptr, [this]()
+        dlgLogin = new DLGLoginScreen(this, [this]()
         {
             this->switchScreenToShow(ScreensInWINMain::canvas);
         });
         dlgLogin->setAttribute(Qt::WA_DeleteOnClose);
-        dlgLogin->show();
+        dlgLogin->exec();
     });
 }
 
@@ -235,51 +239,52 @@ void WINMain::summonDlgThatEdits(IShape * shapeToEdit)
         {
             DLGEditorVertices* vertEditor = new DLGEditorVertices(this, castedLine);
             vertEditor->setAttribute(Qt::WA_DeleteOnClose);
-            vertEditor->show();
+            vertEditor->exec();
         }
         break;
     case IShape::ShapeType::Text:
         if (ShapeText* casted = dynamic_cast<ShapeText*>(shapeToEdit))
         {
-            DLGEditorText* txtEditor = new DLGEditorText(nullptr,
+            DLGEditorText* txtEditor = new DLGEditorText(this,
                                                          casted,
                                                          [](ShapeText*){});
             txtEditor->setAttribute(Qt::WA_DeleteOnClose);
-            txtEditor->show();
+            txtEditor->exec();
         }
         break;
     case IShape::ShapeType::Circle:
         if (ShapeCircle* casted = dynamic_cast<ShapeCircle*>(shapeToEdit))
         {
-            DLGEditorRectFrame* rectEditor = new DLGEditorRectFrame(nullptr,  casted);
+            DLGEditorRectFrame* rectEditor = new DLGEditorRectFrame(this,  casted);
             rectEditor->setAttribute(Qt::WA_DeleteOnClose);
-            rectEditor->show();
+            rectEditor->exec();
         }
         break;
     case IShape::ShapeType::Square:
         if (ShapeSquare* casted = dynamic_cast<ShapeSquare*>(shapeToEdit))
         {
-            DLGEditorRectFrame* rectEditor = new DLGEditorRectFrame(nullptr, casted);
+            DLGEditorRectFrame* rectEditor = new DLGEditorRectFrame(this, casted);
             rectEditor->setAttribute(Qt::WA_DeleteOnClose);
-            rectEditor->show();
+            rectEditor->exec();
         }
         break;
     case IShape::ShapeType::Ellipse:
         if (ShapeEllipse* casted = dynamic_cast<ShapeEllipse*>(shapeToEdit))
         {
-            DLGEditorRectFrame* rectEditor = new DLGEditorRectFrame(nullptr, casted);
+            DLGEditorRectFrame* rectEditor = new DLGEditorRectFrame(this, casted);
             rectEditor->setAttribute(Qt::WA_DeleteOnClose);
-            rectEditor->show();
+            rectEditor->exec();
         }
         break;
     case IShape::ShapeType::NoShape:
+        qDebug() << "Tried to edit a NoShape";
         break;
     case IShape::ShapeType::Polygon:
         if (ShapePolygon* castedPoly = dynamic_cast<ShapePolygon*>(shapeToEdit))
         {
             DLGEditorVertices* vertEditor = new DLGEditorVertices(this, castedPoly);
             vertEditor->setAttribute(Qt::WA_DeleteOnClose);
-            vertEditor->show();
+            vertEditor->exec();
         }
         break;
     case IShape::ShapeType::Polyline:
@@ -287,7 +292,7 @@ void WINMain::summonDlgThatEdits(IShape * shapeToEdit)
         {
             DLGEditorVertices* vertEditor = new DLGEditorVertices(this, castedPoly);
             vertEditor->setAttribute(Qt::WA_DeleteOnClose);
-            vertEditor->show();
+            vertEditor->exec();
         }
         break;
     case IShape::ShapeType::Triangle:
@@ -295,9 +300,9 @@ void WINMain::summonDlgThatEdits(IShape * shapeToEdit)
     case IShape::ShapeType::Rectangle:
         if (ShapeRect* casted = dynamic_cast<ShapeRect*>(shapeToEdit))
         {
-            DLGEditorRectFrame* rectEditor = new DLGEditorRectFrame(nullptr, casted);
+            DLGEditorRectFrame* rectEditor = new DLGEditorRectFrame(this, casted);
             rectEditor->setAttribute(Qt::WA_DeleteOnClose);
-            rectEditor->show();
+            rectEditor->exec();
         }
         break;
     }
@@ -611,7 +616,7 @@ void WINMain::initVertexEditor()
                     [this](IShape* newShapeCallback) {this->vm.addShape(newShapeCallback);}
                 );
         dlgVertexEditor->setAttribute(Qt::WA_DeleteOnClose);
-        dlgVertexEditor->show();
+        dlgVertexEditor->exec();
     });
     connect(ui->addPolyLineBt, &QPushButton::clicked, ui->addPolyLineBt, [this]()
     {
@@ -621,7 +626,7 @@ void WINMain::initVertexEditor()
                     [this](IShape* newShapeCallback) {this->vm.addShape(newShapeCallback);}
                 );
         dlgVertexEditor->setAttribute(Qt::WA_DeleteOnClose);
-        dlgVertexEditor->show();
+        dlgVertexEditor->exec();
     });
     connect(ui->addLineBt, &QPushButton::clicked, ui->addLineBt, [this]()
     {
@@ -631,7 +636,7 @@ void WINMain::initVertexEditor()
                     [this](IShape* newShapeCallback) {this->vm.addShape(newShapeCallback);}
                 );
         dlgVertexEditor->setAttribute(Qt::WA_DeleteOnClose);
-        dlgVertexEditor->show();
+        dlgVertexEditor->exec();
     });
 }
 
@@ -640,44 +645,44 @@ void WINMain::initRectEditor()
     connect(ui->addRectBt, &QPushButton::clicked, ui->addRectBt, [this]()
     {
         DLGEditorRectFrame* dlg = new DLGEditorRectFrame(
-                    nullptr,
+                    this,
                     IShape::ShapeType::Rectangle,
                     [this](IShape* newShape) {vm.addShape(newShape);}
                 );
         dlg->setAttribute(Qt::WA_DeleteOnClose);
-        dlg->show();
+        dlg->exec();
     });
     connect(ui->addSquareBt, &QPushButton::clicked, ui->addSquareBt, [this]()
     {
         DLGEditorRectFrame* dlg = new DLGEditorRectFrame(
-                    nullptr,
+                    this,
                     IShape::ShapeType::Square,
                     [this](IShape* newShape) {
                 vm.addShape(newShape);
     }
                 );
         dlg->setAttribute(Qt::WA_DeleteOnClose);
-        dlg->show();
+        dlg->exec();
     });
     connect(ui->addEllipseBt, &QPushButton::clicked, ui->addEllipseBt, [this]()
     {
         DLGEditorRectFrame* dlg = new DLGEditorRectFrame(
-                    nullptr,
+                    this,
                     IShape::ShapeType::Ellipse,
                     [this](IShape* newShape) {vm.addShape(newShape);}
                 );
         dlg->setAttribute(Qt::WA_DeleteOnClose);
-        dlg->show();
+        dlg->exec();
     });
     connect(ui->addCircleBt, &QPushButton::clicked, ui->addCircleBt, [this]()
     {
         DLGEditorRectFrame* dlg = new DLGEditorRectFrame(
-                    nullptr,
+                    this,
                     IShape::ShapeType::Circle,
                     [this](IShape* newShape) {vm.addShape(newShape);}
                 );
         dlg->setAttribute(Qt::WA_DeleteOnClose);
-        dlg->show();
+        dlg->exec();
     });
 }
 
@@ -685,11 +690,11 @@ void WINMain::initTxtEditor()
 {
     connect(ui->addTxtBt, &QPushButton::clicked, ui->addTxtBt, [this]()
     {
-        DLGEditorText* dlg = new DLGEditorText(nullptr,
+        DLGEditorText* dlg = new DLGEditorText(this,
                                                nullptr,
                                                [this](ShapeText* newTxt) {vm.addShape(newTxt);});
         dlg->setAttribute(Qt::WA_DeleteOnClose);
-        dlg->show();
+        dlg->exec();
     });
 }
 

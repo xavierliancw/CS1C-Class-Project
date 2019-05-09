@@ -251,7 +251,7 @@ IShape* VMEditorVertices::generateNewShape()
 {
     if (vertices.isEmpty()) {return nullptr;}
 
-    QVector<QPoint> finalVerts(vertices.size());
+    QVector<QPoint> finalVerts;
     bool intConversionSuccessful = true;
     int curX;
     int curY;
@@ -280,7 +280,7 @@ IShape* VMEditorVertices::generateNewShape()
         }
         break;
     case addPolyline:
-        if (finalVerts.size() > 2)
+        if (finalVerts.size() > 1)
         {
             return new ShapePolyLine(IShape::ShapeType::Polyline, finalVerts);
         }
@@ -289,7 +289,7 @@ IShape* VMEditorVertices::generateNewShape()
         if (finalVerts.size() == 2)
         {
             return new ShapeLine(finalVerts[0].x(), finalVerts[0].y(),
-                    finalVerts[1].x(), finalVerts[2].y());
+                    finalVerts[1].x(), finalVerts[1].y());
         }
         break;
     case editPolygon:
@@ -370,13 +370,13 @@ void VMEditorVertices::applyState(bool justAddedVert, bool justRemovedVert, bool
     {
         vmDidProvideStartingUIState();
     }
+    vmDidHideAddVertexBt(hideVertexAddBt);
+    vmDidEnableSubmitBt(enableSubmitBt);
+    vmDidDisableVertexDeleting(disableVertexDeleting);
     if ((justAddedVert || justRemovedVert) && !justInitialized)
     {
         vmDidRefreshVertexList();
     }
-    vmDidHideAddVertexBt(hideVertexAddBt);
-    vmDidEnableSubmitBt(enableSubmitBt);
-    vmDidDisableVertexDeleting(disableVertexDeleting);
 }
 
 bool VMEditorVertices::allCurrentVerticesAreValid()
