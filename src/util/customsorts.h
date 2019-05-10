@@ -11,37 +11,34 @@ using namespace std;
  * #include <functional>   <br>
  * using namespace std;
  */
+template<typename Type>
 class CustomSorts
 {
 public:
-    /**
-     * @brief Selection sort algorithm
-     * @param sortThese - Vector of data to be sorted
-     * @param comparatorWhereFirstComesBeforeSecondPrm - Custom comparator lambda.
-     *
-     */
-    template<typename X>
-    void insertionSort(vector<X> &sortThese,
-                              function<bool(X, X)> comparatorWhereFirstComesBeforeSecondPrm);
 
     /**
-     * @brief Constructor.
+     * @brief Constructor
+     *
+     * @param cv: vector to be copied to member variable v_copyVector
      */
-    CustomSorts();
+    CustomSorts(vector<Type> cv){v_copyVector = cv;}
+
+    /**
+     * @brief insertionSort algorithm
+     *
+     * @param comparatorWhereFirstComesBeforeSecondPrm: Custom comparator lambda
+     */
+    void insertionSort(function<bool(Type, Type)> comparatorWhereFirstComesBeforeSecondPrm);
+
+    vector<Type> v_copyVector;
+
 };
 
-#endif // CUSTOMSORTS_H
-
-
-CustomSorts::CustomSorts()
-{}
-
 template<typename X>
-void CustomSorts::insertionSort(vector<X> &sortThese,
-                                function<bool(X, X)> comparatorWhereFirstComesBeforeSecondPrm)
+void CustomSorts<X>::insertionSort(function<bool(X, X)> comparatorWhereFirstComesBeforeSecondPrm)
 {
     //There's gotta be something to sort
-    if (sortThese.size() < 1) {return;}
+    if (v_copyVector.size() < 1) {return;}
 
     X holder;  //Holds onto an element being moved
     int cursor = 0;  //Cursor for element that's going to be shifted
@@ -49,14 +46,14 @@ void CustomSorts::insertionSort(vector<X> &sortThese,
     int finder = 0;  //Finds place to insert into
 
     //Loop until sorted
-    while (cursor < sortThese.size())
+    while (cursor < v_copyVector.size())
     {
         //Pick up the cursor element
-        holder = sortThese[cursor];
+        holder = v_copyVector[cursor];
 
         //Look for spot to insert into
         finder = cursor - 1;
-        while (finder > -1 && comparatorWhereFirstComesBeforeSecondPrm(holder, sortThese[finder]))
+        while (finder > -1 && comparatorWhereFirstComesBeforeSecondPrm(holder, v_copyVector[finder]))
         {
             --finder;
         }
@@ -64,13 +61,16 @@ void CustomSorts::insertionSort(vector<X> &sortThese,
         shifter = cursor - 1;
         while (shifter > finder)
         {
-            sortThese[shifter + 1] = sortThese[shifter];
+            v_copyVector[shifter + 1] = v_copyVector[shifter];
             --shifter;
         }
         //Insert into the found spot
-        sortThese[finder + 1] = holder;
+        v_copyVector[finder + 1] = holder;
 
         //Advance for next loop
         ++cursor;
     }
 }
+
+#endif // CUSTOMSORTS_H
+

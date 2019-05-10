@@ -7,6 +7,7 @@
 #include "models/jsonshape.h"
 #include <QJsonDocument>
 #include <vector>
+#include "util/customsorts.h"
 
 namespace Ui {class DLGShapeReport;}
 
@@ -36,9 +37,6 @@ private:
     Ui::DLGShapeReport *ui;
     QVector<IShape*> shapes;
     void triggerSort();
-    void insertionSort(std::vector<IShape*> &sortThese,
-                       std::function<bool(IShape*, IShape*)> comparatorWhereFirstComesBeforeSecondPrm);
-
 };
 
 #endif // DLGSHAPEREPORT_H
