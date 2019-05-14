@@ -157,7 +157,7 @@ private:
 };
 
 template<typename Type>
-GoldenConeVector<Type> :: GoldenConeVector() //default constructor
+GoldenConeVector<Type> ::GoldenConeVector() //default constructor
 {
     m_count = 0;
     m_size = 0;
@@ -165,7 +165,7 @@ GoldenConeVector<Type> :: GoldenConeVector() //default constructor
 }
 
 template<typename Type>
-GoldenConeVector<Type> :: GoldenConeVector(int size) //specific size constructor
+GoldenConeVector<Type> ::GoldenConeVector(int size) //specific size constructor
 {
     m_count = 0;
     m_size = 0;
@@ -175,101 +175,103 @@ GoldenConeVector<Type> :: GoldenConeVector(int size) //specific size constructor
 template <typename Type>
 GoldenConeVector<Type>::~GoldenConeVector()  //destructor
 {
-    delete [] mp_data;
+    delete[] mp_data;
 }
 
 template<typename Type>
-GoldenConeVector<Type> :: GoldenConeVector(const GoldenConeVector& other) //copy constructor
+GoldenConeVector<Type> ::GoldenConeVector(const GoldenConeVector& other) //copy constructor
 {
+    Type* pT = new Type[other.m_size];
     m_count = other.m_count;
     m_size = other.m_size;
-    reserve(m_size);
 
-    for(int i = 0; i < m_size; ++i)
-        mp_data[i] = other.mp_data[i];
+    for (int i = 0; i < m_size; ++i)
+        pT[i] = other.mp_data[i];
+    mp_data = pT;
 }
 
 template<typename Type>
-GoldenConeVector<Type>& GoldenConeVector<Type> :: operator = (const GoldenConeVector& other) //overloaded assignment operator
+GoldenConeVector<Type>& GoldenConeVector<Type> :: operator = (const GoldenConeVector & other) //overloaded assignment operator
 {
-    Type *pT = new Type[other.m_size];
+    Type* pT = new Type[other.m_size];
     std::copy(other.mp_data, other.mp_data + other.m_size, pT);
-    delete [] mp_data;
+    delete[] mp_data;
     mp_data = pT;
     m_size = other.m_size;
     m_count = other.m_count;
+
+    return *this;
 }
 
 template<typename Type>
 const Type& GoldenConeVector<Type> :: operator [] (unsigned int n) //overloaded index operator
 {
+    int exept = 0;
     if (n >= m_count)
     {
-        std::cout << "data attempted to access with [] is uninitialized... returning default object";
-        Type returnItem;
-        return returnItem;
+        throw exept;
     }
     return mp_data[n];
 }
 
 template<typename Type>
-void GoldenConeVector<Type> :: resize(int newsize) //set vector to new maximum size
+void GoldenConeVector<Type> ::resize(int newsize) //set vector to new maximum size
 {
     Type* temp = mp_data; //store pointer to delete old data
     m_size = newsize; //reset the size of the array
 
-    if(newsize < m_count) //resets count if data is deleted from array
+    if (newsize < m_count) //resets count if data is deleted from array
         m_count = newsize;
 
     Type* newArray = new Type[newsize]; //prepare new array
-    for(int i = 0; i < m_count; ++i) //copy data
+    for (int i = 0; i < m_count; ++i) //copy data
         newArray[i] = temp[i];
 
     mp_data = newArray; //set mp_data pointer to new sized array
-    delete [] temp; //delete old data
+    delete[] temp; //delete old data
 }
 
 template<typename Type>
-void GoldenConeVector<Type> :: reserve(int newalloc) //adds newalloc amount of elements to the array
+void GoldenConeVector<Type> ::reserve(int newalloc) //adds newalloc amount of elements to the array
 {
     Type* temp = mp_data; //store pointer to delete old data
     m_size = m_size + newalloc;
 
     Type* newArray = new Type[m_size]; //create new array for mp_data to point to
-    for(int i = 0; i < m_count; ++i) //copy the data
+    for (int i = 0; i < m_count; ++i) //copy the data
         newArray[i] = temp[i];
 
-    for(int i = m_count; i < m_size; ++i)
+    for (int i = m_count; i < m_size; ++i)
         newArray[i] = Type();
 
 
     mp_data = newArray; //mp_data points to the new array
-    delete [] temp; //delete the old array.
+    delete[] temp; //delete the old array.
 }
 
 template<typename Type>
-int GoldenConeVector<Type> :: capacity() const //returns the remaining capacity of the vector
+int GoldenConeVector<Type> ::capacity() const //returns the remaining capacity of the vector
 {
     return (m_size - m_count);
 }
 
 template<typename Type>
-int GoldenConeVector<Type> :: size() const //returns maximum size of the array.
+int GoldenConeVector<Type> ::size() const //returns maximum size of the array.
 {
     return m_count;
 }
 
 template<typename Type>
-void GoldenConeVector<Type> :: print() //prints the data in the array by means of cout
+void GoldenConeVector<Type> ::print() //prints the data in the array by means of cout
 {
-    for(int i = 0; i < m_count; i++)
+    for (int i = 0; i < m_count; i++)
         std::cout << mp_data[i] << " ";
 }
 
 template<typename Type>
-void GoldenConeVector<Type> :: push_back(Type newData) //adds new element to the array, recreating the array if needbe for sizing purposes
+void GoldenConeVector<Type> ::push_back(Type newData) //adds new element to the array, recreating the array if needbe for sizing purposes
 {
-    if(capacity() == 0)
+    if (capacity() == 0)
         reserve(1);
 
     mp_data[m_count] = newData;
@@ -277,50 +279,50 @@ void GoldenConeVector<Type> :: push_back(Type newData) //adds new element to the
 }
 
 template<typename Type>
-void GoldenConeVector<Type> :: push_data(int index, Type newData) //pushes the data 1 element to the right
+void GoldenConeVector<Type> ::push_data(int index, Type newData) //pushes the data 1 element to the right
 {
-    if(capacity() == 0)
+    if (capacity() == 0)
         reserve(1);
-    for(int i = (m_count-1); i > index-1; --i)
-        mp_data[i+1] = mp_data[i];
+    for (int i = (m_count - 1); i > index - 1; --i)
+        mp_data[i + 1] = mp_data[i];
     mp_data[index] = newData;
     ++m_count;
 }
 
 template<typename Type>
-Type* GoldenConeVector<Type> :: begin()
+Type * GoldenConeVector<Type> ::begin()
 {
     return &mp_data[0];
 }
 
 template<typename Type>
-Type* GoldenConeVector<Type> :: end()
+Type* GoldenConeVector<Type> ::end()
 {
     return &mp_data[m_count];
 }
 
 template<typename Type>
-const Type* GoldenConeVector<Type> :: end() const //returns one passed last element in array.
+const Type* GoldenConeVector<Type> ::end() const //returns one passed last element in array.
 {
     return &mp_data[m_count];
 }
 
 template<typename Type>
-Type* GoldenConeVector<Type> :: insert(iterator it, const Type& newData)
+Type* GoldenConeVector<Type> ::insert(iterator it, const Type & newData)
 {
     GoldenConeVector<Type>::iterator returnIt = it;
-    push_data(getIteratorIndex(it),newData);
+    push_data(getIteratorIndex(it), newData);
 
-        ++returnIt;
+    ++returnIt;
     return returnIt; //returns the iterator pointing to original data
 }
 
 template<typename Type>
-Type* GoldenConeVector<Type> :: erase(iterator it)
+Type* GoldenConeVector<Type> ::erase(iterator it)
 {
     GoldenConeVector<Type>::iterator returnIt = it;
-    for(; it < end();++it)
-        *it = *(it+1);
+    for (; it < end(); ++it)
+        * it = *(it + 1);
 
     --m_count;
     return returnIt;
@@ -328,10 +330,10 @@ Type* GoldenConeVector<Type> :: erase(iterator it)
 
 //for debugging
 //template<typename Type>
-//void vector<Type> :: printinfo()
+//void GoldenConeVector<Type> :: printinfo()
 //{
-//	std::cout << "m_size : " << m_size << std::endl
-//			<< "m_count : " << m_count << std::endl;
-//	print();
+    //std::cout << "m_size : " << m_size << std::endl
+            //<< "m_count : " << m_count << std::endl;
+    //print();
 //}
 #endif /* VECTOR_H_ */

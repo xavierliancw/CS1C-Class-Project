@@ -49,7 +49,7 @@ double ShapePolygon :: area() const
         QPoint p1; //first point for comparison
         QPoint p2; //second point for comparison
 
-        for(int i = 0; i < poly.size()-1; ++i) //compare points
+        for(int i = 0; i < poly.size()-2; ++i) //compare points
         {
             //set points to correct values
             p1 = poly.point(i);
@@ -62,11 +62,11 @@ double ShapePolygon :: area() const
             subArea[i] = heightAvg * width;
         }
         //repeat previous steps for the last point to the first point.
-        p1 = poly.point(poly.size());
+        p1 = poly.point(poly.size() - 1);
         p2 = poly.point(0);
         heightAvg = ((p1.y() + p2.y())/2);
         width = p2.x() - p1.x();
-        subArea[poly.size()] = heightAvg * width;
+        subArea[poly.size() - 1] = heightAvg * width;
 
         //calculate area by adding the sub areas
         for(int i = 0; i <poly.size(); ++i)
@@ -74,5 +74,7 @@ double ShapePolygon :: area() const
     }
     if(area < 0) //if area is negative, change to positive
         area = area*-1;
+
+    delete[] subArea;
     return area;
 }

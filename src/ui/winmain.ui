@@ -252,9 +252,9 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="pushButton">
+                 <widget class="QPushButton" name="reportGenerateBt">
                   <property name="text">
-                   <string>P</string>
+                   <string>R</string>
                   </property>
                  </widget>
                 </item>
@@ -717,7 +717,7 @@
   <tabstop>guestPreviewBackBt</tabstop>
   <tabstop>guestPreviewEditBt</tabstop>
   <tabstop>canvasPgBackBt</tabstop>
-  <tabstop>pushButton</tabstop>
+  <tabstop>reportGenerateBt</tabstop>
   <tabstop>addSquareBt</tabstop>
   <tabstop>addRectBt</tabstop>
   <tabstop>addLineBt</tabstop>
