@@ -14,7 +14,7 @@
 #include "models/shapetriangle.h"
 
 /**
- * @brief
+ * @brief View model that contains the state machine for editing shapes that are vertex based.
  *
  */
 class VMEditorVertices
