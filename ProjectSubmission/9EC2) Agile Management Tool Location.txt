@@ -1,0 +1,1 @@
+Our agile management tool can be found here: https://github.com/xavierliancw/CS1C-Class-Project/projects/1
