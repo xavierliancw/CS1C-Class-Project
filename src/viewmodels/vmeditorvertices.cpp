@@ -39,7 +39,14 @@ void VMEditorVertices::resetStateUsing(IShape *shapeToBeEdited)
             break;
         case IShape::ShapeType::Triangle:
             currentEditMode = editTriangle;
-            qDebug() << "Triangle editing not implemented yet.";
+            if (ShapeTriangle* casted = dynamic_cast<ShapeTriangle*>(shapeToBeEdited))
+            {
+                for (QPoint vert: casted->poly)
+                {
+                    this->vertices.push_back(std::make_tuple(QString::number(vert.x()),
+                                                             QString::number(vert.y())));
+                }
+            }
             break;
         case IShape::ShapeType::Polyline:
             currentEditMode = editPolyline;
@@ -196,6 +203,15 @@ void VMEditorVertices::finishEditing()
         }
         break;
     case editTriangle:
+        if (ShapePolygon* cast = dynamic_cast<ShapePolygon*>(shapeBeingEdited))
+        {
+            cast->poly.clear();
+            for (std::tuple<QString, QString> vert: vertices)
+            {
+                cast->poly.push_back(QPoint(std::get<0>(vert).toInt(),
+                                            std::get<1>(vert).toInt()));
+            }
+        }
         break;
     case editPolyline:
         if (ShapePolyLine* castedPLine = dynamic_cast<ShapePolyLine*>(shapeBeingEdited))
@@ -269,14 +285,13 @@ IShape* VMEditorVertices::generateNewShape()
     case addPolygon:
         if (finalVerts.size() > 2)
         {
-            return new ShapePolygon(finalVerts);
+            return new ShapePolygon(IShape::ShapeType::Polygon, finalVerts);
         }
         break;
     case addTriangle:
         if (finalVerts.size() == 3)
         {
-//            return new ShapeTriangle(finalVerts[0], finalVerts[1], finalVerts[2]);
-            qDebug() << "Triangle generation not implemented yet";
+            return new ShapeTriangle(finalVerts[0], finalVerts[1], finalVerts[2]);
         }
         break;
     case addPolyline:

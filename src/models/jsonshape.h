@@ -10,6 +10,7 @@
 #include "shapeellipse.h"
 #include "shapecircle.h"
 #include "shapetext.h"
+#include "shapetriangle.h"
 
 #include <QJsonObject>
 #include <QString>
@@ -224,7 +225,21 @@ private:
                     polyDimens.push_back(QPoint(dimens[x], dimens[x + 1]));
                     x = x + 2;
                 }
-                retShape = new ShapePolygon(polyDimens);
+                retShape = new ShapePolygon(IShape::ShapeType::Polygon, polyDimens);
+                badDimensEncountered = false;
+            }
+            break;
+        case IShape::ShapeType::Triangle:
+            if (dimens.size() == 6)
+            {
+                QVector<QPoint> triDimens;
+                int x = 0;
+                while (x < dimens.size())
+                {
+                    triDimens.push_back(QPoint(dimens[x], dimens[x + 1]));
+                    x = x + 2;
+                }
+                retShape = new ShapeTriangle(triDimens[0], triDimens[1], triDimens[2]);
                 badDimensEncountered = false;
             }
             break;
@@ -386,6 +401,14 @@ private:
             }
             break;
         case IShape::ShapeType::Triangle:
+            if (const ShapeTriangle* tri = dynamic_cast<const ShapeTriangle*>(shapeToSerialize))
+            {
+                for (QPoint vert: tri->poly)
+                {
+                    jsonAr.append(QJsonValue(vert.x()));
+                    jsonAr.append(QJsonValue(vert.y()));
+                }
+            }
             break;
         case IShape::ShapeType::Rectangle:
             if (const ShapeRect* rect = dynamic_cast<const ShapeRect*>(shapeToSerialize))

@@ -16,7 +16,7 @@ public:
      *
      * @param points: Vector of points that define the vertices of the polygon.
      */
-    ShapePolygon(const QVector<QPoint>& points);
+    ShapePolygon(const ShapeType shapeType, const QVector<QPoint>& points);
     /**
      * @brief Deleted copy constructor
      *

@@ -298,6 +298,12 @@ void WINMain::summonDlgThatEdits(IShape * shapeToEdit)
         }
         break;
     case IShape::ShapeType::Triangle:
+        if (ShapeTriangle* casted = dynamic_cast<ShapeTriangle*>(shapeToEdit))
+        {
+            DLGEditorVertices* vertEditor = new DLGEditorVertices(this, casted);
+            vertEditor->setAttribute(Qt::WA_DeleteOnClose);
+            vertEditor->exec();
+        }
         break;
     case IShape::ShapeType::Rectangle:
         if (ShapeRect* casted = dynamic_cast<ShapeRect*>(shapeToEdit))

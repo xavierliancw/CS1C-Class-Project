@@ -29,12 +29,10 @@ SOURCES += \
     main.cpp \
     models/shapecircle.cpp \
     models/shapeellipse.cpp \
-    models/triangle.cpp \
     models/shapeline.cpp \
     models/shapepolyline.cpp \
     models/shapepolygon.cpp \
     models/shapetext.cpp \
-    ui/dlgshapeaddtri.cpp \
     ui/winmain.cpp \
     services/svcjson.cpp \
     ui/dlgtestimonialcreate.cpp \
@@ -42,7 +40,6 @@ SOURCES += \
     gimme.cpp \
     models/shaperect.cpp \
     models/ishape.cpp \
-    ui/dlgshapeselector.cpp \
     ui/dlgcontactform.cpp \
     viewmodels/vmcanvas.cpp \
     models/shapesquare.cpp \
@@ -55,18 +52,17 @@ SOURCES += \
     ui/dlgeditorrectframe.cpp \
     viewmodels/vmeditorrectframe.cpp \
     ui/dlgeditortext.cpp \
-    ui/dlgshapereport.cpp
+    ui/dlgshapereport.cpp \
+    models/shapetriangle.cpp
 
 HEADERS += \
     ui/dlgloginscreen.h \
     models/shapecircle.h \
     models/shapeellipse.h \
-    models/triangle.h \
     models/shapeline.h \
     models/shapepolyline.h \
     models/shapepolygon.h \
     models/shapetext.h \
-    ui/dlgshapeaddtri.h \
     ui/winmain.h \
     services/svcjson.h \
     ui/dlgtestimonialcreate.h \
@@ -74,7 +70,6 @@ HEADERS += \
     gimme.h \
     models/ishape.h \
     models/shaperect.h \
-    ui/dlgshapeselector.h \
     util/goldenconevector.h \
     ui/dlgcontactform.h \
     viewmodels/vmcanvas.h \
@@ -90,14 +85,13 @@ HEADERS += \
     viewmodels/vmeditorrectframe.h \
     ui/dlgeditortext.h \
     ui/dlgshapereport.h \
-    util/customsorts.h
+    util/customsorts.h \
+    models/shapetriangle.h
 
 FORMS += \
-    ui/dlgshapeaddtri.ui \
     ui/dlgloginscreen.ui \
     ui/winmain.ui \
     ui/dlgtestimonialcreate.ui \
-    ui/dlgshapeselector.ui \
     ui/dlgcontactform.ui \
     ui/dlgeditorrectframe.ui \
     ui/lcshapelayer.ui \
