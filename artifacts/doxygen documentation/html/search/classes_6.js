@@ -1,7 +1,13 @@
 var searchData=
 [
-  ['vmcanvas',['VMCanvas',['../class_v_m_canvas.html',1,'']]],
-  ['vmeditorrectframe',['VMEditorRectFrame',['../class_v_m_editor_rect_frame.html',1,'']]],
-  ['vmeditorvertices',['VMEditorVertices',['../class_v_m_editor_vertices.html',1,'']]],
-  ['vmtestimonialcreate',['VMTestimonialCreate',['../class_v_m_testimonial_create.html',1,'']]]
+  ['shapecircle',['ShapeCircle',['../class_shape_circle.html',1,'']]],
+  ['shapeellipse',['ShapeEllipse',['../class_shape_ellipse.html',1,'']]],
+  ['shapeline',['ShapeLine',['../class_shape_line.html',1,'']]],
+  ['shapepolygon',['ShapePolygon',['../class_shape_polygon.html',1,'']]],
+  ['shapepolyline',['ShapePolyLine',['../class_shape_poly_line.html',1,'']]],
+  ['shaperect',['ShapeRect',['../class_shape_rect.html',1,'']]],
+  ['shapesquare',['ShapeSquare',['../class_shape_square.html',1,'']]],
+  ['shapetext',['ShapeText',['../class_shape_text.html',1,'']]],
+  ['shapetriangle',['ShapeTriangle',['../class_shape_triangle.html',1,'']]],
+  ['svcjson',['SVCJson',['../class_s_v_c_json.html',1,'']]]
 ];

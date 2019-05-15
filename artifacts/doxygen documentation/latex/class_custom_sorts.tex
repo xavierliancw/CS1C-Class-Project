@@ -1,0 +1,80 @@
+\hypertarget{class_custom_sorts}{}\section{Custom\+Sorts$<$ Type $>$ Class Template Reference}
+\label{class_custom_sorts}\index{CustomSorts$<$ Type $>$@{CustomSorts$<$ Type $>$}}
+
+
+This class contains all developer-\/implemented sorting functions.  
+
+
+
+
+{\ttfamily \#include $<$customsorts.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_custom_sorts_a6605d8169cb352d9f71577eb4fff6e8d}{Custom\+Sorts}} (vector$<$ Type $>$ cv)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_custom_sorts_af4fd734d9de0903b53fc53ef007d1aa6}{insertion\+Sort}} (function$<$ bool(Type, Type)$>$ comparator\+Where\+First\+Comes\+Before\+Second\+Prm)
+\begin{DoxyCompactList}\small\item\em insertion\+Sort algorithm \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_custom_sorts_a06f8a43acba29dbe9771bd8f277478ff}\label{class_custom_sorts_a06f8a43acba29dbe9771bd8f277478ff}} 
+vector$<$ Type $>$ {\bfseries v\+\_\+copy\+Vector}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Type$>$\newline
+class Custom\+Sorts$<$ Type $>$}
+
+This class contains all developer-\/implemented sorting functions. 
+
+\begin{DoxyParagraph}{R\+E\+Q\+U\+I\+R\+E\+M\+E\+N\+TS\+:}
+\#include $<$vector$>$ ~\newline
+ \#include $<$functional$>$ ~\newline
+ using namespace std; 
+\end{DoxyParagraph}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_custom_sorts_a6605d8169cb352d9f71577eb4fff6e8d}\label{class_custom_sorts_a6605d8169cb352d9f71577eb4fff6e8d}} 
+\index{CustomSorts$<$ Type $>$@{CustomSorts$<$ Type $>$}!CustomSorts@{CustomSorts}}
+\index{CustomSorts@{CustomSorts}!CustomSorts$<$ Type $>$@{CustomSorts$<$ Type $>$}}
+\subsubsection{\texorpdfstring{CustomSorts()}{CustomSorts()}}
+{\footnotesize\ttfamily template$<$typename Type $>$ \\
+\mbox{\hyperlink{class_custom_sorts}{Custom\+Sorts}}$<$ Type $>$\+::\mbox{\hyperlink{class_custom_sorts}{Custom\+Sorts}} (\begin{DoxyParamCaption}\item[{vector$<$ Type $>$}]{cv }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cv} & vector to be copied to member variable v\+\_\+copy\+Vector \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_custom_sorts_af4fd734d9de0903b53fc53ef007d1aa6}\label{class_custom_sorts_af4fd734d9de0903b53fc53ef007d1aa6}} 
+\index{CustomSorts$<$ Type $>$@{CustomSorts$<$ Type $>$}!insertionSort@{insertionSort}}
+\index{insertionSort@{insertionSort}!CustomSorts$<$ Type $>$@{CustomSorts$<$ Type $>$}}
+\subsubsection{\texorpdfstring{insertionSort()}{insertionSort()}}
+{\footnotesize\ttfamily template$<$typename Type $>$ \\
+void \mbox{\hyperlink{class_custom_sorts}{Custom\+Sorts}}$<$ X $>$\+::insertion\+Sort (\begin{DoxyParamCaption}\item[{function$<$ bool(Type, Type)$>$}]{comparator\+Where\+First\+Comes\+Before\+Second\+Prm }\end{DoxyParamCaption})}
+
+
+
+insertion\+Sort algorithm 
+
+
+\begin{DoxyParams}{Parameters}
+{\em comparator\+Where\+First\+Comes\+Before\+Second\+Prm} & Custom comparator lambda \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/xavierlian/\+Dropbox/\+Saddleback College/\+C\+S1\+C/\+C\+S1\+C\+Project/src/util/customsorts.\+h\end{DoxyCompactItemize}

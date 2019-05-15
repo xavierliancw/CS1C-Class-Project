@@ -85,9 +85,9 @@ Inheritance diagram for DLGTestimonialCreate:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3bc6103ea5c15abd790e65fb2840205c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_g_testimonial_create.html#a3bc6103ea5c15abd790e65fb2840205c">DLGTestimonialCreate</a> (QWidget *parent=nullptr)</td></tr>
-<tr class="memdesc:a3bc6103ea5c15abd790e65fb2840205c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a3bc6103ea5c15abd790e65fb2840205c">More...</a><br /></td></tr>
-<tr class="separator:a3bc6103ea5c15abd790e65fb2840205c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8273e7c08f467690691ef80452923474"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_g_testimonial_create.html#a8273e7c08f467690691ef80452923474">DLGTestimonialCreate</a> (QWidget *parent, std::function&lt; void()&gt; onDone)</td></tr>
+<tr class="memdesc:a8273e7c08f467690691ef80452923474"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a8273e7c08f467690691ef80452923474">More...</a><br /></td></tr>
+<tr class="separator:a8273e7c08f467690691ef80452923474"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8dcbb8630fee3de61526f8986bb4d58e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_l_g_testimonial_create.html#a8dcbb8630fee3de61526f8986bb4d58e">~DLGTestimonialCreate</a> ()</td></tr>
 <tr class="memdesc:a8dcbb8630fee3de61526f8986bb4d58e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a8dcbb8630fee3de61526f8986bb4d58e">More...</a><br /></td></tr>
 <tr class="separator:a8dcbb8630fee3de61526f8986bb4d58e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -95,8 +95,8 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Dialogue window for leaving testimonials. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a3bc6103ea5c15abd790e65fb2840205c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bc6103ea5c15abd790e65fb2840205c">&#9670;&nbsp;</a></span>DLGTestimonialCreate()</h2>
+<a id="a8273e7c08f467690691ef80452923474"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8273e7c08f467690691ef80452923474">&#9670;&nbsp;</a></span>DLGTestimonialCreate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -108,8 +108,18 @@ Public Member Functions</h2></td></tr>
           <td class="memname">DLGTestimonialCreate::DLGTestimonialCreate </td>
           <td>(</td>
           <td class="paramtype">QWidget *&#160;</td>
-          <td class="paramname"><em>parent</em> = <code>nullptr</code></td><td>)</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
+          <td class="paramname"><em>onDone</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -123,6 +133,7 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">parent</td><td>Parent QWidget. </td></tr>
+    <tr><td class="paramname">onDone</td><td>Callback. </td></tr>
   </table>
   </dd>
 </dl>

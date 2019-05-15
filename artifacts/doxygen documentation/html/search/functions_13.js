@@ -5,6 +5,7 @@ var searchData=
   ['_7edlgeditortext',['~DLGEditorText',['../class_d_l_g_editor_text.html#ab4b97eba149c341f29202b7deb62a567',1,'DLGEditorText']]],
   ['_7edlgeditorvertices',['~DLGEditorVertices',['../class_d_l_g_editor_vertices.html#abc874114034d506eb9835042524fc586',1,'DLGEditorVertices']]],
   ['_7edlgloginscreen',['~DLGLoginScreen',['../class_d_l_g_login_screen.html#a3c2f15f994982c0ddbaba8aea9eedf2a',1,'DLGLoginScreen']]],
+  ['_7edlgshapereport',['~DLGShapeReport',['../class_d_l_g_shape_report.html#ab32053bd02b4591171a8332f47020b31',1,'DLGShapeReport']]],
   ['_7edlgtestimonialcreate',['~DLGTestimonialCreate',['../class_d_l_g_testimonial_create.html#a8dcbb8630fee3de61526f8986bb4d58e',1,'DLGTestimonialCreate']]],
   ['_7egoldenconevector',['~GoldenConeVector',['../class_golden_cone_vector.html#a8f8305813d22dae9bf93f2020d95144d',1,'GoldenConeVector']]],
   ['_7eishape',['~IShape',['../class_i_shape.html#aec9c445c0213374af733e2038d702630',1,'IShape']]],

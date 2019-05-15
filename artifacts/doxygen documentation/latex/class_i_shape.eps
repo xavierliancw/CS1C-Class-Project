@@ -180,6 +180,7 @@ boxfont setfont
 (ShapeRect) cw
 (ShapeText) cw
 (ShapeCircle) cw
+(ShapeTriangle) cw
 (ShapeLine) cw
 (ShapeSquare) cw
 /boxwidth boxwidth marginwidth 2 mul add def
@@ -200,6 +201,7 @@ boundx scalefactor div boundy scalefactor div scale
  (ShapeRect) 3.000000 1.000000 box
  (ShapeText) 4.000000 1.000000 box
  (ShapeCircle) 0.000000 0.000000 box
+ (ShapeTriangle) 1.000000 0.000000 box
  (ShapeLine) 2.000000 0.000000 box
  (ShapeSquare) 3.000000 0.000000 box
 
@@ -216,6 +218,8 @@ solid
 solid
 0 1.000000 1.750000 in
 solid
+1 1.000000 0.250000 out
+solid
 0 2.000000 1.750000 in
 solid
 1 2.000000 0.250000 out
@@ -227,6 +231,8 @@ solid
 0 4.000000 1.750000 in
 solid
 0 0.000000 0.750000 in
+solid
+0 1.000000 0.750000 in
 solid
 0 2.000000 0.750000 in
 solid
