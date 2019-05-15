@@ -19,36 +19,50 @@ testimonials). Guest users may enter testimonials. The testimonials
 should be persistent between executions.
 
 *dlgtestimonialcreate.h
+
 - Entire dialog creates a new testimonial
+
 *dlgtestimonialcreate.cpp
 - Entire dialog creates a new testimonial
+
 *dlgtestimonialcreate.ui
 - Entire dialog creates a new testimonial
+
 *dtotestimonial.h
 - Struct that represents the attributes of a testimonial
+
 *jsontestimonial.h
 - JSON transformational layer that converts DTOTestimonial objects into JSON
+
 *svcjson.h
 - Service that persists JSON in the local filesystem.
+
 *svcjson.cpp
 - Persists JSON in the local filesystem: line 54
 - Reads JSON: line 90
+
 __________________________________________________________________________________________________________
 2)Provide "contact us" method with team name and logo
 
 *dlgcontactform.h, *dlgcontactform.cpp, *dlgcontactform.ui
 - Entire dialog takes input for creating an inquiry
+
 *final_icon.png
 - Our logo
+
 *dtocustomerinquiry.h
 - Struct that represents an inquiry
+
 *jsoncustomerinquiry.h
 - JSON transformational layer
+
 *svcjson.h
 - Persists and loads inquiry JSON to and from the local filesystem
+
 *svcjson.cpp
 - Persists JSON: line 54
 - Reads JSON: line 90
+
 __________________________________________________________________________________________________________
 3)Display all graphic objects (i.e. shapes including text) in rendering
 window. The shape id will be displayed above each shape identifying
@@ -118,7 +132,9 @@ only
 *winmain.cpp
 - Adding shapes: line 648 and 604
 - Removing shapes: line 346
+
 */all images rendered on canvas use specific IShape-derived-classes coordinates see (3)
+
 __________________________________________________________________________________________________________
 7)Produce a shape listing report sorted by shape id (at any time). All
 shape properties should be included in the report.
@@ -151,4 +167,5 @@ ________________________________________________________________________________
 *svcjson.cpp
 - Persists JSON: line 54
 - Reads JSON: line 90
+
 __________________________________________________________________________________________________________
